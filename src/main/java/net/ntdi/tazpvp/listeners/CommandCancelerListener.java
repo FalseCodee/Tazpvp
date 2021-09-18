@@ -14,12 +14,12 @@ public class CommandCancelerListener implements Listener {
     public void onCommandSend(PlayerCommandPreprocessEvent event) {
 
         Player player = event.getPlayer();
-        String message = event.getMessage();
-        String[] args = message.split(" ");
+        System.out.println(event.getMessage());
+//        String message = event.getMessage();
+//        String[] args = message.split(" ");
         if (!player.hasPermission("op")) {
-            if (args[0].toLowerCase().startsWith("/minecraft")) {
+            if (event.getMessage().toLowerCase().startsWith("/minecraft")) {
                 event.setCancelled(true);
-
             }
         }
     }
