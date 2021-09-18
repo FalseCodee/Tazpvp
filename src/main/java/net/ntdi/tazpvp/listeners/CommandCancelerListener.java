@@ -9,17 +9,14 @@ public class CommandCancelerListener implements Listener {
 
     public TazPvP plugin;
 
-    // false fix event no worky why
     public void onCommandSend(PlayerCommandPreprocessEvent event) {
 
         Player player = event.getPlayer();
-        System.out.println("Command Sent: " + event.getMessage());
-        if (!player.hasPermission("op")) {
-            if (event.getMessage().toLowerCase().startsWith("/minecraft:me")) {
-                event.setMessage("");
-
-            } else if (event.getMessage().toLowerCase().startsWith("/me")) {
-                event.setMessage("");
+        String message = event.getMessage();
+        String[] args = message.split(" ");
+        if (!player.hasPermission("tazpvp.blockedCommands")) {
+            if (args[0].toLowerCase().startsWith("/minecraft")) {
+                event.setCancelled(true);
 
             }
 
