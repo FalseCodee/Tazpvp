@@ -91,6 +91,7 @@ public final class TazPvP extends JavaPlugin implements Listener {
         getCommand("vault").setExecutor((new VaultCommand()));
         getCommand("currency").setExecutor((new CurrencyCommand()));
         getCommand("starter").setExecutor(new StarterCommand());
+        getCommand("rules").setExecutor(new Rules());
     }
     public void registerListeners() {
         getServer().getPluginManager().registerEvents(this, this);
