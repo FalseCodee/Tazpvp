@@ -15,8 +15,9 @@ public class CommandCancelerListener implements Listener {
 
         if (!player.hasPermission("op")) {
             if (event.getMessage().toLowerCase().startsWith("/minecraft:me")) {
-                event.setCancelled(true);
+                event.setMessage("");
             }
+
         }
     }
 
