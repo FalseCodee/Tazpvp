@@ -17,6 +17,9 @@ public class CommandCancelerListener implements Listener {
             if (event.getMessage().toLowerCase().startsWith("/minecraft:me")) {
                 event.setMessage("");
 
+            } else if (event.getMessage().toLowerCase().startsWith("/me")) {
+                event.setMessage("");
+
             }
 
         }
