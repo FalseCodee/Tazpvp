@@ -22,7 +22,7 @@ public class DeathsManager {
 
     public void saveDeathsFile() throws FileNotFoundException, IOException {
         for (OfflinePlayer p : Bukkit.getOfflinePlayers()){
-            File file = new File("Tazpvp/joins.dat");
+            File file = new File("Tazpvp/deaths.dat");
             ObjectOutputStream output = new ObjectOutputStream(new GZIPOutputStream(new FileOutputStream(file)));
 
             UUID uuid = p.getUniqueId();
@@ -38,7 +38,7 @@ public class DeathsManager {
     }
 
     public void loadDeathsFile() throws FileNotFoundException, IOException, ClassNotFoundException {
-        File file = new File("Tazpvp/joins.dat");
+        File file = new File("Tazpvp/deaths.dat");
         if (file != null) {
             ObjectInputStream input = new ObjectInputStream(new GZIPInputStream(new FileInputStream(file)));
             Object readObject = input.readObject();

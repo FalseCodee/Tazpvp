@@ -5,7 +5,6 @@ package net.ntdi.tazpvp;
 import net.ntdi.tazpvp.commands.*;
 import net.ntdi.tazpvp.listeners.DeathListener;
 import net.ntdi.tazpvp.listeners.GuiListener;
-import net.ntdi.tazpvp.listeners.TrollListener;
 import net.ntdi.tazpvp.listeners.WelcomeListener;
 import net.ntdi.tazpvp.managers.CurrencyManager;
 import net.ntdi.tazpvp.managers.DeathsManager;
@@ -83,16 +82,7 @@ public final class TazPvP extends JavaPlugin implements Listener {
 
     }
     public void registerCommands() {
-        getCommand("die").setExecutor(new DieCommand());
-        getCommand("gmc").setExecutor((new GMCCommand()));
-        getCommand("gms").setExecutor((new GMSCommand()));
-        getCommand("gmsp").setExecutor((new GMSPCommand()));
-        getCommand("feed").setExecutor((new FeedCommand()));
-        getCommand("heal").setExecutor((new HealCommand()));
-        getCommand("day").setExecutor((new DayCommand()));
-        getCommand("night").setExecutor((new NightCommand()));
         getCommand("sendword").setExecutor((new SendWordCommand()));
-        getCommand("yesno").setExecutor((new YesNoCommand()));
         getCommand("sendmessage").setExecutor(new SendMessageCommand());
         getCommand("vault").setExecutor((new VaultCommand()));
         getCommand("currency").setExecutor((new CurrenyCommand()));
@@ -100,7 +90,6 @@ public final class TazPvP extends JavaPlugin implements Listener {
     public void registerListeners() {
         getServer().getPluginManager().registerEvents(this, this);
         getServer().getPluginManager().registerEvents(new WelcomeListener(), this);
-        getServer().getPluginManager().registerEvents(new TrollListener(), this);
         getServer().getPluginManager().registerEvents(new GuiListener(), this);
         getServer().getPluginManager().registerEvents(new DeathListener(), this);
     }
