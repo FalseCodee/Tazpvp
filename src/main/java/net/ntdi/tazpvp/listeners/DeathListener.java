@@ -19,6 +19,7 @@ public class DeathListener implements Listener {
 
     public TazPvP plugin;
 
+    @EventHandler
     public void onPlayerDeathEvent(PlayerDeathEvent event){
         if(event.getEntity() instanceof Player) {
             event.getEntity().spigot().respawn();
