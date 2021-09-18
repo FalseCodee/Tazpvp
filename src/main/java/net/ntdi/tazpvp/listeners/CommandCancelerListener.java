@@ -9,6 +9,7 @@ public class CommandCancelerListener implements Listener {
 
     public TazPvP plugin;
 
+    // false fix event no worky why
     public void onCommandSend(PlayerCommandPreprocessEvent event) {
 
         Player player = event.getPlayer();
