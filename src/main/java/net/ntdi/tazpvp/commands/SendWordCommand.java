@@ -13,7 +13,7 @@ public class SendWordCommand implements CommandExecutor {
         if(sender instanceof Player){
             Player p = (Player) sender;
             if(args.length > 0){
-                p.sendMessage(ChatColor.LIGHT_PURPLE + args[0]                    );
+                p.sendMessage(ChatColor.LIGHT_PURPLE + args[0]);
             }else{
                 return false;
             }
