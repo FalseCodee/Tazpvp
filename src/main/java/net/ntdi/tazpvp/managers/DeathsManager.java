@@ -11,7 +11,7 @@ import java.util.zip.GZIPOutputStream;
 
 public class DeathsManager {
 
-    public static  HashMap<UUID, Integer> deaths = new HashMap<UUID, Integer>();
+    public static HashMap<UUID, Integer> deaths = new HashMap<UUID, Integer>();
 
     public TazPvP plugin;
 

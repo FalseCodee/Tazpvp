@@ -12,7 +12,7 @@ import java.util.zip.GZIPOutputStream;
 
 public class CurrencyManager {
 
-    public static  HashMap<UUID, Integer> currency = new HashMap<UUID, Integer>();
+    public static HashMap<UUID, Integer> currency = new HashMap<UUID, Integer>();
 
     public TazPvP plugin;
 

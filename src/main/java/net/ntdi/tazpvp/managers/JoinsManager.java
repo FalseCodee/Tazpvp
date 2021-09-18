@@ -13,7 +13,7 @@ import java.util.zip.GZIPOutputStream;
 
 public class JoinsManager {
 
-    public static  HashMap<UUID, Boolean> joins = new HashMap<UUID, Boolean>();
+    public static HashMap<UUID, Boolean> joins = new HashMap<UUID, Boolean>();
 
     public TazPvP plugin;
 
@@ -28,7 +28,6 @@ public class JoinsManager {
             ObjectOutputStream output = new ObjectOutputStream(new GZIPOutputStream(new FileOutputStream(file)));
 
             UUID uuid = p.getUniqueId();
-
 
             try {
                 output.writeObject(joins);
