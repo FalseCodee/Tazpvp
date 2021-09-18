@@ -24,7 +24,7 @@ public class JoinsManager {
 
     public void saveJoinsFile() throws FileNotFoundException, IOException {
         for (OfflinePlayer p : Bukkit.getOfflinePlayers()){
-            File file = new File("TazpvpData/joins.dat");
+            File file = new File("Tazpvp/joins.dat");
             ObjectOutputStream output = new ObjectOutputStream(new GZIPOutputStream(new FileOutputStream(file)));
 
             UUID uuid = p.getUniqueId();
@@ -41,7 +41,7 @@ public class JoinsManager {
     }
 
     public void loadJoinsFile() throws FileNotFoundException, IOException, ClassNotFoundException {
-        File file = new File("TazpvpData/joins.dat");
+        File file = new File("Tazpvp/joins.dat");
         if (file != null) {
             ObjectInputStream input = new ObjectInputStream(new GZIPInputStream(new FileInputStream(file)));
             Object readObject = input.readObject();
