@@ -23,3 +23,8 @@ commands:
     permission: op
     permission-message: no words aloud from you!!
     usage: "/sendword (word)"
+  starter:
+    description: gives the player starter items
+    permission-message: no
+    permission: op
+    usage: "/starter [player]"

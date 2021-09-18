@@ -14,13 +14,11 @@ public class CommandCancelerListener implements Listener {
         Player player = event.getPlayer();
         String message = event.getMessage();
         String[] args = message.split(" ");
-        if (!player.hasPermission("tazpvp.blockedCommands")) {
+        if (!player.hasPermission("op")) {
             if (args[0].toLowerCase().startsWith("/minecraft")) {
                 event.setCancelled(true);
 
             }
-
         }
     }
-
 }
