@@ -7,7 +7,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class Rules implements CommandExecutor {
+public class RulesCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
@@ -26,7 +26,7 @@ public class Rules implements CommandExecutor {
             p.sendMessage(ChatColor.GRAY + "11. Use all channels only for the purpose they were created.");
 
         }else{
-            System.out.println("Only players can execute /sendword");
+            System.out.println("Only players can execute /rules");
         }
         return true;
     }
