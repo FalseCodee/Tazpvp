@@ -16,6 +16,9 @@ import java.io.IOException;
 
 public final class TazPvP extends JavaPlugin implements Listener {
 
+
+    // sexy code
+
     @Override
     public void onEnable() {
         // Plugin startup logic
