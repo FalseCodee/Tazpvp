@@ -83,7 +83,6 @@ public final class TazPvP extends JavaPlugin implements Listener {
 
     }
     public void registerCommands() {
-        getCommand("god").setExecutor(new GodCommand());
         getCommand("die").setExecutor(new DieCommand());
         getCommand("gmc").setExecutor((new GMCCommand()));
         getCommand("gms").setExecutor((new GMSCommand()));

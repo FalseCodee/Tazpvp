@@ -11,12 +11,6 @@ commands:
     permission: op
     permission-message: You cant die!
     usage: "/die"
-  god:
-    description: Toggle Invicibility
-    aliases: zues
-    permission: op
-    permission-message: Unable to god nons
-    usage: "/god [player]"
   gmc:
     description: Change your gamemode to Creative
     aliases: gamemodec
