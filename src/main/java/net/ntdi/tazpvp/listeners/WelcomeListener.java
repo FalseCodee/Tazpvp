@@ -25,8 +25,9 @@ public class WelcomeListener implements Listener {
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event){
         Player p = (Player) event.getPlayer();
-        p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "  |  TAZPVP &bSEASON 5");
-        p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "  |  Discord: &b/discord");
+        p.sendMessage(ChatColor.AQUA + "");
+        p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "  |  TAZPVP SEASON 5");
+        p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "  |  Discord: /discord");
         p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "  |  IP: tazpvp.net");
         p.sendMessage(ChatColor.AQUA + "");
 
