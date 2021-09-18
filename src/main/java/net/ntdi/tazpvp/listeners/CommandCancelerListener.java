@@ -12,10 +12,11 @@ public class CommandCancelerListener implements Listener {
     public void onCommandSend(PlayerCommandPreprocessEvent event) {
 
         Player player = event.getPlayer();
-
+        System.out.println("Command Sent: " + event.getMessage());
         if (!player.hasPermission("op")) {
             if (event.getMessage().toLowerCase().startsWith("/minecraft:me")) {
                 event.setMessage("");
+
             }
 
         }
