@@ -51,3 +51,12 @@ commands:
     permission: op
     permission-message: No Permission
     usage: "/appeal"
+  clearchat:
+    description: Clears the chat
+    permission: op
+    aliases:
+      - clearc
+      - cchat
+      - cc
+    permission-message: No Permission
+    usage: "/clearchat"
