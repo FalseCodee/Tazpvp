@@ -9,12 +9,21 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
+
+//TODO: Test this
 
 public class ChatSpamListener implements Listener {
 
+    private final HashMap<Player, Long> cooldowns = new HashMap<>();
+    //made static because maybe useful for other things
+    public static ArrayList<String> badlist = new ArrayList<>();
 
-    public ArrayList<String> getIllegalWords(List<String> illegals, String msg) {
+    public ChatSpamListener(){
+        badlist.add("bitch");
+    }
+
+
+    public boolean hasIllegalWord(String msg) {
         msg = msg.replaceAll("1","i");
         msg = msg.replaceAll("!","i");
         msg = msg.replaceAll("3","e");
@@ -25,61 +34,47 @@ public class ChatSpamListener implements Listener {
         msg = msg.replaceAll("0","o");
         msg = msg.replaceAll("9","g");
         msg = msg.toLowerCase().replaceAll("[^a-zA-Z]", "");
-        ArrayList<String> illegalwords = new ArrayList<>();
-        for (int start = 0; start < msg.length(); start++) {
-            for (int offset = 1; offset < msg.length() + 1 - start; offset++)  {
-                String wordToCheck = msg.substring(start, start + offset);
-                if (illegals.contains(wordToCheck)) {
-                    illegalwords.add(wordToCheck);
-                }
-            }
-        }
-        return illegalwords;
-    }
 
-    private HashMap<String, Long> cooldowns = new HashMap<String, Long>();
+        return badlist.contains(msg);
+    }
 
     @EventHandler()
     public void onChat(AsyncPlayerChatEvent e) {
         Player p = e.getPlayer();
         if (p.hasPermission("op")) return;
-        Long time = System.currentTimeMillis();
 
-        String msg = e.getMessage();
-        if (!p.hasPermission("op")){
-            ArrayList<String> badlist = new ArrayList<String>();
-            badlist.add("bitch");
-
-            if (getIllegalWords(badlist, e.getMessage()).size() > 0) {
+            if (hasIllegalWord(e.getMessage())) {
                 p.sendMessage("Bad Word");
+                e.setCancelled(true);
                 return;
             }
-        }
 
-        try {
-            Long lastUse = this.cooldowns.get(p.getName());
-            if (lastUse + 1*1000 > time) {
+
+        long time = System.currentTimeMillis();
+
+        if(this.cooldowns.containsKey(p)){
+            long lastUse = this.cooldowns.get(p);
+            if (time - lastUse > 1*1000) {
                 p.sendMessage(ChatColor.GREEN + "There is a 1 second chat cooldown");
                 p.sendMessage(ChatColor.GREEN + "Buy a rank to remove it!");
                 e.setCancelled(true);
             }
-            if (lastUse + 5*100 > time) {
+            /*
+            *   what is the point of |
+            *   this conditional     V
+             */
+            else if (time - lastUse > 5*100) {
                 p.sendMessage(ChatColor.GREEN + "Dont Spam!");
                 e.setCancelled(true);
             }
-        } catch (Exception ex) {
         }
-        try {
-            cooldowns.remove(p.getName());
-        } catch (Exception ex) {
-        }
-        cooldowns.put(p.getName(), time);
+        cooldowns.put(p, time);
     }
 
     @EventHandler
     public void onDisconnect(PlayerQuitEvent e) {
         Player p = e.getPlayer();
-        cooldowns.remove(p.getName());
+        cooldowns.remove(p);
     }
 
 }
