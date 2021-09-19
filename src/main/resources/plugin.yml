@@ -90,3 +90,8 @@ commands:
     permission: op
     permission-message: No Permission
     usage: "/levels <Player> [add|remove|reset] [integer]"
+  money:
+    description: View/Modify players balance
+    permission: op
+    permission-message: No Permission
+    usage: "/money <Player> [add|remove|reset] [integer]"

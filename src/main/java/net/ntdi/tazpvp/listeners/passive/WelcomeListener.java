@@ -1,10 +1,7 @@
 package net.ntdi.tazpvp.listeners.passive;
 
 import net.ntdi.tazpvp.TazPvP;
-import net.ntdi.tazpvp.managers.CurrencyManager;
-import net.ntdi.tazpvp.managers.JoinsManager;
 import org.bukkit.*;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -36,7 +33,6 @@ public class WelcomeListener implements Listener {
             TazPvP.statsManager.initPlayer(p);
 
             event.setJoinMessage(ChatColor.GRAY + "[" + ChatColor.GOLD + "+" + ChatColor.GRAY + "] " + p.getName());
-            TazPvP.joinsManager.addToList(p);
             Player player = event.getPlayer();
             if (player.getInventory().getArmorContents() != null) {
                 ItemStack armor1 = new ItemStack(Material.LEATHER_BOOTS);

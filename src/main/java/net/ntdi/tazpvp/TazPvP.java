@@ -10,22 +10,14 @@ import net.ntdi.tazpvp.commands.playercommands.*;
 import net.ntdi.tazpvp.listeners.*;
 import net.ntdi.tazpvp.listeners.passive.*;
 
-import net.ntdi.tazpvp.managers.CurrencyManager;
-import net.ntdi.tazpvp.managers.DeathsManager;
-import net.ntdi.tazpvp.managers.JoinsManager;
-
 import net.ntdi.tazpvp.managers.StatsManager;
+
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.IOException;
-
 public final class TazPvP extends JavaPlugin implements Listener {
 
-    public static CurrencyManager currencyManager;
-    public static DeathsManager deathsManager;
-    public static JoinsManager joinsManager;
     public static StatsManager statsManager;
 
     public static FileConfiguration configFile;
@@ -43,14 +35,6 @@ public final class TazPvP extends JavaPlugin implements Listener {
 
         statsManager = new StatsManager();
 
-        currencyManager = new CurrencyManager(this);
-        currencyManager.loadCurrencyFile();
-
-        deathsManager = new DeathsManager(this);
-        deathsManager.loadDeathsFile();
-
-        joinsManager = new JoinsManager(this);
-        joinsManager.loadJoinsFile();
 
         // Manager Register
         registerManagers();
@@ -71,12 +55,6 @@ public final class TazPvP extends JavaPlugin implements Listener {
 
         this.saveConfig();
 
-        currencyManager.saveCurrencyFile();
-
-        deathsManager.saveDeathsFile();
-
-        joinsManager.saveJoinsFile();
-
         statsManager.saveStats();
     }
 
@@ -87,7 +65,6 @@ public final class TazPvP extends JavaPlugin implements Listener {
         getCommand("sendword").setExecutor((new SendWordCommand()));
         getCommand("sendmessage").setExecutor(new SendMessageCommand());
         getCommand("vault").setExecutor((new VaultCommand()));
-        getCommand("currency").setExecutor((new CurrencyCommand()));
         getCommand("starter").setExecutor(new StarterCommand());
         getCommand("rules").setExecutor(new RulesCommand());
         getCommand("announce").setExecutor(new AnnounceCommand());
@@ -100,6 +77,7 @@ public final class TazPvP extends JavaPlugin implements Listener {
         getCommand("setspawn").setExecutor(new SetSpawnCommand());
         getCommand("points").setExecutor(new PointsCommand());
         getCommand("levels").setExecutor(new LevelCommand());
+        getCommand("money").setExecutor(new MoneyCommand());
     }
 
     public void registerListeners() {
