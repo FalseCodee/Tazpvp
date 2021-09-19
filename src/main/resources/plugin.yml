@@ -34,3 +34,8 @@ commands:
     permission: op
     permission-message: No Permission
     usage: "/announce (message)"
+  apply:
+    description: Announce messages
+    permission: op
+    permission-message: No Permission
+    usage: "/apply"
