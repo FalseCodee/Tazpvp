@@ -35,7 +35,14 @@ commands:
     permission-message: No Permission
     usage: "/announce (message)"
   apply:
-    description: Announce messages
+    description: Apply for staff
+    permission: op
+    permission-message: No Permission
+    usage: "/apply"
+  discord:
+    description: Links the discord server
+    aliases:
+      - disc
     permission: op
     permission-message: No Permission
     usage: "/apply"

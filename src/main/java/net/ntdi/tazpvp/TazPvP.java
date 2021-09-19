@@ -77,10 +77,11 @@ public final class TazPvP extends JavaPlugin implements Listener {
         getCommand("rules").setExecutor(new RulesCommand());
         getCommand("announce").setExecutor(new AnnounceCommand());
         getCommand("apply").setExecutor(new ApplyCommand());
+        getCommand("discord").setExecutor(new DiscordCommand());
     }
 
     public void registerListeners() {
-        getServer().getPluginManager().registerEvents((Listener) this, this);
+        getServer().getPluginManager().registerEvents(this, this);
         getServer().getPluginManager().registerEvents(new WelcomeListener(), this);
         getServer().getPluginManager().registerEvents(new GuiListener(), this);
         getServer().getPluginManager().registerEvents(new DeathListener(), this);
