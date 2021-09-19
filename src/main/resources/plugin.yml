@@ -70,3 +70,8 @@ commands:
     permission: op
     permission-message: No Permission
     usage: "/spawn"
+  setspawn:
+    description: Sets the spawn
+    permission: op
+    permission-message: No Permission
+    usage: "/setspawn"

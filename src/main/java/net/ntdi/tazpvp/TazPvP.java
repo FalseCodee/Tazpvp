@@ -14,6 +14,7 @@ import net.ntdi.tazpvp.managers.CurrencyManager;
 import net.ntdi.tazpvp.managers.DeathsManager;
 import net.ntdi.tazpvp.managers.JoinsManager;
 
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -25,11 +26,16 @@ public final class TazPvP extends JavaPlugin implements Listener {
     public static DeathsManager deathsManager;
     public static JoinsManager joinsManager;
 
+    public static FileConfiguration configFile;
+
     public static TazPvP instance;
     @Override
     public void onEnable() {
         // Plugin startup logic
         System.out.println("Tazpvp Logic is now ONLINE");
+
+        configFile = this.getConfig();
+        initConfig();
 
         instance = this;
 
@@ -51,7 +57,6 @@ public final class TazPvP extends JavaPlugin implements Listener {
         // Event Register
         registerListeners();
 
-
     }
 
     @Override
@@ -59,6 +64,8 @@ public final class TazPvP extends JavaPlugin implements Listener {
         // Plugin shutdown logic
 
         System.out.println("Tazpvp LOGIC is now OFFLINE");
+
+        this.saveConfig();
 
         currencyManager.saveCurrencyFile();
 
@@ -86,6 +93,7 @@ public final class TazPvP extends JavaPlugin implements Listener {
         getCommand("clearchat").setExecutor(new ClearChatCommand());
         getCommand("mutechat").setExecutor(new MuteChatCommand());
         getCommand("spawn").setExecutor(new SpawnCommand());
+        getCommand("setspawn").setExecutor(new SetSpawnCommand());
     }
 
     public void registerListeners() {
@@ -96,6 +104,11 @@ public final class TazPvP extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new CommandCancelerListener(), this);
         getServer().getPluginManager().registerEvents(new ChatSpamListener(), this);
 
+    }
+
+    public void initConfig(){
+        configFile.options().copyDefaults(true);
+        this.saveConfig();
     }
 
     public static TazPvP getInstance(){

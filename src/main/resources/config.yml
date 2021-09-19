@@ -1,0 +1,7 @@
+spawn:
+  x: 0
+  y: 40
+  z: 0
+  yaw: 180
+  pitch: 0
+  world: spawn

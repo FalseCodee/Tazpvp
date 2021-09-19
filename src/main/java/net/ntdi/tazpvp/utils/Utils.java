@@ -9,8 +9,13 @@ import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class Utils {
-    public static World spawnWorld = Bukkit.getWorld("spawn");
-    public static Location spawnLocation = new Location(spawnWorld, 0, 40, 0, 180, 90);
+    public static World spawnWorld = Bukkit.getWorld(TazPvP.configFile.getString("spawn.world"));
+    public static Location spawnLocation = new Location(spawnWorld,
+            TazPvP.configFile.getDouble("spawn.x"),
+            TazPvP.configFile.getDouble("spawn.y"),
+            TazPvP.configFile.getDouble("spawn.z"),
+    (float) TazPvP.configFile.getDouble("spawn.yaw"),
+    (float) TazPvP.configFile.getDouble("spawn.x"));
 
     public static String chat(String s) {
         return ChatColor.translateAlternateColorCodes('§', s);
