@@ -21,33 +21,24 @@ import java.io.IOException;
 
 public final class TazPvP extends JavaPlugin implements Listener {
 
-
-    // sexy code
-
+    public static CurrencyManager currencyManager;
+    public static DeathsManager deathsManager;
+    public static JoinsManager joinsManager;
     @Override
     public void onEnable() {
         // Plugin startup logic
         System.out.println("Tazpvp Logic is now ONLINE");
 
-        CurrencyManager currencyManager = new CurrencyManager(this);
-        try {
-            currencyManager.loadCurrencyFile();
-        } catch (ClassNotFoundException | IOException e) {
-            e.printStackTrace();
-        }
-        DeathsManager deathsManager = new DeathsManager(this);
-        try {
-            deathsManager.loadDeathsFile();
-        } catch (ClassNotFoundException | IOException e) {
-            e.printStackTrace();
-        }
-        JoinsManager joinsManager = new JoinsManager(this);
-        try {
-            joinsManager.loadJoinsFile();
-        } catch (ClassNotFoundException | IOException e) {
-            e.printStackTrace();
-        }
-        // Manger Register
+        currencyManager = new CurrencyManager(this);
+        currencyManager.loadCurrencyFile();
+
+        deathsManager = new DeathsManager(this);
+        deathsManager.loadDeathsFile();
+
+        joinsManager = new JoinsManager(this);
+        joinsManager.loadJoinsFile();
+
+        // Manager Register
         registerManagers();
 
         // Command Initializer
@@ -66,23 +57,14 @@ public final class TazPvP extends JavaPlugin implements Listener {
         System.out.println("Tazpvp LOGIC is now OFFLINE");
 
         CurrencyManager currencyManager = new CurrencyManager(this);
-        try {
-            currencyManager.saveCurrencyFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        currencyManager.saveCurrencyFile();
+
         DeathsManager deathsManager = new DeathsManager(this);
-        try {
-            deathsManager.saveDeathsFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        deathsManager.saveDeathsFile();
+
         JoinsManager joinsManager = new JoinsManager(this);
-        try {
-            joinsManager.saveJoinsFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        joinsManager.saveJoinsFile();
+
 
     }
 

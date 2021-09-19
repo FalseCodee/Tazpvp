@@ -22,37 +22,47 @@ public class JoinsManager {
 
     }
 
-    public void saveJoinsFile() throws FileNotFoundException, IOException {
+    public void saveJoinsFile() {
         for (OfflinePlayer p : Bukkit.getOfflinePlayers()){
             File file = new File("Tazpvp/joins.dat");
-            ObjectOutputStream output = new ObjectOutputStream(new GZIPOutputStream(new FileOutputStream(file)));
+
+            try {
+                ObjectOutputStream output = new ObjectOutputStream(new GZIPOutputStream(new FileOutputStream(file)));
+
 
             UUID uuid = p.getUniqueId();
 
-            try {
                 output.writeObject(joins);
                 output.flush();
                 output.close();
-            } catch(IOException e) {
+
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public void loadJoinsFile() throws FileNotFoundException, IOException, ClassNotFoundException {
+    public void loadJoinsFile() {
         File file = new File("Tazpvp/joins.dat");
         if (file != null) {
-            ObjectInputStream input = new ObjectInputStream(new GZIPInputStream(new FileInputStream(file)));
-            Object readObject = input.readObject();
-            input.close();
+            try{
+                ObjectInputStream input = new ObjectInputStream(new GZIPInputStream(new FileInputStream(file)));
+                Object readObject = input.readObject();
+                input.close();
 
-            if (!(readObject instanceof HashMap)){
-                throw new IOException("Data is not a hashmap");
+//            if (!(readObject instanceof HashMap)){
+//                throw new IOException("Data is not a hashmap");
+//            }
+
+                joins = (HashMap<UUID, Boolean>) readObject;
+                for (UUID key : joins.keySet()) {
+                    joins.put(key, joins.get(key));
+                }
+
+            } catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
             }
-            joins = (HashMap<UUID, Boolean>) readObject;
-            for (UUID key : joins.keySet()) {
-                joins.put(key, joins.get(key));
-            }
+
         }
 
     }

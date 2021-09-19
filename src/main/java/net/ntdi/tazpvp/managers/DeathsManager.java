@@ -20,14 +20,15 @@ public class DeathsManager {
 
     }
 
-    public void saveDeathsFile() throws FileNotFoundException, IOException {
+    public void saveDeathsFile() {
         for (OfflinePlayer p : Bukkit.getOfflinePlayers()){
+            try {
             File file = new File("Tazpvp/deaths.dat");
             ObjectOutputStream output = new ObjectOutputStream(new GZIPOutputStream(new FileOutputStream(file)));
 
-            UUID uuid = p.getUniqueId();
+//            UUID uuid = p.getUniqueId();
 
-            try {
+
                 output.writeObject(deaths);
                 output.flush();
                 output.close();
@@ -37,19 +38,24 @@ public class DeathsManager {
         }
     }
 
-    public void loadDeathsFile() throws FileNotFoundException, IOException, ClassNotFoundException {
+    public void loadDeathsFile() {
         File file = new File("Tazpvp/deaths.dat");
         if (file != null) {
-            ObjectInputStream input = new ObjectInputStream(new GZIPInputStream(new FileInputStream(file)));
+            try {
+                ObjectInputStream input = new ObjectInputStream(new GZIPInputStream(new FileInputStream(file)));
+
             Object readObject = input.readObject();
             input.close();
 
-            if (!(readObject instanceof HashMap)){
-                throw new IOException("Data is not a hashmap");
-            }
+//            if (!(readObject instanceof HashMap)){
+//                throw new IOException("Data is not a hashmap");
+//            }
             deaths = (HashMap<UUID, Integer>) readObject;
             for (UUID key : deaths.keySet()) {
                 deaths.put(key, deaths.get(key));
+            }
+            } catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
             }
         }
 

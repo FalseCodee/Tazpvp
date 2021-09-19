@@ -21,9 +21,10 @@ public class CurrencyManager {
 
     }
 
-    public void saveCurrencyFile() throws FileNotFoundException, IOException {
+    public void saveCurrencyFile() {
         for (OfflinePlayer p : Bukkit.getOfflinePlayers()){
             File file = new File("Tazpvp/currency.dat");
+            try{
             ObjectOutputStream output = new ObjectOutputStream(new GZIPOutputStream(new FileOutputStream(file)));
 
             UUID uuid = p.getUniqueId();
@@ -32,29 +33,34 @@ public class CurrencyManager {
                 currency.put(uuid, currency.get(uuid));
             }
 
-            try {
                 output.writeObject(currency);
                 output.flush();
                 output.close();
+
             } catch(IOException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    public void loadCurrencyFile() throws FileNotFoundException, IOException, ClassNotFoundException {
+    public void loadCurrencyFile() {
         File file = new File("Tazpvp/currency.dat");
         if (file != null) {
+            try {
             ObjectInputStream input = new ObjectInputStream(new GZIPInputStream(new FileInputStream(file)));
             Object readObject = input.readObject();
             input.close();
 
-            if (!(readObject instanceof HashMap)){
-                throw new IOException("Data is not a hashmap");
-            }
+//            if (!(readObject instanceof HashMap)){
+//                throw new IOException("Data is not a hashmap");
+//            }
             currency = (HashMap<UUID, Integer>) readObject;
             for (UUID key : currency.keySet()) {
                 currency.put(key, currency.get(key));
+            }
+
+            } catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
             }
         }
 
