@@ -10,6 +10,7 @@ import java.util.UUID;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
+//I dont think we need this anymore, see StatsManager.java
 public class CurrencyManager {
 
     public static HashMap<UUID, Integer> currency = new HashMap<UUID, Integer>();

@@ -99,6 +99,7 @@ public final class TazPvP extends JavaPlugin implements Listener {
         getCommand("spawn").setExecutor(new SpawnCommand());
         getCommand("setspawn").setExecutor(new SetSpawnCommand());
         getCommand("points").setExecutor(new PointsCommand());
+        getCommand("levels").setExecutor(new LevelCommand());
     }
 
     public void registerListeners() {

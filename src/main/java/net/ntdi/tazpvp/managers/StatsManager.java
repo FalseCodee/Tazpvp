@@ -49,7 +49,7 @@ public class StatsManager {
     public void setLevel(Player player, int level) {
         statsFile.set(player.getUniqueId().toString()+".level", level);
     }
-    public void AddLevels(Player player, int level) {
+    public void addLevels(Player player, int level) {
         statsFile.set(player.getUniqueId().toString()+".level", level+getLevel(player));
     }
 }

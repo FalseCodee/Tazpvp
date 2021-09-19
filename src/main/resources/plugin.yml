@@ -75,3 +75,13 @@ commands:
     permission: op
     permission-message: No Permission
     usage: "/setspawn"
+  points:
+    description: View/Modify players points
+    permission: op
+    permission-message: No Permission
+    usage: "/points <Player> [add|remove|reset] [integer]"
+  levels:
+    description: View/Modify players levels
+    permission: op
+    permission-message: No Permission
+    usage: "/levels <Player> [add|remove|reset] [integer]"
