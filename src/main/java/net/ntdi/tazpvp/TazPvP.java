@@ -3,10 +3,7 @@ package net.ntdi.tazpvp;
 // import com.oracle.xmlns.internal.webservices.jaxws_databinding.SoapBindingUse;
 
 import net.ntdi.tazpvp.commands.*;
-import net.ntdi.tazpvp.listeners.CommandCancelerListener;
-import net.ntdi.tazpvp.listeners.DeathListener;
-import net.ntdi.tazpvp.listeners.GuiListener;
-import net.ntdi.tazpvp.listeners.WelcomeListener;
+import net.ntdi.tazpvp.listeners.*;
 import net.ntdi.tazpvp.managers.CurrencyManager;
 import net.ntdi.tazpvp.managers.DeathsManager;
 import net.ntdi.tazpvp.managers.JoinsManager;
@@ -99,6 +96,7 @@ public final class TazPvP extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new GuiListener(), this);
         getServer().getPluginManager().registerEvents(new DeathListener(), this);
         getServer().getPluginManager().registerEvents(new CommandCancelerListener(), this);
+        getServer().getPluginManager().registerEvents(new ChatSpamListener(), this);
     }
 
 }
