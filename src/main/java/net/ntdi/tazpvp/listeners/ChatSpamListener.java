@@ -54,7 +54,7 @@ public class ChatSpamListener implements Listener {
 
         if(this.cooldowns.containsKey(p)){
             long lastUse = this.cooldowns.get(p);
-            if (time - lastUse > 1*1000) {
+            if (time - lastUse < 1*1000) {
                 p.sendMessage(ChatColor.GREEN + "There is a 1 second chat cooldown");
                 p.sendMessage(ChatColor.GREEN + "Buy a rank to remove it!");
                 e.setCancelled(true);
@@ -63,7 +63,7 @@ public class ChatSpamListener implements Listener {
             *   what is the point of |
             *   this conditional     V
              */
-            else if (time - lastUse > 5*100) {
+            else if (time - lastUse < 5*100) {
                 p.sendMessage(ChatColor.GREEN + "Dont Spam!");
                 e.setCancelled(true);
             }
