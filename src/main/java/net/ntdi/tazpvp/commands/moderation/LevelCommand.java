@@ -1,6 +1,7 @@
 package net.ntdi.tazpvp.commands.moderation;
 
 import net.ntdi.tazpvp.TazPvP;
+import net.ntdi.tazpvp.utils.PlayerUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
@@ -22,13 +23,8 @@ public class LevelCommand implements CommandExecutor {
             if(args.length == 0){
                 player.sendMessage(ChatColor.RED + "Usage: /levels <Player> [add|remove|reset] [integer]");
             } else {
-                OfflinePlayer offlinePlayer = null;
-                for(OfflinePlayer offlineP : Bukkit.getOfflinePlayers()){
-                    if(offlineP.getName().equalsIgnoreCase(args[0])){
-                        offlinePlayer = offlineP;
-                        break;
-                    }
-                }
+                OfflinePlayer offlinePlayer = PlayerUtils.getPlayer(args[0]);
+
                 if(offlinePlayer != null){
 
                     if(TazPvP.statsManager.statsFile.contains(offlinePlayer.getUniqueId().toString())){

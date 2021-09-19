@@ -32,13 +32,15 @@ public class WelcomeListener implements Listener {
         p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "  |  IP: tazpvp.net");
         p.sendMessage(ChatColor.AQUA + "");
 
-        JoinsManager manager = new JoinsManager(plugin);
+        if(!TazPvP.statsManager.statsFile.contains(event.getPlayer().getUniqueId().toString())) {
+            TazPvP.statsManager.initPlayer(p);
+        }
 
-        if (manager.getFromList(p) == true) {
+        if (TazPvP.joinsManager.getFromList(p)) {
             event.setJoinMessage(ChatColor.GRAY + "[" + ChatColor.GREEN + "+" + ChatColor.GRAY + "] " + p.getName());
         } else {
             event.setJoinMessage(ChatColor.GRAY + "[" + ChatColor.GOLD + "+" + ChatColor.GRAY + "] " + p.getName());
-            manager.addToList(p);
+            TazPvP.joinsManager.addToList(p);
             Player player = event.getPlayer();
             if (player.getInventory().getArmorContents() != null) {
                 ItemStack armor1 = new ItemStack(Material.LEATHER_BOOTS);

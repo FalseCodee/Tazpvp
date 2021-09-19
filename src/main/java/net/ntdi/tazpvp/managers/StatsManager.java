@@ -1,6 +1,7 @@
 package net.ntdi.tazpvp.managers;
 
 import net.ntdi.tazpvp.TazPvP;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -23,6 +24,13 @@ public class StatsManager {
             e.printStackTrace();
         }
     }
+
+    public void initPlayer(Player player){
+        statsFile.set(player.getUniqueId().toString()+".points", 0);
+        statsFile.set(player.getUniqueId().toString()+".level", 0);
+        statsFile.set(player.getUniqueId().toString()+".money", 0);
+    }
+
     public int getMoney(Player player) {
         return statsFile.getInt(player.getUniqueId().toString()+".money");
     }
