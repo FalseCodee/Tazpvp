@@ -98,5 +98,6 @@ public final class TazPvP extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new DeathListener(), this);
         getServer().getPluginManager().registerEvents(new CommandCancelerListener(), this);
         getServer().getPluginManager().registerEvents(new ChatSpamListener(), this);
+
     }
 }
