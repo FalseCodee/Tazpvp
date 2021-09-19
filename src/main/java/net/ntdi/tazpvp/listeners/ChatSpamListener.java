@@ -22,11 +22,11 @@ public class ChatSpamListener implements Listener {
         try {
             Long lastUse = this.cooldowns.get(p.getName());
             if (lastUse + 1*1000 > time) {
-                p.sendMessage(ChatColor.GREEN + "There is a 2 second chat cooldown");
+                p.sendMessage(ChatColor.GREEN + "There is a 1 second chat cooldown");
                 p.sendMessage(ChatColor.GREEN + "Buy a rank to remove it!");
                 e.setCancelled(true);
             }
-            if (lastUse + 1*1000 > time) {
+            if (lastUse + 5*100 > time) {
                 p.sendMessage(ChatColor.GREEN + "Dont Spam!");
                 e.setCancelled(true);
             }
