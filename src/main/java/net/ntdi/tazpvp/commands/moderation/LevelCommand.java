@@ -28,17 +28,17 @@ public class LevelCommand implements CommandExecutor {
 
                     if(TazPvP.statsManager.statsFile.contains(offlinePlayer.getUniqueId().toString())){
                         if(args.length == 1){
-                            player.sendMessage(ChatColor.RED + offlinePlayer.getName() + " has " + TazPvP.statsManager.getLevel((Player) offlinePlayer) + " levels.");
+                            player.sendMessage(ChatColor.RED + offlinePlayer.getName() + " has " + TazPvP.statsManager.getLevel(offlinePlayer) + " levels.");
                         } else {
                             switch(args[1].toLowerCase()){
                                 case "reset":
-                                    TazPvP.statsManager.setLevel((Player) offlinePlayer, 0);
+                                    TazPvP.statsManager.setLevel(offlinePlayer, 0);
                                     player.sendMessage(ChatColor.RED + "Reset " + offlinePlayer.getName() + "'s level to 0.");
                                     break;
                                 case "set":
                                     if(args.length == 3){
                                         try{
-                                            TazPvP.statsManager.setLevel((Player) offlinePlayer, Integer.parseInt(args[2]));
+                                            TazPvP.statsManager.setLevel(offlinePlayer, Integer.parseInt(args[2]));
                                             player.sendMessage(ChatColor.RED + "set " + offlinePlayer.getName() + "'s level to "+ args[2] +".");
                                         } catch(NumberFormatException e){
                                             player.sendMessage(ChatColor.RED + "Use integers only.");
@@ -50,8 +50,8 @@ public class LevelCommand implements CommandExecutor {
                                 case "add":
                                     if(args.length == 3){
                                         try{
-                                            TazPvP.statsManager.addLevels((Player) offlinePlayer, Integer.parseInt(args[2]));
-                                            player.sendMessage(ChatColor.RED + offlinePlayer.getName() + " now has "+ TazPvP.statsManager.getPoints((Player)offlinePlayer) +" levels.");
+                                            TazPvP.statsManager.addLevels(offlinePlayer, Integer.parseInt(args[2]));
+                                            player.sendMessage(ChatColor.RED + offlinePlayer.getName() + " now has "+ TazPvP.statsManager.getPoints(offlinePlayer) +" levels.");
                                         } catch(NumberFormatException e){
                                             player.sendMessage(ChatColor.RED + "Use integers only.");
                                         }
@@ -62,8 +62,8 @@ public class LevelCommand implements CommandExecutor {
                                 case "remove":
                                     if(args.length == 3){
                                         try{
-                                            TazPvP.statsManager.addLevels((Player) offlinePlayer, -Integer.parseInt(args[2]));
-                                            player.sendMessage(ChatColor.RED + offlinePlayer.getName() + "now has "+ TazPvP.statsManager.getPoints((Player)offlinePlayer) +" levels.");
+                                            TazPvP.statsManager.addLevels(offlinePlayer, -Integer.parseInt(args[2]));
+                                            player.sendMessage(ChatColor.RED + offlinePlayer.getName() + "now has "+ TazPvP.statsManager.getPoints(offlinePlayer) +" levels.");
                                         } catch(NumberFormatException e){
                                             player.sendMessage(ChatColor.RED + "Use integers only.");
                                         }

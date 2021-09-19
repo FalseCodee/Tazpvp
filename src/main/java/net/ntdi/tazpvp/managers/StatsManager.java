@@ -25,13 +25,13 @@ public class StatsManager {
         }
     }
 
-    public void initPlayer(Player player){
+    public void initPlayer(OfflinePlayer player){
         statsFile.set(player.getUniqueId().toString()+".points", 0);
         statsFile.set(player.getUniqueId().toString()+".level", 0);
         statsFile.set(player.getUniqueId().toString()+".money", 0);
     }
 
-    public int getMoney(Player player) {
+    public int getMoney(OfflinePlayer player) {
         return statsFile.getInt(player.getUniqueId().toString()+".money");
     }
     public void setMoney(Player player, int money) {
@@ -41,23 +41,23 @@ public class StatsManager {
         statsFile.set(player.getUniqueId().toString()+".money", money+getMoney(player));
     }
 
-    public int getPoints(Player player) {
+    public int getPoints(OfflinePlayer player) {
         return statsFile.getInt(player.getUniqueId().toString()+".points");
     }
-    public void setPoints(Player player, int points) {
+    public void setPoints(OfflinePlayer player, int points) {
         statsFile.set(player.getUniqueId().toString()+".points", points);
     }
-    public void addPoints(Player player, int points) {
+    public void addPoints(OfflinePlayer player, int points) {
         statsFile.set(player.getUniqueId().toString()+".points", points+getPoints(player));
     }
 
-    public int getLevel(Player player) {
+    public int getLevel(OfflinePlayer player) {
         return statsFile.getInt(player.getUniqueId().toString()+".level");
     }
-    public void setLevel(Player player, int level) {
+    public void setLevel(OfflinePlayer player, int level) {
         statsFile.set(player.getUniqueId().toString()+".level", level);
     }
-    public void addLevels(Player player, int level) {
+    public void addLevels(OfflinePlayer player, int level) {
         statsFile.set(player.getUniqueId().toString()+".level", level+getLevel(player));
     }
 }
