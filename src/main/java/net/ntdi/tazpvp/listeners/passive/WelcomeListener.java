@@ -29,13 +29,12 @@ public class WelcomeListener implements Listener {
         p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "  |  IP: tazpvp.net");
         p.sendMessage(ChatColor.AQUA + "");
 
-        if(!TazPvP.statsManager.statsFile.contains(event.getPlayer().getUniqueId().toString())) {
-            TazPvP.statsManager.initPlayer(p);
-        }
 
-        if (TazPvP.joinsManager.getFromList(p)) {
+        if(TazPvP.statsManager.statsFile.contains(event.getPlayer().getUniqueId().toString())) {
             event.setJoinMessage(ChatColor.GRAY + "[" + ChatColor.GREEN + "+" + ChatColor.GRAY + "] " + p.getName());
         } else {
+            TazPvP.statsManager.initPlayer(p);
+
             event.setJoinMessage(ChatColor.GRAY + "[" + ChatColor.GOLD + "+" + ChatColor.GRAY + "] " + p.getName());
             TazPvP.joinsManager.addToList(p);
             Player player = event.getPlayer();

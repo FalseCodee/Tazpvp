@@ -34,11 +34,11 @@ public class StatsManager {
     public int getMoney(OfflinePlayer player) {
         return statsFile.getInt(player.getUniqueId().toString()+".money");
     }
-    public void setMoney(Player player, int money) {
+    public void setMoney(OfflinePlayer player, int money) {
         statsFile.set(player.getUniqueId().toString()+".money", money);
     }
-    public void addMoney(Player player, int money) {
-        statsFile.set(player.getUniqueId().toString()+".money", money+getMoney(player));
+    public void addMoney(OfflinePlayer player, int money) {
+        setMoney(player, money+getMoney(player));
     }
 
     public int getPoints(OfflinePlayer player) {
@@ -48,7 +48,7 @@ public class StatsManager {
         statsFile.set(player.getUniqueId().toString()+".points", points);
     }
     public void addPoints(OfflinePlayer player, int points) {
-        statsFile.set(player.getUniqueId().toString()+".points", points+getPoints(player));
+        setPoints(player, points+getPoints(player));
     }
 
     public int getLevel(OfflinePlayer player) {
@@ -58,6 +58,6 @@ public class StatsManager {
         statsFile.set(player.getUniqueId().toString()+".level", level);
     }
     public void addLevels(OfflinePlayer player, int level) {
-        statsFile.set(player.getUniqueId().toString()+".level", level+getLevel(player));
+        setLevel(player, level+getLevel(player));
     }
 }

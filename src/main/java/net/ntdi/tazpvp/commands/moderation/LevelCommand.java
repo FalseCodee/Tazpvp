@@ -63,7 +63,7 @@ public class LevelCommand implements CommandExecutor {
                                     if(args.length == 3){
                                         try{
                                             TazPvP.statsManager.addLevels(offlinePlayer, -Integer.parseInt(args[2]));
-                                            player.sendMessage(ChatColor.RED + offlinePlayer.getName() + "now has "+ TazPvP.statsManager.getPoints(offlinePlayer) +" levels.");
+                                            player.sendMessage(ChatColor.RED + offlinePlayer.getName() + " now has "+ TazPvP.statsManager.getPoints(offlinePlayer) +" levels.");
                                         } catch(NumberFormatException e){
                                             player.sendMessage(ChatColor.RED + "Use integers only.");
                                         }

@@ -63,7 +63,7 @@ public class PointsCommand implements CommandExecutor {
                                     if(args.length == 3){
                                         try{
                                             TazPvP.statsManager.addPoints(offlinePlayer, -Integer.parseInt(args[2]));
-                                            player.sendMessage(ChatColor.RED + offlinePlayer.getName() + "now has "+ TazPvP.statsManager.getPoints(offlinePlayer) +" points.");
+                                            player.sendMessage(ChatColor.RED + offlinePlayer.getName() + " now has "+ TazPvP.statsManager.getPoints(offlinePlayer) +" points.");
                                         } catch(NumberFormatException e){
                                             player.sendMessage(ChatColor.RED + "Use integers only.");
                                         }

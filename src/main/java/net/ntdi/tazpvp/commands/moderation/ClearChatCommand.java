@@ -7,7 +7,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-//TODO: Test this
 public class ClearChatCommand implements CommandExecutor {
 
     //Clears the chat for everyone except staff
