@@ -3,10 +3,17 @@ package net.ntdi.tazpvp;
 // import com.oracle.xmlns.internal.webservices.jaxws_databinding.SoapBindingUse;
 
 import net.ntdi.tazpvp.commands.*;
+import net.ntdi.tazpvp.commands.functions.*;
+import net.ntdi.tazpvp.commands.moderation.*;
+import net.ntdi.tazpvp.commands.playercommands.*;
+
 import net.ntdi.tazpvp.listeners.*;
+import net.ntdi.tazpvp.listeners.passive.*;
+
 import net.ntdi.tazpvp.managers.CurrencyManager;
 import net.ntdi.tazpvp.managers.DeathsManager;
 import net.ntdi.tazpvp.managers.JoinsManager;
+
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 

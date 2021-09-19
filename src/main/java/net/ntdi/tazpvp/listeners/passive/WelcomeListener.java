@@ -1,4 +1,4 @@
-package net.ntdi.tazpvp.listeners;
+package net.ntdi.tazpvp.listeners.passive;
 
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.managers.CurrencyManager;

@@ -1,4 +1,4 @@
-package net.ntdi.tazpvp.commands;
+package net.ntdi.tazpvp.commands.functions;
 
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.managers.CurrencyManager;

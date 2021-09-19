@@ -1,4 +1,4 @@
-package net.ntdi.tazpvp.listeners;
+package net.ntdi.tazpvp.listeners.passive;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;

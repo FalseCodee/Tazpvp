@@ -1,4 +1,4 @@
-package net.ntdi.tazpvp.commands;
+package net.ntdi.tazpvp.commands.playercommands;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
