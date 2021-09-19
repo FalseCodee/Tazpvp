@@ -24,6 +24,7 @@ public class WelcomeListener implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event){
+
         Player p = (Player) event.getPlayer();
         p.sendMessage(ChatColor.AQUA + "");
         p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "  |  TAZPVP SEASON 5");
@@ -33,7 +34,9 @@ public class WelcomeListener implements Listener {
 
         JoinsManager manager = new JoinsManager(plugin);
 
-        if(!event.getPlayer().hasPlayedBefore()){
+        if (manager.getFromList(p) == true) {
+            event.setJoinMessage(ChatColor.GRAY + "[" + ChatColor.GREEN + "+" + ChatColor.GRAY + "] " + p.getName());
+        } else {
             event.setJoinMessage(ChatColor.GRAY + "[" + ChatColor.GOLD + "+" + ChatColor.GRAY + "] " + p.getName());
             manager.addToList(p);
             Player player = event.getPlayer();
@@ -61,7 +64,7 @@ public class WelcomeListener implements Listener {
                 meta3.spigot().setUnbreakable(true);
                 armor3.setItemMeta(meta3);
 
-                ItemMeta meta4= armor4.getItemMeta();
+                ItemMeta meta4 = armor4.getItemMeta();
                 meta4.spigot().setUnbreakable(true);
                 armor4.setItemMeta(meta4);
 
@@ -93,12 +96,8 @@ public class WelcomeListener implements Listener {
                 inv.addItem(pickaxe);
                 inv.addItem(steak);
                 inv.addItem(arrow);
-
-            } else {
-                event.setJoinMessage(ChatColor.GRAY + "[" + ChatColor.GREEN + "+" + ChatColor.GRAY + "] " + p.getName());
             }
         }
-
     }
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent event){
