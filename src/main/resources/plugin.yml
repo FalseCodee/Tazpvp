@@ -29,3 +29,8 @@ commands:
     permission: op
     permission-message: no starter
     usage: "/starter (player)"
+  announce:
+    description: Announce messages
+    permission: op
+    permission-message: No Permission
+    usage: "/announce (message)"
