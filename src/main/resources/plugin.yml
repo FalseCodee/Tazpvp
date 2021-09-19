@@ -13,6 +13,7 @@ commands:
   vault:
     description: Opens your vault
     usage: "/vault"
+    permission: op
   currency:
     description: Use currency based commands!
     usage: "/currency (add|remove|set) (player) (amount) | /currency get (player)"
@@ -24,11 +25,7 @@ commands:
     permission-message: no words aloud from you!!
     usage: "/sendword (word)"
   starter:
-    description: gives the player starter items
-    permission-message: no
+    description: set items to starter
     permission: op
-    usage: "/starter [player]"
-  rules:
-    description: displays all rules
-    usage: "/rules"
-    aliases: [ rule, ruleons, rul]
+    permission-message: no starter
+    usage: "/starter (player)"

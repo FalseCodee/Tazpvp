@@ -21,7 +21,7 @@ public class ChatSpamListener implements Listener {
         Long time = System.currentTimeMillis();
         try {
             Long lastUse = this.cooldowns.get(p.getName());
-            if (lastUse + 2*1000 > time) {
+            if (lastUse + 1*1000 > time) {
                 p.sendMessage(ChatColor.GREEN + "There is a 2 second chat cooldown");
                 p.sendMessage(ChatColor.GREEN + "Buy a rank to remove it!");
                 e.setCancelled(true);

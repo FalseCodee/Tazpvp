@@ -90,6 +90,7 @@ public final class TazPvP extends JavaPlugin implements Listener {
         getCommand("starter").setExecutor(new StarterCommand());
         getCommand("rules").setExecutor(new RulesCommand());
     }
+
     public void registerListeners() {
         getServer().getPluginManager().registerEvents((Listener) this, this);
         getServer().getPluginManager().registerEvents(new WelcomeListener(), this);
@@ -98,5 +99,4 @@ public final class TazPvP extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new CommandCancelerListener(), this);
         getServer().getPluginManager().registerEvents(new ChatSpamListener(), this);
     }
-
 }
