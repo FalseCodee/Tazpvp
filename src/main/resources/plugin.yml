@@ -14,11 +14,6 @@ commands:
     description: Opens your vault
     usage: "/vault"
     permission: op
-  currency:
-    description: Use currency based commands!
-    usage: "/currency (add|remove|set) (player) (amount) | /currency get (player)"
-    permission: op
-    permission-message: No Permission
   sendword:
     description: send a word or smt idk
     permission: op
