@@ -1,6 +1,7 @@
 package net.ntdi.tazpvp.commands.playercommands;
 
 import net.ntdi.tazpvp.utils.Utils;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -16,9 +17,9 @@ public class SpawnCommand implements CommandExecutor {
         }
 
         if(player != null){
-            //TODO: Test this method
+            player.sendMessage(ChatColor.DARK_AQUA+"Returning to spawn... Dont move!");
             Utils.teleportPlayer(player, Utils.spawnLocation, 5*1000);
         }
-        return false;
+        return true;
     }
 }

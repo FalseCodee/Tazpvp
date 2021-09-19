@@ -8,7 +8,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-//TODO: Test this
 public class AnnounceCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -16,9 +15,12 @@ public class AnnounceCommand implements CommandExecutor {
         if(sender instanceof Player){
             player = (Player) sender;
         }
+        if(args.length == 0) {
+            return false;
+        }
         if(player.hasPermission("op")){
             Bukkit.broadcastMessage(ChatColor.DARK_AQUA + "[TAZPVP] " + ChatColor.WHITE + StringUtils.buildString(args, 0));
         }
-        return false;
+        return true;
     }
 }

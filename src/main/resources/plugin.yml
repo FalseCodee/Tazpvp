@@ -29,6 +29,11 @@ commands:
     permission: op
     permission-message: no starter
     usage: "/starter (player)"
+  rules:
+    description: displays the rules
+    permission: op
+    permission-message: No Permission
+    usage: "/rules"
   announce:
     description: Announce messages
     permission: op

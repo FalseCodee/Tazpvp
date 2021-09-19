@@ -9,7 +9,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-//TODO: Test this
 public class DiscordCommand implements CommandExecutor {
 
     private final TextComponent msg;
@@ -30,6 +29,6 @@ public class DiscordCommand implements CommandExecutor {
             player.spigot().sendMessage(msg);
         }
 
-        return false;
+        return true;
     }
 }

@@ -110,7 +110,7 @@ public class WelcomeListener implements Listener {
 
     @EventHandler
     public void onPlayerWorldChange(PlayerChangedWorldEvent event){
-        if (event.getPlayer().getWorld().getName() == "ul_tazpvp") {
+        if (event.getPlayer().getWorld().getName().equals("ul_tazpvp")) {
             World world = event.getPlayer().getWorld();
             Player p = event.getPlayer();
 

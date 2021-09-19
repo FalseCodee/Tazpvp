@@ -8,7 +8,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-//TODO: Test this
 public class MuteChatCommand implements CommandExecutor {
 
     @Override
@@ -22,6 +21,6 @@ public class MuteChatCommand implements CommandExecutor {
             ChatUtils.chatMuted = !ChatUtils.chatMuted;
             Bukkit.broadcastMessage(ChatColor.RED + ((ChatUtils.chatMuted) ? "Chat has been muted." : "Chat has been unmuted."));
         }
-        return false;
+        return true;
     }
 }

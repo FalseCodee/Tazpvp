@@ -10,7 +10,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-//TODO: Test this
 public class PointsCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -21,7 +20,7 @@ public class PointsCommand implements CommandExecutor {
 
         if(player != null && player.hasPermission("op")){
             if(args.length == 0){
-                player.sendMessage(ChatColor.RED + "Usage: /points <Player> [add|remove|reset] [integer]");
+                return false;
             } else {
                 OfflinePlayer offlinePlayer = PlayerUtils.getPlayer(args[0]);
 
@@ -52,7 +51,7 @@ public class PointsCommand implements CommandExecutor {
                                     if(args.length == 3){
                                         try{
                                             TazPvP.statsManager.addPoints((Player) offlinePlayer, Integer.parseInt(args[2]));
-                                            player.sendMessage(ChatColor.RED + offlinePlayer.getName() + "now has "+ args[2] +" points.");
+                                            player.sendMessage(ChatColor.RED + offlinePlayer.getName() + " now has "+ TazPvP.statsManager.getPoints((Player)offlinePlayer) +" points.");
                                         } catch(NumberFormatException e){
                                             player.sendMessage(ChatColor.RED + "Use integers only.");
                                         }
@@ -64,7 +63,7 @@ public class PointsCommand implements CommandExecutor {
                                     if(args.length == 3){
                                         try{
                                             TazPvP.statsManager.addPoints((Player) offlinePlayer, -Integer.parseInt(args[2]));
-                                            player.sendMessage(ChatColor.RED + offlinePlayer.getName() + "now has "+ args[2] +" points.");
+                                            player.sendMessage(ChatColor.RED + offlinePlayer.getName() + "now has "+ TazPvP.statsManager.getPoints((Player)offlinePlayer) +" points.");
                                         } catch(NumberFormatException e){
                                             player.sendMessage(ChatColor.RED + "Use integers only.");
                                         }
@@ -77,12 +76,12 @@ public class PointsCommand implements CommandExecutor {
                     } else {
                         player.sendMessage(ChatColor.RED + "Player not found in stats.yml");
                     }
-                    return false;
+                    return true;
                 } else {
                     player.sendMessage(ChatColor.RED + "Player not found.");
                 }
             }
         }
-        return false;
+        return true;
     }
 }

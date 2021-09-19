@@ -10,7 +10,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-//TODO: Test this
 public class ApplyCommand implements CommandExecutor {
     private final TextComponent msg;
     public ApplyCommand(){
@@ -36,6 +35,6 @@ public class ApplyCommand implements CommandExecutor {
             player.sendMessage(ChatColor.RED + "FAILURE TO FOLLOW THESE REQUIREMENTS WILL BE AN INSTANT DENIAL.\n");
             player.spigot().sendMessage(msg);
         }
-        return false;
+        return true;
     }
 }

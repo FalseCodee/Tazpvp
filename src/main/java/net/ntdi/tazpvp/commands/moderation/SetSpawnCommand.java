@@ -7,7 +7,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-//TODO: Test this
 public class SetSpawnCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -27,6 +26,6 @@ public class SetSpawnCommand implements CommandExecutor {
             TazPvP.configFile.set("spawn.world", location.getWorld().getName());
             TazPvP.getInstance().saveConfig();
         }
-        return false;
+        return true;
     }
 }
