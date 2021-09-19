@@ -80,6 +80,7 @@ public final class TazPvP extends JavaPlugin implements Listener {
         getCommand("discord").setExecutor(new DiscordCommand());
         getCommand("appeal").setExecutor(new AppealCommand());
         getCommand("clearchat").setExecutor(new ClearChatCommand());
+        getCommand("mutechat").setExecutor(new MuteChatCommand());
     }
 
     public void registerListeners() {

@@ -1,5 +1,6 @@
 package net.ntdi.tazpvp.listeners.passive;
 
+import net.ntdi.tazpvp.utils.ChatUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -42,6 +43,11 @@ public class ChatSpamListener implements Listener {
     public void onChat(AsyncPlayerChatEvent e) {
         Player p = e.getPlayer();
         if (p.hasPermission("op")) return;
+        //Assuming permission above applies to bypassing mute chat as well.
+        if(ChatUtils.chatMuted) {
+            e.setCancelled(true);
+            return;
+        }
 
             if (hasIllegalWord(e.getMessage())) {
                 p.sendMessage("Bad Word");

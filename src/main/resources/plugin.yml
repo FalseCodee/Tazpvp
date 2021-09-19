@@ -60,3 +60,8 @@ commands:
       - cc
     permission-message: No Permission
     usage: "/clearchat"
+  mutechat:
+    description: Mutes the chat
+    permission: op
+    permission-message: No Permission
+    usage: "/mutechat"
