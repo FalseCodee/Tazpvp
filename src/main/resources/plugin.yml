@@ -65,3 +65,8 @@ commands:
     permission: op
     permission-message: No Permission
     usage: "/mutechat"
+  spawn:
+    description: Teleports you to spawn
+    permission: op
+    permission-message: No Permission
+    usage: "/spawn"

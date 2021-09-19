@@ -24,10 +24,14 @@ public final class TazPvP extends JavaPlugin implements Listener {
     public static CurrencyManager currencyManager;
     public static DeathsManager deathsManager;
     public static JoinsManager joinsManager;
+
+    public static TazPvP instance;
     @Override
     public void onEnable() {
         // Plugin startup logic
         System.out.println("Tazpvp Logic is now ONLINE");
+
+        instance = this;
 
         currencyManager = new CurrencyManager(this);
         currencyManager.loadCurrencyFile();
@@ -81,6 +85,7 @@ public final class TazPvP extends JavaPlugin implements Listener {
         getCommand("appeal").setExecutor(new AppealCommand());
         getCommand("clearchat").setExecutor(new ClearChatCommand());
         getCommand("mutechat").setExecutor(new MuteChatCommand());
+        getCommand("spawn").setExecutor(new SpawnCommand());
     }
 
     public void registerListeners() {
@@ -91,5 +96,9 @@ public final class TazPvP extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new CommandCancelerListener(), this);
         getServer().getPluginManager().registerEvents(new ChatSpamListener(), this);
 
+    }
+
+    public static TazPvP getInstance(){
+        return instance;
     }
 }
