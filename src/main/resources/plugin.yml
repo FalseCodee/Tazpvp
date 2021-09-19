@@ -46,3 +46,8 @@ commands:
     permission: op
     permission-message: No Permission
     usage: "/apply"
+  appeal:
+    description: Appeal your punishment
+    permission: op
+    permission-message: No Permission
+    usage: "/appeal"

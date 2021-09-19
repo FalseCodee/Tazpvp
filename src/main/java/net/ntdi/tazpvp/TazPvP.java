@@ -78,6 +78,7 @@ public final class TazPvP extends JavaPlugin implements Listener {
         getCommand("announce").setExecutor(new AnnounceCommand());
         getCommand("apply").setExecutor(new ApplyCommand());
         getCommand("discord").setExecutor(new DiscordCommand());
+        getCommand("appeal").setExecutor(new AppealCommand());
     }
 
     public void registerListeners() {
