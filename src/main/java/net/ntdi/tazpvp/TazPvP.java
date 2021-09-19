@@ -56,13 +56,10 @@ public final class TazPvP extends JavaPlugin implements Listener {
 
         System.out.println("Tazpvp LOGIC is now OFFLINE");
 
-        CurrencyManager currencyManager = new CurrencyManager(this);
         currencyManager.saveCurrencyFile();
 
-        DeathsManager deathsManager = new DeathsManager(this);
         deathsManager.saveDeathsFile();
 
-        JoinsManager joinsManager = new JoinsManager(this);
         joinsManager.saveJoinsFile();
 
 
