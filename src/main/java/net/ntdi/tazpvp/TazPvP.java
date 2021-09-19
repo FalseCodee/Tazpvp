@@ -19,8 +19,6 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.io.IOException;
-
 public final class TazPvP extends JavaPlugin implements Listener {
 
     public static CurrencyManager currencyManager;
