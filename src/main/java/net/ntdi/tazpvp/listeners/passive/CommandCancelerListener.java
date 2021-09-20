@@ -17,8 +17,8 @@ public class CommandCancelerListener implements Listener {
         System.out.println(event.getMessage());
 //        String message = event.getMessage();
 //        String[] args = message.split(" ");
-        if (!player.hasPermission("op")) {
-            if (event.getMessage().toLowerCase().startsWith("/me")) {
+        if (!player.hasPermission("staff.commandbypass")) {
+            if (event.getMessage().toLowerCase().startsWith("/minecraft")) {
                 event.setCancelled(true);
             }
         }

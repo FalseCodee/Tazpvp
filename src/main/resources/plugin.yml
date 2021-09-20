@@ -14,11 +14,6 @@ commands:
     description: Opens your vault
     usage: "/vault"
     permission: op
-  currency:
-    description: Use currency based commands!
-    usage: "/currency (add|remove|set) (player) (amount) | /currency get (player)"
-    permission: op
-    permission-message: No Permission
   sendword:
     description: send a word or smt idk
     permission: op
@@ -26,39 +21,31 @@ commands:
     usage: "/sendword (word)"
   starter:
     description: set items to starter
-    permission: op
-    permission-message: no starter
+    permission: staff.starter
+    permission-message: No Permission
     usage: "/starter (player)"
   rules:
     description: displays the rules
-    permission: op
-    permission-message: No Permission
     usage: "/rules"
   announce:
     description: Announce messages
-    permission: op
+    permission: staff.announce
     permission-message: No Permission
     usage: "/announce (message)"
   apply:
     description: Apply for staff
-    permission: op
-    permission-message: No Permission
     usage: "/apply"
   discord:
     description: Links the discord server
     aliases:
       - disc
-    permission: op
-    permission-message: No Permission
     usage: "/apply"
   appeal:
     description: Appeal your punishment
-    permission: op
-    permission-message: No Permission
     usage: "/appeal"
   clearchat:
     description: Clears the chat
-    permission: op
+    permission: staff.clearchat
     aliases:
       - clearc
       - cchat
@@ -67,26 +54,62 @@ commands:
     usage: "/clearchat"
   mutechat:
     description: Mutes the chat
-    permission: op
+    permission: staff.mutechat
     permission-message: No Permission
     usage: "/mutechat"
   spawn:
     description: Teleports you to spawn
-    permission: op
     permission-message: No Permission
     usage: "/spawn"
   setspawn:
     description: Sets the spawn
-    permission: op
+    permission: staff.setspawn
     permission-message: No Permission
     usage: "/setspawn"
   points:
     description: View/Modify players points
-    permission: op
+    permission: staff.points
     permission-message: No Permission
     usage: "/points <Player> [add|remove|reset] [integer]"
   levels:
     description: View/Modify players levels
-    permission: op
+    permission: staff.level
     permission-message: No Permission
     usage: "/levels <Player> [add|remove|reset] [integer]"
+  money:
+    description: View/Modify players balance
+    permission: staff.money
+    permission-message: No Permission
+    usage: "/money <Player> [add|remove|reset] [integer]"
+  mute:
+    description: Mute/Unmute players
+    permission: staff.mute
+    permission-message: No Permission
+    usage: "/mute <Player> <Reason>"
+  ban:
+    description: Ban/Unban players
+    permission: staff.ban
+    permission-message: No Permission
+    usage: "/mute <Player> <Reason>"
+  help:
+    description: Recieve information on how to play
+    usage: "/help"
+  report:
+    description: Report players
+    permission-message: No Permission
+    usage: "/report <Player> <Reason>"
+  warn:
+    description: Warn players
+    permission: staff.warn
+    permission-message: No Permission
+    usage: "/warn <Player> <Reason>"
+  warns:
+    description: Gets the warns of players
+    permission: staff.warns
+    permission-message: No Permission
+    usage: "/warns <Player>"
+  unwarn:
+    description: Removes warns from players
+    permission: staff.unwarn
+    permission-message: No Permission
+    usage: "/unwarn <Player> <index|all>"

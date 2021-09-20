@@ -17,7 +17,7 @@ public class MuteChatCommand implements CommandExecutor {
             player = (Player) sender;
         }
 
-        if(player != null && player.hasPermission("op")){
+        if(player != null && player.hasPermission("staff.mutechat")){
             ChatUtils.chatMuted = !ChatUtils.chatMuted;
             Bukkit.broadcastMessage(ChatColor.RED + ((ChatUtils.chatMuted) ? "Chat has been muted." : "Chat has been unmuted."));
         }

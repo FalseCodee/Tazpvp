@@ -1,5 +1,9 @@
 package net.ntdi.tazpvp.utils;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+
 public class StringUtils {
     public static String buildString(String[] args, int start) {
         StringBuilder stringBuilder = new StringBuilder();
@@ -7,5 +11,12 @@ public class StringUtils {
             stringBuilder.append(args[i]).append(" ");
         }
         return stringBuilder.substring(0, stringBuilder.toString().length()-1);
+    }
+    public static String dateToString(long unix) {
+        Date date = new Date(unix);
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z");
+        format.setTimeZone(TimeZone.getTimeZone("GMT-4"));
+        return format.format(date);
     }
 }

@@ -15,10 +15,10 @@ public class AnnounceCommand implements CommandExecutor {
         if(sender instanceof Player){
             player = (Player) sender;
         }
-        if(args.length == 0) {
+        if(args.length == 0 || player == null) {
             return false;
         }
-        if(player.hasPermission("op")){
+        if(player.hasPermission("staff.announce")){
             Bukkit.broadcastMessage(ChatColor.DARK_AQUA + "[TAZPVP] " + ChatColor.WHITE + StringUtils.buildString(args, 0));
         }
         return true;

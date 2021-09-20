@@ -29,6 +29,8 @@ public class StatsManager {
         statsFile.set(player.getUniqueId().toString()+".points", 0);
         statsFile.set(player.getUniqueId().toString()+".level", 0);
         statsFile.set(player.getUniqueId().toString()+".money", 0);
+        statsFile.set(player.getUniqueId().toString()+".deaths", 0);
+        statsFile.set(player.getUniqueId().toString()+".kills", 0);
     }
 
     public int getMoney(OfflinePlayer player) {
@@ -59,5 +61,25 @@ public class StatsManager {
     }
     public void addLevels(OfflinePlayer player, int level) {
         setLevel(player, level+getLevel(player));
+    }
+
+    public int getDeaths(OfflinePlayer player) {
+        return statsFile.getInt(player.getUniqueId().toString()+".deaths");
+    }
+    public void setDeaths(OfflinePlayer player, int deaths) {
+        statsFile.set(player.getUniqueId().toString()+".deaths", deaths);
+    }
+    public void addDeaths(OfflinePlayer player, int deaths) {
+        setDeaths(player, deaths+getDeaths(player));
+    }
+
+    public int getKills(OfflinePlayer player) {
+        return statsFile.getInt(player.getUniqueId().toString()+".kills");
+    }
+    public void setKills(OfflinePlayer player, int kills) {
+        statsFile.set(player.getUniqueId().toString()+".kills", kills);
+    }
+    public void addKills(OfflinePlayer player, int kills) {
+        setKills(player, kills+getKills(player));
     }
 }

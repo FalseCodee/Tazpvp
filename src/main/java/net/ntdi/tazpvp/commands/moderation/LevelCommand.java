@@ -18,7 +18,7 @@ public class LevelCommand implements CommandExecutor {
             player = (Player) sender;
         }
 
-        if(player != null && player.hasPermission("op")){
+        if(player != null && player.hasPermission("staff.level")){
             if(args.length == 0){
                 return false;
             } else {
@@ -51,7 +51,7 @@ public class LevelCommand implements CommandExecutor {
                                     if(args.length == 3){
                                         try{
                                             TazPvP.statsManager.addLevels(offlinePlayer, Integer.parseInt(args[2]));
-                                            player.sendMessage(ChatColor.RED + offlinePlayer.getName() + " now has "+ TazPvP.statsManager.getPoints(offlinePlayer) +" levels.");
+                                            player.sendMessage(ChatColor.RED + offlinePlayer.getName() + " now has "+ TazPvP.statsManager.getLevel(offlinePlayer) +" levels.");
                                         } catch(NumberFormatException e){
                                             player.sendMessage(ChatColor.RED + "Use integers only.");
                                         }
@@ -63,7 +63,7 @@ public class LevelCommand implements CommandExecutor {
                                     if(args.length == 3){
                                         try{
                                             TazPvP.statsManager.addLevels(offlinePlayer, -Integer.parseInt(args[2]));
-                                            player.sendMessage(ChatColor.RED + offlinePlayer.getName() + " now has "+ TazPvP.statsManager.getPoints(offlinePlayer) +" levels.");
+                                            player.sendMessage(ChatColor.RED + offlinePlayer.getName() + " now has "+ TazPvP.statsManager.getLevel(offlinePlayer) +" levels.");
                                         } catch(NumberFormatException e){
                                             player.sendMessage(ChatColor.RED + "Use integers only.");
                                         }

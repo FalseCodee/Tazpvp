@@ -17,9 +17,9 @@ public class ClearChatCommand implements CommandExecutor {
             player = (Player) sender;
         }
 
-        if(player != null && player.hasPermission("op")){
+        if(player != null && player.hasPermission("staff.clearchat")){
             for(Player p : Bukkit.getOnlinePlayers()){
-                if(!p.hasPermission("op")){
+                if(!p.hasPermission("staff.clearchat")){
                     for(int i = 0; i < 100; i++){
                         p.sendMessage("");
                     }

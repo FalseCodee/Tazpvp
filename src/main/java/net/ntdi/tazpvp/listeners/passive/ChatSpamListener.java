@@ -1,5 +1,6 @@
 package net.ntdi.tazpvp.listeners.passive;
 
+import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.utils.ChatUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
@@ -42,18 +43,31 @@ public class ChatSpamListener implements Listener {
     @EventHandler()
     public void onChat(AsyncPlayerChatEvent e) {
         Player p = e.getPlayer();
-        if (p.hasPermission("op")) return;
+        if(TazPvP.punishmentManager.isMuted(p)){
+            long muteTime = TazPvP.punishmentManager.getMuteTime(p);
+            long muteDuration = TazPvP.punishmentManager.getMuteDuration(p);
+            if(System.currentTimeMillis()-muteTime >= muteDuration){
+                TazPvP.punishmentManager.removeMute(p);
+                p.sendMessage(ChatColor.RED+"You have been unmuted.");
+            } else {
+                e.setCancelled(true);
+                p.sendMessage(ChatColor.RED + "You are muted, you will be unmuted in, " + ChatColor.WHITE + (((muteTime+muteDuration)-System.currentTimeMillis())/1000) + "s");
+                return;
+            }
+        }
+        if (p.hasPermission("staff.chatbypass")) return;
+
         //Assuming permission above applies to bypassing mute chat as well.
         if(ChatUtils.chatMuted) {
             e.setCancelled(true);
             return;
         }
 
-            if (hasIllegalWord(e.getMessage())) {
-                p.sendMessage("Bad Word");
-                e.setCancelled(true);
-                return;
-            }
+        if (hasIllegalWord(e.getMessage())) {
+            p.sendMessage("Bad Word");
+            e.setCancelled(true);
+            return;
+        }
 
 
         long time = System.currentTimeMillis();
@@ -66,8 +80,8 @@ public class ChatSpamListener implements Listener {
                 e.setCancelled(true);
             }
             /*
-            *   what is the point of |
-            *   this conditional     V
+             *   what is the point of |
+             *   this conditional     V
              */
             else if (time - lastUse < 5*100) {
                 p.sendMessage(ChatColor.GREEN + "Dont Spam!");
