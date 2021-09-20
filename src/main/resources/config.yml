@@ -9,3 +9,4 @@ arena:
   name: arena
 webhooks:
   reports: https://discord.com/api/webhooks/889540268594962493/rYf_4O0NRNv58XTHXm6Kvv1DuA7WuiGtT0Z5Cb62o1xdZ0wdPc_-W2sDAxepSw81YGth
+  bans: https://discord.com/api/webhooks/889606695351906315/16zyrXbhIFIFB4PKj0j-GK7LxtPkU62G_ZhYV7SyQiwrCaIl22XU-cx6Hb13e-vDmJPO
