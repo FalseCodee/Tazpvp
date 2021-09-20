@@ -109,9 +109,16 @@ commands:
     usage: "/report <Player> <Reason>"
   warn:
     description: Warn players
+    permission: op
     permission-message: No Permission
     usage: "/warn <Player> <Reason>"
   warns:
     description: Gets the warns of players
+    permission: op
     permission-message: No Permission
     usage: "/warns <Player>"
+  unwarn:
+    description: Removes warns from players
+    permission: op
+    permission-message: No Permission
+    usage: "/unwarn <Player> <index|all>"
