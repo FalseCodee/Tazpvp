@@ -5,3 +5,5 @@ spawn:
   yaw: 180
   pitch: 0
   world: spawn
+arena:
+  name: arena

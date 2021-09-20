@@ -15,7 +15,9 @@ public class DeathListener implements Listener {
     public void onPlayerDeathEvent(PlayerDeathEvent event){
         Player p = event.getEntity();
         Player killer = p.getKiller();
-
+        if(!p.getLocation().getWorld().getName().equals(TazPvP.configFile.getString("arena.name"))){
+            return;
+        }
         event.getEntity().spigot().respawn();
 
             p.playSound(p.getLocation(), Sound.DIG_GRAVEL, 5, 1);
