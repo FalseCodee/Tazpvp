@@ -55,7 +55,7 @@ public class ChatSpamListener implements Listener {
                 return;
             }
         }
-        if (p.hasPermission("op")) return;
+        if (p.hasPermission("staff.chatbypass")) return;
 
         //Assuming permission above applies to bypassing mute chat as well.
         if(ChatUtils.chatMuted) {

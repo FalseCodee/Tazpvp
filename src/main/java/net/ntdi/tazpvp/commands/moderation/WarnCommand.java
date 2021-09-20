@@ -17,7 +17,7 @@ public class WarnCommand implements CommandExecutor {
             player = (Player) sender;
         }
 
-        if(player != null && player.hasPermission("op") && args.length > 1){
+        if(player != null && player.hasPermission("staff.warn") && args.length > 1){
             Player warned = Bukkit.getPlayer(args[0]);
             if(warned != null) {
                 warned.sendMessage(ChatColor.RED + "You have been warned for " + ChatColor.WHITE + StringUtils.buildString(args, 1));

@@ -18,7 +18,7 @@ public class PointsCommand implements CommandExecutor {
             player = (Player) sender;
         }
 
-        if(player != null && player.hasPermission("op")){
+        if(player != null && player.hasPermission("staff.points")){
             if(args.length == 0){
                 return false;
             } else {

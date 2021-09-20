@@ -17,7 +17,7 @@ public class MoneyCommand implements CommandExecutor {
             player = (Player) sender;
         }
 
-        if(player != null && player.hasPermission("op")){
+        if(player != null && player.hasPermission("staff.money")){
             if(args.length == 0){
                 return false;
             } else {

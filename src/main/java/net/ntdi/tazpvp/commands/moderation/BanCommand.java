@@ -17,7 +17,7 @@ public class BanCommand implements CommandExecutor {
             player = (Player) sender;
         }
 
-        if(player != null && player.hasPermission("op")){
+        if(player != null && player.hasPermission("staff.ban")){
             if(args.length < 2){
                 return false;
             } else {

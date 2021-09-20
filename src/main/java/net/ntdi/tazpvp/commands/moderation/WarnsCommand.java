@@ -19,7 +19,7 @@ public class WarnsCommand implements CommandExecutor {
         if(sender instanceof Player) {
             player = (Player) sender;
         }
-        if(player != null && player.hasPermission("op") && args.length > 0) {
+        if(player != null && player.hasPermission("staff.warns") && args.length > 0) {
             Player target = Bukkit.getPlayer(args[0]);
             if(target != null) {
                 if(TazPvP.punishmentManager.hasWarns(target)) {

@@ -16,7 +16,7 @@ public class UnWarnCommand implements CommandExecutor {
             player = (Player) sender;
         }
 
-        if(player != null && player.hasPermission("op") && args.length > 1) {
+        if(player != null && player.hasPermission("staff.unwarn") && args.length > 1) {
             Player target = Bukkit.getPlayer(args[0]);
             if(target != null) {
                 if(TazPvP.punishmentManager.hasWarns(target)){

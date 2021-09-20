@@ -18,7 +18,7 @@ public class MuteCommand implements CommandExecutor {
             player = (Player) sender;
         }
 
-        if(player != null && player.hasPermission("op")){
+        if(player != null && player.hasPermission("staff.mute")){
             if(args.length < 2){
                 return false;
             } else {

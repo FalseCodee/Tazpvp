@@ -18,7 +18,7 @@ public class StarterCommand implements CommandExecutor {
 
         if(sender instanceof Player){
             Player p = (Player) sender;
-            if(p.hasPermission("op")){
+            if(p.hasPermission("staff.starter")){
                 if(args.length > 0){
                     Player target = Bukkit.getPlayer(args[0]);
                 if(target != null){
