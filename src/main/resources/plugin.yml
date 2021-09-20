@@ -94,4 +94,9 @@ commands:
     description: Mute/Unmute players
     permission: op
     permission-message: No Permission
-    usage: "/mute <Player>"
+    usage: "/mute <Player> <Reason>"
+  ban:
+    description: Ban/Unban players
+    permission: op
+    permission-message: No Permission
+    usage: "/mute <Player> <Reason>"
