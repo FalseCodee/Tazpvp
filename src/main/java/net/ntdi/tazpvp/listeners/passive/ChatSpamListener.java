@@ -43,6 +43,12 @@ public class ChatSpamListener implements Listener {
     @EventHandler()
     public void onChat(AsyncPlayerChatEvent e) {
         Player p = e.getPlayer();
+        if(p.hasPermission("staff.staffchat") && TazPvP.staffManager.staffChatToggled(p)){
+            TazPvP.staffManager.sendStaffChat(p, e.getMessage());
+            e.setCancelled(true);
+            return;
+        }
+
         if(TazPvP.punishmentManager.isMuted(p)){
             long muteTime = TazPvP.punishmentManager.getMuteTime(p);
             long muteDuration = TazPvP.punishmentManager.getMuteDuration(p);
@@ -55,7 +61,7 @@ public class ChatSpamListener implements Listener {
                 return;
             }
         }
-        if (p.hasPermission("op")) return;
+        if (p.hasPermission("staff.chatbypass")) return;
 
         //Assuming permission above applies to bypassing mute chat as well.
         if(ChatUtils.chatMuted) {

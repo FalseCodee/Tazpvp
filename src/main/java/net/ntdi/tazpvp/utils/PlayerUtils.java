@@ -18,6 +18,20 @@ public class PlayerUtils {
         return null;
     }
 
+    public static void hidePlayer(Player player) {
+        for(Player p : Bukkit.getOnlinePlayers()){
+            if(!p.hasPermission("staff.vanish")) {
+                p.hidePlayer(player);
+            }
+        }
+    }
+
+    public static void showPlayer(Player player) {
+        for(Player p : Bukkit.getOnlinePlayers()){
+            p.showPlayer(player);
+        }
+    }
+
     public static void equipStarter(Player player) {
         player.getInventory().clear();
 

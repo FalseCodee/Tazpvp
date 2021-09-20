@@ -14,8 +14,8 @@ public class HelpCommand implements CommandExecutor {
         if(sender instanceof Player){
             Player p = (Player) sender;
             p.sendMessage(ChatColor.AQUA + "-----" + ChatColor.DARK_AQUA + "-----" + ChatColor.AQUA + "-----" + ChatColor.RED + "TAZPVP" + ChatColor.AQUA + "-----" + ChatColor.DARK_AQUA + "-----" + ChatColor.AQUA + "-----");
-            p.sendMessage(ChatColor.YELLOW + "Gain EXP from crates, dealing damage, advertising,");
-            p.sendMessage(ChatColor.YELLOW + "achievements, and killing mobs or players.");
+            p.sendMessage(ChatColor.GRAY + "Gain EXP from crates, dealing damage, advertising,");
+            p.sendMessage(ChatColor.GRAY + "achievements, and killing mobs or players.");
             p.sendMessage(ChatColor.GRAY + "");
             p.sendMessage(ChatColor.GOLD + "Get money from killing, achievements, crates, mining,");
             p.sendMessage(ChatColor.GOLD + "and fishing.");

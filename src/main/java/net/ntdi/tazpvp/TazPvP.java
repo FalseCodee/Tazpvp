@@ -13,16 +13,23 @@ import net.ntdi.tazpvp.listeners.passive.*;
 
 import net.ntdi.tazpvp.managers.*;
 
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class TazPvP extends JavaPlugin implements Listener {
+import java.io.File;
+import java.io.IOException;
+
+public final class TazPvP extends JavaPlugin {
 
     public static StatsManager statsManager;
     public static PunishmentManager punishmentManager;
+    public static StaffManager staffManager;
 
     public static FileConfiguration configFile;
+    public static File helpFile;
+    public static File ruleFile;
 
     public static TazPvP instance;
     @Override
@@ -37,6 +44,7 @@ public final class TazPvP extends JavaPlugin implements Listener {
 
         statsManager = new StatsManager();
         punishmentManager = new PunishmentManager();
+        staffManager = new StaffManager();
 
         // Manager Register
         registerManagers();
@@ -46,8 +54,20 @@ public final class TazPvP extends JavaPlugin implements Listener {
 
         // Event Register
         registerListeners();
-
+        load();
+        try {
+            helpFile.createNewFile();
+            ruleFile.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+    public void load() {
+        helpFile = new File(getDataFolder() + "/help.txt");
+        ruleFile = new File(getDataFolder() + "/rules.txt");
+    }
+
+
 
     @Override
     public void onDisable() {
@@ -59,6 +79,7 @@ public final class TazPvP extends JavaPlugin implements Listener {
 
         statsManager.saveStats();
         punishmentManager.savePunishments();
+        staffManager.saveStaffFile();
     }
 
     public void registerManagers() {
@@ -84,10 +105,16 @@ public final class TazPvP extends JavaPlugin implements Listener {
         getCommand("mute").setExecutor(new MuteCommand());
         getCommand("ban").setExecutor(new BanCommand());
         getCommand("help").setExecutor(new HelpCommand());
+        getCommand("report").setExecutor(new ReportCommand());
+        getCommand("warn").setExecutor(new WarnCommand());
+        getCommand("warns").setExecutor(new WarnsCommand());
+        getCommand("unwarn").setExecutor(new UnWarnCommand());
+        getCommand("staffchat").setExecutor(new StaffChatCommand());
+        getCommand("vanish").setExecutor(new VanishCommand());
+        getCommand("enchant").setExecutor(new EnchantCommand());
     }
 
     public void registerListeners() {
-        getServer().getPluginManager().registerEvents(this, this);
         getServer().getPluginManager().registerEvents(new WelcomeListener(), this);
         getServer().getPluginManager().registerEvents(new GuiListener(), this);
         getServer().getPluginManager().registerEvents(new DeathListener(), this);
@@ -95,6 +122,7 @@ public final class TazPvP extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new ChatSpamListener(), this);
         getServer().getPluginManager().registerEvents(new EntityDamageByEntityListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerLevelChangeListener(), this);
+        getServer().getPluginManager().registerEvents(new VanishCommand(), this);
 
     }
 

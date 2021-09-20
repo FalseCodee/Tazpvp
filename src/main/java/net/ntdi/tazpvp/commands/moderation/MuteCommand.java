@@ -18,7 +18,7 @@ public class MuteCommand implements CommandExecutor {
             player = (Player) sender;
         }
 
-        if(player != null && player.hasPermission("op")){
+        if(player != null && player.hasPermission("staff.mute")){
             if(args.length < 2){
                 return false;
             } else {
@@ -26,7 +26,7 @@ public class MuteCommand implements CommandExecutor {
                 String reason = StringUtils.buildString(args, 1);
                 if(muted != null){
                     if(TazPvP.punishmentManager.isMuted(muted)){
-                        TazPvP.punishmentManager.removeMute(player);
+                        TazPvP.punishmentManager.removeMute(muted);
                         player.sendMessage(ChatColor.RED + muted.getName() + " has been unmuted.");
                         muted.sendMessage(ChatColor.RED+"You have been unmuted.");
 

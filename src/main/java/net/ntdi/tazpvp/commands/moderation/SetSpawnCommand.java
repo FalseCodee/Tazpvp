@@ -15,7 +15,7 @@ public class SetSpawnCommand implements CommandExecutor {
             player = (Player) sender;
         }
 
-        if(player != null && player.hasPermission("op")){
+        if(player != null && player.hasPermission("staff.setspawn")){
             Location location = player.getLocation();
 
             TazPvP.configFile.set("spawn.x", location.getX());
