@@ -108,6 +108,10 @@ commands:
     permission-message: No Permission
     usage: "/report <Player> <Reason>"
   warn:
-    description: Report players
+    description: Warn players
     permission-message: No Permission
-    usage: "/report <Player> <Reason>"
+    usage: "/warn <Player> <Reason>"
+  warns:
+    description: Gets the warns of players
+    permission-message: No Permission
+    usage: "/warns <Player>"

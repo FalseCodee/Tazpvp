@@ -22,7 +22,7 @@ public class WarnCommand implements CommandExecutor {
             if(warned != null) {
                 warned.sendMessage(ChatColor.RED + "You have been warned for " + ChatColor.WHITE + StringUtils.buildString(args, 1));
                 TazPvP.punishmentManager.addWarn(warned, StringUtils.buildString(args, 1));
-                player.sendMessage(ChatColor.DARK_AQUA + "Success!" + warned.getName() + " now has " + ChatColor.WHITE + TazPvP.punishmentManager.getWarns(warned).size() + ChatColor.DARK_AQUA + " warns.");
+                player.sendMessage(ChatColor.DARK_AQUA + "Success! " + warned.getName() + " now has " + ChatColor.WHITE + TazPvP.punishmentManager.getWarns(warned).size() + ChatColor.DARK_AQUA + " warns.");
             } else {
                 player.sendMessage(ChatColor.RED + "Player not found.");
             }
