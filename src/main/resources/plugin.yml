@@ -100,3 +100,6 @@ commands:
     permission: op
     permission-message: No Permission
     usage: "/mute <Player> <Reason>"
+  help:
+    description: Recieve information on how to play
+    usage: "/help"
