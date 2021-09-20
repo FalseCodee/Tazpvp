@@ -113,3 +113,11 @@ commands:
     permission: staff.unwarn
     permission-message: No Permission
     usage: "/unwarn <Player> <index|all>"
+  staffchat:
+    description: Toggles/Sends messages to staff chat
+    permission: staff.staffchat
+    aliases:
+      - sc
+      - schat
+    permission-message: No Permission
+    usage: "/unwarn <Player> <index|all>"
