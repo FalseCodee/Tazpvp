@@ -8,6 +8,10 @@ import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Utils {
     public static World spawnWorld = Bukkit.getWorld(TazPvP.configFile.getString("spawn.world"));
     public static Location spawnLocation = new Location(spawnWorld,
@@ -38,5 +42,20 @@ public class Utils {
 
             }
         }.runTaskTimer(TazPvP.getInstance(), 0L, 10L);
+    }
+
+    public static List<String> readFile(File file) {
+        List<String> data = new ArrayList<>();
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String str;
+            while ((str = br.readLine()) != null) {
+                data.add(str);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return data;
+
     }
 }
