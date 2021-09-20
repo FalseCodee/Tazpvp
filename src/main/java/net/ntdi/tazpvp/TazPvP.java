@@ -8,6 +8,7 @@ import net.ntdi.tazpvp.commands.moderation.*;
 import net.ntdi.tazpvp.commands.playercommands.*;
 
 import net.ntdi.tazpvp.listeners.*;
+import net.ntdi.tazpvp.listeners.function.*;
 import net.ntdi.tazpvp.listeners.passive.*;
 
 import net.ntdi.tazpvp.managers.StatsManager;
@@ -87,6 +88,8 @@ public final class TazPvP extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new DeathListener(), this);
         getServer().getPluginManager().registerEvents(new CommandCancelerListener(), this);
         getServer().getPluginManager().registerEvents(new ChatSpamListener(), this);
+        getServer().getPluginManager().registerEvents(new EntityDamageByEntityListener(), this);
+        getServer().getPluginManager().registerEvents(new PlayerLevelChangeListener(), this);
 
     }
 

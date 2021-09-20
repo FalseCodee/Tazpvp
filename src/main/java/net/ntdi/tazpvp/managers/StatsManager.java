@@ -78,7 +78,7 @@ public class StatsManager {
         return statsFile.getInt(player.getUniqueId().toString()+".kills");
     }
     public void setKills(OfflinePlayer player, int kills) {
-        statsFile.set(player.getUniqueId().toString()+".deaths", kills);
+        statsFile.set(player.getUniqueId().toString()+".kills", kills);
     }
     public void addKills(OfflinePlayer player, int kills) {
         setKills(player, kills+getKills(player));
