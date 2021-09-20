@@ -103,3 +103,7 @@ commands:
   help:
     description: Recieve information on how to play
     usage: "/help"
+  report:
+    description: Report players
+    permission-message: No Permission
+    usage: "/report <Player> <Reason>"
