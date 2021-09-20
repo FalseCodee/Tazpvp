@@ -48,7 +48,6 @@ public final class TazPvP extends JavaPlugin implements Listener {
 
         // Event Register
         registerListeners();
-
     }
 
     @Override
@@ -92,6 +91,7 @@ public final class TazPvP extends JavaPlugin implements Listener {
         getCommand("warns").setExecutor(new WarnsCommand());
         getCommand("unwarn").setExecutor(new UnWarnCommand());
         getCommand("staffchat").setExecutor(new StaffChatCommand());
+        getCommand("vanish").setExecutor(new VanishCommand());
     }
 
     public void registerListeners() {
@@ -103,6 +103,7 @@ public final class TazPvP extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new ChatSpamListener(), this);
         getServer().getPluginManager().registerEvents(new EntityDamageByEntityListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerLevelChangeListener(), this);
+        getServer().getPluginManager().registerEvents(new VanishCommand(), this);
 
     }
 
