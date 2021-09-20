@@ -107,3 +107,7 @@ commands:
     description: Report players
     permission-message: No Permission
     usage: "/report <Player> <Reason>"
+  warn:
+    description: Report players
+    permission-message: No Permission
+    usage: "/report <Player> <Reason>"

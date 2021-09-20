@@ -7,8 +7,10 @@ import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 public class PunishmentManager {
     public FileConfiguration punishmentFile;
@@ -42,17 +44,18 @@ public class PunishmentManager {
         punishmentFile.set("bans." + player.getUniqueId().toString(), null);
 
     }
-
     public void removeMute(OfflinePlayer player) {
         punishmentFile.set("mutes." + player.getUniqueId().toString(), null);
 
     }
+
     public boolean isBanned(OfflinePlayer player) {
         return punishmentFile.contains("bans." + player.getUniqueId().toString());
     }
     public boolean isMuted(OfflinePlayer player) {
         return punishmentFile.contains("mutes." + player.getUniqueId().toString());
     }
+
     public long getBanTime(OfflinePlayer player) {
         return punishmentFile.getLong("bans." + player.getUniqueId().toString() + ".time");
     }
@@ -72,4 +75,34 @@ public class PunishmentManager {
     public boolean isPermanentMute(OfflinePlayer player) {
         return punishmentFile.getBoolean("mutes." + player.getUniqueId().toString() + ".perm");
     }
+
+    public boolean hasWarns(OfflinePlayer player) {
+        return punishmentFile.contains("warns." + player.getUniqueId().toString());
+    }
+    public void addWarn(OfflinePlayer player, String message) {
+        List<String> warns = new ArrayList<>();
+        if(hasWarns(player)) {
+            warns = punishmentFile.getStringList("warns." + player.getUniqueId().toString());
+        }
+        warns.add(message);
+        punishmentFile.set("warns." + player.getUniqueId().toString(), warns);
+    }
+    public void removeWarn(OfflinePlayer player, int index) {
+        if(hasWarns(player)) {
+            List<String> warns = punishmentFile.getStringList("warns." + player.getUniqueId().toString());
+            warns.remove(index);
+            punishmentFile.set("warns." + player.getUniqueId().toString(), warns);
+        }
+    }
+    public void removeAllWarns(OfflinePlayer player) {
+        if(hasWarns(player)){
+            punishmentFile.set("warns."+player.getUniqueId().toString(), null);
+        }
+    }
+    public List<String> getWarns(OfflinePlayer player) {
+        return punishmentFile.getStringList("warns."+player.getUniqueId().toString());
+    }
+
+
+
 }
