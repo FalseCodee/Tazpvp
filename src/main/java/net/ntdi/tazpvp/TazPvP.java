@@ -21,6 +21,7 @@ public final class TazPvP extends JavaPlugin implements Listener {
 
     public static StatsManager statsManager;
     public static PunishmentManager punishmentManager;
+    public static StaffManager staffManager;
 
     public static FileConfiguration configFile;
 
@@ -37,6 +38,7 @@ public final class TazPvP extends JavaPlugin implements Listener {
 
         statsManager = new StatsManager();
         punishmentManager = new PunishmentManager();
+        staffManager = new StaffManager();
 
         // Manager Register
         registerManagers();
@@ -59,6 +61,7 @@ public final class TazPvP extends JavaPlugin implements Listener {
 
         statsManager.saveStats();
         punishmentManager.savePunishments();
+        staffManager.saveStaffFile();
     }
 
     public void registerManagers() {
@@ -88,6 +91,7 @@ public final class TazPvP extends JavaPlugin implements Listener {
         getCommand("warn").setExecutor(new WarnCommand());
         getCommand("warns").setExecutor(new WarnsCommand());
         getCommand("unwarn").setExecutor(new UnWarnCommand());
+        getCommand("staffchat").setExecutor(new StaffChatCommand());
     }
 
     public void registerListeners() {
