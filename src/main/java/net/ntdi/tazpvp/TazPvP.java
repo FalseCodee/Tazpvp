@@ -11,7 +11,7 @@ import net.ntdi.tazpvp.listeners.*;
 import net.ntdi.tazpvp.listeners.function.*;
 import net.ntdi.tazpvp.listeners.passive.*;
 
-import net.ntdi.tazpvp.managers.StatsManager;
+import net.ntdi.tazpvp.managers.*;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.Listener;
@@ -20,6 +20,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public final class TazPvP extends JavaPlugin implements Listener {
 
     public static StatsManager statsManager;
+    public static PunishmentManager punishmentManager;
 
     public static FileConfiguration configFile;
 
@@ -35,7 +36,7 @@ public final class TazPvP extends JavaPlugin implements Listener {
         instance = this;
 
         statsManager = new StatsManager();
-
+        punishmentManager = new PunishmentManager();
 
         // Manager Register
         registerManagers();
@@ -57,6 +58,7 @@ public final class TazPvP extends JavaPlugin implements Listener {
         this.saveConfig();
 
         statsManager.saveStats();
+        punishmentManager.savePunishments();
     }
 
     public void registerManagers() {
@@ -79,6 +81,7 @@ public final class TazPvP extends JavaPlugin implements Listener {
         getCommand("points").setExecutor(new PointsCommand());
         getCommand("levels").setExecutor(new LevelCommand());
         getCommand("money").setExecutor(new MoneyCommand());
+        getCommand("mute").setExecutor(new MuteCommand());
     }
 
     public void registerListeners() {

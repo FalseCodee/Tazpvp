@@ -31,7 +31,6 @@ public class StatsManager {
         statsFile.set(player.getUniqueId().toString()+".money", 0);
         statsFile.set(player.getUniqueId().toString()+".deaths", 0);
         statsFile.set(player.getUniqueId().toString()+".kills", 0);
-
     }
 
     public int getMoney(OfflinePlayer player) {

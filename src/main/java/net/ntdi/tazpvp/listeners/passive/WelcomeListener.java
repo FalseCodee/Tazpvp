@@ -27,6 +27,11 @@ public class WelcomeListener implements Listener {
         p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "  |  IP: tazpvp.net");
         p.sendMessage(ChatColor.AQUA + "");
 
+        if(TazPvP.punishmentManager.isMuted(p) &&
+                System.currentTimeMillis()-TazPvP.punishmentManager.getMuteTime(p) >= TazPvP.punishmentManager.getMuteDuration(p)){
+            TazPvP.punishmentManager.removeMute(p);
+            p.sendMessage(ChatColor.RED+"You have been unmuted.");
+        }
 
         if(TazPvP.statsManager.statsFile.contains(event.getPlayer().getUniqueId().toString())) {
             event.setJoinMessage(ChatColor.GRAY + "[" + ChatColor.GREEN + "+" + ChatColor.GRAY + "] " + p.getName());

@@ -90,3 +90,8 @@ commands:
     permission: op
     permission-message: No Permission
     usage: "/money <Player> [add|remove|reset] [integer]"
+  mute:
+    description: Mute/Unmute players
+    permission: op
+    permission-message: No Permission
+    usage: "/mute <Player>"
