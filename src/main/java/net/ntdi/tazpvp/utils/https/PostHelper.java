@@ -7,11 +7,10 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 public class PostHelper {
-    public HttpURLConnection connection;
-    public URL url;
-    public PostHelper(String url, String jsonInput) throws IOException {
-        this.url = new URL(url);
-        connection = (HttpURLConnection) this.url.openConnection();
+
+    public static void postRequest(String urlString, String jsonInput) throws IOException {
+        URL url = new URL(urlString);
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
         connection.setRequestProperty("Content-Type", "application/json; utf-8");
         connection.setRequestProperty("Accept", "application/json");
