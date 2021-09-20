@@ -92,6 +92,7 @@ public final class TazPvP extends JavaPlugin implements Listener {
         getCommand("unwarn").setExecutor(new UnWarnCommand());
         getCommand("staffchat").setExecutor(new StaffChatCommand());
         getCommand("vanish").setExecutor(new VanishCommand());
+        getCommand("enchant").setExecutor(new EnchantCommand());
     }
 
     public void registerListeners() {
