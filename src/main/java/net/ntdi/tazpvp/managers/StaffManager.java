@@ -27,13 +27,9 @@ public class StaffManager {
         }
     }
 
-    public void initStaffChat(OfflinePlayer player, boolean enabled){
-        staffFile.set("staffchat." + player.getUniqueId().toString(), enabled);
-    }
-
     public boolean staffChatToggled(OfflinePlayer player) {
         if(!staffFile.contains("staffchat."+player.getUniqueId().toString())){
-            initStaffChat(player, false);
+            return false;
         }
         return staffFile.getBoolean("staffchat."+player.getUniqueId().toString());
     }
@@ -43,6 +39,16 @@ public class StaffManager {
 
     public void sendStaffChat(Player player, String message){
         Bukkit.broadcast(ChatColor.YELLOW + "STAFFCHAT " + ChatColor.WHITE + player.getName() + ChatColor.YELLOW +" >> " + ChatColor.WHITE + message, "staff.staffchat");
+    }
+
+    public boolean hiddenToggled(OfflinePlayer player) {
+        if(!staffFile.contains("hidden."+player.getUniqueId().toString())){
+            return false;
+        }
+        return staffFile.getBoolean("hidden."+player.getUniqueId().toString());
+    }
+    public void toggleHidden(OfflinePlayer player) {
+        staffFile.set("hidden."+player.getUniqueId().toString(), !hiddenToggled(player));
     }
 
 }

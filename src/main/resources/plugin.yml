@@ -140,3 +140,8 @@ commands:
   playtime:
     description: see yours or others playtime
     usage: "/playtime <Player>"
+  hide:
+    description: Hides as a default
+    permission: staff.hide
+    permission-message: No Permission
+    usage: "/hide"

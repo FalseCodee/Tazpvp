@@ -26,7 +26,11 @@ public class WelcomeListener implements Listener {
         p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "  |  Discord: /discord");
         p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "  |  IP: tazpvp.net");
         p.sendMessage(ChatColor.AQUA + "");
-
+            if(!TazPvP.staffManager.hiddenToggled(p)){
+                TazPvP.statsManager.setGroup(p, TazPvP.permissions.getPrimaryGroup(p));
+            } else {
+                p.sendMessage(ChatColor.DARK_AQUA+ "You are currently hidden!");
+            }
         if(TazPvP.punishmentManager.isMuted(p) &&
                 System.currentTimeMillis()-TazPvP.punishmentManager.getMuteTime(p) >= TazPvP.punishmentManager.getMuteDuration(p)){
             TazPvP.punishmentManager.removeMute(p);

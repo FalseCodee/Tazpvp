@@ -2,6 +2,8 @@ package net.ntdi.tazpvp;
 
 // import com.oracle.xmlns.internal.webservices.jaxws_databinding.SoapBindingUse;
 
+import net.milkbowl.vault.economy.Economy;
+import net.milkbowl.vault.permission.Permission;
 import net.ntdi.tazpvp.commands.*;
 import net.ntdi.tazpvp.commands.functions.*;
 import net.ntdi.tazpvp.commands.moderation.*;
@@ -13,9 +15,8 @@ import net.ntdi.tazpvp.listeners.passive.*;
 
 import net.ntdi.tazpvp.managers.*;
 
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.event.Listener;
+import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
@@ -26,6 +27,8 @@ public final class TazPvP extends JavaPlugin {
     public static StatsManager statsManager;
     public static PunishmentManager punishmentManager;
     public static StaffManager staffManager;
+
+    public static Permission permissions;
 
     public static FileConfiguration configFile;
     public static File helpFile;
@@ -46,6 +49,14 @@ public final class TazPvP extends JavaPlugin {
         punishmentManager = new PunishmentManager();
         staffManager = new StaffManager();
 
+        if(getServer().getPluginManager().getPlugin("Vault") != null) {
+            RegisteredServiceProvider<Permission> rsp = getServer().getServicesManager().getRegistration(Permission.class);
+            if(rsp != null) {
+                permissions = rsp.getProvider();
+            }
+        } else {
+            System.out.println("Vault not found! /hide has been disabled.");
+        }
         // Manager Register
         registerManagers();
 
@@ -118,6 +129,7 @@ public final class TazPvP extends JavaPlugin {
         getCommand("vanish").setExecutor(new VanishCommand());
         getCommand("enchant").setExecutor(new EnchantCommand());
         getCommand("playtime").setExecutor(new PlayTimeCommand());
+        getCommand("hide").setExecutor(new HideCommand());
     }
 
     public void registerListeners() {
