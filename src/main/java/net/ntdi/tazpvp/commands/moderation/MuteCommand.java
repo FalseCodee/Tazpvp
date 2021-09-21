@@ -32,7 +32,7 @@ public class MuteCommand implements CommandExecutor {
 
                     } else {
                         //short mute to test
-                        TazPvP.punishmentManager.initMute(muted, false, 5*1000);
+                        TazPvP.punishmentManager.initMute(muted, false, 30*60*1000);
                         player.sendMessage(ChatColor.RED + muted.getName() + " has been muted.");
                         muted.sendMessage(ChatColor.RED+"You have been muted for "+ChatColor.WHITE+reason);
 
