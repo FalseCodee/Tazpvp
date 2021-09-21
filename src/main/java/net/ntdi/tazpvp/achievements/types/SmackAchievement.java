@@ -25,7 +25,6 @@ public class SmackAchievement extends Achievements {
         }
     }
 
-    @Override
     public void onSmack(Player smacker){
         if(TazPvP.statsManager.getSmacks(smacker) >= count && !TazPvP.achievementsManager.playerCompletedAchievement(this, smacker)) {
             onAchievement(smacker);

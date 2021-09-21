@@ -3,15 +3,7 @@ package net.ntdi.tazpvp.managers;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.achievements.Achievements;
 import net.ntdi.tazpvp.achievements.Rewards;
-import net.ntdi.tazpvp.achievements.types.DeathAchievement;
-import net.ntdi.tazpvp.achievements.types.KillAchievement;
-import net.ntdi.tazpvp.achievements.types.LivingOnEdgeAchievement;
-import net.ntdi.tazpvp.achievements.types.ButAScratchAchievement;
-import net.ntdi.tazpvp.achievements.types.SlowPokeAchievement;
-import net.ntdi.tazpvp.achievements.types.TakeOverAchievement;
-import net.ntdi.tazpvp.achievements.types.BeefAchievement;
-import net.ntdi.tazpvp.achievements.types.SmartPlayerAchievement;
-import net.ntdi.tazpvp.achievements.types.CaughtFishAchievement;
+import net.ntdi.tazpvp.achievements.types.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -87,7 +79,9 @@ public class AchievementsManager {
     }
     public void onSmack(Player smacker){
         for(Achievements ach : achievements) {
-            ach.onSmack(smacker);
+            if(ach instanceof SmackAchievement) {
+                ((SmackAchievement) ach).onSmack(smacker);
+            }
         }
     }
 
