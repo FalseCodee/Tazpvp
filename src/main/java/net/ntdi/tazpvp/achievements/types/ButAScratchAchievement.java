@@ -7,10 +7,10 @@ import net.ntdi.tazpvp.achievements.Rewards;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
-public class LivingOnEdgeAchievement extends Achievements {
+public class ButAScratchAchievement extends Achievements {
 
-    public LivingOnEdgeAchievement(int count, Rewards[] reward, int[] amount) {
-        super(Requirement.KILLS,count,"LivingOnEdge"+count, reward, amount);
+    public ButAScratchAchievement(int count, Rewards[] reward, int[] amount) {
+        super(Requirement.KILLS,count,"ButAScratch"+count, reward, amount);
     }
 
     @Override
@@ -20,7 +20,7 @@ public class LivingOnEdgeAchievement extends Achievements {
 
     @Override
     public void onKill(Player killer) {
-        if(killer.getHealth() <= 2
+        if(killer.getHealth() >= 20
                 && !TazPvP.achievementsManager.playerCompletedAchievement(this, killer)) {
             onAchievement(killer);
         }
@@ -29,7 +29,7 @@ public class LivingOnEdgeAchievement extends Achievements {
     @Override
     public void onAchievement(Player player) {
         TazPvP.achievementsManager.addAchievement(this, player);
-        player.sendMessage(ChatColor.AQUA + "You have completed the Living on the Edge achievement!");
+        player.sendMessage(ChatColor.AQUA + "You have completed the Tis' But a Scratch achievement!");
         redeemRewards(player);
     }
 }

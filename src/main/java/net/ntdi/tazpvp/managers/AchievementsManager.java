@@ -6,8 +6,15 @@ import net.ntdi.tazpvp.achievements.Rewards;
 import net.ntdi.tazpvp.achievements.types.DeathAchievement;
 import net.ntdi.tazpvp.achievements.types.KillAchievement;
 import net.ntdi.tazpvp.achievements.types.LivingOnEdgeAchievement;
+import net.ntdi.tazpvp.achievements.types.ButAScratchAchievement;
+import net.ntdi.tazpvp.achievements.types.SlowPokeAchievement;
+import net.ntdi.tazpvp.achievements.types.TakeOverAchievement;
+import net.ntdi.tazpvp.achievements.types.BeefAchievement;
+import net.ntdi.tazpvp.achievements.types.SmartPlayerAchievement;
+import net.ntdi.tazpvp.achievements.types.CaughtFishAchievement;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+
 import org.bukkit.entity.Player;
 
 import java.io.File;
@@ -48,6 +55,24 @@ public class AchievementsManager {
         // one heart achievement
         achievements.add(new LivingOnEdgeAchievement(1, new Rewards[] {Rewards.MONEY}, new int[] {50}));
 
+        // tis but a scratch
+        achievements.add(new ButAScratchAchievement(1, new Rewards[] {Rewards.POINTS}, new int[] {2}));
+
+        // slowpoke
+        achievements.add(new SlowPokeAchievement(1, new Rewards[] {Rewards.MONEY}, new int[] {50}));
+
+        // takeover
+        achievements.add(new TakeOverAchievement(1, new Rewards[] {Rewards.POINTS}, new int[] {5}));
+
+        // Smart Player
+        achievements.add(new SmartPlayerAchievement(1, new Rewards[] {Rewards.MONEY}, new int[] {100}));
+
+        // Starting beef
+        achievements.add(new BeefAchievement(1, new Rewards[] {Rewards.POINTS}, new int[] {3}));
+
+        // Caught a fish
+        achievements.add(new CaughtFishAchievement(1, new Rewards[] {Rewards.MONEY}, new int[] {50}));
+
     }
 
     public void onDeath(Player deadPlayer) {
@@ -58,6 +83,11 @@ public class AchievementsManager {
     public void onKill(Player killer) {
         for(Achievements ach : achievements) {
             ach.onKill(killer);
+        }
+    }
+    public void onSmack(Player smacker){
+        for(Achievements ach : achievements) {
+            ach.onSmack(smacker);
         }
     }
 

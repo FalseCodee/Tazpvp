@@ -49,7 +49,7 @@ public abstract class Achievements {
         for(int i = 0; i < rewards.length; i++) {
             switch (rewards[i]) {
                 case MONEY:
-                    player.sendMessage("+" + rewardAmount[i] + ChatColor.YELLOW + "Coins");
+                    player.sendMessage("+" + rewardAmount[i] + ChatColor.YELLOW + " Coins");
                     break;
                 case POINTS:
                     player.sendMessage("+" + rewardAmount[i]+ ChatColor.BLUE +" Points");

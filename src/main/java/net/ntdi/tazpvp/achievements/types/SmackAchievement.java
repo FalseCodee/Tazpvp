@@ -4,13 +4,12 @@ import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.achievements.Achievements;
 import net.ntdi.tazpvp.achievements.Requirement;
 import net.ntdi.tazpvp.achievements.Rewards;
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
-public class LivingOnEdgeAchievement extends Achievements {
+public class SmackAchievement extends Achievements {
 
-    public LivingOnEdgeAchievement(int count, Rewards[] reward, int[] amount) {
-        super(Requirement.KILLS,count,"LivingOnEdge"+count, reward, amount);
+    public SmackAchievement(int count, Rewards[] reward, int[] amount) {
+        super(Requirement.SMACKS,count,"Smack"+count, reward, amount);
     }
 
     @Override
@@ -20,16 +19,23 @@ public class LivingOnEdgeAchievement extends Achievements {
 
     @Override
     public void onKill(Player killer) {
-        if(killer.getHealth() <= 2
+        if(TazPvP.statsManager.getKills(killer) >= count
                 && !TazPvP.achievementsManager.playerCompletedAchievement(this, killer)) {
             onAchievement(killer);
         }
     }
 
     @Override
+    public void onSmack(Player smacker){
+        if(TazPvP.statsManager.getSmacks(smacker) >= count && !TazPvP.achievementsManager.playerCompletedAchievement(this, smacker)) {
+            onAchievement(smacker);
+        }
+    }
+
+    @Override
     public void onAchievement(Player player) {
         TazPvP.achievementsManager.addAchievement(this, player);
-        player.sendMessage(ChatColor.AQUA + "You have completed the Living on the Edge achievement!");
+        player.sendMessage("You have completed the " + count + " smacks achievement!");
         redeemRewards(player);
     }
 }
