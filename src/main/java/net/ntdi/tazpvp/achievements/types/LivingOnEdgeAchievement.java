@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 public class LivingOnEdgeAchievement extends Achievements {
 
     public LivingOnEdgeAchievement(int count, Rewards[] reward, int[] amount) {
-        super(Requirement.KILLS,count,"kills"+count, reward, amount);
+        super(Requirement.KILLS,count,"LivingOnEdge"+count, reward, amount);
     }
 
     @Override
