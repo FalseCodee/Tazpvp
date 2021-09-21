@@ -27,6 +27,7 @@ public final class TazPvP extends JavaPlugin {
     public static StatsManager statsManager;
     public static PunishmentManager punishmentManager;
     public static StaffManager staffManager;
+    public static AchievementsManager achievementsManager;
 
     public static Permission permissions;
 
@@ -48,6 +49,7 @@ public final class TazPvP extends JavaPlugin {
         statsManager = new StatsManager();
         punishmentManager = new PunishmentManager();
         staffManager = new StaffManager();
+        achievementsManager = new AchievementsManager();
 
         if(getServer().getPluginManager().getPlugin("Vault") != null) {
             RegisteredServiceProvider<Permission> rsp = getServer().getServicesManager().getRegistration(Permission.class);
@@ -55,7 +57,7 @@ public final class TazPvP extends JavaPlugin {
                 permissions = rsp.getProvider();
             }
         } else {
-            System.out.println("Vault not found! /hide has been disabled.");
+            System.out.println("Vault not found!");
         }
         // Manager Register
         registerManagers();
@@ -96,6 +98,7 @@ public final class TazPvP extends JavaPlugin {
         statsManager.saveStats();
         punishmentManager.savePunishments();
         staffManager.saveStaffFile();
+        achievementsManager.saveAchievements();
     }
 
     public void registerManagers() {
