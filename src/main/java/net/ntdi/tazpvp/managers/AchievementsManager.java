@@ -5,6 +5,7 @@ import net.ntdi.tazpvp.achievements.Achievements;
 import net.ntdi.tazpvp.achievements.Rewards;
 import net.ntdi.tazpvp.achievements.types.DeathAchievement;
 import net.ntdi.tazpvp.achievements.types.KillAchievement;
+import net.ntdi.tazpvp.achievements.types.LivingOnEdgeAchievement;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -43,6 +44,10 @@ public class AchievementsManager {
         achievements.add(new KillAchievement(500, new Rewards[] {Rewards.MONEY}, new int[] {1000}));
         achievements.add(new KillAchievement(100, new Rewards[] {Rewards.POINTS}, new int[] {25}));
         achievements.add(new KillAchievement(1500, new Rewards[] {Rewards.MONEY}, new int[] {15000}));
+
+        // one heart achievement
+        achievements.add(new LivingOnEdgeAchievement(1, new Rewards[] {Rewards.MONEY}, new int[] {50}));
+
     }
 
     public void onDeath(Player deadPlayer) {
