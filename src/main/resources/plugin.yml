@@ -130,8 +130,11 @@ commands:
     usage: "/vanish"
   enchant:
     description: enchant any item any enchantment level
-    permission-message: staff.enchant
+    permission: staff.enchant
     aliases:
       - echt
-    permission: No Permission
+    permission-message: No Permission
     usage: "/enchant <enchant> <level>"
+  playtime:
+    description: see yours or others playtime
+    usage: "/playtime <Player>"

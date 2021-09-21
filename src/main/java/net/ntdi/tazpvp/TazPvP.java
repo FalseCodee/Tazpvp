@@ -56,8 +56,13 @@ public final class TazPvP extends JavaPlugin {
         registerListeners();
         load();
         try {
-            helpFile.createNewFile();
-            ruleFile.createNewFile();
+            if(helpFile.createNewFile()){
+                System.out.println("Creating help file");
+            }
+            if(ruleFile.createNewFile()) {
+                System.out.println("Creating rules file");
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -112,6 +117,7 @@ public final class TazPvP extends JavaPlugin {
         getCommand("staffchat").setExecutor(new StaffChatCommand());
         getCommand("vanish").setExecutor(new VanishCommand());
         getCommand("enchant").setExecutor(new EnchantCommand());
+        getCommand("playtime").setExecutor(new PlayTimeCommand());
     }
 
     public void registerListeners() {
