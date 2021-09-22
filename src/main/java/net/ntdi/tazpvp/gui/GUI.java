@@ -12,7 +12,8 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.Arrays;
 
-public abstract class GUI implements Listener {
+public abstract class
+GUI implements Listener {
 
     public Player player;
     public Inventory inventory;

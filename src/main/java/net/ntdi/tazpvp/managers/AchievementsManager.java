@@ -65,6 +65,9 @@ public class AchievementsManager {
         // Caught a fish
         achievements.add(new CaughtFishAchievement(1, new Rewards[] {Rewards.MONEY}, new int[] {50}));
 
+        // 500 smacks
+        achievements.add(new SmackAchievement(500, new Rewards[] {Rewards.MONEY}, new int[] {200}));
+
     }
 
     public void onDeath(Player deadPlayer) {
