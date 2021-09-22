@@ -50,4 +50,5 @@ public class EnchantCommand implements CommandExecutor {
         }
         return true;
     }
+
 }

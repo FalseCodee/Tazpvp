@@ -9,6 +9,7 @@ import net.ntdi.tazpvp.commands.functions.*;
 import net.ntdi.tazpvp.commands.moderation.*;
 import net.ntdi.tazpvp.commands.playercommands.*;
 
+import net.ntdi.tazpvp.gui.GUIListener;
 import net.ntdi.tazpvp.listeners.*;
 import net.ntdi.tazpvp.listeners.function.*;
 import net.ntdi.tazpvp.listeners.passive.*;
@@ -133,17 +134,19 @@ public final class TazPvP extends JavaPlugin {
         getCommand("enchant").setExecutor(new EnchantCommand());
         getCommand("playtime").setExecutor(new PlayTimeCommand());
         getCommand("hide").setExecutor(new HideCommand());
+        getCommand("dailyrewards").setExecutor(new RedeemCommand());
+        getCommand("achievement").setExecutor(new AchievementGuiCommand());
     }
 
     public void registerListeners() {
         getServer().getPluginManager().registerEvents(new WelcomeListener(), this);
-        getServer().getPluginManager().registerEvents(new GuiListener(), this);
         getServer().getPluginManager().registerEvents(new DeathListener(), this);
         getServer().getPluginManager().registerEvents(new CommandCancelerListener(), this);
         getServer().getPluginManager().registerEvents(new ChatSpamListener(), this);
         getServer().getPluginManager().registerEvents(new EntityDamageByEntityListener(), this);
         getServer().getPluginManager().registerEvents(new PlayerLevelChangeListener(), this);
         getServer().getPluginManager().registerEvents(new VanishCommand(), this);
+        getServer().getPluginManager().registerEvents(new GUIListener(), this);
 
     }
 

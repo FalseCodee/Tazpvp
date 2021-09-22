@@ -145,3 +145,16 @@ commands:
     permission: staff.hide
     permission-message: No Permission
     usage: "/hide"
+  dailyrewards:
+    description: Redeem semi-daily rewards
+    aliases:
+      - drewards
+      - rewards
+      - redeem
+    usage: "/dailyrewards"
+  achievement:
+    description: Opens the achievement menu
+    aliases:
+      - ach
+      - achieve
+    usage: "/achievement"

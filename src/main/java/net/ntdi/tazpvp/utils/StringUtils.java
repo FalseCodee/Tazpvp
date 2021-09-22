@@ -19,4 +19,11 @@ public class StringUtils {
         format.setTimeZone(TimeZone.getTimeZone("GMT-4"));
         return format.format(date);
     }
+    public static String secondsToDDHHMMSS(long seconds) {
+        return String.format("%02dd %02dh %02dm %02ds", seconds / 86400, (seconds / 3600 % 24), (seconds / 60) % 60, seconds % 60);
+    }
+
+    public static String secondsToHHMMSS(long seconds) {
+        return String.format("%02dh %02dm %02ds", seconds / 3600, (seconds / 60) % 60, seconds % 60);
+    }
 }

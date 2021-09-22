@@ -41,7 +41,7 @@ public class DeathListener implements Listener {
         if (e.getEntity() instanceof Player && e.getDamager() instanceof Player) {
             Player whoWasHit = (Player) e.getEntity();
             Player whoHit = (Player) e.getDamager();
-
+            TazPvP.achievementsManager.onSmack(whoHit);
             TazPvP.statsManager.addSmacks(whoHit, 1);
 
         }
