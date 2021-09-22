@@ -12,6 +12,9 @@ public class GUIListener implements Listener {
         GUI gui = GUIManager.getGUI((Player) e.getWhoClicked());
         if(gui != null) {
             gui.onInventoryClick(e, gui);
+            if(gui.buttons.get(e.getRawSlot()) != null) {
+                gui.buttons.get(e.getRawSlot()).execute(e);
+            }
         }
     }
 
