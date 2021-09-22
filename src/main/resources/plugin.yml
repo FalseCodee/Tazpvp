@@ -158,3 +158,6 @@ commands:
       - ach
       - achieve
     usage: "/achievement"
+  shop:
+    description: Opens the shop menu
+    usage: "/shop"
