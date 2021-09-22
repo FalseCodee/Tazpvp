@@ -1,7 +1,6 @@
 package net.ntdi.tazpvp.gui.guis;
 
 import net.ntdi.tazpvp.gui.GUI;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;

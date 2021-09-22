@@ -22,6 +22,9 @@ public abstract class GUI {
     public ItemStack[] items;
     public Map<Integer, Button> buttons = Maps.newHashMap();
     public GUI(Player player, int size, String title) {
+        if(GUIManager.getGUI(player) != null) {
+            GUIManager.guiHashMap.remove(player.getUniqueId());
+        }
         inventory = Bukkit.createInventory(player, size, title);
         this.player = player;
         items = new ItemStack[size];
@@ -30,6 +33,14 @@ public abstract class GUI {
 
     public void setButtons(int slot, Button button) {
         buttons.put(slot, button);
+    }
+    public void setButtons(int slot, ItemStack itemStack, Button button) {
+        buttons.put(slot, button);
+        items[slot] = itemStack;
+    }
+
+    public void switchScreen(GUI gui) {
+        GUIManager.addGUI(gui);
     }
 
     public void update()
@@ -53,19 +64,22 @@ public abstract class GUI {
         itemStack.setItemMeta(meta);
         return itemStack;
     }
-    public ItemStack createItem(ItemStack itemStack, String name, String lore) {
+    public ItemStack createItem(ItemStack item, String name, String lore) {
+        ItemStack itemStack = new ItemStack(item);
         ItemMeta meta = itemStack.getItemMeta();
         meta.setDisplayName(name);
         meta.setLore(Arrays.asList(lore.split("\n")));
         itemStack.setItemMeta(meta);
         return itemStack;
     }
-    public ItemStack createItem(ItemStack itemStack, String name) {
+    public ItemStack createItem(ItemStack item, String name) {
+        ItemStack itemStack = new ItemStack(item);
         ItemMeta meta = itemStack.getItemMeta();
         meta.setDisplayName(name);
         itemStack.setItemMeta(meta);
         return itemStack;
     }
+
 
     public void onInventoryClick(InventoryClickEvent e, GUI gui){
 
