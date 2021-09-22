@@ -9,7 +9,7 @@ import org.bukkit.inventory.ItemStack;
 public class GUIAchievement extends GUI {
 
     public GUIAchievement(Player player) {
-        super(player, 27, "Example Menu");
+        super(player, 54, "Achievement");
         init();
         player.openInventory(inventory);
     }
@@ -18,45 +18,14 @@ public class GUIAchievement extends GUI {
 
     public void init() {
         //initialize the buttons
-        setButtons(10, event -> {
-            player.sendMessage("Set to Iron!");
-            item = createItem(Material.IRON_BLOCK, 1,"This is Iron");
-            setItems();
-        });
+        items[10] = createItem(Material.SIGN, 1, "Kill people or smt");
+        items[11] = createItem(Material.MINECART, 1, "Ach");
+        items[12] = createItem(Material.MINECART, 1, "Ach");
+        items[13] = createItem(Material.MINECART, 1, "Ach");
+        items[14] = createItem(Material.MINECART, 1, "Ach");
+        items[15] = createItem(Material.MINECART, 1, "Ach");
+        items[16] = createItem(Material.MINECART, 1, "Ach");
 
-        setButtons(12, event -> {
-            player.sendMessage("Set to Gold!");
-            item = createItem(Material.GOLD_BLOCK, 1,"This is Gold");
-            setItems();
-        });
-
-        setButtons(14, event -> {
-            player.sendMessage("Set to Emerald!");
-            item = createItem(Material.EMERALD_BLOCK, 1,"This is Emerald");
-            setItems();
-        });
-        setButtons(16, event -> {
-            player.sendMessage("Set to Coal!");
-            item = createItem(Material.COAL_BLOCK, 1,"This is Coal");
-            setItems();
-        });
-        setItems();
-    }
-
-    public void setItems() {
-        for(int i = 0; i < inventory.getSize(); i++) {
-            if(i == 10) {
-                items[i] = createItem(Material.IRON_ORE, 1,"Click to set to Iron");
-            } else if(i == 12) {
-                items[i] = createItem(Material.GOLD_ORE, 1,"Click to set to Gold");
-            } else if(i == 14) {
-                items[i] = createItem(Material.EMERALD_ORE, 1,"Click to set to Emerald");
-            } else if(i == 16) {
-                items[i] = createItem(Material.COAL_ORE, 1,"Click to set to Coal");
-            } else {
-                items[i] = item;
-            }
-        }
         update();
     }
 
