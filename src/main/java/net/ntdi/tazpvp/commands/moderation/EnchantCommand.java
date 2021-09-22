@@ -23,22 +23,20 @@ public class EnchantCommand implements CommandExecutor {
 
         if(player != null && player.hasPermission("staff.enchant") && args.length > 0 && args.length < 3) {
             //args[]0
-
-            if (Enchantment.getByName(args[0]) != null) {
+            Enchantment ench = Enchantment.getByName(args[0].toUpperCase());
+            if (ench != null) {
                 PlayerInventory inv = player.getInventory();
                 if (inv.getItemInHand() != null) {
-                    ItemStack heldItem = new ItemStack(inv.getItemInHand());
 
                     try{
                         Integer.parseInt(args[1]);
+                        inv.getItemInHand().addUnsafeEnchantment(ench, Integer.parseInt(args[1]));
 
                     }catch(NumberFormatException e){
 
                         player.sendMessage(ChatColor.RED + "Your second arg should be a integer");
                         return false;
                     }
-
-                    heldItem.addUnsafeEnchantment(Enchantment.getByName(args[0]), Integer.parseInt(args[1]));
 
                 } else {
                     player.sendMessage(ChatColor.RED + "Hold something other than air!");

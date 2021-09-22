@@ -31,6 +31,8 @@ public class StatsManager {
         statsFile.set(player.getUniqueId().toString()+".money", 0);
         statsFile.set(player.getUniqueId().toString()+".deaths", 0);
         statsFile.set(player.getUniqueId().toString()+".kills", 0);
+        statsFile.set(player.getUniqueId().toString()+".rank", TazPvP.permissions.getPrimaryGroup((Player) player));
+        statsFile.set(player.getUniqueId().toString()+".smacks", 0);
     }
 
     public int getMoney(OfflinePlayer player) {
@@ -82,4 +84,22 @@ public class StatsManager {
     public void addKills(OfflinePlayer player, int kills) {
         setKills(player, kills+getKills(player));
     }
+
+    public String getGroup(OfflinePlayer player) {
+        return statsFile.getString(player.getUniqueId().toString()+".rank");
+    }
+    public void setGroup(OfflinePlayer player, String group) {
+        statsFile.set(player.getUniqueId().toString() + ".rank", group);
+    }
+
+    public int getSmacks(OfflinePlayer player) {
+        return statsFile.getInt(player.getUniqueId().toString()+".smacks");
+    }
+    public void setSmacks(OfflinePlayer player, int smacks) {
+        statsFile.set(player.getUniqueId().toString()+".smacks", smacks);
+    }
+    public void addSmacks(OfflinePlayer player, int smacks) {
+        setSmacks(player, smacks+getSmacks(player));
+    }
+
 }

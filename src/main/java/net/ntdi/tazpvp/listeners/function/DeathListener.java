@@ -5,6 +5,7 @@ import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 
 public class DeathListener implements Listener {
@@ -15,9 +16,11 @@ public class DeathListener implements Listener {
     public void onPlayerDeathEvent(PlayerDeathEvent event){
         Player p = event.getEntity();
         Player killer = p.getKiller();
-        if(!p.getLocation().getWorld().getName().equals(TazPvP.configFile.getString("arena.name"))){
-            return;
-        }
+        TazPvP.achievementsManager.onDeath(p);
+        TazPvP.achievementsManager.onKill(killer);
+//        if(!p.getLocation().getWorld().getName().equals(TazPvP.configFile.getString("arena.name"))){
+//            return;
+//        }
         event.getEntity().spigot().respawn();
 
             p.playSound(p.getLocation(), Sound.DIG_GRAVEL, 5, 1);
@@ -32,4 +35,17 @@ public class DeathListener implements Listener {
             killer.giveExp(5);
             killer.sendMessage("+5 " + ChatColor.GREEN +"Exp");
     }
+
+    @EventHandler
+    public void onHit(EntityDamageByEntityEvent e) {
+        if (e.getEntity() instanceof Player && e.getDamager() instanceof Player) {
+            Player whoWasHit = (Player) e.getEntity();
+            Player whoHit = (Player) e.getDamager();
+
+            TazPvP.statsManager.addSmacks(whoHit, 1);
+
+        }
+    }
+
+
 }
