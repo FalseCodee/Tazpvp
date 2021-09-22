@@ -145,3 +145,10 @@ commands:
     permission: staff.hide
     permission-message: No Permission
     usage: "/hide"
+  dailyrewards:
+    description: Redeem semi-daily rewards
+    aliases:
+      - drewards
+      - rewards
+      - redeem
+    usage: "/dailyrewards"

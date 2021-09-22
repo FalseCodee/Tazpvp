@@ -1,5 +1,6 @@
 package net.ntdi.tazpvp.achievements;
 
+import net.ntdi.tazpvp.TazPvP;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
@@ -50,12 +51,15 @@ public abstract class Achievements {
             switch (rewards[i]) {
                 case MONEY:
                     player.sendMessage("+" + rewardAmount[i] + ChatColor.YELLOW + " Coins");
+                    TazPvP.statsManager.addMoney(player, rewardAmount[i]);
                     break;
                 case POINTS:
                     player.sendMessage("+" + rewardAmount[i]+ ChatColor.BLUE +" Points");
+                    TazPvP.statsManager.addPoints(player, rewardAmount[i]);
                     break;
                 case EXP:
                     player.sendMessage("+ " + rewardAmount[i] + ChatColor.GREEN + " EXP");
+                    player.giveExp(rewardAmount[i]);
                     break;
             }
         }

@@ -10,16 +10,25 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
-public abstract class GUI implements Listener {
+public abstract class GUI {
 
     public Player player;
     public Inventory inventory;
+    public ItemStack[] items;
 
     public GUI(Player player, int size, String title) {
         inventory = Bukkit.createInventory(player, size, title);
         this.player = player;
+        items = new ItemStack[size];
+        GUIManager.addGUI(this);
+    }
+
+    public void update()
+    {
+        inventory.setContents(items);
     }
 
     public ItemStack createItem(Material item, int count, String name, String lore) {
@@ -38,20 +47,29 @@ public abstract class GUI implements Listener {
         itemStack.setItemMeta(meta);
         return itemStack;
     }
+    public ItemStack createItem(ItemStack itemStack, String name, String lore) {
+        ItemMeta meta = itemStack.getItemMeta();
+        meta.setDisplayName(name);
+        meta.setLore(Arrays.asList(lore.split("\n")));
+        itemStack.setItemMeta(meta);
+        return itemStack;
+    }
+    public ItemStack createItem(ItemStack itemStack, String name) {
+        ItemMeta meta = itemStack.getItemMeta();
+        meta.setDisplayName(name);
+        itemStack.setItemMeta(meta);
+        return itemStack;
+    }
 
-    @EventHandler
-    public abstract void onInventoryClick(InventoryClickEvent e);
+    public void onInventoryClick(InventoryClickEvent e, GUI gui){
 
-    @EventHandler
-    public abstract void onInventoryClose(InventoryCloseEvent e);
+    }
 
-    @EventHandler
-    public abstract void onInventoryOpen(InventoryOpenEvent e);
+    public void onInventoryClose(InventoryCloseEvent e, GUI gui){
+        GUIManager.guiHashMap.remove(player.getUniqueId());
+    }
 
-    @EventHandler
-    public abstract void onInventoryPickupItem(InventoryPickupItemEvent e);
+    public void onInventoryOpen(InventoryOpenEvent e, GUI gui){
 
-    @EventHandler
-    public abstract void onInventoryDrag(InventoryDragEvent e);
-
+    }
 }
