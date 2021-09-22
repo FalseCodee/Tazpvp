@@ -5,6 +5,7 @@ import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 
 public class DeathListener implements Listener {
@@ -34,4 +35,17 @@ public class DeathListener implements Listener {
             killer.giveExp(5);
             killer.sendMessage("+5 " + ChatColor.GREEN +"Exp");
     }
+
+    @EventHandler
+    public void onHit(EntityDamageByEntityEvent e) {
+        if (e.getEntity() instanceof Player && e.getDamager() instanceof Player) {
+            Player whoWasHit = (Player) e.getEntity();
+            Player whoHit = (Player) e.getDamager();
+
+            TazPvP.statsManager.addSmacks(whoHit, 1);
+
+        }
+    }
+
+
 }

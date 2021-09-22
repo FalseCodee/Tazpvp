@@ -100,7 +100,7 @@ public class StatsManager {
         statsFile.set(player.getUniqueId().toString()+".smacks", smacks);
     }
     public void addSmacks(OfflinePlayer player, int smacks) {
-        setKills(player, smacks+getSmacks(player));
+        setSmacks(player, smacks+getSmacks(player));
     }
 
     public long getLastReward(OfflinePlayer player) {
