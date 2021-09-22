@@ -152,3 +152,9 @@ commands:
       - rewards
       - redeem
     usage: "/dailyrewards"
+  achievement:
+    description: Opens the achievement menu
+    aliases:
+      - ach
+      - achieve
+    usage: "/achievement"
