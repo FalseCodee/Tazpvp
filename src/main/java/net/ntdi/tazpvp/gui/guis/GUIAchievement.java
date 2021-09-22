@@ -18,7 +18,7 @@ public class GUIAchievement extends GUI {
 
     public void init() {
         //initialize the buttons
-        items[10] = createItem(Material.MINECART, 1, "Ach");
+        items[10] = createItem(Material.SIGN, 1, "Kill people or smt");
         items[11] = createItem(Material.MINECART, 1, "Ach");
         items[12] = createItem(Material.MINECART, 1, "Ach");
         items[13] = createItem(Material.MINECART, 1, "Ach");
