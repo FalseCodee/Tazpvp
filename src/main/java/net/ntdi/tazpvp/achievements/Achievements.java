@@ -69,6 +69,23 @@ public abstract class Achievements {
             }
         }
     }
+    public String[] getStringRewards(){
+        String[] rewardString = new String[rewards.length];
+        for(int i = 0; i < rewards.length; i++){
+            switch(rewards[i]){
+                case MONEY:
+                    rewardString[i] = ChatColor.WHITE + "" + rewardAmount[i] + ChatColor.YELLOW + " Coins";
+                    break;
+                case EXP:
+                    rewardString[i] = ChatColor.WHITE + "" + rewardAmount[i] + ChatColor.GREEN + " EXP";
+                    break;
+                case POINTS:
+                    rewardString[i] = ChatColor.WHITE + "" + rewardAmount[i] + ChatColor.BLUE + " Points";
+                    break;
+            }
+        }
+        return rewardString;
+    }
 
     public String getName() {
         return name;

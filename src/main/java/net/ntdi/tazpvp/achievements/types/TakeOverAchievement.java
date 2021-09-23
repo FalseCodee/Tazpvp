@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 public class TakeOverAchievement extends Achievements {
 
     public TakeOverAchievement(int count, Rewards[] reward, int[] amount) {
-        super("Takeover","Kill the owner", Requirement.KILLS,count,"TakeOver"+count, reward, amount);
+        super("Takeover","Kill the owner.", Requirement.KILLS,count,"TakeOver"+count, reward, amount);
     }
 
     @Override
