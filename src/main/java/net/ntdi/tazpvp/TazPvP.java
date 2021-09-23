@@ -2,6 +2,7 @@ package net.ntdi.tazpvp;
 
 // import com.oracle.xmlns.internal.webservices.jaxws_databinding.SoapBindingUse;
 
+import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.permission.Permission;
 import net.ntdi.tazpvp.commands.*;
 import net.ntdi.tazpvp.commands.functions.*;
@@ -35,6 +36,7 @@ public final class TazPvP extends JavaPlugin {
     public static AchievementsManager achievementsManager;
 
     public static Permission permissions;
+    public static Chat chat;
 
     public static FileConfiguration configFile;
     public static File helpFile;
@@ -60,8 +62,12 @@ public final class TazPvP extends JavaPlugin {
 
         if(getServer().getPluginManager().getPlugin("Vault") != null) {
             RegisteredServiceProvider<Permission> rsp = getServer().getServicesManager().getRegistration(Permission.class);
+            RegisteredServiceProvider<Chat> rsp1 = getServer().getServicesManager().getRegistration(Chat.class);
             if(rsp != null) {
                 permissions = rsp.getProvider();
+            }
+            if(rsp1 != null) {
+                chat = rsp1.getProvider();
             }
         } else {
             System.out.println("Vault not found!");

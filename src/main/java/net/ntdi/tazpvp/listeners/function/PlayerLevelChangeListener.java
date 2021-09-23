@@ -10,9 +10,9 @@ public class PlayerLevelChangeListener implements Listener {
 
     @EventHandler
     public void onLevelChange(PlayerLevelChangeEvent event) {
-        if(!event.getPlayer().getLocation().getWorld().getName().equals(TazPvP.configFile.getString("arena.name"))){
-            return;
-        }
+//        if(!event.getPlayer().getLocation().getWorld().getName().equals(TazPvP.configFile.getString("arena.name"))){
+//            return;
+//        }
         TazPvP.statsManager.setLevel(event.getPlayer(), event.getNewLevel());
         event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "Level up! " + ChatColor.AQUA + " You are now level " + TazPvP.statsManager.getLevel(event.getPlayer()));
     }

@@ -92,6 +92,14 @@ public class ChatSpamListener implements Listener {
                 e.setCancelled(true);
             }
         }
+        if(p.isOp()) {
+            e.setMessage(ChatColor.translateAlternateColorCodes('&',e.getMessage()));
+        }
+        if(TazPvP.permissions.getPrimaryGroup(p).equals("default")) {
+            e.setFormat(ChatColor.GRAY+ "[" + TazPvP.statsManager.getLevel(p) + "] " + p.getDisplayName() + ": " + "%2$s");
+        } else {
+            e.setFormat(ChatColor.GRAY+ "[" + TazPvP.statsManager.getLevel(p) + "] " + ChatColor.translateAlternateColorCodes('&',TazPvP.chat.getGroupPrefix((String) null, TazPvP.permissions.getPrimaryGroup(p))+ p.getDisplayName()) + " " + ChatColor.WHITE + "%2$s");
+        }
         cooldowns.put(p, time);
     }
 
