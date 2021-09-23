@@ -41,7 +41,10 @@ public class DeathListener implements Listener {
         if (e.getEntity() instanceof Player && e.getDamager() instanceof Player) {
             Player whoWasHit = (Player) e.getEntity();
             Player whoHit = (Player) e.getDamager();
-            TazPvP.achievementsManager.onSmack(whoHit);
+            // Isn't this supposed to only be when they punch each other?
+            if(whoHit.getItemInHand().getType() == Material.AIR) {
+                TazPvP.achievementsManager.onSmack(whoHit);
+            }
             TazPvP.statsManager.addSmacks(whoHit, 1);
 
         }

@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 public class KillAchievement extends Achievements {
 
     public KillAchievement(int count, Rewards[] reward, int[] amount) {
-        super(Requirement.KILLS,count,"kills"+count, reward, amount);
+        super("Kill " + count,"Kill " + count + " players.",Requirement.KILLS,count,"kills"+count, reward, amount);
     }
 
     @Override

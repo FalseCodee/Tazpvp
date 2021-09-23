@@ -12,7 +12,7 @@ import org.bukkit.inventory.PlayerInventory;
 public class SmartPlayerAchievement extends Achievements {
 
     public SmartPlayerAchievement(int count, Rewards[] reward, int[] amount) {
-        super(Requirement.KILLS,count,"SmartPlayer"+count, reward, amount);
+        super("Smart Player","Kill a player by punching them with a bow.",Requirement.KILLS,count,"SmartPlayer"+count, reward, amount);
     }
 
     @Override

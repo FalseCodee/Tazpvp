@@ -12,7 +12,7 @@ import org.bukkit.inventory.PlayerInventory;
 public class CaughtFishAchievement extends Achievements {
 
     public CaughtFishAchievement(int count, Rewards[] reward, int[] amount) {
-        super(Requirement.KILLS,count,"CaughtFish"+count, reward, amount);
+        super("Caught a Fish?","Kill a player with a fishing rod.",Requirement.KILLS,count,"CaughtFish"+count, reward, amount);
     }
 
     @Override
