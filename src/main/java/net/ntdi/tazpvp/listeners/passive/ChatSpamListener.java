@@ -18,7 +18,7 @@ public class ChatSpamListener implements Listener {
 
     private final HashMap<Player, Long> cooldowns = new HashMap<>();
     //made static because maybe useful for other things
-    public static ArrayList<String> badlist = new ArrayList<>();
+    public static final ArrayList<String> badlist = new ArrayList<>();
 
     public ChatSpamListener(){
         badlist.add("bitch");
@@ -80,7 +80,7 @@ public class ChatSpamListener implements Listener {
 
         if(this.cooldowns.containsKey(p)){
             long lastUse = this.cooldowns.get(p);
-            if (time - lastUse < 1*1000) {
+            if (time - lastUse < 1000) {
                 p.sendMessage(ChatColor.GREEN + "There is a 1 second chat cooldown");
                 p.sendMessage(ChatColor.GREEN + "Buy a rank to remove it!");
                 e.setCancelled(true);

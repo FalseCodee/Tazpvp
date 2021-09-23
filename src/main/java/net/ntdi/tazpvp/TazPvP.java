@@ -2,7 +2,6 @@ package net.ntdi.tazpvp;
 
 // import com.oracle.xmlns.internal.webservices.jaxws_databinding.SoapBindingUse;
 
-import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
 import net.ntdi.tazpvp.commands.*;
 import net.ntdi.tazpvp.commands.functions.*;
@@ -10,7 +9,6 @@ import net.ntdi.tazpvp.commands.moderation.*;
 import net.ntdi.tazpvp.commands.playercommands.*;
 
 import net.ntdi.tazpvp.gui.GUIListener;
-import net.ntdi.tazpvp.listeners.*;
 import net.ntdi.tazpvp.listeners.function.*;
 import net.ntdi.tazpvp.listeners.passive.*;
 

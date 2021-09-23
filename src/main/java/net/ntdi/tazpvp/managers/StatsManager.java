@@ -10,8 +10,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class StatsManager {
-    public FileConfiguration statsFile;
-    File file;
+    public final FileConfiguration statsFile;
+    final File file;
 
     public StatsManager(){
         file = new File(TazPvP.getInstance().getDataFolder() + "/stats.yml");

@@ -2,13 +2,11 @@ package net.ntdi.tazpvp.gui.guis.upgrades;
 
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.gui.GUI;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 
 public class GUIMainScreen extends GUI {
@@ -17,6 +15,8 @@ public class GUIMainScreen extends GUI {
         init();
         player.openInventory(inventory);
     }
+
+    @SuppressWarnings("deprecation")
     public void init() {
         ItemStack sword = createItem(Material.WOOD_SWORD, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "SWORD", ChatColor.GRAY + "Click to see upgrades.");
         ItemStack pickaxe = createItem(Material.WOOD_PICKAXE, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "PICKAXE", ChatColor.GRAY + "Click to see upgrades.");
@@ -42,6 +42,7 @@ public class GUIMainScreen extends GUI {
 
         setButtons(22,eye, event -> {
             if(TazPvP.statsManager.getLevel(player) >= 150){
+                player.sendMessage("Congratulations!");
                 //TODO: Add Rebirths
             } else {
                 player.sendMessage(ChatColor.RED + "Reach level " + ChatColor.WHITE + "150" + ChatColor.RED + " to unlock this feature!");

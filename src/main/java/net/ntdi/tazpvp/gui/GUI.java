@@ -4,23 +4,20 @@ import com.google.common.collect.Maps;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.*;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 
 public abstract class GUI {
 
-    public Player player;
-    public Inventory inventory;
-    public ItemStack[] items;
-    public Map<Integer, Button> buttons = Maps.newHashMap();
+    public final Player player;
+    public final Inventory inventory;
+    public final ItemStack[] items;
+    public final Map<Integer, Button> buttons = Maps.newHashMap();
     public GUI(Player player, int size, String title) {
         if(GUIManager.getGUI(player) != null) {
             GUIManager.guiHashMap.remove(player.getUniqueId());

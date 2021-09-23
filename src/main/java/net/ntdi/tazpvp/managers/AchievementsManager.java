@@ -15,9 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AchievementsManager {
-    public FileConfiguration achievementsFile;
-    File file;
-    public ArrayList<Achievements> achievements = new ArrayList<>();
+    public final FileConfiguration achievementsFile;
+    final File file;
+    public final ArrayList<Achievements> achievements = new ArrayList<>();
 
     public AchievementsManager(){
         file = new File(TazPvP.getInstance().getDataFolder() + "/achievements.yml");

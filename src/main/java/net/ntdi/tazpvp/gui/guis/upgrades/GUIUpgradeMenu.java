@@ -14,13 +14,14 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 public class GUIUpgradeMenu extends GUI {
-    UpgradeTypes type;
+    final UpgradeTypes type;
     public GUIUpgradeMenu(Player player, UpgradeTypes type) {
         super(player, 27, ChatColor.BLUE + "" + ChatColor.BOLD + type.name());
         this.type = type;
         init();
         player.openInventory(inventory);
     }
+    @SuppressWarnings("deprecation")
     public void init() {
         ItemStack target = updateTarget();
 
@@ -109,7 +110,7 @@ public class GUIUpgradeMenu extends GUI {
                                 player.sendMessage(ChatColor.RED + "You already have the max level!");
                                 return;
                             }
-                        } else if (type == UpgradeTypes.ARMOR) {
+                        } else {
                             if(finalTarget.getType() == Material.LEATHER_BOOTS) {
                                 TazPvP.statsManager.addPoints(player, -type.reforge);
                                 ItemStack leggings = new ItemStack(Material.CHAINMAIL_LEGGINGS);

@@ -6,7 +6,6 @@ import net.ntdi.tazpvp.achievements.Requirement;
 import net.ntdi.tazpvp.achievements.Rewards;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.PlayerInventory;
 

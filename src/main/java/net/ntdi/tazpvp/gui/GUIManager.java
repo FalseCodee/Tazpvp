@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class GUIManager {
-    public static HashMap<UUID, GUI> guiHashMap = new HashMap<>();
+    public static final HashMap<UUID, GUI> guiHashMap = new HashMap<>();
 
     public static GUI getGUI(Player player) {
         return getGUI(player.getUniqueId());

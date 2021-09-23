@@ -12,8 +12,8 @@ import java.io.File;
 import java.io.IOException;
 
 public class StaffManager {
-    public FileConfiguration staffFile;
-    File file;
+    public final FileConfiguration staffFile;
+    final File file;
 
     public StaffManager(){
         file = new File(TazPvP.getInstance().getDataFolder() + "/staff.yml");

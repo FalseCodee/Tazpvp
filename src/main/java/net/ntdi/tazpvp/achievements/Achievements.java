@@ -5,7 +5,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 public abstract class Achievements {
-    public Requirement requirement;
+    public final Requirement requirement;
     public int count;
     public String prefix;
     public String name;
