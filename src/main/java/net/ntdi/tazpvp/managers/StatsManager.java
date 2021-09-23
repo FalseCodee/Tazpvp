@@ -34,6 +34,9 @@ public class StatsManager {
         statsFile.set(player.getUniqueId().toString()+".rank", TazPvP.permissions.getPrimaryGroup((Player) player));
         statsFile.set(player.getUniqueId().toString()+".smacks", 0);
         statsFile.set(player.getUniqueId().toString()+".lastReward", 0);
+        statsFile.set(player.getUniqueId().toString()+".rebirths", 0);
+        statsFile.set(player.getUniqueId().toString()+".credits", 0);
+        statsFile.set(player.getUniqueId().toString()+".streak", 0);
     }
 
     public int getMoney(OfflinePlayer player) {
@@ -108,5 +111,33 @@ public class StatsManager {
     }
     public void setLastReward(OfflinePlayer player) {
         statsFile.set(player.getUniqueId().toString() + ".lastReward", System.currentTimeMillis());
+    }
+    public int getRebirths(OfflinePlayer player) {
+        return statsFile.getInt(player.getUniqueId().toString()+".rebirths");
+    }
+    public void setRebirths(OfflinePlayer player, int rebirths) {
+        statsFile.set(player.getUniqueId().toString()+".rebirths", rebirths);
+    }
+    public void addRebirths(OfflinePlayer player, int rebirths) {
+        setRebirths(player, rebirths+getRebirths(player));
+    }
+
+    public int getCredits(OfflinePlayer player) {
+        return statsFile.getInt(player.getUniqueId().toString()+".credits");
+    }
+    public void setCredits(OfflinePlayer player, int kills) {
+        statsFile.set(player.getUniqueId().toString()+".credits", kills);
+    }
+    public void addCredits(OfflinePlayer player, int kills) {
+        setCredits(player, kills+getCredits(player));
+    }
+    public int getStreak(OfflinePlayer player) {
+        return statsFile.getInt(player.getUniqueId().toString()+".streak");
+    }
+    public void setStreak(OfflinePlayer player, int kills) {
+        statsFile.set(player.getUniqueId().toString()+".streak", kills);
+    }
+    public void addStreak(OfflinePlayer player, int kills) {
+        setStreak(player, kills+getStreak(player));
     }
 }

@@ -14,9 +14,15 @@ import net.ntdi.tazpvp.listeners.passive.*;
 
 import net.ntdi.tazpvp.managers.*;
 
+import net.ntdi.tazpvp.utils.MathUtils;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scoreboard.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -33,6 +39,8 @@ public final class TazPvP extends JavaPlugin {
     public static FileConfiguration configFile;
     public static File helpFile;
     public static File ruleFile;
+
+    private BukkitRunnable scoreboard;
 
     public static TazPvP instance;
     @Override
@@ -66,6 +74,9 @@ public final class TazPvP extends JavaPlugin {
 
         // Event Register
         registerListeners();
+
+        scoreboard = initScoreboard();
+        scoreboard.runTaskTimer(this, 20, 20*3);
         load();
         try {
             if(helpFile.createNewFile()){
@@ -98,6 +109,7 @@ public final class TazPvP extends JavaPlugin {
         punishmentManager.savePunishments();
         staffManager.saveStaffFile();
         achievementsManager.saveAchievements();
+        scoreboard.cancel();
     }
 
     public void registerManagers() {
@@ -151,6 +163,42 @@ public final class TazPvP extends JavaPlugin {
     public void initConfig(){
         configFile.options().copyDefaults(true);
         this.saveConfig();
+    }
+
+    public BukkitRunnable initScoreboard() {
+        return new BukkitRunnable() {
+            @Override
+            public void run() {
+                for(Player player : Bukkit.getOnlinePlayers()) {
+                    ScoreboardManager scoreboardManager = Bukkit.getScoreboardManager();
+                    Scoreboard scoreboard = scoreboardManager.getNewScoreboard();
+                    final Objective objective = scoreboard.registerNewObjective("test", "dummy");
+                    objective.setDisplaySlot(DisplaySlot.SIDEBAR);
+                    objective.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&b-&3=&b- &3tazpvp &b-&3=&b-"));
+                    Score blank = objective.getScore("");
+                    blank.setScore(10);
+                    Score level = objective.getScore(ChatColor.DARK_AQUA + "Level  " + ChatColor.GRAY + TazPvP.statsManager.getLevel(player));
+                    level.setScore(9);
+                    Score money = objective.getScore(ChatColor.DARK_AQUA + "Money  " + ChatColor.GRAY +  "$"+ TazPvP.statsManager.getMoney(player));
+                    money.setScore(8);
+                    Score points = objective.getScore(ChatColor.DARK_AQUA + "Points  " + ChatColor.GRAY + TazPvP.statsManager.getPoints(player));
+                    points.setScore(7);
+                    Score credits = objective.getScore(ChatColor.AQUA + "Credits  " + ChatColor.GRAY + TazPvP.statsManager.getCredits(player));
+                    credits.setScore(6);
+                    Score blank1 = objective.getScore("");
+                    blank1.setScore(5);
+                    Score streak = objective.getScore(ChatColor.RED + "Streak  " + ChatColor.GRAY + TazPvP.statsManager.getStreak(player));
+                    streak.setScore(4);
+                    Score kills = objective.getScore(ChatColor.RED + "Kills  " + ChatColor.GRAY + TazPvP.statsManager.getKills(player));
+                    kills.setScore(3);
+                    Score deaths = objective.getScore(ChatColor.RED + "Deaths  " + ChatColor.GRAY + TazPvP.statsManager.getDeaths(player));
+                    deaths.setScore(2);
+                    Score kdr = objective.getScore(ChatColor.RED + "KDR  " + ChatColor.GRAY + ((TazPvP.statsManager.getDeaths(player) > 0) ?  MathUtils.round((float) TazPvP.statsManager.getKills(player) / TazPvP.statsManager.getDeaths(player), 2) : TazPvP.statsManager.getKills(player)));
+                    kdr.setScore(1);
+                    player.setScoreboard(scoreboard);
+                }
+            }
+        };
     }
 
     public static TazPvP getInstance(){

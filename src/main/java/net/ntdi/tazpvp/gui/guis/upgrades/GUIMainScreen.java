@@ -43,7 +43,7 @@ public class GUIMainScreen extends GUI {
         setButtons(22,eye, event -> {
             if(TazPvP.statsManager.getLevel(player) >= 150){
                 player.sendMessage("Congratulations!");
-                //TODO: Add Rebirths
+                TazPvP.statsManager.addRebirths(player, 1);
             } else {
                 player.sendMessage(ChatColor.RED + "Reach level " + ChatColor.WHITE + "150" + ChatColor.RED + " to unlock this feature!");
             }

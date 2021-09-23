@@ -54,7 +54,7 @@ public class GUIDailyReward extends GUI {
             player.sendMessage("+ " + 200 + ChatColor.GREEN + " EXP");
             player.giveExp(80);
             player.sendMessage("+ " + 1 + ChatColor.AQUA + " Credit");
-            //TODO: Add Credits
+            TazPvP.statsManager.addCredits(player, 1);
         } else {
             setItems();
         }

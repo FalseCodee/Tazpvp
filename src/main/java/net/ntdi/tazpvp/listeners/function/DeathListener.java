@@ -10,8 +10,6 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 
 public class DeathListener implements Listener {
 
-    public TazPvP plugin;
-
     @EventHandler
     public void onPlayerDeathEvent(PlayerDeathEvent event){
         Player p = event.getEntity();
@@ -21,6 +19,8 @@ public class DeathListener implements Listener {
 //        if(!p.getLocation().getWorld().getName().equals(TazPvP.configFile.getString("arena.name"))){
 //            return;
 //        }
+        TazPvP.statsManager.setStreak(p,0);
+        TazPvP.statsManager.addStreak(killer, 1);
         event.getEntity().spigot().respawn();
 
             p.playSound(p.getLocation(), Sound.DIG_GRAVEL, 5, 1);

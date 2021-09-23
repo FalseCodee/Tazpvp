@@ -12,8 +12,6 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-//TODO: Test this
-
 public class ChatSpamListener implements Listener {
 
     private final HashMap<Player, Long> cooldowns = new HashMap<>();
