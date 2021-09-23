@@ -10,7 +10,9 @@ import net.ntdi.tazpvp.commands.moderation.*;
 import net.ntdi.tazpvp.commands.playercommands.*;
 
 import net.ntdi.tazpvp.gui.GUIListener;
+import net.ntdi.tazpvp.items.ItemManager;
 import net.ntdi.tazpvp.listeners.function.*;
+import net.ntdi.tazpvp.listeners.items.*;
 import net.ntdi.tazpvp.listeners.passive.*;
 
 import net.ntdi.tazpvp.managers.*;
@@ -59,6 +61,7 @@ public final class TazPvP extends JavaPlugin {
         punishmentManager = new PunishmentManager();
         staffManager = new StaffManager();
         achievementsManager = new AchievementsManager();
+        ItemManager.init();
 
         if(getServer().getPluginManager().getPlugin("Vault") != null) {
             RegisteredServiceProvider<Permission> rsp = getServer().getServicesManager().getRegistration(Permission.class);
@@ -163,6 +166,7 @@ public final class TazPvP extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerLevelChangeListener(), this);
         getServer().getPluginManager().registerEvents(new VanishCommand(), this);
         getServer().getPluginManager().registerEvents(new GUIListener(), this);
+        getServer().getPluginManager().registerEvents(new PlayerFishEvent(), this);
 
     }
 
