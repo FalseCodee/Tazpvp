@@ -7,6 +7,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 
 public class DeathListener implements Listener {
 
@@ -31,9 +33,16 @@ public class DeathListener implements Listener {
 
             TazPvP.statsManager.addMoney(killer, 5);
             killer.sendMessage("+5 " + ChatColor.YELLOW +"Coins");
-
+        if(TazPvP.statsManager.getRebirths(killer) > 0) {
+            killer.giveExp(8);
+            killer.sendMessage("+8 " + ChatColor.GREEN +"Exp");
+            killer.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 40, 1,true, false));
+            killer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 40, 1,true, false));
+        } else {
             killer.giveExp(5);
             killer.sendMessage("+5 " + ChatColor.GREEN +"Exp");
+        }
+
     }
 
     @EventHandler

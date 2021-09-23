@@ -13,7 +13,9 @@ public class PlayerLevelChangeListener implements Listener {
 //        if(!event.getPlayer().getLocation().getWorld().getName().equals(TazPvP.configFile.getString("arena.name"))){
 //            return;
 //        }
-        TazPvP.statsManager.setLevel(event.getPlayer(), event.getNewLevel());
-        event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "Level up! " + ChatColor.AQUA + " You are now level " + TazPvP.statsManager.getLevel(event.getPlayer()));
+        if (event.getNewLevel() != 0) {
+            TazPvP.statsManager.setLevel(event.getPlayer(), event.getNewLevel());
+            event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "Level up! " + ChatColor.AQUA + " You are now level " + TazPvP.statsManager.getLevel(event.getPlayer()));
+        }
     }
 }
