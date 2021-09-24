@@ -42,7 +42,7 @@ public class GUIUpgradeMenu extends GUI {
                             event.setCancelled(true);
                             if(TazPvP.statsManager.getPoints(player) >= enchantment.cost) {
                                 ItemStack finalTarget = updateTarget();
-                                if(finalTarget.getEnchantmentLevel(enchantment.ench) < enchantment.maxLevel) {
+                                if(finalTarget.getEnchantmentLevel(enchantment.ench) < enchantment.maxLevel + ((TazPvP.statsManager.getRebirths(player) > 0) ? 1 : 0)) {
                                     TazPvP.statsManager.addPoints(player, -enchantment.cost);
                                     finalTarget.addUnsafeEnchantment(enchantment.ench, finalTarget.getEnchantmentLevel(enchantment.ench)+1);
                                     if(type == UpgradeTypes.ARMOR && enchantment != EnchantInfo.FEATHER_FALLING) {
