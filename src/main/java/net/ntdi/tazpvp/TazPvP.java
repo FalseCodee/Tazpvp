@@ -160,6 +160,7 @@ public final class TazPvP extends JavaPlugin {
         getCommand("hide").setExecutor(new HideCommand());
         getCommand("dailyrewards").setExecutor(new RedeemCommand());
         getCommand("achievement").setExecutor(new AchievementGuiCommand());
+        getCommand("bounties").setExecutor(new BountyCommand());
     }
 
     public void registerListeners() {

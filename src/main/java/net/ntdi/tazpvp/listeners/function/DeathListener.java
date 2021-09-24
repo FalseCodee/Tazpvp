@@ -1,6 +1,7 @@
 package net.ntdi.tazpvp.listeners.function;
 
 import net.ntdi.tazpvp.TazPvP;
+import net.ntdi.tazpvp.commands.functions.BountyCommand;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -21,6 +22,11 @@ public class DeathListener implements Listener {
 //        if(!p.getLocation().getWorld().getName().equals(TazPvP.configFile.getString("arena.name"))){
 //            return;
 //        }
+        if(BountyCommand.bounties.get(p.getUniqueId()) != null) {
+            TazPvP.statsManager.addMoney(killer, BountyCommand.bounties.get(p.getUniqueId()));
+            killer.sendMessage(ChatColor.YELLOW + "You have claimed " + p.getDisplayName() + "'s bounty for " + ChatColor.WHITE + "$" + BountyCommand.bounties.get(p.getUniqueId()));
+            BountyCommand.bounties.remove(p.getUniqueId());
+        }
         TazPvP.statsManager.setStreak(p,0);
         TazPvP.statsManager.addStreak(killer, 1);
         event.getEntity().spigot().respawn();

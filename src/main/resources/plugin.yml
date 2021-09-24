@@ -160,3 +160,8 @@ commands:
       - ach
       - achieve
     usage: "/achievement"
+  bounties:
+    description: Opens the achievement menu
+    aliases:
+      - bounty
+    usage: "/bounties <player> <add> <integer>"
