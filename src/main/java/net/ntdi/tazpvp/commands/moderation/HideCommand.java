@@ -31,6 +31,9 @@ public class HideCommand implements CommandExecutor {
                 TazPvP.permissions.playerAddGroup(player, TazPvP.statsManager.getGroup(player));
                 TazPvP.permissions.playerRemove(player, "staff.hide");
             }
+            for(Player players : Bukkit.getOnlinePlayers()) {
+                TazPvP.getInstance().initScoreboard(players);
+            }
 
         } else {
             return false;

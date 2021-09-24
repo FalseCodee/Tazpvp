@@ -52,8 +52,6 @@ public final class TazPvP extends JavaPlugin {
     public static File helpFile;
     public static File ruleFile;
 
-    private BukkitRunnable scoreboard;
-
     public static TazPvP instance;
     @Override
     public void onEnable() {
@@ -94,8 +92,6 @@ public final class TazPvP extends JavaPlugin {
         // Event Register
         registerListeners();
 
-        scoreboard = initScoreboard();
-        scoreboard.runTaskTimer(this, 20, 20*3);
         load();
         try {
             if(helpFile.createNewFile()){
@@ -128,7 +124,6 @@ public final class TazPvP extends JavaPlugin {
         punishmentManager.savePunishments();
         staffManager.saveStaffFile();
         achievementsManager.saveAchievements();
-        scoreboard.cancel();
     }
 
     public void registerManagers() {
@@ -186,13 +181,12 @@ public final class TazPvP extends JavaPlugin {
         this.saveConfig();
     }
 
-    public BukkitRunnable initScoreboard() {
-        return new BukkitRunnable() {
-            @Override
-            public void run() {
-                for(Player player : Bukkit.getOnlinePlayers()) {
+    public void initScoreboard(Player player) {
+
                     Scoreboard sb = statsManager.scoreboards.get(player.getUniqueId());
                     Objective objective = sb.getObjective("sb");
+                    objective.unregister();
+                    objective = sb.registerNewObjective("sb", "dummy");
                     objective.setDisplaySlot(DisplaySlot.SIDEBAR);
                     objective.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&b-&3=&b- &3tazpvp &b-&3=&b-"));
                     Score blank = objective.getScore("");
@@ -225,10 +219,6 @@ public final class TazPvP extends JavaPlugin {
                     }
                     player.setScoreboard(sb);
                 }
-            }
-        };
-    }
-
     public static void sendTablistHeaderAndFooter(Player player, String header, String footer) {
         PacketContainer container = new PacketContainer(PacketType.Play.Server.PLAYER_LIST_HEADER_FOOTER);
         container.getChatComponents()
