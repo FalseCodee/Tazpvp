@@ -190,9 +190,8 @@ public final class TazPvP extends JavaPlugin {
             @Override
             public void run() {
                 for(Player player : Bukkit.getOnlinePlayers()) {
-                    ScoreboardManager scoreboardManager = Bukkit.getScoreboardManager();
-                    Scoreboard scoreboard = scoreboardManager.getNewScoreboard();
-                    final Objective objective = scoreboard.registerNewObjective("test", "dummy");
+                    Scoreboard sb = statsManager.scoreboards.get(player.getUniqueId());
+                    Objective objective = sb.getObjective("sb");
                     objective.setDisplaySlot(DisplaySlot.SIDEBAR);
                     objective.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&b-&3=&b- &3tazpvp &b-&3=&b-"));
                     Score blank = objective.getScore("");
@@ -215,7 +214,15 @@ public final class TazPvP extends JavaPlugin {
                     deaths.setScore(2);
                     Score kdr = objective.getScore(ChatColor.RED + "KDR  " + ChatColor.GRAY + ((TazPvP.statsManager.getDeaths(player) > 0) ?  MathUtils.round((float) TazPvP.statsManager.getKills(player) / TazPvP.statsManager.getDeaths(player), 2) : TazPvP.statsManager.getKills(player)));
                     kdr.setScore(1);
-                    player.setScoreboard(scoreboard);
+                    for(Player player1 : Bukkit.getOnlinePlayers()) {
+                        statsManager.getTeam(player1, sb).addEntry(player1.getName());
+                    }
+                    if(permissions.getPrimaryGroup(player).equals("default")) {
+                        player.setPlayerListName(ChatColor.GRAY + player.getDisplayName());
+                    } else {
+                        player.setPlayerListName(ChatColor.translateAlternateColorCodes('&',chat.getGroupPrefix((String) null, permissions.getPrimaryGroup(player)) + player.getDisplayName()));
+                    }
+                    player.setScoreboard(sb);
                 }
             }
         };

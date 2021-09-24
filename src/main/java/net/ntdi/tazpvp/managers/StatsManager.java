@@ -1,21 +1,52 @@
 package net.ntdi.tazpvp.managers;
 
 import net.ntdi.tazpvp.TazPvP;
+import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scoreboard.Objective;
+import org.bukkit.scoreboard.Scoreboard;
+import org.bukkit.scoreboard.Team;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.UUID;
+import java.util.WeakHashMap;
 
 public class StatsManager {
     public final FileConfiguration statsFile;
     final File file;
+    public WeakHashMap<UUID, Scoreboard> scoreboards = new WeakHashMap<>();
+    
+
+
 
     public StatsManager(){
         file = new File(TazPvP.getInstance().getDataFolder() + "/stats.yml");
         statsFile = YamlConfiguration.loadConfiguration(file);
+    }
+    public void initScoreboard(Player player) {
+        Scoreboard sb = Bukkit.getScoreboardManager().getNewScoreboard();
+        sb.registerNewTeam("a");
+        sb.registerNewTeam("b");
+        sb.registerNewTeam("c");
+        sb.registerNewTeam("d");
+        sb.registerNewTeam("e");
+        sb.registerNewTeam("f");
+        sb.registerNewTeam("g");
+        sb.registerNewTeam("h");
+        sb.registerNewTeam("i");
+        sb.registerNewTeam("j");
+        sb.registerNewTeam("k");
+        sb.registerNewTeam("l");
+        sb.registerNewTeam("m");
+        sb.registerNewTeam("n");
+        sb.registerNewTeam("z");
+        sb.registerNewObjective("sb", "dummy");
+        scoreboards.put(player.getUniqueId(), sb);
     }
     public void saveStats(){
         try {
@@ -140,4 +171,40 @@ public class StatsManager {
     public void addStreak(OfflinePlayer player, int kills) {
         setStreak(player, kills+getStreak(player));
     }
+    
+    public Team getTeam(Player player, Scoreboard sb) {
+            switch (TazPvP.permissions.getPrimaryGroup(player).toLowerCase()) {
+                case"default":
+                    return sb.getTeam("n");
+                case"owner":
+                    return sb.getTeam("a");
+                case"manager":
+                    return sb.getTeam("b");
+                case"admin":
+                    return sb.getTeam("c");
+                case"mod":
+                    return sb.getTeam("e");
+                case"helper":
+                    return sb.getTeam("f");
+                case"builder":
+                    return sb.getTeam("g");
+                case"sr.Mod":
+                    return sb.getTeam("d");
+                case"pro":
+                    return sb.getTeam("j");
+                case"champion":
+                    return sb.getTeam("k");
+                case"legend":
+                    return sb.getTeam("l");
+                case"dev":
+                    return sb.getTeam("h");
+                case"youtube":
+                    return sb.getTeam("i");
+                case"mythical":
+                    return sb.getTeam("m");
+                case"banned":
+                    return sb.getTeam("z");
+            } 
+            return null;
+        }
 }

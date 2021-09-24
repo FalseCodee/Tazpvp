@@ -41,6 +41,11 @@ public class ChatSpamListener implements Listener {
     @EventHandler()
     public void onChat(AsyncPlayerChatEvent e) {
         Player p = e.getPlayer();
+        if(TazPvP.permissions.getPrimaryGroup(p).equals("default")) {
+            e.setFormat(ChatColor.GRAY+ "[" + TazPvP.statsManager.getLevel(p) + "] " + p.getDisplayName() + ": " + "%2$s");
+        } else {
+            e.setFormat(ChatColor.GRAY+ "[" + TazPvP.statsManager.getLevel(p) + "] " + ChatColor.translateAlternateColorCodes('&',TazPvP.chat.getGroupPrefix((String) null, TazPvP.permissions.getPrimaryGroup(p))+ p.getDisplayName()) + " " + ChatColor.WHITE + "%2$s");
+        }
         if(p.hasPermission("staff.staffchat") && TazPvP.staffManager.staffChatToggled(p)){
             TazPvP.staffManager.sendStaffChat(p, e.getMessage());
             e.setCancelled(true);
@@ -94,11 +99,6 @@ public class ChatSpamListener implements Listener {
         }
         if(p.isOp()) {
             e.setMessage(ChatColor.translateAlternateColorCodes('&',e.getMessage()));
-        }
-        if(TazPvP.permissions.getPrimaryGroup(p).equals("default")) {
-            e.setFormat(ChatColor.GRAY+ "[" + TazPvP.statsManager.getLevel(p) + "] " + p.getDisplayName() + ": " + "%2$s");
-        } else {
-            e.setFormat(ChatColor.GRAY+ "[" + TazPvP.statsManager.getLevel(p) + "] " + ChatColor.translateAlternateColorCodes('&',TazPvP.chat.getGroupPrefix((String) null, TazPvP.permissions.getPrimaryGroup(p))+ p.getDisplayName()) + " " + ChatColor.WHITE + "%2$s");
         }
         cooldowns.put(p, time);
     }
