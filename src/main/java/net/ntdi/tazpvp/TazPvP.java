@@ -2,6 +2,11 @@ package net.ntdi.tazpvp;
 
 // import com.oracle.xmlns.internal.webservices.jaxws_databinding.SoapBindingUse;
 
+import com.comphenix.protocol.PacketType;
+import com.comphenix.protocol.ProtocolLibrary;
+import com.comphenix.protocol.ProtocolManager;
+import com.comphenix.protocol.events.PacketContainer;
+import com.comphenix.protocol.wrappers.WrappedChatComponent;
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.permission.Permission;
 import net.ntdi.tazpvp.commands.*;
@@ -29,6 +34,7 @@ import org.bukkit.scoreboard.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 
 public final class TazPvP extends JavaPlugin {
 
@@ -39,6 +45,8 @@ public final class TazPvP extends JavaPlugin {
 
     public static Permission permissions;
     public static Chat chat;
+
+    static ProtocolManager protocolManager;
 
     public static FileConfiguration configFile;
     public static File helpFile;
@@ -75,6 +83,8 @@ public final class TazPvP extends JavaPlugin {
         } else {
             System.out.println("Vault not found!");
         }
+
+        protocolManager = ProtocolLibrary.getProtocolManager();
         // Manager Register
         registerManagers();
 
@@ -209,6 +219,18 @@ public final class TazPvP extends JavaPlugin {
                 }
             }
         };
+    }
+
+    public static void sendTablistHeaderAndFooter(Player player, String header, String footer) {
+        PacketContainer container = new PacketContainer(PacketType.Play.Server.PLAYER_LIST_HEADER_FOOTER);
+        container.getChatComponents()
+                .write(0, WrappedChatComponent.fromText(header))
+                .write(1, WrappedChatComponent.fromText(footer));
+        try{
+            protocolManager.sendServerPacket(player, container);
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
     }
 
     public static TazPvP getInstance(){
