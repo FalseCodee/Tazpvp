@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 public class SmackAchievement extends Achievements {
 
     public SmackAchievement(int count, Rewards[] reward, int[] amount) {
-        super(Requirement.SMACKS,count,"Smack"+count, reward, amount);
+        super("Smack o " + count,"Punch players " + count + " times.",Requirement.SMACKS,count,"Smack"+count, reward, amount);
     }
 
     @Override
@@ -27,7 +27,6 @@ public class SmackAchievement extends Achievements {
 
     public void onSmack(Player smacker){
         if(TazPvP.statsManager.getSmacks(smacker) >= count && !TazPvP.achievementsManager.playerCompletedAchievement(this, smacker)) {
-
             onAchievement(smacker);
         }
     }

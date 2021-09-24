@@ -1,6 +1,7 @@
 package net.ntdi.tazpvp.commands.playercommands;
 
 import net.ntdi.tazpvp.gui.guis.GUIDailyReward;
+import net.ntdi.tazpvp.gui.guis.upgrades.GUIMainScreen;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -15,7 +16,7 @@ public class RedeemCommand implements CommandExecutor {
         }
 
         if(player != null) {
-            new GUIDailyReward(player);
+            new GUIMainScreen(player);
         }
         return true;
     }

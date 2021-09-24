@@ -24,11 +24,15 @@ public class HideCommand implements CommandExecutor {
                 for(World w : Bukkit.getServer().getWorlds()){
                     TazPvP.permissions.playerRemoveGroup(w.getName(), player, TazPvP.permissions.getPrimaryGroup(player));
                 }
+                TazPvP.permissions.playerRemoveGroup(null, player, TazPvP.permissions.getPrimaryGroup(player));
                 TazPvP.permissions.playerAdd(player, "staff.hide");
 
             } else {
                 TazPvP.permissions.playerAddGroup(player, TazPvP.statsManager.getGroup(player));
                 TazPvP.permissions.playerRemove(player, "staff.hide");
+            }
+            for(Player players : Bukkit.getOnlinePlayers()) {
+                TazPvP.getInstance().initScoreboard(players);
             }
 
         } else {

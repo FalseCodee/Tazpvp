@@ -2,14 +2,15 @@ package net.ntdi.tazpvp.gui.guis.upgrades;
 
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.gui.GUI;
+import net.ntdi.tazpvp.utils.PlayerUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public class GUIMainScreen extends GUI {
     public GUIMainScreen(Player player) {
@@ -17,6 +18,8 @@ public class GUIMainScreen extends GUI {
         init();
         player.openInventory(inventory);
     }
+
+    @SuppressWarnings("deprecation")
     public void init() {
         ItemStack sword = createItem(Material.WOOD_SWORD, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "SWORD", ChatColor.GRAY + "Click to see upgrades.");
         ItemStack pickaxe = createItem(Material.WOOD_PICKAXE, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "PICKAXE", ChatColor.GRAY + "Click to see upgrades.");
@@ -42,7 +45,15 @@ public class GUIMainScreen extends GUI {
 
         setButtons(22,eye, event -> {
             if(TazPvP.statsManager.getLevel(player) >= 150){
-                //TODO: Add Rebirths
+                player.sendMessage("Congratulations you have rebirthed!");
+                TazPvP.statsManager.addRebirths(player, 1);
+                TazPvP.statsManager.setMoney(player,0);
+                TazPvP.statsManager.setPoints(player,0);
+                TazPvP.statsManager.setLevel(player,0);
+                player.giveExpLevels(-player.getLevel());
+                player.setExp(0);
+                PlayerUtils.equipStarter(player);
+                Bukkit.getScheduler().runTask(TazPvP.getInstance(), player::closeInventory);
             } else {
                 player.sendMessage(ChatColor.RED + "Reach level " + ChatColor.WHITE + "150" + ChatColor.RED + " to unlock this feature!");
             }

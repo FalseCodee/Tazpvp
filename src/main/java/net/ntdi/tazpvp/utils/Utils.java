@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Utils {
-    public static World spawnWorld = Bukkit.getWorld(TazPvP.configFile.getString("spawn.world"));
-    public static Location spawnLocation = new Location(spawnWorld,
+    public static final World spawnWorld = Bukkit.getWorld(TazPvP.configFile.getString("spawn.world"));
+    public static final Location spawnLocation = new Location(spawnWorld,
             TazPvP.configFile.getDouble("spawn.x"),
             TazPvP.configFile.getDouble("spawn.y"),
             TazPvP.configFile.getDouble("spawn.z"),

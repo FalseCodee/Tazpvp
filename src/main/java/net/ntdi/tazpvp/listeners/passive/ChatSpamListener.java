@@ -12,13 +12,11 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-//TODO: Test this
-
 public class ChatSpamListener implements Listener {
 
     private final HashMap<Player, Long> cooldowns = new HashMap<>();
     //made static because maybe useful for other things
-    public static ArrayList<String> badlist = new ArrayList<>();
+    public static final ArrayList<String> badlist = new ArrayList<>();
 
     public ChatSpamListener(){
         badlist.add("bitch");
@@ -43,6 +41,11 @@ public class ChatSpamListener implements Listener {
     @EventHandler()
     public void onChat(AsyncPlayerChatEvent e) {
         Player p = e.getPlayer();
+        if(TazPvP.permissions.getPrimaryGroup(p).equals("default")) {
+            e.setFormat(ChatColor.GRAY+ "[" + TazPvP.statsManager.getLevel(p) + "] " + p.getDisplayName() + ": " + "%2$s");
+        } else {
+            e.setFormat(ChatColor.GRAY+ "[" + TazPvP.statsManager.getLevel(p) + "] " + ChatColor.translateAlternateColorCodes('&',TazPvP.chat.getGroupPrefix((String) null, TazPvP.permissions.getPrimaryGroup(p))+ p.getDisplayName()) + " " + ChatColor.WHITE + "%2$s");
+        }
         if(p.hasPermission("staff.staffchat") && TazPvP.staffManager.staffChatToggled(p)){
             TazPvP.staffManager.sendStaffChat(p, e.getMessage());
             e.setCancelled(true);
@@ -80,7 +83,7 @@ public class ChatSpamListener implements Listener {
 
         if(this.cooldowns.containsKey(p)){
             long lastUse = this.cooldowns.get(p);
-            if (time - lastUse < 1*1000) {
+            if (time - lastUse < 1000) {
                 p.sendMessage(ChatColor.GREEN + "There is a 1 second chat cooldown");
                 p.sendMessage(ChatColor.GREEN + "Buy a rank to remove it!");
                 e.setCancelled(true);
@@ -93,6 +96,9 @@ public class ChatSpamListener implements Listener {
                 p.sendMessage(ChatColor.GREEN + "Dont Spam!");
                 e.setCancelled(true);
             }
+        }
+        if(p.isOp()) {
+            e.setMessage(ChatColor.translateAlternateColorCodes('&',e.getMessage()));
         }
         cooldowns.put(p, time);
     }

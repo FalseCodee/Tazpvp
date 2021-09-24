@@ -8,7 +8,7 @@ import org.bukkit.entity.Player;
 
 public class DeathAchievement extends Achievements {
     public DeathAchievement(int count, Rewards[] reward, int[] amount) {
-        super(Requirement.DEATHS, count, "deaths"+count, reward, amount);
+        super("Death " + count,"Die " + count + " times.",Requirement.DEATHS, count, "deaths"+count, reward, amount);
     }
 
     @Override

@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 public class SlowPokeAchievement extends Achievements {
 
     public SlowPokeAchievement(int count, Rewards[] reward, int[] amount) {
-        super(Requirement.KILLS,count,"SlowPoke"+count, reward, amount);
+        super("Slow poke","Kill while sneaking.",Requirement.KILLS,count,"SlowPoke"+count, reward, amount);
     }
 
     @Override

@@ -1,7 +1,6 @@
 package net.ntdi.tazpvp.commands.playercommands;
 
 import net.ntdi.tazpvp.gui.guis.GUIAchievement;
-import net.ntdi.tazpvp.gui.guis.GUIDailyReward;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

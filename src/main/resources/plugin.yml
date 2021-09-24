@@ -1,11 +1,13 @@
 name: Tazpvp
 prefix: Tazpvp
-version: '${project.version}'
+version: ${project.version}
 main: net.ntdi.tazpvp.TazPvP
 api-version: 1.16
 authors: [ Ntdi, FalseCode, rownox ]
 depend:
   - Vault
+  - ProtocolLib
+  - Citizens
 commands:
   sendmessage:
     description: send a message to someone

@@ -5,18 +5,22 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 public abstract class Achievements {
-    public Requirement requirement;
+    public final Requirement requirement;
     public int count;
     public String prefix;
+    public String name;
+    public String description;
     public Rewards[] rewards;
     public int[] rewardAmount;
 
-    public Achievements(Requirement req, int count, String prefix, Rewards[] rewards, int[] rewardAmount) {
+    public Achievements(String name, String description, Requirement req, int count, String prefix, Rewards[] rewards, int[] rewardAmount) {
         this.requirement = req;
         this.count = count;
         this.prefix = prefix;
         this.rewards = rewards;
         this.rewardAmount = rewardAmount;
+        this.name = name;
+        this.description = description;
     }
 
     public Achievements(Requirement req) {
@@ -64,5 +68,30 @@ public abstract class Achievements {
                     break;
             }
         }
+    }
+    public String[] getStringRewards(){
+        String[] rewardString = new String[rewards.length];
+        for(int i = 0; i < rewards.length; i++){
+            switch(rewards[i]){
+                case MONEY:
+                    rewardString[i] = ChatColor.WHITE + "" + rewardAmount[i] + ChatColor.YELLOW + " Coins";
+                    break;
+                case EXP:
+                    rewardString[i] = ChatColor.WHITE + "" + rewardAmount[i] + ChatColor.GREEN + " EXP";
+                    break;
+                case POINTS:
+                    rewardString[i] = ChatColor.WHITE + "" + rewardAmount[i] + ChatColor.BLUE + " Points";
+                    break;
+            }
+        }
+        return rewardString;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

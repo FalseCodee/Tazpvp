@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 public class ButAScratchAchievement extends Achievements {
 
     public ButAScratchAchievement(int count, Rewards[] reward, int[] amount) {
-        super(Requirement.KILLS,count,"ButAScratch"+count, reward, amount);
+        super("T'is but a scratch","Kill a player at full health.",Requirement.KILLS,count,"ButAScratch"+count, reward, amount);
     }
 
     @Override

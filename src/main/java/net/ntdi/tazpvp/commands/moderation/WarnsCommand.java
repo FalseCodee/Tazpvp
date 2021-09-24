@@ -3,14 +3,12 @@ package net.ntdi.tazpvp.commands.moderation;
 import net.ntdi.tazpvp.TazPvP;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import java.util.List;
-import java.util.UUID;
 
 public class WarnsCommand implements CommandExecutor {
     @Override

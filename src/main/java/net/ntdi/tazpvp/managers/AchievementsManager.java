@@ -15,9 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AchievementsManager {
-    public FileConfiguration achievementsFile;
-    File file;
-    ArrayList<Achievements> achievements = new ArrayList<>();
+    public final FileConfiguration achievementsFile;
+    final File file;
+    public final ArrayList<Achievements> achievements = new ArrayList<>();
 
     public AchievementsManager(){
         file = new File(TazPvP.getInstance().getDataFolder() + "/achievements.yml");
@@ -41,7 +41,7 @@ public class AchievementsManager {
         achievements.add(new KillAchievement(100, new Rewards[] {Rewards.MONEY}, new int[] {500}));
         achievements.add(new KillAchievement(200, new Rewards[] {Rewards.POINTS}, new int[] {15}));
         achievements.add(new KillAchievement(500, new Rewards[] {Rewards.MONEY}, new int[] {1000}));
-        achievements.add(new KillAchievement(100, new Rewards[] {Rewards.POINTS}, new int[] {25}));
+        achievements.add(new KillAchievement(1000, new Rewards[] {Rewards.POINTS}, new int[] {25}));
         achievements.add(new KillAchievement(1500, new Rewards[] {Rewards.MONEY}, new int[] {15000}));
 
         // one heart achievement

@@ -6,14 +6,13 @@ import net.ntdi.tazpvp.achievements.Requirement;
 import net.ntdi.tazpvp.achievements.Rewards;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.PlayerInventory;
 
 public class BeefAchievement extends Achievements {
 
     public BeefAchievement(int count, Rewards[] reward, int[] amount) {
-        super(Requirement.KILLS,count,"StartingBeef"+count, reward, amount);
+        super("Starting Beef","Kill a player with steak.",Requirement.KILLS,count,"StartingBeef"+count, reward, amount);
     }
 
     @Override

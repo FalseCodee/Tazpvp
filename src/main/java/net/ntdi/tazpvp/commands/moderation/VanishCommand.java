@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class VanishCommand implements CommandExecutor, Listener {
-    public List<Player> vanishList = new ArrayList<>();
+    public final List<Player> vanishList = new ArrayList<>();
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {

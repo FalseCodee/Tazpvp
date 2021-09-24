@@ -1,6 +1,7 @@
 package net.ntdi.tazpvp.listeners.passive;
 
 import net.ntdi.tazpvp.TazPvP;
+import net.ntdi.tazpvp.managers.StatsManager;
 import net.ntdi.tazpvp.utils.PlayerUtils;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
@@ -9,9 +10,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.PlayerInventory;
-import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.scoreboard.Scoreboard;
 
 public class WelcomeListener implements Listener {
 
@@ -26,6 +25,15 @@ public class WelcomeListener implements Listener {
         p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "  |  Discord: /discord");
         p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "  |  IP: tazpvp.net");
         p.sendMessage(ChatColor.AQUA + "");
+        for(Player player : Bukkit.getOnlinePlayers()) {
+            TazPvP.sendTablistHeaderAndFooter(player, ChatColor.translateAlternateColorCodes('&', "&b-&3-&b-&3-&b-&3-&b-=[ &3TAZPVP &b]=-&3-&b-&3-&b-&3-&b-"),
+                    ChatColor.GRAY+"tazpvp.net\n"
+                            +ChatColor.AQUA+Bukkit.getOnlinePlayers().size() + ChatColor.GRAY+"/" + ChatColor.DARK_AQUA+Bukkit.getMaxPlayers());
+        }
+        for(Scoreboard sb : TazPvP.statsManager.scoreboards.values()) {
+            TazPvP.statsManager.getTeam(p, sb).addEntry(p.getName());
+        }
+        TazPvP.statsManager.initScoreboard(p);
             if(!TazPvP.staffManager.hiddenToggled(p)){
                 TazPvP.statsManager.setGroup(p, TazPvP.permissions.getPrimaryGroup(p));
             } else {
@@ -50,6 +58,11 @@ public class WelcomeListener implements Listener {
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent event){
         Player p = event.getPlayer();
+        for(Scoreboard sb : TazPvP.statsManager.scoreboards.values()) {
+            TazPvP.statsManager.getTeam(p, sb).removeEntry(p.getName());
+        }
+
+        TazPvP.statsManager.scoreboards.remove(p.getUniqueId());
         event.setQuitMessage(ChatColor.GRAY + "[" + ChatColor.RED + "-" + ChatColor.GRAY + "] " + p.getName());
 
     }

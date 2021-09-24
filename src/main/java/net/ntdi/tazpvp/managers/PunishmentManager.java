@@ -8,13 +8,12 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 public class PunishmentManager {
-    public FileConfiguration punishmentFile;
-    File file;
+    public final FileConfiguration punishmentFile;
+    final File file;
 
     public PunishmentManager(){
         file = new File(TazPvP.getInstance().getDataFolder() + "/punishments.yml");
