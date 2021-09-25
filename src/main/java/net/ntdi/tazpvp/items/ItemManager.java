@@ -1,5 +1,8 @@
 package net.ntdi.tazpvp.items;
 
+import net.ntdi.tazpvp.items.items.Agility;
+import net.ntdi.tazpvp.items.items.Butter;
+import net.ntdi.tazpvp.items.items.Extinguish;
 import net.ntdi.tazpvp.items.items.GrapplingHook;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -13,6 +16,9 @@ public class ItemManager {
     public static final ArrayList<Item> items = new ArrayList<>();
     public static void init() {
         items.add(new GrapplingHook());
+        items.add(new Agility());
+        items.add(new Butter());
+        items.add(new Extinguish());
     }
 
     public static void givePlayerItem(Player player, Items item, int count) {
