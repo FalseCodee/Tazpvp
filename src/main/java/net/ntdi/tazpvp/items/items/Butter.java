@@ -16,7 +16,11 @@ public class Butter extends ConsumableItem {
     @Override
     public void execute(Player p, ItemStack itemStack) {
         super.execute(p, itemStack);
-        p.setHealth(p.getHealth()+4);
+        if(p.getHealth() <= 16) {
+            p.setHealth(p.getHealth() + 4);
+        } else {
+            p.setHealth(20);
+        }
         p.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 20*60, 0));
         p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20*3, 0));
     }

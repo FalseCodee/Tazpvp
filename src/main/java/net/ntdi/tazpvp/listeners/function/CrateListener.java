@@ -41,20 +41,22 @@ public class CrateListener implements Listener {
 
             p.sendMessage(ChatColor.GOLD + "+" + result + " Coins");
             p.sendMessage(ChatColor.AQUA + "+20 EXP");
+            return;
 
-        } else {
+        }
             for(Items items : Items.values()) {
                 if(items.display.equals(p.getItemInHand().getItemMeta().getDisplayName())) {
                     for(Item i : ItemManager.items) {
                         if(i.enumeration.equals(items)) {
                             i.execute(p, p.getItemInHand());
+                            event.setCancelled(true);
                             return;
                         }
                     }
                     return;
                 }
             }
-        }
+
 
     }
 
