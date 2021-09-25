@@ -12,7 +12,7 @@ import org.bukkit.inventory.ItemStack;
 public class GUIShop extends GUI {
 
     public GUIShop(Player player) {
-        super(player, 54, "SHOP");
+        super(player, 45, "SHOP");
         player.openInventory(inventory);
     }
 
