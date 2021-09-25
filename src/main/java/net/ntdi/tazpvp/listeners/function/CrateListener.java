@@ -1,7 +1,11 @@
 package net.ntdi.tazpvp.listeners.function;
 
+import com.google.common.base.Enums;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.ntdi.tazpvp.TazPvP;
+import net.ntdi.tazpvp.items.Item;
+import net.ntdi.tazpvp.items.ItemManager;
+import net.ntdi.tazpvp.items.Items;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -20,10 +24,8 @@ public class CrateListener implements Listener {
     public void onPlayerCrateEvent(PlayerInteractEvent event){
         Player p = (Player) event.getPlayer();
 
-        if (event.getClickedBlock().getType() == Material.CHEST) {
-            p.sendMessage(ChatColor.RED + "chezt openz");
+        if (event.getClickedBlock() != null && event.getClickedBlock().getType() == Material.CHEST) {
             event.setCancelled(true);
-            Location location = event.getClickedBlock().getLocation();
 
             Block block = event.getClickedBlock();
             block.setType(Material.AIR);
@@ -37,9 +39,21 @@ public class CrateListener implements Listener {
             TazPvP.statsManager.addMoney(p, result);
             p.giveExp(20);
 
-            p.sendMessage(ChatColor.GOLD + "+" + result + "$");
-            p.sendMessage(ChatColor.AQUA + "+20");
+            p.sendMessage(ChatColor.GOLD + "+" + result + " Coins");
+            p.sendMessage(ChatColor.AQUA + "+20 EXP");
 
+        } else {
+            for(Items items : Items.values()) {
+                if(items.display.equals(p.getItemInHand().getItemMeta().getDisplayName())) {
+                    for(Item i : ItemManager.items) {
+                        if(i.enumeration.equals(items)) {
+                            i.execute(p, p.getItemInHand());
+                            return;
+                        }
+                    }
+                    return;
+                }
+            }
         }
 
     }
