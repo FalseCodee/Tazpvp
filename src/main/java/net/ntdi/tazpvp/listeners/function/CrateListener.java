@@ -14,6 +14,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.BlockIterator;
 
 import java.util.Random;
@@ -35,6 +36,8 @@ public class CrateListener implements Listener {
             int low = 50;
             int high = 100;
             int result = r.nextInt(high-low) + low;
+
+
 
             TazPvP.statsManager.addMoney(p, result);
             p.giveExp(20);

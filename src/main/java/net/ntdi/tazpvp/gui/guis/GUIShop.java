@@ -8,6 +8,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 public class GUIShop extends GUI {
 
@@ -23,6 +24,11 @@ public class GUIShop extends GUI {
             event.setCancelled(true);
                 if(TazPvP.statsManager.getMoney(player) >= cost) {
                     TazPvP.statsManager.addMoney(player, -cost);
+
+                    ItemMeta namin = item.getItemMeta();
+                    namin.setDisplayName(name);
+                    item.setItemMeta(namin);
+
                     player.getInventory().addItem(item);
                 } else {
                     player.sendMessage(ChatColor.RED + "Insufficient funds");
