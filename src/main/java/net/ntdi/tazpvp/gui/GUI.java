@@ -3,9 +3,11 @@ package net.ntdi.tazpvp.gui;
 import com.google.common.collect.Maps;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.*;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -58,6 +60,34 @@ public abstract class GUI {
         ItemStack itemStack = new ItemStack(item, count);
         ItemMeta meta = itemStack.getItemMeta();
         meta.setDisplayName(name);
+        itemStack.setItemMeta(meta);
+        return itemStack;
+    }
+    public static ItemStack createItem(ItemStack item, String name, String lore, boolean enchanted) {
+        ItemStack itemStack = new ItemStack(item);
+        if(enchanted) {
+            itemStack.addUnsafeEnchantment(Enchantment.ARROW_INFINITE, 1);
+        }
+        ItemMeta meta = itemStack.getItemMeta();
+        meta.setDisplayName(name);
+        if(enchanted) {
+            meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        }
+        meta.setLore(Arrays.asList(lore.split("\n")));
+        itemStack.setItemMeta(meta);
+        return itemStack;
+    }
+    public static ItemStack createItem(Material item, String name, String lore, boolean enchanted) {
+        ItemStack itemStack = new ItemStack(item);
+        if(enchanted) {
+            itemStack.addUnsafeEnchantment(Enchantment.ARROW_INFINITE, 1);
+        }
+        ItemMeta meta = itemStack.getItemMeta();
+        meta.setDisplayName(name);
+        if(enchanted) {
+            meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        }
+        meta.setLore(Arrays.asList(lore.split("\n")));
         itemStack.setItemMeta(meta);
         return itemStack;
     }
