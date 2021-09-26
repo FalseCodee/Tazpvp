@@ -54,6 +54,7 @@ public class WelcomeListener implements Listener {
             Player player = event.getPlayer();
             PlayerUtils.equipStarter(player);
         }
+        p.spigot().setCollidesWithEntities(true);
     }
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent event){
@@ -65,6 +66,7 @@ public class WelcomeListener implements Listener {
         TazPvP.statsManager.scoreboards.remove(p.getUniqueId());
         event.setQuitMessage(ChatColor.GRAY + "[" + ChatColor.RED + "-" + ChatColor.GRAY + "] " + p.getName());
 
+        p.spigot().setCollidesWithEntities(true);
     }
 
     @EventHandler

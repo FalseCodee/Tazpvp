@@ -26,6 +26,15 @@ public class SnowballHitEvent implements Listener {
             Snowball ball = (Snowball)event.getEntity();
             if(ball.hasMetadata("IsSquid")) {
 
+                Player p = (Player) event.getEntity().getShooter();
+
+//                p.spigot().setCollidesWithEntities(true);
+
+//                LivingEntity squid = (LivingEntity) event.getEntity().getPassenger();
+//
+//                squid.damage(100);
+//                squid.setHealth(0);
+
                 Location landed = (Location)event.getEntity().getLocation();
 
                 float power = 2;
