@@ -12,34 +12,36 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.FixedMetadataValue;
 
 import java.util.HashMap;
+import java.util.UUID;
 
 public class SquidLauncher extends ClickableItem {
     public SquidLauncher() {
         super(Items.SQUID_LAUNCHER);
     }
 
-    public HashMap<String, Long> cooldowns = new HashMap<String, Long>();
+    public HashMap<UUID, Long> cooldowns = new HashMap<>();
 
     @Override
     public void execute(Player p, ItemStack itemStack) {
         super.execute(p, itemStack);
         int cooldownTime = 10;
 
-        if(cooldowns.containsKey(p.getName())) {
-            long secondsLeft = ((cooldowns.get(p.getName())/1000)+cooldownTime) - (System.currentTimeMillis()/1000);
+        if(cooldowns.containsKey(p.getUniqueId())) {
+            long secondsLeft = cooldowns.get(p.getUniqueId())-System.currentTimeMillis();
             if(secondsLeft>0) {
                 // Still cooling down
-                p.sendMessage(ChatColor.YELLOW + "You cant use that commands for another "+ secondsLeft +" seconds!");
-
+                p.sendMessage(ChatColor.YELLOW + "You cant use that commands for another "+ secondsLeft/1000 +" seconds!");
+            } else {
+                cooldowns.remove(p.getUniqueId());
             }
+        } else {
+            // No cooldown found or cooldown has expired, save new cooldown
+            cooldowns.put(p.getUniqueId(), System.currentTimeMillis() + (cooldownTime * 1000));
+
+            Snowball ball = p.launchProjectile(Snowball.class);
+
+            ball.setMetadata("IsSquid", new FixedMetadataValue(TazPvP.getInstance(), true));
         }
-        // No cooldown found or cooldown has expired, save new cooldown
-        cooldowns.put(p.getName(), System.currentTimeMillis());
-
-        Snowball ball = p.launchProjectile(Snowball.class);
-
-        ball.setMetadata("IsSquid", new FixedMetadataValue(TazPvP.getInstance(), true));
-
 
     }
 
