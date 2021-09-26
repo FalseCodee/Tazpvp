@@ -1,9 +1,6 @@
 package net.ntdi.tazpvp.items;
 
-import net.ntdi.tazpvp.items.items.Agility;
-import net.ntdi.tazpvp.items.items.Butter;
-import net.ntdi.tazpvp.items.items.Extinguish;
-import net.ntdi.tazpvp.items.items.GrapplingHook;
+import net.ntdi.tazpvp.items.items.*;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -19,6 +16,7 @@ public class ItemManager {
         items.add(new Agility());
         items.add(new Butter());
         items.add(new Extinguish());
+        items.add(new SquidLauncher());
     }
 
     public static void givePlayerItem(Player player, Items item, int count) {
