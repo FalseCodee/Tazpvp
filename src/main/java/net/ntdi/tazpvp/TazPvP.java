@@ -175,6 +175,7 @@ public final class TazPvP extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new PlayerFishEvent(), this);
         getServer().getPluginManager().registerEvents(new NPCClickEvent(), this);
         getServer().getPluginManager().registerEvents(new CrateListener(), this);
+        getServer().getPluginManager().registerEvents(new SnowballHitEvent(), this);
 
     }
 
