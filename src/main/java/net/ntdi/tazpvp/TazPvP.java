@@ -26,6 +26,7 @@ import net.ntdi.tazpvp.utils.MathUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Mob;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -176,6 +177,7 @@ public final class TazPvP extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new NPCClickEvent(), this);
         getServer().getPluginManager().registerEvents(new CrateListener(), this);
         getServer().getPluginManager().registerEvents(new SnowballHitEvent(), this);
+        getServer().getPluginManager().registerEvents(new MobDropListener(), this);
 
     }
 
