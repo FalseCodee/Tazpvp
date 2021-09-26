@@ -23,6 +23,5 @@ public class Butter extends ConsumableItem {
         }
         p.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 20*60, 0));
         p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20*3, 0));
-        itemStack.setAmount(itemStack.getAmount()-1);
     }
 }
