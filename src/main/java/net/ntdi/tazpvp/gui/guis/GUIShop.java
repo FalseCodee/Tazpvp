@@ -42,20 +42,20 @@ public class GUIShop extends GUI {
         for(int i = 0; i < inventory.getSize(); i++) {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), ChatColor.BLACK + "");
         }
-        addShopItem(10, new ItemStack(Material.GOLD_INGOT, 1), 45, ChatColor.BLUE + "Butter", ChatColor.GRAY + "Health Boost\n" + ChatColor.GOLD + "Cost: $45");
-        addShopItem(11, new ItemStack(Material.EYE_OF_ENDER, 1), 45, ChatColor.BLUE + "Agility", ChatColor.GRAY + "Speed Boost\n" + ChatColor.GOLD + "Cost: $45");
-        addShopItem(12, new ItemStack(Material.RED_ROSE, 1), 45, ChatColor.BLUE + "Extinguisher", ChatColor.GRAY + "Feel the mist\n" + ChatColor.GOLD + "Cost: $45");
-        addShopItem(13, new ItemStack(Material.WOOD, 64), 50, ChatColor.BLUE + "Planks", ChatColor.GRAY + "Placeable Blocks\n" + ChatColor.GOLD + "Cost: $50");
-        addShopItem(14, new ItemStack(Material.GOLD_HOE, 1), 500, ChatColor.BLUE + "Tactical Launcher", ChatColor.GRAY + "Explosive Squids\n" + ChatColor.GOLD + "Cost: $500");
-        addShopItem(15, new ItemStack(Material.CARROT_STICK, 1), 410, ChatColor.BLUE + "Grappling Hook", ChatColor.GRAY + "Swing away\n" + ChatColor.GOLD + "Cost: $410");
-        addShopItem(16, new ItemStack(Material.ARROW, 5), 25, ChatColor.BLUE + "Arrows", ChatColor.GRAY + "Bow Projectiles\n" + ChatColor.GOLD + "Cost: $25");
-        addShopItem(19, new ItemStack(Material.MILK_BUCKET, 1), 30, ChatColor.BLUE + "Milk", ChatColor.GRAY + "Negate Poison\n" + ChatColor.GOLD + "Cost: $30");
-        addShopItem(20, new ItemStack(Material.COOKIE, 5), 10, ChatColor.BLUE + "Cookies", ChatColor.GRAY + "Yummy\n" + ChatColor.GOLD + "Cost: $10");
-        addShopItem(21, new ItemStack(Material.BREAD, 5), 10, ChatColor.BLUE + "Bread", ChatColor.GRAY + "Hot n' Fresh\n" + ChatColor.GOLD + "Cost: $10");
-        addShopItem(22, new ItemStack(Material.BAKED_POTATO, 5), 10, ChatColor.BLUE + "Baked Potatoes", ChatColor.GRAY + "What's that smell?\n" + ChatColor.GOLD + "Cost: $10");
-        addShopItem(23, new ItemStack(Material.COOKED_BEEF, 5), 15, ChatColor.BLUE + "Steak", ChatColor.GRAY + "Arbies\n" + ChatColor.GOLD + "Cost: $15");
-        addShopItem(24, new ItemStack(Material.GOLDEN_CARROT, 1), 15, ChatColor.BLUE + "Gold Carrot", ChatColor.GRAY + "Healthy Choice\n" + ChatColor.GOLD + "Cost: $15");
-        addShopItem(25, new ItemStack(Material.GOLDEN_APPLE, 1), 225, ChatColor.BLUE + "Gold Apple", ChatColor.GRAY + "Not Steroids\n" + ChatColor.GOLD + "Cost: $225");
+        addShopItem(10, new ItemStack(Material.GOLD_INGOT, 1), 45, ChatColor.DARK_AQUA + "Butter", ChatColor.GRAY + "Health Boost\n" + ChatColor.AQUA + "$45");
+        addShopItem(11, new ItemStack(Material.EYE_OF_ENDER, 1), 45, ChatColor.DARK_AQUA + "Agility", ChatColor.GRAY + "Speed Boost\n" + ChatColor.AQUA + "$45");
+        addShopItem(12, new ItemStack(Material.RED_ROSE, 1), 45, ChatColor.DARK_AQUA + "Extinguisher", ChatColor.GRAY + "Feel the mist\n" + ChatColor.AQUA + "$45");
+        addShopItem(13, new ItemStack(Material.WOOD, 64), 50, ChatColor.DARK_AQUA + "Planks", ChatColor.GRAY + "Placeable Blocks\n" + ChatColor.AQUA + "$50");
+        addShopItem(14, new ItemStack(Material.GOLD_HOE, 1), 500, ChatColor.DARK_AQUA + "Tactical Launcher", ChatColor.GRAY + "Explosive Squids\n" + ChatColor.AQUA + "$500");
+        addShopItem(15, new ItemStack(Material.CARROT_STICK, 1), 410, ChatColor.DARK_AQUA + "Grappling Hook", ChatColor.GRAY + "Swing away\n" + ChatColor.AQUA + "$410");
+        addShopItem(16, new ItemStack(Material.ARROW, 5), 25, ChatColor.DARK_AQUA + "Arrow", ChatColor.GRAY + "Bow Projectiles\n" + ChatColor.AQUA + "$25");
+        addShopItem(19, new ItemStack(Material.MILK_BUCKET, 1), 30, ChatColor.DARK_AQUA + "Milk", ChatColor.GRAY + "Negate Poison\n" + ChatColor.AQUA + "$30");
+        addShopItem(20, new ItemStack(Material.COOKIE, 5), 10, ChatColor.DARK_AQUA + "Cookie", ChatColor.GRAY + "Yummy\n" + ChatColor.AQUA + "$10");
+        addShopItem(21, new ItemStack(Material.BREAD, 5), 10, ChatColor.DARK_AQUA + "Bread", ChatColor.GRAY + "Hot n' Fresh\n" + ChatColor.AQUA + "$10");
+        addShopItem(22, new ItemStack(Material.BAKED_POTATO, 5), 10, ChatColor.DARK_AQUA + "Baked Potato", ChatColor.GRAY + "What's that smell?\n" + ChatColor.AQUA + "$10");
+        addShopItem(23, new ItemStack(Material.COOKED_BEEF, 5), 15, ChatColor.DARK_AQUA + "Steak", ChatColor.GRAY + "Arbies\n" + ChatColor.AQUA + "$15");
+        addShopItem(24, new ItemStack(Material.GOLDEN_CARROT, 1), 15, ChatColor.DARK_AQUA + "Gold Carrot", ChatColor.GRAY + "Healthy Choice\n" + ChatColor.AQUA + "$15");
+        addShopItem(25, new ItemStack(Material.GOLDEN_APPLE, 1), 225, ChatColor.DARK_AQUA + "Gold Apple", ChatColor.GRAY + "Not Steroids\n" + ChatColor.AQUA + "$225");
         update();
     }
 

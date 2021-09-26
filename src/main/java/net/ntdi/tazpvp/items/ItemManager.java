@@ -22,14 +22,13 @@ public class ItemManager {
     }
 
     public static void givePlayerItem(Player player, Items item, int count) {
-        player.getInventory().addItem(createItem(item.item, count, item.display, item.description));
+        player.getInventory().addItem(createItem(item.item, count, item.display));
     }
 
-    public static ItemStack createItem(Material item, int count, String name, String[] lore) {
+    public static ItemStack createItem(Material item, int count, String name) {
         ItemStack itemStack = new ItemStack(item, count);
         ItemMeta meta = itemStack.getItemMeta();
         meta.setDisplayName(name);
-        meta.setLore(Arrays.asList(lore));
         itemStack.setItemMeta(meta);
         return itemStack;
     }
