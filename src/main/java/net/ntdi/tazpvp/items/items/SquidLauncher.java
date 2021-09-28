@@ -47,11 +47,7 @@ public class SquidLauncher extends ClickableItem {
 
             Location loc = (Location) p.getWorld();
 
-            LivingEntity squid = (LivingEntity) loc.getWorld().spawnEntity(loc, EntityType.SQUID);
-            squid.setCustomName(ChatColor.RED + "" + ChatColor.BOLD + "KABOOM");
-            squid.setCustomNameVisible(true);
 
-            ball.setPassenger(squid);
 //            squid.spigot().isInvulnerable()
         }
 
