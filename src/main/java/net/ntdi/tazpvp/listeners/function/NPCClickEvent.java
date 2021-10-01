@@ -27,7 +27,7 @@ public class NPCClickEvent implements Listener {
     @EventHandler
     public void OnNPCRClick(NPCRightClickEvent event) {
         if(event.getNPC().getId() == 7) { //SHOP
-
+            new GUIShop(event.getClicker());
         } else if(event.getNPC().getId() == 15) { //ACHIEVEMENTS
             new GUIAchievement(event.getClicker());
         } else if(event.getNPC().getId() == 19) { //RANKS

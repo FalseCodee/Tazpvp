@@ -1,5 +1,6 @@
 package net.ntdi.tazpvp.items.items;
 
+import net.milkbowl.vault.chat.Chat;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.items.ClickableItem;
 import net.ntdi.tazpvp.items.ConsumableItem;
@@ -38,17 +39,17 @@ public class SquidLauncher extends ClickableItem {
                 cooldowns.remove(p.getUniqueId());
             }
         } else {
-            // No cooldown found or cooldown has expired, save new cooldown
-            cooldowns.put(p.getUniqueId(), System.currentTimeMillis() + (cooldownTime * 1000));
+            if (p.getWorld().getName().equals("arena")) {
+                cooldowns.put(p.getUniqueId(), System.currentTimeMillis() + (cooldownTime * 1000));
 
-            Snowball ball = p.launchProjectile(Snowball.class);
+                Snowball ball = p.launchProjectile(Snowball.class);
 
-            ball.setMetadata("IsSquid", new FixedMetadataValue(TazPvP.getInstance(), true));
+                ball.setMetadata("IsSquid", new FixedMetadataValue(TazPvP.getInstance(), true));
 
-            Location loc = (Location) p.getWorld();
-
-
-//            squid.spigot().isInvulnerable()
+                Location loc = (Location) p.getWorld();
+            } else {
+                p.sendMessage(ChatColor.RED + "You can only do this in the arena!");
+            }
         }
 
     }

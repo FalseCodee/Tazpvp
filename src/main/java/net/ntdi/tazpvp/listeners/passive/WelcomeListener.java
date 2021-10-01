@@ -26,7 +26,9 @@ public class WelcomeListener implements Listener {
         p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "  |  IP: tazpvp.net");
         p.sendMessage(ChatColor.AQUA + "");
 
-        Location loc = new Location(p.getWorld(), 0, 50, 0, 180, 0);
+        World wrld = Bukkit.getWorld("spawn");
+
+        Location loc = new Location(wrld, 0.5, 50, 0.5, 180, 0);
 
         p.teleport(loc);
 
