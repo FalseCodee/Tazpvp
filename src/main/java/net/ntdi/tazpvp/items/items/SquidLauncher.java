@@ -34,15 +34,12 @@ public class SquidLauncher extends ClickableItem {
             long secondsLeft = cooldowns.get(p.getUniqueId())-System.currentTimeMillis();
             if(secondsLeft>0) {
                 // Still cooling down
-                //p.sendMessage(ChatColor.RED + "Please Wait "+ secondsLeft/1000 +" seconds!");
-
-                ItemStack hand = p.getItemInHand();
-
-                if (secondsLeft > 999) {
-                    hand.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Tactical Squid Launcher" + ChatColor.RED + "Please Wait " + secondsLeft/1000 + " seconds!");
+                if(secondsLeft>999){
+                    p.sendMessage(ChatColor.RED + "Please Wait "+ secondsLeft/1000 +" seconds!");
                 }else{
-                    hand.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Tactical Squid Launcher" + ChatColor.RED + "Please Wait 0." + secondsLeft + " seconds!");
+                    p.sendMessage(ChatColor.RED + "Please Wait 0."+ secondsLeft +" seconds!");
                 }
+
 
 
             } else {
@@ -51,9 +48,6 @@ public class SquidLauncher extends ClickableItem {
         } else {
             if (p.getWorld().getName().equals("arena")) {
                 cooldowns.put(p.getUniqueId(), System.currentTimeMillis() + (cooldownTime * 1000));
-
-                ItemStack hand = p.getItemInHand();
-                hand.getItemMeta().setDisplayName(ChatColor.DARK_AQUA + "Tactical Squid Launcher");
 
                 Snowball ball = p.launchProjectile(Snowball.class);
 
