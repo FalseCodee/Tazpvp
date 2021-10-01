@@ -25,6 +25,11 @@ public class WelcomeListener implements Listener {
         p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "  |  Discord: /discord");
         p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "  |  IP: tazpvp.net");
         p.sendMessage(ChatColor.AQUA + "");
+
+        Location loc = new Location(p.getWorld(), 0, 50, 0, 180, 0);
+
+        p.teleport(loc);
+
         for(Player player : Bukkit.getOnlinePlayers()) {
             TazPvP.sendTablistHeaderAndFooter(player, ChatColor.translateAlternateColorCodes('&', "&b-&3-&b-&3-&b-&3-&b-=[ &3TAZPVP &b]=-&3-&b-&3-&b-&3-&b-"),
                     ChatColor.GRAY+"tazpvp.net\n"
@@ -74,6 +79,9 @@ public class WelcomeListener implements Listener {
         if (event.getPlayer().getWorld().getName().equals("arena")) {
             World world = event.getPlayer().getWorld();
             Player p = event.getPlayer();
+
+
+
 
             int min = 1;
             int max = 6;
