@@ -30,28 +30,23 @@ public class Utils {
 
 
     public static void teleportPlayer(Player player, Location location, int milliseconds) {
-        TazPvP combat = new TazPvP();
-        if (!combat.combatList.containsKey(player.getUniqueId())) {
-            long beginning = System.currentTimeMillis();
-            Location origin = player.getLocation();
-            new BukkitRunnable() {
-                @Override
-                public void run() {
-                    if (System.currentTimeMillis() - beginning > milliseconds) {
-                        player.teleport(location);
-                        this.cancel();
-                    } else if (player.getLocation().distance(origin) > 2D) {
-                        player.sendMessage(ChatColor.RED + "Teleportation cancelled.");
-                        this.cancel();
-                    }
-                    //Other checks will be added
-                    // added combat check :D
-
+        long beginning = System.currentTimeMillis();
+        Location origin = player.getLocation();
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                if (System.currentTimeMillis() - beginning > milliseconds) {
+                    player.teleport(location);
+                    this.cancel();
+                } else if (player.getLocation().distance(origin) > 2D) {
+                    player.sendMessage(ChatColor.RED + "Teleportation cancelled.");
+                    this.cancel();
                 }
-            }.runTaskTimer(TazPvP.getInstance(), 0L, 10L);
-        } else {
-            player.sendMessage(ChatColor.RED + "You are in combat!");
-        }
+                //Other checks will be added
+                // added combat check :D
+
+            }
+        }.runTaskTimer(TazPvP.getInstance(), 0L, 10L);
     }
 
         public static List<String> readFile (File file){
