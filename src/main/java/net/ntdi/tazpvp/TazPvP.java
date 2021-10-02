@@ -7,6 +7,8 @@ import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.ProtocolManager;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.wrappers.WrappedChatComponent;
+import me.clip.placeholderapi.PlaceholderAPI;
+import me.clip.placeholderapi.PlaceholderHook;
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.permission.Permission;
 import net.ntdi.tazpvp.commands.*;
@@ -25,6 +27,7 @@ import net.ntdi.tazpvp.managers.*;
 import net.ntdi.tazpvp.utils.MathUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -33,12 +36,12 @@ import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.*;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
-import java.util.UUID;
+import java.util.*;
 
 public final class TazPvP extends JavaPlugin {
 
@@ -61,6 +64,8 @@ public final class TazPvP extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         System.out.println("Tazpvp Logic is now ONLINE");
+
+
 
         configFile = this.getConfig();
         initConfig();
@@ -109,6 +114,8 @@ public final class TazPvP extends JavaPlugin {
             e.printStackTrace();
         }
     }
+
+
     public void load() {
         helpFile = new File(getDataFolder() + "/help.txt");
         ruleFile = new File(getDataFolder() + "/rules.txt");
@@ -183,6 +190,7 @@ public final class TazPvP extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new SnowballHitEvent(), this);
         getServer().getPluginManager().registerEvents(new MobDropListener(), this);
         getServer().getPluginManager().registerEvents(new BlockListener(), this);
+        getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
 
     }
 
