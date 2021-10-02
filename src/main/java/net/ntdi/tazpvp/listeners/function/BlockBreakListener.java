@@ -26,7 +26,16 @@ public class BlockBreakListener implements Listener {
         if(p.getGameMode() == GameMode.SURVIVAL){
             Block b = event.getBlock();
             ArrayList<Material> blocks = new ArrayList<>();
+            blocks.add(Material.COAL_ORE);
+            blocks.add(Material.IRON_ORE);
+            blocks.add(Material.LAPIS_ORE);
             blocks.add(Material.GOLD_ORE);
+            blocks.add(Material.DIAMOND_ORE);
+            blocks.add(Material.EMERALD_ORE);
+
+            if(!blocks.contains(b)){
+                event.setCancelled(true);
+            }
         }
     }
 }
