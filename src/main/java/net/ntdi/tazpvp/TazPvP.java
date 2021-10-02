@@ -62,14 +62,6 @@ public final class TazPvP extends JavaPlugin {
         // Plugin startup logic
         System.out.println("Tazpvp Logic is now ONLINE");
 
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                onInterval();
-            }
-        }.runTaskTimer(this, 0, 20);
-
-
         configFile = this.getConfig();
         initConfig();
 
@@ -250,39 +242,6 @@ public final class TazPvP extends JavaPlugin {
 
     public static TazPvP getInstance(){
         return instance;
-    }
-
-    public HashMap<UUID, Integer> combatList = new HashMap<UUID, Integer>();
-
-    @EventHandler
-    public void onDamage(EntityDamageByEntityEvent event){
-        if (event.getEntity() instanceof Player && event.getDamager() instanceof Player) {
-            Player target = (Player) event.getEntity();
-            Player damager = (Player) event.getDamager();
-
-            Integer duration = 5;
-
-            combatList.put(target.getUniqueId(), duration);
-            combatList.put(damager.getUniqueId(), duration);
-
-            target.sendMessage(ChatColor.RED + "You are now in combat tag!");
-            damager.sendMessage(ChatColor.RED + "You are now in combat tag!");
-
-
-        }
-    }
-
-    public void onInterval(){
-
-        HashMap<UUID, Integer> temp = new HashMap<>();
-
-        for (UUID id : combatList.keySet()){
-            int timer = combatList.get(id) - 1;
-            if (timer > 0 ) {
-                temp.put(id, timer);
-            }
-        }
-        combatList = temp;
     }
 
 }
