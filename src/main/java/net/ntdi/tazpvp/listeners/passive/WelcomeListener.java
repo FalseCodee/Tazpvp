@@ -23,7 +23,7 @@ public class WelcomeListener implements Listener {
         p.sendMessage(ChatColor.AQUA + "");
         p.sendMessage(ChatColor.DARK_GRAY + "  ▍  " + ChatColor.RED + ChatColor.BOLD + "TAZPVP " + ChatColor.WHITE + "Season 6");
         p.sendMessage(ChatColor.DARK_GRAY + "  ▍  " + ChatColor.GRAY + "Type /discord");
-        p.sendMessage(ChatColor.DARK_GRAY + "  ▍  " + ChatColor.GRAY + "IP: tazpvp.net");
+        p.sendMessage(ChatColor.DARK_GRAY + "  ▍  " + ChatColor.GRAY + "Server IP: tazpvp.net");
         p.sendMessage(ChatColor.AQUA + "");
 
         World wrld = Bukkit.getWorld("spawn");
@@ -34,7 +34,7 @@ public class WelcomeListener implements Listener {
 
         for(Player player : Bukkit.getOnlinePlayers()) {
             TazPvP.sendTablistHeaderAndFooter(player, ChatColor.translateAlternateColorCodes('&', "&3&l             TAZPVP             "),
-                    ChatColor.GOLD +"tazpvp.net\n"
+                    ChatColor.GRAY +"tazpvp.net\n"
                             +ChatColor.AQUA+Bukkit.getOnlinePlayers().size() + ChatColor.GRAY+"/" + ChatColor.DARK_AQUA + "100");
         }
         for(Scoreboard sb : TazPvP.statsManager.scoreboards.values()) {
