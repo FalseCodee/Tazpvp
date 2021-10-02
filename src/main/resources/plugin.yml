@@ -163,3 +163,9 @@ commands:
   shop:
     description: Opens the shop menu
     usage: "/shop"
+  holograms:
+    description: loads holograms
+    aliases:
+      - holo
+      - hologram
+    usage: "/holograms"
