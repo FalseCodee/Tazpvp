@@ -18,7 +18,7 @@ public class SpawnCommand implements CommandExecutor {
 
         if(player != null){
             if (!player.isOp()){
-                player.sendMessage(ChatColor.DARK_AQUA+"Returning to spawn... Dont move!");
+                player.sendMessage(ChatColor.DARK_GREEN + "You will be teleported to spawn in" + ChatColor.GREEN + "5 seconds" + ChatColor.DARK_GREEN + ", do not move.");
                 Utils.teleportPlayer(player, Utils.spawnLocation, 5*1000);
             } else {
                 Utils.teleportPlayer(player, Utils.spawnLocation, 5);

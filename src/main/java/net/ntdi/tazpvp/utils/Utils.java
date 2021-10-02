@@ -39,7 +39,7 @@ public class Utils {
                     player.teleport(location);
                     this.cancel();
                 } else if (player.getLocation().distance(origin) > 2D) {
-                    player.sendMessage(ChatColor.RED + "Teleportation cancelled.");
+                    player.sendMessage(ChatColor.DARK_GREEN + "Teleportation canceled, you moved.");
                     this.cancel();
                 }
                 //Other checks will be added

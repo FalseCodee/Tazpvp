@@ -41,10 +41,7 @@ public class DeathListener implements Listener {
             TazPvP.statsManager.addDeaths(p, 1);
 
             TazPvP.statsManager.addKills(killer, 1);
-            killer.sendMessage("+1 " + ChatColor.RED +"Kills");
-
             TazPvP.statsManager.addMoney(killer, 5);
-            killer.sendMessage("+5 " + ChatColor.YELLOW +"Coins");
         if(TazPvP.statsManager.getRebirths(killer) > 0) {
             killer.giveExp(8);
             killer.sendMessage("+8 " + ChatColor.GREEN +"Exp");
@@ -52,7 +49,7 @@ public class DeathListener implements Listener {
             killer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 40, 1,true, false));
         } else {
             killer.giveExp(5);
-            killer.sendMessage("+5 " + ChatColor.GREEN +"Exp");
+            killer.sendMessage("+5 " + ChatColor.RED +"KILL" + ChatColor.GOLD + "+ 5 Coins" + ChatColor.DARK_AQUA + "+ 5 Experience");
         }
 
     }
