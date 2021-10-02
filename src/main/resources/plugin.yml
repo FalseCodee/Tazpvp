@@ -169,3 +169,6 @@ commands:
       - holo
       - hologram
     usage: "/holograms"
+  oof:
+    description: ok
+    usage: "/oof"
