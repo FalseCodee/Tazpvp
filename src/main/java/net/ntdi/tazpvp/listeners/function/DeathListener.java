@@ -31,6 +31,12 @@ public class DeathListener implements Listener {
         TazPvP.statsManager.addStreak(killer, 1);
         event.getEntity().spigot().respawn();
 
+        World wrld = Bukkit.getWorld("spawn");
+
+        Location loc = new Location(wrld, 0.5, 51, 0.5, 180, 0);
+
+        p.teleport(loc);
+
             p.playSound(p.getLocation(), Sound.DIG_GRAVEL, 5, 1);
             TazPvP.statsManager.addDeaths(p, 1);
 

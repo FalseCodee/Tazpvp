@@ -17,8 +17,12 @@ public class SpawnCommand implements CommandExecutor {
         }
 
         if(player != null){
-            player.sendMessage(ChatColor.DARK_AQUA+"Returning to spawn... Dont move!");
-            Utils.teleportPlayer(player, Utils.spawnLocation, 5*1000);
+            if (!player.isOp()){
+                player.sendMessage(ChatColor.DARK_AQUA+"Returning to spawn... Dont move!");
+                Utils.teleportPlayer(player, Utils.spawnLocation, 5*1000);
+            } else {
+                Utils.teleportPlayer(player, Utils.spawnLocation, 5);
+            }
         }
         return true;
     }

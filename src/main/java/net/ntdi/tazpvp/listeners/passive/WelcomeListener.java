@@ -25,6 +25,13 @@ public class WelcomeListener implements Listener {
         p.sendMessage(ChatColor.DARK_GRAY + "  ▍  " + ChatColor.GRAY + "Type /discord");
         p.sendMessage(ChatColor.DARK_GRAY + "  ▍  " + ChatColor.GRAY + "IP: tazpvp.net");
         p.sendMessage(ChatColor.AQUA + "");
+
+        World wrld = Bukkit.getWorld("spawn");
+
+        Location loc = new Location(wrld, 0.5, 51, 0.5, 180, 0);
+
+        p.teleport(loc);
+
         for(Player player : Bukkit.getOnlinePlayers()) {
             TazPvP.sendTablistHeaderAndFooter(player, ChatColor.translateAlternateColorCodes('&', "&3&l             TAZPVP             "),
                     ChatColor.GOLD +"tazpvp.net\n"
@@ -63,6 +70,13 @@ public class WelcomeListener implements Listener {
             TazPvP.statsManager.getTeam(p, sb).removeEntry(p.getName());
         }
 
+        TazPvP combat = new TazPvP();
+        if (combat.combatList.containsKey(event.getPlayer().getUniqueId())) {
+           if (TazPvP.statsManager.getMoney(event.getPlayer()) >= 25){
+               TazPvP.statsManager.addMoney(event.getPlayer(), -25);
+           }
+        }
+
         TazPvP.statsManager.scoreboards.remove(p.getUniqueId());
         event.setQuitMessage(ChatColor.GRAY + "[" + ChatColor.RED + "-" + ChatColor.GRAY + "] " + p.getName());
 
@@ -74,6 +88,9 @@ public class WelcomeListener implements Listener {
         if (event.getPlayer().getWorld().getName().equals("arena")) {
             World world = event.getPlayer().getWorld();
             Player p = event.getPlayer();
+
+
+
 
             int min = 1;
             int max = 6;
