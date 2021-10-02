@@ -21,12 +21,12 @@ public class WelcomeListener implements Listener {
 
         Player p = event.getPlayer();
         p.sendMessage(ChatColor.AQUA + "");
-        p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "  |  TAZPVP SEASON 5");
-        p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "  |  Discord: /discord");
-        p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "  |  IP: tazpvp.net");
+        p.sendMessage(ChatColor.DARK_GRAY + "  |  " + ChatColor.RED + ChatColor.BOLD + "TAZPVP " + ChatColor.WHITE + "Season 6");
+        p.sendMessage(ChatColor.DARK_GRAY + "  |  " + ChatColor.AQUA + "Type /discord");
+        p.sendMessage(ChatColor.DARK_GRAY + "  |  " + ChatColor.AQUA + "IP: tazpvp.net");
         p.sendMessage(ChatColor.AQUA + "");
         for(Player player : Bukkit.getOnlinePlayers()) {
-            TazPvP.sendTablistHeaderAndFooter(player, ChatColor.translateAlternateColorCodes('&', "&b-&3-&b-&3-&b-&3-&b-=[ &3TAZPVP &b]=-&3-&b-&3-&b-&3-&b-"),
+            TazPvP.sendTablistHeaderAndFooter(player, ChatColor.translateAlternateColorCodes('&', "&6ᴛᴀᴢᴘᴠᴘ ɴᴇᴛᴡᴏʀᴋ"),
                     ChatColor.GRAY+"tazpvp.net\n"
                             +ChatColor.AQUA+Bukkit.getOnlinePlayers().size() + ChatColor.GRAY+"/" + ChatColor.DARK_AQUA+Bukkit.getMaxPlayers());
         }
