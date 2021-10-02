@@ -52,6 +52,7 @@ public class Utils {
         } else {
             player.sendMessage(ChatColor.RED + "You are in combat!");
         }
+    }
 
         public static List<String> readFile (File file){
             List<String> data = new ArrayList<>();
@@ -67,5 +68,4 @@ public class Utils {
             return data;
 
         }
-    }
 }

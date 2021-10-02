@@ -285,5 +285,4 @@ public final class TazPvP extends JavaPlugin {
         combatList = temp;
     }
 
-
 }
