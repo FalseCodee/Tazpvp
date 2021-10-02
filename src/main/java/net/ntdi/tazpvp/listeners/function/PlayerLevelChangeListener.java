@@ -15,7 +15,13 @@ public class PlayerLevelChangeListener implements Listener {
 //        }
         if (event.getNewLevel() != 0) {
             TazPvP.statsManager.setLevel(event.getPlayer(), event.getNewLevel());
-            event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "Level up! " + ChatColor.AQUA + " You are now level " + TazPvP.statsManager.getLevel(event.getPlayer()));
+            event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+            event.getPlayer().sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "  LEVEL UP " + ChatColor.DARK_AQUA + "Combat " + ChatColor.AQUA + TazPvP.statsManager.getLevel(event.getPlayer()));
+            event.getPlayer().sendMessage("");
+            event.getPlayer().sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "  REWARDS");
+            event.getPlayer().sendMessage(ChatColor.DARK_GRAY + "  +" + ChatColor.BLUE + "1 Point");
+            event.getPlayer().sendMessage(ChatColor.DARK_GRAY + "  +" + ChatColor.GOLD + "100 Coins");
+            event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
         }
     }
 }
