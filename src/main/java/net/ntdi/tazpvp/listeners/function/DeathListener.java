@@ -49,7 +49,7 @@ public class DeathListener implements Listener {
             killer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 40, 1,true, false));
         } else {
             killer.giveExp(5);
-            killer.sendMessage("+5 " + ChatColor.RED +"KILL" + ChatColor.GOLD + "+ 5 Coins" + ChatColor.DARK_AQUA + "+ 5 Experience");
+            killer.sendMessage(ChatColor.RED +"KILL " + ChatColor.GOLD + "+ 5 Coins " + ChatColor.DARK_AQUA + "+ 5 Experience");
         }
 
     }
