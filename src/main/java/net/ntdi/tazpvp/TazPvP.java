@@ -26,8 +26,9 @@ import net.ntdi.tazpvp.utils.MathUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.Mob;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -36,6 +37,8 @@ import org.bukkit.scoreboard.*;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.UUID;
 
 public final class TazPvP extends JavaPlugin {
 
@@ -58,6 +61,14 @@ public final class TazPvP extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         System.out.println("Tazpvp Logic is now ONLINE");
+
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                onInterval();
+            }
+        }.runTaskTimer(this, 0, 20);
+
 
         configFile = this.getConfig();
         initConfig();
@@ -241,6 +252,38 @@ public final class TazPvP extends JavaPlugin {
         return instance;
     }
 
+    public HashMap<UUID, Integer> combatList = new HashMap<UUID, Integer>();
+
+    @EventHandler
+    public void onDamage(EntityDamageByEntityEvent event){
+        if (event.getEntity() instanceof Player && event.getDamager() instanceof Player) {
+            Player target = (Player) event.getEntity();
+            Player damager = (Player) event.getDamager();
+
+            Integer duration = 5;
+
+            combatList.put(target.getUniqueId(), duration);
+            combatList.put(damager.getUniqueId(), duration);
+
+            target.sendMessage(ChatColor.RED + "You are now in combat tag!");
+            damager.sendMessage(ChatColor.RED + "You are now in combat tag!");
+
+
+        }
+    }
+
+    public void onInterval(){
+
+        HashMap<UUID, Integer> temp = new HashMap<>();
+
+        for (UUID id : combatList.keySet()){
+            int timer = combatList.get(id) - 1;
+            if (timer > 0 ) {
+                temp.put(id, timer);
+            }
+        }
+        combatList = temp;
+    }
 
 
 }

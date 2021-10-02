@@ -70,6 +70,13 @@ public class WelcomeListener implements Listener {
             TazPvP.statsManager.getTeam(p, sb).removeEntry(p.getName());
         }
 
+        TazPvP combat = new TazPvP();
+        if (combat.combatList.containsKey(event.getPlayer().getUniqueId())) {
+           if (TazPvP.statsManager.getMoney(event.getPlayer()) >= 25){
+               TazPvP.statsManager.addMoney(event.getPlayer(), -25);
+           }
+        }
+
         TazPvP.statsManager.scoreboards.remove(p.getUniqueId());
         event.setQuitMessage(ChatColor.GRAY + "[" + ChatColor.RED + "-" + ChatColor.GRAY + "] " + p.getName());
 
