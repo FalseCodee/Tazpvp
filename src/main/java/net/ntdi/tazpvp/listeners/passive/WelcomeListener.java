@@ -28,7 +28,7 @@ public class WelcomeListener implements Listener {
         for(Player player : Bukkit.getOnlinePlayers()) {
             TazPvP.sendTablistHeaderAndFooter(player, ChatColor.translateAlternateColorCodes('&', "&3&l             TAZPVP             "),
                     ChatColor.GOLD +"tazpvp.net\n"
-                            +ChatColor.AQUA+Bukkit.getOnlinePlayers().size() + ChatColor.GRAY+"/" + ChatColor.DARK_AQUA+Bukkit.getMaxPlayers());
+                            +ChatColor.AQUA+Bukkit.getOnlinePlayers().size() + ChatColor.GRAY+"/" + ChatColor.DARK_AQUA + "100");
         }
         for(Scoreboard sb : TazPvP.statsManager.scoreboards.values()) {
             TazPvP.statsManager.getTeam(p, sb).addEntry(p.getName());
