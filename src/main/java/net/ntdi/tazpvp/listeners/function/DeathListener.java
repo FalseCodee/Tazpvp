@@ -67,9 +67,6 @@ public class DeathListener implements Listener {
                 TazPvP.achievementsManager.onSmack(whoHit);
             }
             TazPvP.statsManager.addSmacks(whoHit, 1);
-
         }
     }
-
-
 }
