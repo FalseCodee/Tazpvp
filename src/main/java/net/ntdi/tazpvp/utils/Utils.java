@@ -29,25 +29,25 @@ public class Utils {
 
 
 
-    public static void teleportPlayer(Player player, Location location, int milliseconds) {
-        long beginning = System.currentTimeMillis();
-        Location origin = player.getLocation();
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                if (System.currentTimeMillis() - beginning > milliseconds) {
-                    player.teleport(location);
-                    this.cancel();
-                } else if (player.getLocation().distance(origin) > 2D) {
-                    player.sendMessage(ChatColor.DARK_GREEN + "Teleportation canceled, you moved.");
-                    this.cancel();
-                }
+    //    public static void teleportPlayer(Player player, Location location, int milliseconds) {
+//        long beginning = System.currentTimeMillis();
+//        Location origin = player.getLocation();
+//        new BukkitRunnable() {
+//            @Override
+//            public void run() {
+//                if (System.currentTimeMillis() - beginning > milliseconds) {
+//                    player.teleport(location);
+//                    this.cancel();
+//                } else if (player.getLocation().distance(origin) > 2D) {
+//                    player.sendMessage(ChatColor.DARK_GREEN + "Teleportation canceled, you moved.");
+//                    this.cancel();
+//                }
                 //Other checks will be added
                 // added combat check :D
 
-            }
-        }.runTaskTimer(TazPvP.getInstance(), 0L, 10L);
-    }
+//            }
+//        }.runTaskTimer(TazPvP.getInstance(), 0L, 10L);
+//    }
 
         public static List<String> readFile (File file){
             List<String> data = new ArrayList<>();

@@ -61,15 +61,6 @@ commands:
     permission: staff.mutechat
     permission-message: No Permission
     usage: "/mutechat"
-  spawn:
-    description: Teleports you to spawn
-    permission-message: No Permission
-    usage: "/spawn"
-  setspawn:
-    description: Sets the spawn
-    permission: staff.setspawn
-    permission-message: No Permission
-    usage: "/setspawn"
   points:
     description: View/Modify players points
     permission: staff.points

@@ -152,8 +152,8 @@ public final class TazPvP extends JavaPlugin {
         getCommand("appeal").setExecutor(new AppealCommand());
         getCommand("clearchat").setExecutor(new ClearChatCommand());
         getCommand("mutechat").setExecutor(new MuteChatCommand());
-        getCommand("spawn").setExecutor(new SpawnCommand());
-        getCommand("setspawn").setExecutor(new SetSpawnCommand());
+        //        getCommand("spawn").setExecutor(new SpawnCommand());
+//        getCommand("setspawn").setExecutor(new SetSpawnCommand());
         getCommand("points").setExecutor(new PointsCommand());
         getCommand("levels").setExecutor(new LevelCommand());
         getCommand("money").setExecutor(new MoneyCommand());
