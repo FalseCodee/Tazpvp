@@ -10,6 +10,7 @@ import org.bukkit.inventory.ItemStack;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class EntityDamageByEntityListener implements Listener {
 
@@ -20,19 +21,19 @@ public class EntityDamageByEntityListener implements Listener {
                 return;
             }
 
-            ItemStack air = new ItemStack(Material.AIR);
-            ArrayList<Material> swords = new ArrayList<>();
-            swords.add(Material.WOOD_SWORD);
-            swords.add(Material.STONE_SWORD);
-            swords.add(Material.IRON_SWORD);
-            swords.add(Material.DIAMOND_SWORD);
-            swords.add(Material.WOOD_PICKAXE);
-            swords.add(Material.STONE_PICKAXE);
-            swords.add(Material.IRON_PICKAXE);
-            swords.add(Material.DIAMOND_PICKAXE);
+//            ItemStack air = new ItemStack(Material.AIR);
+//            ArrayList<Material> swords = new ArrayList<>();
+//            swords.add(Material.WOOD_SWORD);
+//            swords.add(Material.STONE_SWORD);
+//            swords.add(Material.IRON_SWORD);
+//            swords.add(Material.DIAMOND_SWORD);
+//            swords.add(Material.WOOD_PICKAXE);
+//            swords.add(Material.STONE_PICKAXE);
+//            swords.add(Material.IRON_PICKAXE);
+//            swords.add(Material.DIAMOND_PICKAXE);
 
 
-            if(swords.contains(((Player) event.getDamager()).getItemInHand())){
+            if(!Objects.equals(((Player) event.getDamager()).getItemInHand(), new ItemStack(Material.AIR))){
                 ((Player) event.getDamager()).giveExp(1);
 
             }
