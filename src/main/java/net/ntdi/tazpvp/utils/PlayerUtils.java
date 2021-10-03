@@ -89,6 +89,7 @@ public class PlayerUtils {
         inv.addItem(bow);
         inv.addItem(pickaxe);
         inv.addItem(steak);
-        inv.addItem(arrow);
+        inv.setItem(9, arrow);
+
     }
 }
