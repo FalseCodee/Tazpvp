@@ -169,3 +169,9 @@ commands:
       - holo
       - hologram
     usage: "/holograms"
+  tazload:
+    description: reload tazpvp
+    aliases:
+      - ballsinyojawz
+    permission: op
+    permission-message: not today

@@ -34,6 +34,7 @@ public class EntityDamageByEntityListener implements Listener {
 
             if(swords.contains(((Player) event.getDamager()).getItemInHand())){
                 ((Player) event.getDamager()).giveExp(1);
+
             }
         }
     }
