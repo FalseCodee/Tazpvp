@@ -28,20 +28,12 @@ public class SquidLauncher extends ClickableItem {
     @Override
     public void execute(Player p, ItemStack itemStack) {
         super.execute(p, itemStack);
-        int cooldownTime = 10;
+        int cooldownTime = 7;
 
         if(cooldowns.containsKey(p.getUniqueId())) {
             long secondsLeft = cooldowns.get(p.getUniqueId())-System.currentTimeMillis();
             if(secondsLeft>0) {
                 // Still cooling down
-                if(secondsLeft>999){
-                    p.sendMessage(ChatColor.RED + "Please Wait "+ secondsLeft/1000 +" seconds!");
-                }else{
-                    p.sendMessage(ChatColor.RED + "Please Wait 0."+ secondsLeft +" seconds!");
-                }
-
-
-
             } else {
                 cooldowns.remove(p.getUniqueId());
             }
@@ -55,7 +47,7 @@ public class SquidLauncher extends ClickableItem {
 
                 Location loc = (Location) p.getWorld();
             } else {
-                p.sendMessage(ChatColor.RED + "You can only do this in the arena!");
+                p.sendMessage(ChatColor.RED + "You cannot use this here.");
             }
         }
 
