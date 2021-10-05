@@ -1,5 +1,6 @@
 package net.ntdi.tazpvp.listeners.passive;
 
+import net.milkbowl.vault.chat.Chat;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.utils.ChatUtils;
 import org.bukkit.ChatColor;
@@ -63,6 +64,9 @@ public class ChatSpamListener implements Listener {
                 p.sendMessage(ChatColor.RED + "You are muted, you will be unmuted in, " + ChatColor.WHITE + (((muteTime+muteDuration)-System.currentTimeMillis())/1000) + "s");
                 return;
             }
+        } else if (TazPvP.punishmentManager.isBanned(p)){
+            e.setCancelled(true);
+            p.sendMessage(ChatColor.RED + "You are banned, please wait for you ban to be over to chat again.");
         }
         if (p.hasPermission("staff.chatbypass")) return;
 
@@ -108,5 +112,7 @@ public class ChatSpamListener implements Listener {
         Player p = e.getPlayer();
         cooldowns.remove(p);
     }
+
+
 
 }
