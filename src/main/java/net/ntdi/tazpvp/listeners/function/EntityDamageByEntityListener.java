@@ -2,6 +2,7 @@ package net.ntdi.tazpvp.listeners.function;
 
 import net.ntdi.tazpvp.TazPvP;
 import org.bukkit.Material;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -32,7 +33,9 @@ public class EntityDamageByEntityListener implements Listener {
 //            swords.add(Material.IRON_PICKAXE);
 //            swords.add(Material.DIAMOND_PICKAXE);
 
-            if (((Player) event.getDamager()).isBanned()) {
+            OfflinePlayer damager = ((Player) event.getDamager()).getPlayer();
+
+            if (TazPvP.punishmentManager.isBanned(damager)) {
                 event.setCancelled(true);
                 return;
             }
