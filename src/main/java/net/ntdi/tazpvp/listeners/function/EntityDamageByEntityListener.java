@@ -32,6 +32,11 @@ public class EntityDamageByEntityListener implements Listener {
 //            swords.add(Material.IRON_PICKAXE);
 //            swords.add(Material.DIAMOND_PICKAXE);
 
+            if (((Player) event.getDamager()).isBanned()) {
+                event.setCancelled(true);
+                return;
+            }
+
 
             if(!Objects.equals(((Player) event.getDamager()).getItemInHand(), new ItemStack(Material.AIR))){
                 ((Player) event.getDamager()).giveExp(1);

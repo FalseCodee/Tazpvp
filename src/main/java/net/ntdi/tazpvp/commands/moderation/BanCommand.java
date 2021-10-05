@@ -40,6 +40,10 @@ public class BanCommand implements CommandExecutor {
                         TazPvP.punishmentManager.initBan(banned, false, 5*1000);
                         player.sendMessage(ChatColor.RED + banned.getName() + " has been banned.");
                         banned.sendMessage(ChatColor.RED+"You have been banned for "+ChatColor.WHITE+reason);
+
+
+
+
                         JSONObject obj = new JSONObject();
                         JSONArray embed = new JSONArray();
                         JSONObject embedObj = new JSONObject();
