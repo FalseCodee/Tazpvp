@@ -11,6 +11,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.player.PlayerLevelChangeEvent;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +36,17 @@ public class BlockBreakListener implements Listener {
 
             if(!blocks.contains(b)){
                 event.setCancelled(true);
+            }else{
+                b.setType(Material.BEDROCK);
+                new BukkitRunnable() {
+
+                    @Override
+                    public void run() {
+                        b.setType(b.getType());
+                    }
+                }.runTaskTimer(TazPvP.getInstance(), 200L, 0L);
             }
+
         }
     }
 }
