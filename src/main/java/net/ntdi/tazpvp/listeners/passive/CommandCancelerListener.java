@@ -5,6 +5,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
+import net.ntdi.tazpvp.utils.*;
 
 public class CommandCancelerListener implements Listener {
 
@@ -21,6 +22,9 @@ public class CommandCancelerListener implements Listener {
             if (event.getMessage().toLowerCase().startsWith("/minecraft")) {
                 event.setCancelled(true);
             }
+        } else if (player.hasPermission("staff.commandbypass")) {
+            System.out.println(event.getPlayer().getName() + ": " + event.getMessage());
+
         }
     }
 }

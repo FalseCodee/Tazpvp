@@ -13,10 +13,12 @@ public class ShopGuiCommand implements CommandExecutor {
         if(sender instanceof  Player){
             player = (Player) sender;
         }
-
-        if(player != null) {
-            new GUIShop(player);
+        if (player.hasPermission("op")){
+            if(player != null) {
+                new GUIShop(player);
+            }
         }
+
         return true;
     }
 }
