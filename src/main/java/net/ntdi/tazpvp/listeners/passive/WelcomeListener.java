@@ -1,5 +1,6 @@
 package net.ntdi.tazpvp.listeners.passive;
 
+import net.milkbowl.vault.chat.Chat;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.managers.StatsManager;
 import net.ntdi.tazpvp.utils.PlayerUtils;
@@ -55,6 +56,16 @@ public class WelcomeListener implements Listener {
                 System.currentTimeMillis()-TazPvP.punishmentManager.getMuteTime(p) >= TazPvP.punishmentManager.getMuteDuration(p)){
             TazPvP.punishmentManager.removeMute(p);
             p.sendMessage(ChatColor.RED+"You have been unmuted.");
+        }
+        if(TazPvP.punishmentManager.isBanned(p) && System.currentTimeMillis()-TazPvP.punishmentManager.getMuteTime(p) >= TazPvP.punishmentManager.getMuteDuration(p)){
+            TazPvP.punishmentManager.removeBan(p);
+            p.sendMessage(ChatColor.RED+"You have been unbanned.");
+        } else if (TazPvP.punishmentManager.isBanned(p) == true) {
+            p.sendMessage(ChatColor.WHITE + "" +ChatColor.BOLD + "------------------------------------------------------------------------");
+            p.sendMessage(ChatColor.WHITE + "");
+            p.sendMessage(ChatColor.RED + "You are Currently "+ ChatColor.BOLD + "BANNED" + ChatColor.RED + ". You have " + TazPvP.punishmentManager.getBanTime(p) + " left");
+            p.sendMessage(ChatColor.WHITE + "");
+            p.sendMessage(ChatColor.WHITE + "" +ChatColor.BOLD + "------------------------------------------------------------------------");
         }
 
         if(TazPvP.statsManager.statsFile.contains(event.getPlayer().getUniqueId().toString())) {

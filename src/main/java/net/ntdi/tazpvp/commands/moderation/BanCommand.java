@@ -41,9 +41,6 @@ public class BanCommand implements CommandExecutor {
                         player.sendMessage(ChatColor.RED + banned.getName() + " has been banned.");
                         banned.sendMessage(ChatColor.RED+"You have been banned for "+ChatColor.WHITE+reason);
 
-
-
-
                         JSONObject obj = new JSONObject();
                         JSONArray embed = new JSONArray();
                         JSONObject embedObj = new JSONObject();

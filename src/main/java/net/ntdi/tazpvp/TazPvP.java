@@ -59,6 +59,7 @@ public final class TazPvP extends JavaPlugin {
     public static File helpFile;
     public static File ruleFile;
 
+
     public static TazPvP instance;
     @Override
     public void onEnable() {
@@ -101,6 +102,8 @@ public final class TazPvP extends JavaPlugin {
         // Event Register
         registerListeners();
 
+
+
         load();
         try {
             if(helpFile.createNewFile()){
@@ -114,6 +117,7 @@ public final class TazPvP extends JavaPlugin {
             e.printStackTrace();
         }
     }
+
 
 
     public void load() {
