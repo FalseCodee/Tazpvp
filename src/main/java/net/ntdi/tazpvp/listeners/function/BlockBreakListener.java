@@ -25,29 +25,32 @@ public class BlockBreakListener implements Listener {
 
         Player p = (Player) event.getPlayer();
 
-        if(p.getGameMode() == GameMode.SURVIVAL){
-            Block b = event.getBlock();
-            ArrayList<Material> blocks = new ArrayList<>();
-            blocks.add(Material.COAL_ORE);
-            blocks.add(Material.IRON_ORE);
-            blocks.add(Material.LAPIS_ORE);
-            blocks.add(Material.GOLD_ORE);
-            blocks.add(Material.DIAMOND_ORE);
-            blocks.add(Material.EMERALD_ORE);
+        if(p.getGameMode() == GameMode.SURVIVAL) {
+            event.setCancelled(true);
+//            Block b = event.getBlock();
+//
+//            ArrayList<Material> blocks = new ArrayList<>();
+//            blocks.add(Material.COAL_ORE);
+//            blocks.add(Material.IRON_ORE);
+//            blocks.add(Material.LAPIS_ORE);
+//            blocks.add(Material.GOLD_ORE);
+//            blocks.add(Material.DIAMOND_ORE);
+//            blocks.add(Material.EMERALD_ORE);
+//
+//            if(!blocks.contains(b.getType())){
+//                event.setCancelled(true);
+//            }else if (blocks.contains(b.getType())){
+//                event.setCancelled(true);
+//                p.getInventory().addItem(new ItemStack(b.getType()));
+//                b.setType(Material.BEDROCK);
+//                new BukkitRunnable() {
+//                    @Override
+//                    public void run() {
+//                        b.setType(Material.COAL_ORE);
+//                    }
+//                }.runTaskTimer(TazPvP.getInstance(), 200L, 0L);
 
-            if(!blocks.contains(b.getType())){
-                event.setCancelled(true);
-            }else{
-                event.setCancelled(true);
-                p.getInventory().addItem(new ItemStack(b.getType()));
-                b.setType(Material.BEDROCK);
-                new BukkitRunnable() {
-                    @Override
-                    public void run() {
-                        b.setType(event.getBlock().getType());
-                    }
-                }.runTaskTimer(TazPvP.getInstance(), 0L, 200L);
-            }
+
         }
     }
 }
