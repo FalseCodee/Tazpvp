@@ -15,26 +15,17 @@ import java.util.UUID;
 
 public class SquidLauncher extends ClickableItem {
     public SquidLauncher() {
-        super(Items.SQUID_LAUNCHER);
+        super(Items.SQUID_LAUNCHER, 7);
     }
 
     public final HashMap<UUID, Long> cooldowns = new HashMap<>();
 
     @Override
-    public void execute(Player p, ItemStack itemStack) {
-        super.execute(p, itemStack);
-        int cooldownTime = 7;
-
-        if(cooldowns.containsKey(p.getUniqueId())) {
-            long secondsLeft = cooldowns.get(p.getUniqueId())-System.currentTimeMillis();
-            if(secondsLeft>0) {
-                // Still cooling down
-            } else {
-                cooldowns.remove(p.getUniqueId());
-            }
-        } else {
+    public boolean execute(Player p, ItemStack itemStack) {
+        if(super.execute(p, itemStack)) {
+            return true;
+        }
             if (p.getWorld().getName().equals("arena")) {
-                cooldowns.put(p.getUniqueId(), System.currentTimeMillis() + (cooldownTime * 1000));
 
                 Snowball ball = p.launchProjectile(Snowball.class);
 
@@ -44,8 +35,7 @@ public class SquidLauncher extends ClickableItem {
             } else {
                 p.sendMessage(ChatColor.RED + "You cannot use this here.");
             }
-        }
-
+        return false;
     }
 
 
