@@ -23,7 +23,6 @@ public class BlockBreakListener implements Listener {
             Block b = event.getBlock();
             Material mat = b.getType();
 
-
            if (TazPvP.blocks.contains(mat)){
                 p.getInventory().addItem(new ItemStack(mat));
                 b.setType(Material.BEDROCK);
@@ -33,9 +32,7 @@ public class BlockBreakListener implements Listener {
                         b.setType(mat);
                     }
                 }.runTaskLater(TazPvP.getInstance(), 200L);
-
-
+           }
         }
-    }
     }
 }

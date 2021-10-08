@@ -5,6 +5,8 @@ import net.ntdi.tazpvp.items.ClickableItem;
 import net.ntdi.tazpvp.items.Items;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Snowball;
 import org.bukkit.inventory.ItemStack;
@@ -36,11 +38,20 @@ public class SquidLauncher extends ClickableItem {
             if (p.getWorld().getName().equals("arena")) {
                 cooldowns.put(p.getUniqueId(), System.currentTimeMillis() + (cooldownTime * 1000));
 
-                Snowball ball = p.launchProjectile(Snowball.class);
+                ItemStack tsl = p.getInventory().getItemInHand();
 
-                ball.setMetadata("IsSquid", new FixedMetadataValue(TazPvP.getInstance(), true));
+                if (tsl.getDurability() >= 32) {
+                    p.getInventory().setItemInHand(new ItemStack(Material.AIR));
+                    p.playSound(p.getLocation(), Sound.ITEM_BREAK, 1, 1);
+                } else {
+                    tsl.setDurability((short) (tsl.getDurability() + 2));
 
-                Location loc = (Location) p.getWorld();
+                    Snowball ball = p.launchProjectile(Snowball.class);
+
+                    ball.setMetadata("IsSquid", new FixedMetadataValue(TazPvP.getInstance(), true));
+
+                    Location loc = (Location) p.getWorld();
+                }
             } else {
                 p.sendMessage(ChatColor.RED + "You cannot use this here.");
             }
