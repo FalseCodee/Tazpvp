@@ -35,8 +35,6 @@ public class BlockBreakListener implements Listener {
             blocks.add(Material.DIAMOND_ORE);
             blocks.add(Material.EMERALD_ORE);
 
-
-
             if(!blocks.contains(b.getType())){
                 event.setCancelled(true);
             }else{
@@ -44,14 +42,12 @@ public class BlockBreakListener implements Listener {
                 p.getInventory().addItem(new ItemStack(b.getType()));
                 b.setType(Material.BEDROCK);
                 new BukkitRunnable() {
-
                     @Override
                     public void run() {
                         b.setType(event.getBlock().getType());
                     }
-                }.runTaskTimer(TazPvP.getInstance(), 200L, 0L);
+                }.runTaskTimer(TazPvP.getInstance(), 0L, 200L);
             }
-
         }
     }
 }
