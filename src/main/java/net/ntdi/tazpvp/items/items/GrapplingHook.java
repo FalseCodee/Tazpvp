@@ -10,10 +10,13 @@ import org.bukkit.util.Vector;
 public class GrapplingHook extends ClickableItem {
 
     public GrapplingHook() {
-        super(Items.GRAPPLING_HOOK);
+        super(Items.GRAPPLING_HOOK, 3);
     }
 
     public void onReel(Player player, Location location){
+        if(execute(player, null)) {
+            return;
+        }
         pullEntityToLocation(player, location);
     }
 

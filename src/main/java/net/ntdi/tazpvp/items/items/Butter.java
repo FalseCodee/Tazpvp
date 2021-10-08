@@ -10,12 +10,14 @@ import org.bukkit.potion.PotionEffectType;
 public class Butter extends ConsumableItem {
 
     public Butter() {
-        super(Items.BUTTER);
+        super(Items.BUTTER, 3);
     }
 
     @Override
-    public void execute(Player p, ItemStack itemStack) {
-        super.execute(p, itemStack);
+    public boolean execute(Player p, ItemStack itemStack) {
+        if(super.execute(p, itemStack)) {
+            return true;
+        }
         if(p.getHealth() <= 16) {
             p.setHealth(p.getHealth() + 4);
         } else {
@@ -23,6 +25,6 @@ public class Butter extends ConsumableItem {
         }
         p.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 20*60, 0));
         p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20*3, 0));
-
+        return false;
     }
 }

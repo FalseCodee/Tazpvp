@@ -42,13 +42,12 @@ public class CrateListener implements Listener {
             return;
 
         }
-        if(p.getItemInHand().getType() != Material.AIR && p.getItemInHand() != null) {
+        if(p.getItemInHand().getType() != Material.AIR && p.getItemInHand() != null && p.getItemInHand().getType() != Material.FISHING_ROD) {
             for(Items items : Items.values()) {
                 if(items.display.equals(p.getItemInHand().getItemMeta().getDisplayName())) {
                     for(Item i : ItemManager.items) {
                         if(i.enumeration.equals(items)) {
                             i.execute(p, p.getItemInHand());
-                            event.setCancelled(true);
                             return;
                         }
                     }

@@ -4,7 +4,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 
 public enum Items {
-    GRAPPLING_HOOK(ChatColor.DARK_AQUA + "Grappling Hook", Material.GOLD_BLOCK),
+    GRAPPLING_HOOK(ChatColor.DARK_AQUA + "Grappling Hook", Material.FISHING_ROD),
     BUTTER(ChatColor.DARK_AQUA + "Butter", Material.GOLD_INGOT),
     AGILITY(ChatColor.DARK_AQUA + "Agility", Material.EYE_OF_ENDER),
     EXTINGUISH(ChatColor.DARK_AQUA + "Extinguish Flower", Material.RED_ROSE),

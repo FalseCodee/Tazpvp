@@ -29,7 +29,7 @@ public class DeathListener implements Listener {
         }
         TazPvP.statsManager.setStreak(p,0);
         TazPvP.statsManager.addStreak(killer, 1);
-        event.getEntity().spigot().respawn();
+//        event.getEntity().spigot().respawn();
 
 //        World wrld = Bukkit.getWorld("spawn");
 
