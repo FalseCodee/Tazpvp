@@ -25,6 +25,7 @@ import net.ntdi.tazpvp.managers.*;
 import net.ntdi.tazpvp.utils.MathUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
@@ -34,6 +35,7 @@ import org.bukkit.scoreboard.*;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 
 public final class TazPvP extends JavaPlugin {
 
@@ -51,6 +53,7 @@ public final class TazPvP extends JavaPlugin {
     public static File helpFile;
     public static File ruleFile;
 
+    public static ArrayList<Material> blocks = new ArrayList<>();
 
     public static TazPvP instance;
     @Override
@@ -108,6 +111,12 @@ public final class TazPvP extends JavaPlugin {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        blocks.add(Material.COAL_ORE);
+        blocks.add(Material.IRON_ORE);
+        blocks.add(Material.LAPIS_ORE);
+        blocks.add(Material.GOLD_ORE);
+        blocks.add(Material.DIAMOND_ORE);
+        blocks.add(Material.EMERALD_ORE);
     }
 
 

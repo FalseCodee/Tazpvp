@@ -20,7 +20,7 @@ public class BlockListener implements Listener {
                     public void run() {
                         event.getBlockPlaced().setType(Material.AIR);
                     }
-                }.runTaskTimer(TazPvP.getInstance(), 200L, 0L);
+                }.runTaskLater(TazPvP.getInstance(), 200L);
             }
         }
     }

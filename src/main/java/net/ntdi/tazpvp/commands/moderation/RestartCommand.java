@@ -27,7 +27,7 @@ public class RestartCommand implements CommandExecutor {
                 System.out.println("server was restarted with command by " + sender.getName());
                 Bukkit.reload();
             }
-        }.runTaskTimer(TazPvP.getInstance(), 600L, 0L);
+        }.runTaskLater(TazPvP.getInstance(), 600L);
 
         return true;
     }

@@ -42,6 +42,7 @@ public class CrateListener implements Listener {
             return;
 
         }
+        if(p.getItemInHand().getType() != Material.AIR && p.getItemInHand() != null) {
             for(Items items : Items.values()) {
                 if(items.display.equals(p.getItemInHand().getItemMeta().getDisplayName())) {
                     for(Item i : ItemManager.items) {
@@ -53,6 +54,7 @@ public class CrateListener implements Listener {
                     }
                     return;
                 }
+            }
             }
 
 
