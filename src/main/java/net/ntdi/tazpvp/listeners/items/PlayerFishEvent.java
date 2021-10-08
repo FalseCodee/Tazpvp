@@ -4,7 +4,6 @@ import net.ntdi.tazpvp.items.Item;
 import net.ntdi.tazpvp.items.ItemManager;
 import net.ntdi.tazpvp.items.Items;
 import net.ntdi.tazpvp.items.items.GrapplingHook;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

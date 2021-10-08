@@ -17,7 +17,7 @@ import java.util.WeakHashMap;
 public class StatsManager {
     public final FileConfiguration statsFile;
     final File file;
-    public WeakHashMap<UUID, Scoreboard> scoreboards = new WeakHashMap<>();
+    public final WeakHashMap<UUID, Scoreboard> scoreboards = new WeakHashMap<>();
     
 
 

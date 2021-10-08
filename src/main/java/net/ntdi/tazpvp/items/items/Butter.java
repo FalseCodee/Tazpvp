@@ -2,7 +2,6 @@ package net.ntdi.tazpvp.items.items;
 
 import net.ntdi.tazpvp.items.ConsumableItem;
 import net.ntdi.tazpvp.items.Items;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;

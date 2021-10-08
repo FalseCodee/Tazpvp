@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class BountyCommand implements CommandExecutor {
-    public static HashMap<UUID, Integer> bounties = new HashMap<>();
+    public static final HashMap<UUID, Integer> bounties = new HashMap<>();
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player player = null;

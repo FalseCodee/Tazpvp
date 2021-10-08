@@ -1,15 +1,10 @@
 package net.ntdi.tazpvp.items.items;
 
-import net.milkbowl.vault.chat.Chat;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.items.ClickableItem;
-import net.ntdi.tazpvp.items.ConsumableItem;
 import net.ntdi.tazpvp.items.Items;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Snowball;
 import org.bukkit.inventory.ItemStack;
@@ -23,7 +18,7 @@ public class SquidLauncher extends ClickableItem {
         super(Items.SQUID_LAUNCHER);
     }
 
-    public HashMap<UUID, Long> cooldowns = new HashMap<>();
+    public final HashMap<UUID, Long> cooldowns = new HashMap<>();
 
     @Override
     public void execute(Player p, ItemStack itemStack) {
