@@ -1,22 +1,12 @@
 package net.ntdi.tazpvp.listeners.items;
 
-import net.milkbowl.vault.chat.Chat;
 import net.ntdi.tazpvp.TazPvP;
-import net.ntdi.tazpvp.items.Item;
-import net.ntdi.tazpvp.items.ItemManager;
-import net.ntdi.tazpvp.items.Items;
-import net.ntdi.tazpvp.items.items.GrapplingHook;
 import org.bukkit.*;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.util.Vector;
-
-import javax.swing.*;
-import java.util.concurrent.TimeUnit;
-
-import static java.awt.SystemColor.text;
 
 public class SnowballHitEvent implements Listener {
 
@@ -35,7 +25,7 @@ public class SnowballHitEvent implements Listener {
 //                squid.damage(100);
 //                squid.setHealth(0);
 
-                Location landed = (Location)event.getEntity().getLocation();
+                Location landed = event.getEntity().getLocation();
 
                 float power = 2;
                 World w = event.getEntity().getWorld();
@@ -61,20 +51,12 @@ public class SnowballHitEvent implements Listener {
                 squid.setCustomNameVisible(true);
                 squid.setVelocity(new Vector(0, 2, 0));
 
-                Bukkit.getScheduler().runTaskLater(TazPvP.getInstance(), new Runnable() {
-                    @Override
-                    public void run() {
-                        squid.damage(100);
-                    }
-                }, 20);
+                Bukkit.getScheduler().runTaskLater(TazPvP.getInstance(), () -> squid.damage(100), 20);
 
-                Bukkit.getScheduler().runTaskLater(TazPvP.getInstance(), new Runnable() {
-                    @Override
-                    public void run() {
-                        as.damage(100);
-                        as.setHealth(0);
+                Bukkit.getScheduler().runTaskLater(TazPvP.getInstance(), () -> {
+                    as.damage(100);
+                    as.setHealth(0);
 
-                    }
                 }, 40);
             }
         }

@@ -2,7 +2,6 @@ package net.ntdi.tazpvp.items.items;
 
 import net.ntdi.tazpvp.items.ConsumableItem;
 import net.ntdi.tazpvp.items.Items;
-import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
@@ -11,12 +10,14 @@ import org.bukkit.potion.PotionEffectType;
 public class Butter extends ConsumableItem {
 
     public Butter() {
-        super(Items.BUTTER);
+        super(Items.BUTTER, 3);
     }
 
     @Override
-    public void execute(Player p, ItemStack itemStack) {
-        super.execute(p, itemStack);
+    public boolean execute(Player p, ItemStack itemStack) {
+        if(super.execute(p, itemStack)) {
+            return true;
+        }
         if(p.getHealth() <= 16) {
             p.setHealth(p.getHealth() + 4);
         } else {
@@ -24,8 +25,6 @@ public class Butter extends ConsumableItem {
         }
         p.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 20*60, 0));
         p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20*3, 0));
-        if(p.getItemInHand().getAmount() == 1) {
-            p.getItemInHand().setType(Material.AIR);
-        }
+        return false;
     }
 }

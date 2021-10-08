@@ -3,7 +3,6 @@ package net.ntdi.tazpvp.commands.moderation;
 import net.ntdi.tazpvp.TazPvP;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -28,7 +27,7 @@ public class RestartCommand implements CommandExecutor {
                 System.out.println("server was restarted with command by " + sender.getName());
                 Bukkit.reload();
             }
-        }.runTaskTimer(TazPvP.getInstance(), 600L, 0L);
+        }.runTaskLater(TazPvP.getInstance(), 600L);
 
         return true;
     }

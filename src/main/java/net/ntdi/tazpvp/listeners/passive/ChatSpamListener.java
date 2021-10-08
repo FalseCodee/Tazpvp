@@ -1,6 +1,5 @@
 package net.ntdi.tazpvp.listeners.passive;
 
-import net.milkbowl.vault.chat.Chat;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.utils.ChatUtils;
 import org.bukkit.ChatColor;

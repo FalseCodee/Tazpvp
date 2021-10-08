@@ -9,8 +9,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.ItemStack;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class EntityDamageByEntityListener implements Listener {

@@ -1,21 +1,16 @@
 package net.ntdi.tazpvp.listeners.function;
 
-import com.google.common.base.Enums;
-import net.md_5.bungee.api.chat.ClickEvent;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.items.Item;
 import net.ntdi.tazpvp.items.ItemManager;
 import net.ntdi.tazpvp.items.Items;
 import org.bukkit.ChatColor;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.util.BlockIterator;
 
 import java.util.Random;
 
@@ -23,7 +18,7 @@ public class CrateListener implements Listener {
 
     @EventHandler
     public void onPlayerCrateEvent(PlayerInteractEvent event){
-        Player p = (Player) event.getPlayer();
+        Player p = event.getPlayer();
 
         if (event.getClickedBlock() != null && event.getClickedBlock().getType() == Material.CHEST) {
             event.setCancelled(true);
@@ -47,17 +42,18 @@ public class CrateListener implements Listener {
             return;
 
         }
+        if(p.getItemInHand().getType() != Material.AIR && p.getItemInHand() != null && p.getItemInHand().getType() != Material.FISHING_ROD) {
             for(Items items : Items.values()) {
                 if(items.display.equals(p.getItemInHand().getItemMeta().getDisplayName())) {
                     for(Item i : ItemManager.items) {
                         if(i.enumeration.equals(items)) {
                             i.execute(p, p.getItemInHand());
-                            event.setCancelled(true);
                             return;
                         }
                     }
                     return;
                 }
+            }
             }
 
 

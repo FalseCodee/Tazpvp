@@ -14,5 +14,5 @@ public abstract class Item {
         this.enumeration = item;
     }
 
-    public abstract void execute(Player p, ItemStack itemStack);
+    public abstract boolean execute(Player p, ItemStack itemStack);
 }

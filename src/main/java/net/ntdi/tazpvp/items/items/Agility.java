@@ -9,12 +9,15 @@ import org.bukkit.potion.PotionEffectType;
 
 public class Agility extends ConsumableItem {
     public Agility() {
-        super(Items.AGILITY);
+        super(Items.AGILITY, 3);
     }
 
     @Override
-    public void execute(Player p, ItemStack itemStack) {
-        super.execute(p, itemStack);
+    public boolean execute(Player p, ItemStack itemStack) {
+        if(super.execute(p, itemStack)) {
+            return true;
+        }
         p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 20*5, 0));
+        return false;
     }
 }

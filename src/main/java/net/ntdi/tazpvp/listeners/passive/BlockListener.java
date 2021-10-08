@@ -1,10 +1,8 @@
 package net.ntdi.tazpvp.listeners.passive;
 
-import jdk.javadoc.internal.doclint.HtmlTag;
 import net.ntdi.tazpvp.TazPvP;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
-import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
@@ -22,7 +20,7 @@ public class BlockListener implements Listener {
                     public void run() {
                         event.getBlockPlaced().setType(Material.AIR);
                     }
-                }.runTaskTimer(TazPvP.getInstance(), 200L, 0L);
+                }.runTaskLater(TazPvP.getInstance(), 200L);
             }
         }
     }

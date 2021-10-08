@@ -19,10 +19,6 @@ public class RedeemCommand implements CommandExecutor {
 
         if(player != null) {
             new GUIDailyReward(player);
-            ItemManager.givePlayerItem(player, Items.GRAPPLING_HOOK, 1);
-            ItemManager.givePlayerItem(player, Items.AGILITY, 8);
-            ItemManager.givePlayerItem(player, Items.BUTTER, 8);
-            ItemManager.givePlayerItem(player, Items.EXTINGUISH, 8);
         }
         return true;
     }

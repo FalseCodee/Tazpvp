@@ -2,6 +2,7 @@ package net.ntdi.tazpvp.gui.guis.upgrades;
 
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.gui.GUI;
+import net.ntdi.tazpvp.items.Items;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
@@ -199,8 +200,9 @@ public class GUIUpgradeMenu extends GUI {
     public ItemStack getRod() {
         for(int i = 0; i < player.getInventory().getSize(); i++) {
             if(player.getInventory().getItem(i) == null) continue;
+            if(player.getInventory().getItem(i).getItemMeta().hasDisplayName() &&player.getInventory().getItem(i).getItemMeta().getDisplayName().equals(Items.GRAPPLING_HOOK.display)) continue;
             Material m = player.getInventory().getItem(i).getType();
-            if(m == Material.FISHING_ROD) {
+            if(m == Material.FISHING_ROD ) {
                 return player.getInventory().getItem(i);
             }
         }
