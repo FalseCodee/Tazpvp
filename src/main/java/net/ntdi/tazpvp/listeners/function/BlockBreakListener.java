@@ -51,7 +51,7 @@ public class BlockBreakListener implements Listener {
                     } else if (mat == Material.IRON_ORE) {
                         p.getInventory().addItem(new ItemStack(Material.IRON_INGOT, 2));
                     } else if (mat == Material.LAPIS_ORE) {
-                        p.getInventory().addItem(new ItemStack(Material.LAPIS_ORE, 2));
+                        p.getInventory().addItem(new ItemStack(Material.INK_SACK, 2, (short) 4));
                     } else if (mat == Material.GOLD_ORE) {
                         p.getInventory().addItem(new ItemStack(Material.GOLD_INGOT, 2));
                     } else if (mat == Material.DIAMOND_ORE) {

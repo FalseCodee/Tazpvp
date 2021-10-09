@@ -51,9 +51,9 @@ public class Fisherman {
             p.getInventory().setItemInHand(new ItemStack(Material.AIR));
             TazPvP.statsManager.addMoney(p, amount * 4);
             p.sendMessage(ChatColor.YELLOW + "+" + amount * 4);
-//        } else if (Objects.equals(inhand, new ItemStack(Material.LAPIS_ORE, amount))) {
-//            p.getInventory().setItemInHand(new ItemStack(Material.AIR));
-//            TazPvP.statsManager.addMoney(p, amount * 5);
+        } else if (Objects.equals(inhand, new ItemStack(Material.INK_SACK, amount, (short) 4))) {
+            p.getInventory().setItemInHand(new ItemStack(Material.AIR));
+            TazPvP.statsManager.addMoney(p, amount * 5);
         } else if (Objects.equals(inhand, new ItemStack(Material.DIAMOND, amount))) {
             p.getInventory().setItemInHand(new ItemStack(Material.AIR));
             TazPvP.statsManager.addMoney(p, amount * 12);
