@@ -41,11 +41,11 @@ public class BanCommand implements CommandExecutor {
                         player.sendMessage(ChatColor.RED + banned.getName() + " has been banned.");
                         banned.sendMessage(ChatColor.RED+"You have been banned for "+ChatColor.WHITE+reason);
 
-                        Bukkit.broadcastMessage(ChatColor.WHITE + "--------------------------------------------------------");
+                        Bukkit.broadcastMessage(ChatColor.WHITE + "---------------------------------------------------");
                         Bukkit.broadcastMessage(ChatColor.WHITE + "");
                         Bukkit.broadcastMessage(ChatColor.RED + "" + ChatColor.BOLD + "" + banned.getName() + " has been banned for: " + ChatColor.WHITE + "" + ChatColor.BOLD + args[1]);
                         Bukkit.broadcastMessage(ChatColor.WHITE + "");
-                        Bukkit.broadcastMessage(ChatColor.WHITE + "--------------------------------------------------------");
+                        Bukkit.broadcastMessage(ChatColor.WHITE + "---------------------------------------------------");
 
 
                         JSONObject obj = new JSONObject();
