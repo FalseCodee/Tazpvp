@@ -14,10 +14,11 @@ public class RestartCommand implements CommandExecutor {
 
         Bukkit.broadcastMessage(ChatColor.DARK_AQUA + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
         Bukkit.broadcastMessage(ChatColor.WHITE + "");
-        Bukkit.broadcastMessage(ChatColor.RED + "" + ChatColor.BOLD + "The server will be restarted in 30 seconds!");
-        Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "IP: " + ChatColor.YELLOW + "" + ChatColor.GOLD +  "tazpvp.net");
-        Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "DISCORD: " + ChatColor.YELLOW +  "/discord");
-        Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "We'll be back online shortly!");
+        Bukkit.broadcastMessage(ChatColor.RED + "" + "The server will be restarted in 30 seconds!");
+        Bukkit.broadcastMessage(ChatColor.DARK_AQUA + "IP: " + ChatColor.YELLOW + "tazpvp.net");
+        Bukkit.broadcastMessage(ChatColor.DARK_AQUA + "DISCORD: " + ChatColor.YELLOW +  "/discord");
+        Bukkit.broadcastMessage(ChatColor.DARK_AQUA + "COMMAND: " + ChatColor.YELLOW + "/join tazpvp");
+        Bukkit.broadcastMessage(ChatColor.DARK_AQUA + "We'll be back online shortly!");
         Bukkit.broadcastMessage(ChatColor.WHITE + "");
         Bukkit.broadcastMessage(ChatColor.DARK_AQUA + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
