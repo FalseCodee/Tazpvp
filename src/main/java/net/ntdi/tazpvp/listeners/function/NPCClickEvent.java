@@ -3,6 +3,7 @@ package net.ntdi.tazpvp.listeners.function;
 import net.citizensnpcs.api.event.NPCLeftClickEvent;
 import net.citizensnpcs.api.event.NPCRightClickEvent;
 import net.ntdi.tazpvp.gui.guis.GUIAchievement;
+import net.ntdi.tazpvp.gui.guis.GUICosmetics;
 import net.ntdi.tazpvp.gui.guis.GUIShop;
 import net.ntdi.tazpvp.gui.guis.upgrades.GUIMainScreen;
 import net.ntdi.tazpvp.listeners.function.Fisherman;
@@ -32,7 +33,7 @@ public class NPCClickEvent implements Listener {
         } else if(event.getNPC().getId() == 15) { //ACHIEVEMENTS
             new GUIAchievement(event.getClicker());
         } else if(event.getNPC().getId() == 19) { //RANKS
-
+            new GUICosmetics(event.getClicker());
         } else if(event.getNPC().getId() == 32) { //UPGRADES
             new GUIMainScreen(event.getClicker());
         } else if (event.getNPC().getId() == 36) { //FISHERMAN
