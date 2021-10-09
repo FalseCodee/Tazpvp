@@ -14,7 +14,7 @@ public class BlockListener implements Listener {
 
     @EventHandler
     public void onPlaceBlock(BlockPlaceEvent event) {
-        if (event.getPlayer().getGameMode() == GameMode.SURVIVAL && event.getPlayer().getWorld().getName().equals("arena")) {
+        if (event.getPlayer().getGameMode() == GameMode.SURVIVAL) {
             Material blockType = event.getBlockPlaced().getType();
             ArrayList<Material> unreq = new ArrayList<>();
             unreq.add(Material.COAL_ORE);
