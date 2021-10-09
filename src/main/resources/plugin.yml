@@ -169,3 +169,7 @@ commands:
   ridepearl:
     description: ride a pearl
     permission: op
+  firegun:
+    permission-message: no
+    permission: op
+    description: ballfire
