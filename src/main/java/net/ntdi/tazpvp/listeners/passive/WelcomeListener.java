@@ -29,8 +29,6 @@ public class WelcomeListener implements Listener {
             PlayerUtils.equipStarter(p);
         }
 
-        event.setJoinMessage(ChatColor.GRAY + "[" + ChatColor.GREEN + "+" + ChatColor.GRAY + "] " + p.getName());
-
         World wrld = Bukkit.getWorld(TazPvP.configFile.getString("spawn.world"));
 
         Location loc = new Location(wrld, 0.5, 51, 0.5, 180, 0);

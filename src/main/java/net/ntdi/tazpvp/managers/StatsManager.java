@@ -76,8 +76,8 @@ public class StatsManager {
         statsFile.set(player.getUniqueId().toString()+".money", money);
         TazPvP.getInstance().initScoreboard((Player) player);
     }
-    public void addMoney(OfflinePlayer player, double money) {
-        setMoney(player, (int) (money+getMoney(player)));
+    public void addMoney(OfflinePlayer player, int money) {
+        setMoney(player, (money+getMoney(player)));
     }
     public int getPoints(OfflinePlayer player) {
         return statsFile.getInt(player.getUniqueId().toString()+".points");
