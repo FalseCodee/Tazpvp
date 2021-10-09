@@ -33,7 +33,7 @@ public class ReportCommand implements CommandExecutor {
         else {
             Player reportee = Bukkit.getPlayer(args[0]);
             if(reportee != null){
-                Bukkit.broadcast(ChatColor.DARK_GRAY +"▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n"+ChatColor.RED+""+ChatColor.BOLD +"REPORT " + ChatColor.WHITE + reportee.getName() + ChatColor.GRAY + " was reported for " + ChatColor.WHITE + StringUtils.buildString(args, 1) + ChatColor.GRAY+" by "+ChatColor.WHITE + player.getName() + "\n" + ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬", "staff.reports");
+                Bukkit.broadcast(ChatColor.DARK_GRAY +"▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n"+ChatColor.RED+""+ChatColor.BOLD +"REPORT " + ChatColor.WHITE + reportee.getName() + ChatColor.GRAY + " was reported for " + ChatColor.WHITE + StringUtils.buildString(args, 1) + ChatColor.GRAY+" by "+ChatColor.WHITE + player.getName() + "\n" + ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬", "staff.reports");
                 player.sendMessage(ChatColor.RED + "Thank you for reporting " + ChatColor.WHITE + reportee.getName() + ChatColor.RED + ", they will be reviewed shortly.");
                 JSONObject obj = new JSONObject();
                 JSONArray embed = new JSONArray();
