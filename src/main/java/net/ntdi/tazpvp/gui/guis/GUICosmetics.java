@@ -25,8 +25,21 @@ public class GUICosmetics extends GUI {
 
             switch (runnable){
                 case 1:
-                    if (TazPvP.statsManager.getCredits(p) >= 500) {
+                    if (TazPvP.statsManager.getCredits(p) >= 50) {
                         p.sendMessage(ChatColor.YELLOW + "renaming your sword is totally happening..");
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Insufficient Credits!");
+                    }
+                    break;
+                case 2:
+                    p.sendMessage(ChatColor.YELLOW + "Opening gui that definitely exists");
+                    break;
+                case 3:
+                    p.sendMessage(ChatColor.YELLOW + "blocks arent real");
+                    break;
+                case 4:
+                    if (TazPvP.statsManager.getCredits(p) >= 100) {
+                        p.sendMessage(ChatColor.YELLOW + "prefix's dont deserve to be renamed");
                     } else {
                         p.sendMessage(ChatColor.RED + "Insufficient Credits!");
                     }
@@ -43,7 +56,9 @@ public class GUICosmetics extends GUI {
         }
 
         addShopItem(10, new ItemStack(Material.WOOD_SWORD, 1), 1, ChatColor.DARK_AQUA + "RENAME SWORD", ChatColor.GRAY + "Rename your sword!\n" + ChatColor.AQUA + "50 Credits");
-
+        addShopItem(12, new ItemStack(Material.LEATHER_CHESTPLATE, 1), 2, ChatColor.DARK_AQUA + "RECOLOR ARMOR", ChatColor.GRAY + "Recolor your armor!");
+        addShopItem(14, new ItemStack(Material.WOOL, 1), 3, ChatColor.DARK_AQUA + "RGB BLOCK SHOP", ChatColor.GRAY + "Rgb blocks!");
+        addShopItem(16, new ItemStack(Material.NAME_TAG, 1), 4, ChatColor.DARK_AQUA + "RENAME PREFIX", ChatColor.GRAY + "Rename your prefix!\n" + ChatColor.AQUA + "100 Credits");
         update();
     }
 
