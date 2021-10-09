@@ -32,16 +32,16 @@ public class BanCommand implements CommandExecutor {
                 if(banned != null){
                     if(TazPvP.punishmentManager.isBanned(banned)){
                         TazPvP.punishmentManager.removeBan(banned);
-                        player.sendMessage(ChatColor.RED + banned.getName() + " has been unbanned.");
-                        banned.sendMessage(ChatColor.RED+"You have been unbanned.");
-
+                        player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "UNBAN " + ChatColor.RED + "You just unbanned " + ChatColor.WHITE + banned.getName());
+                        banned.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+                        banned.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "UNBANNED" + ChatColor.GRAY + " You've been unbanned by " + ChatColor.WHITE + player.getName());
+                        banned.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
                     } else {
                         //short ban to test
                         TazPvP.punishmentManager.initBan(banned, false, 60*60*1000);
-                        player.sendMessage(ChatColor.RED + banned.getName() + " has been banned.");
+                        player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "BAN " + ChatColor.RED + "You just banned " + ChatColor.WHITE + banned.getName());
                         banned.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-                        banned.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "   BANNED");
-                        banned.sendMessage(ChatColor.GRAY + "    You've been banned for "+ChatColor.WHITE+reason + ChatColor.GRAY + " by " + ChatColor.WHITE + player.getName());
+                        banned.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "BANNED" + ChatColor.GRAY + " You've been banned for "+ChatColor.WHITE+reason + ChatColor.GRAY + " by " + ChatColor.WHITE + player.getName());
                         banned.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
 /*                        Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
