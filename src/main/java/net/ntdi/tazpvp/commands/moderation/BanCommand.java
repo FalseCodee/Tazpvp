@@ -39,13 +39,16 @@ public class BanCommand implements CommandExecutor {
                         //short ban to test
                         TazPvP.punishmentManager.initBan(banned, false, 60*60*1000);
                         player.sendMessage(ChatColor.RED + banned.getName() + " has been banned.");
-                        banned.sendMessage(ChatColor.RED+"You have been banned for "+ChatColor.WHITE+reason);
+                        banned.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+                        banned.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "   BANNED");
+                        banned.sendMessage(ChatColor.GRAY + "    You've been banned for "+ChatColor.WHITE+reason + ChatColor.GRAY + " by " + ChatColor.WHITE + player.getName());
+                        banned.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
-                        Bukkit.broadcastMessage(ChatColor.WHITE + "---------------------------------------------------");
+/*                        Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+                        Bukkit.broadcastMessage(ChatColor.RED +"" + ChatColor.BOLD + "BANNED");
+                        Bukkit.broadcastMessage(ChatColor.GRAY + "" + banned.getName() + " has been banned for: " + ChatColor.WHITE + "" + ChatColor.BOLD + reason);
                         Bukkit.broadcastMessage(ChatColor.WHITE + "");
-                        Bukkit.broadcastMessage(ChatColor.RED + "" + ChatColor.BOLD + "" + banned.getName() + " has been banned for: " + ChatColor.WHITE + "" + ChatColor.BOLD + reason);
-                        Bukkit.broadcastMessage(ChatColor.WHITE + "");
-                        Bukkit.broadcastMessage(ChatColor.WHITE + "---------------------------------------------------");
+                        Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");*/
 
 
                         JSONObject obj = new JSONObject();
