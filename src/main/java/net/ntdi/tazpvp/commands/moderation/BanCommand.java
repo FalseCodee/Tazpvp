@@ -43,7 +43,7 @@ public class BanCommand implements CommandExecutor {
 
                         Bukkit.broadcastMessage(ChatColor.WHITE + "---------------------------------------------------");
                         Bukkit.broadcastMessage(ChatColor.WHITE + "");
-                        Bukkit.broadcastMessage(ChatColor.RED + "" + ChatColor.BOLD + "" + banned.getName() + " has been banned for: " + ChatColor.WHITE + "" + ChatColor.BOLD + args[1]);
+                        Bukkit.broadcastMessage(ChatColor.RED + "" + ChatColor.BOLD + "" + banned.getName() + " has been banned for: " + ChatColor.WHITE + "" + ChatColor.BOLD + reason);
                         Bukkit.broadcastMessage(ChatColor.WHITE + "");
                         Bukkit.broadcastMessage(ChatColor.WHITE + "---------------------------------------------------");
 
