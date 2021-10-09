@@ -188,7 +188,7 @@ public class StatsManager {
                     return sb.getTeam("f");
                 case"builder":
                     return sb.getTeam("g");
-                case"sr.Mod":
+                case"sr.mod":
                     return sb.getTeam("d");
                 case"pro":
                     return sb.getTeam("j");
