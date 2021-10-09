@@ -38,10 +38,8 @@ public class EntityDamageByEntityListener implements Listener {
                 return;
             }
 
-
-            if(!Objects.equals(((Player) event.getDamager()).getItemInHand(), new ItemStack(Material.AIR))){
+            if(((Player) event.getDamager()).getInventory().getItemInHand() != null){
                 ((Player) event.getDamager()).giveExp(1);
-
             }
         }
     }
