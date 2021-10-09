@@ -51,7 +51,7 @@ public class DeathListener implements Listener {
             killer.giveExp(5);
             p.sendMessage(ChatColor.DARK_GRAY + "You were killed by " + ChatColor.GRAY + "" + killer.getName());
             killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 5 Coins " + ChatColor.DARK_AQUA + "+ 5 Experience");
-            killer.setHealth(killer.getHealth() + 6);
+            killer.setHealth(Math.min(killer.getHealth() + 6, 20));
         }
 
     }
