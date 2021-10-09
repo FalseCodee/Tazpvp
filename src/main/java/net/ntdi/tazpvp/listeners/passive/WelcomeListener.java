@@ -3,15 +3,17 @@ package net.ntdi.tazpvp.listeners.passive;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.utils.PlayerUtils;
 import org.bukkit.*;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.scoreboard.Scoreboard;
 
-public class WelcomeListener implements Listener {
+public class WelcomeListener<SerializedOfflinePlayer> implements Listener {
 
     public TazPvP plugin;
 
@@ -60,7 +62,20 @@ public class WelcomeListener implements Listener {
             p.sendMessage(ChatColor.WHITE + "" +ChatColor.BOLD + "------------------------------------------------------------------------");
         }
 
-        if(TazPvP.statsManager.statsFile.contains(event.getPlayer().getUniqueId().toString())) {
+
+        OfflinePlayer player;
+        boolean hasPlayed = p.hasPlayedBefore();
+
+        if (hasPlayed) {
+            p.sendMessage(ChatColor.GRAY + "[" + ChatColor.GREEN + "+" + ChatColor.GRAY + "] " + p.getName());
+        } else {
+            p.sendMessage(ChatColor.GRAY + "[" + ChatColor.GOLD + "+" + ChatColor.GRAY + "] " + p.getName());
+            Player player2 = event.getPlayer();
+            PlayerUtils.equipStarter(player2);
+
+        }
+
+/*        if(TazPvP.statsManager.statsFile.contains(event.getPlayer().getUniqueId().toString())) {
             event.setJoinMessage(ChatColor.GRAY + "[" + ChatColor.GREEN + "+" + ChatColor.GRAY + "] " + p.getName());
         } else {
             TazPvP.statsManager.initPlayer(p);
@@ -68,7 +83,7 @@ public class WelcomeListener implements Listener {
             event.setJoinMessage(ChatColor.GRAY + "[" + ChatColor.GOLD + "+" + ChatColor.GRAY + "] " + p.getName());
             Player player = event.getPlayer();
             PlayerUtils.equipStarter(player);
-        }
+        } */
         p.spigot().setCollidesWithEntities(true);
     }
     @EventHandler
