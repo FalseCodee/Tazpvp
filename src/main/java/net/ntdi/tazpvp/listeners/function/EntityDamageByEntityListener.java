@@ -38,7 +38,12 @@ public class EntityDamageByEntityListener implements Listener {
                 return;
             }
 
-            if(((Player) event.getDamager()).getInventory().getItemInHand() != null){
+            if(((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.WOOD_SWORD) ||
+                    ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.WOOD_SWORD) ||
+                    ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.WOOD_SWORD) ||
+                    ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.WOOD_SWORD) ||
+                    ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.WOOD_SWORD) ||
+                    ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.WOOD_SWORD)){
                 ((Player) event.getDamager()).giveExp(1);
             }
         }
