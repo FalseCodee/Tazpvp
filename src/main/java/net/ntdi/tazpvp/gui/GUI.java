@@ -1,6 +1,7 @@
 package net.ntdi.tazpvp.gui;
 
 import com.google.common.collect.Maps;
+import net.ntdi.tazpvp.TazPvP;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
@@ -114,6 +115,7 @@ public abstract class GUI {
 
     public void onInventoryClose(InventoryCloseEvent e, GUI gui){
         GUIManager.guiHashMap.remove(player.getUniqueId());
+        Bukkit.getScheduler().runTaskLater(TazPvP.getInstance(), player::updateInventory, 1);
     }
 
     public void onInventoryOpen(InventoryOpenEvent e, GUI gui){
