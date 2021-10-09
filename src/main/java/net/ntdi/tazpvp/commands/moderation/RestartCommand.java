@@ -15,7 +15,7 @@ public class RestartCommand implements CommandExecutor {
         Bukkit.broadcastMessage(ChatColor.WHITE + "-----------------------------------------------");
         Bukkit.broadcastMessage(ChatColor.WHITE + "");
         Bukkit.broadcastMessage(ChatColor.RED + "The server will be restarted in 30 seconds!");
-        Bukkit.broadcastMessage(ChatColor.AQUA + "IP: " + ChatColor.BOLD + "tazpvp.net");
+        Bukkit.broadcastMessage(ChatColor.AQUA + "IP: " + ChatColor.BOLD + "" + ChatColor.GOLD +  "tazpvp.net");
         Bukkit.broadcastMessage(ChatColor.AQUA + "DISCORD: " + ChatColor.GOLD + "" + ChatColor.BOLD + "/discord");
         Bukkit.broadcastMessage(ChatColor.AQUA + "We'll be back online shortly!");
         Bukkit.broadcastMessage(ChatColor.WHITE + "");
