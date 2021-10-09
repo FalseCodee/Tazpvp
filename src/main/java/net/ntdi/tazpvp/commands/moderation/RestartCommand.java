@@ -12,14 +12,22 @@ public class RestartCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-        Bukkit.broadcastMessage(ChatColor.WHITE + "-----------------------------------------------");
+        Bukkit.broadcastMessage(ChatColor.DARK_AQUA + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
         Bukkit.broadcastMessage(ChatColor.WHITE + "");
-        Bukkit.broadcastMessage(ChatColor.RED + "The server will be restarted in 30 seconds!");
-        Bukkit.broadcastMessage(ChatColor.AQUA + "IP: " + ChatColor.BOLD + "" + ChatColor.GOLD +  "tazpvp.net");
-        Bukkit.broadcastMessage(ChatColor.AQUA + "DISCORD: " + ChatColor.GOLD + "" + ChatColor.BOLD + "/discord");
-        Bukkit.broadcastMessage(ChatColor.AQUA + "We'll be back online shortly!");
+        Bukkit.broadcastMessage(ChatColor.RED + "" + ChatColor.BOLD + "The server will be restarted in 30 seconds!");
+        Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "IP: " + ChatColor.YELLOW + "" + ChatColor.GOLD +  "tazpvp.net");
+        Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "DISCORD: " + ChatColor.YELLOW +  "/discord");
+        Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "We'll be back online shortly!");
         Bukkit.broadcastMessage(ChatColor.WHITE + "");
-        Bukkit.broadcastMessage(ChatColor.WHITE + "-----------------------------------------------");
+        Bukkit.broadcastMessage(ChatColor.DARK_AQUA + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+
+//        event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+//        event.getPlayer().sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "  LEVEL UP " + ChatColor.DARK_AQUA + "Combat Lvl. " + ChatColor.AQUA + TazPvP.statsManager.getLevel(event.getPlayer()));
+//        event.getPlayer().sendMessage("");
+//        event.getPlayer().sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "  REWARDS");
+//        event.getPlayer().sendMessage(ChatColor.DARK_GRAY + "  +" + ChatColor.BLUE + "1 Point");
+//        event.getPlayer().sendMessage(ChatColor.DARK_GRAY + "  +" + ChatColor.GOLD + "100 Coins");
+//        event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
         new BukkitRunnable() {
             @Override
