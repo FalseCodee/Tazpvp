@@ -16,6 +16,7 @@ public class PostHelper {
 
         connection.setRequestProperty("Content-Type", "application/json; utf-8");
         connection.setRequestProperty("Accept", "application/json");
+        connection.setRequestProperty("User-Agent", "Mozilla/5.0");
         connection.setDoOutput(true);
 
         try(OutputStream os = connection.getOutputStream()){
