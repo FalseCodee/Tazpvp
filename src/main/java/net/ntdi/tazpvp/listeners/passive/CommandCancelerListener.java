@@ -40,7 +40,7 @@ public class CommandCancelerListener implements Listener {
 
             JSONArray fields = new JSONArray();
             JSONObject fieldCommand = new JSONObject();
-            fieldCommand.put("name", "Command Info");
+            fieldCommand.put("name", "Command Info: it was sent");
             fieldCommand.put("value", "**Command Sent:** " + event.getMessage());
             JSONObject fieldOther = new JSONObject();
             fieldOther.put("name", "Other Info");
