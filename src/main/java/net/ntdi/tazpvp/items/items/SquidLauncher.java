@@ -28,20 +28,23 @@ public class SquidLauncher extends ClickableItem {
             return true;
         }
             if (p.getWorld().getName().equals("arena")) {
+                if (!TazPvP.punishmentManager.isBanned(p)) {
+                    ItemStack tsl = p.getInventory().getItemInHand();
 
-                ItemStack tsl = p.getInventory().getItemInHand();
+                    if (tsl.getDurability() >= 32) {
+                        p.getInventory().setItemInHand(new ItemStack(Material.AIR));
+                        p.playSound(p.getLocation(), Sound.ITEM_BREAK, 1, 1);
+                    } else {
+                        tsl.setDurability((short) (tsl.getDurability() + 2));
 
-                if (tsl.getDurability() >= 32) {
-                    p.getInventory().setItemInHand(new ItemStack(Material.AIR));
-                    p.playSound(p.getLocation(), Sound.ITEM_BREAK, 1, 1);
+                        Snowball ball = p.launchProjectile(Snowball.class);
+
+                        ball.setMetadata("IsSquid", new FixedMetadataValue(TazPvP.getInstance(), true));
+
+                        Location loc = (Location) p.getWorld();
+                    }
                 } else {
-                    tsl.setDurability((short) (tsl.getDurability() + 2));
-
-                    Snowball ball = p.launchProjectile(Snowball.class);
-
-                    ball.setMetadata("IsSquid", new FixedMetadataValue(TazPvP.getInstance(), true));
-
-                    Location loc = (Location) p.getWorld();
+                    p.sendMessage(ChatColor.RED + "Hackers arent cool!");
                 }
             } else {
                 p.sendMessage(ChatColor.RED + "You cannot use this here.");

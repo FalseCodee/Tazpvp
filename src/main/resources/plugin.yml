@@ -180,3 +180,8 @@ commands:
       - credit
       - cred
       - creditz
+  stats:
+    aliases:
+      - statistics
+      - stat
+    usage: "/stats [player]"
