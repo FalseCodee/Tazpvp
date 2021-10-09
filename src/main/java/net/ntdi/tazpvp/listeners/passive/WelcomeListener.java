@@ -66,11 +66,12 @@ public class WelcomeListener<SerializedOfflinePlayer> implements Listener {
         boolean hasPlayed = p.hasPlayedBefore();
 
         if (hasPlayed) {
-            p.sendMessage(ChatColor.GRAY + "[" + ChatColor.GREEN + "+" + ChatColor.GRAY + "] " + p.getName());
+            event.setJoinMessage(ChatColor.GRAY + "[" + ChatColor.GREEN + "+" + ChatColor.GRAY + "] " + p.getName());
         } else {
-            p.sendMessage(ChatColor.GRAY + "[" + ChatColor.GOLD + "+" + ChatColor.GRAY + "] " + p.getName());
+            event.setJoinMessage(ChatColor.GRAY + "[" + ChatColor.GOLD + "+" + ChatColor.GRAY + "] " + p.getName());
             Player player = event.getPlayer();
-            PlayerUtils.equipStarter(player);
+            PlayerUtils.equipStarter(p);
+            TazPvP.statsManager.initPlayer(p);
 
         }
 
