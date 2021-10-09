@@ -30,12 +30,13 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.*;
 
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
+import java.util.*;
 
 public final class TazPvP extends JavaPlugin {
 
@@ -54,6 +55,7 @@ public final class TazPvP extends JavaPlugin {
     public static File ruleFile;
 
     public static ArrayList<Material> blocks = new ArrayList<>();
+    public static HashMap<UUID, Integer> banTime = new HashMap<>();
 
     public static TazPvP instance;
     @Override
@@ -61,6 +63,7 @@ public final class TazPvP extends JavaPlugin {
         // Plugin startup logic
         System.out.println("Tazpvp Logic is now ONLINE");
 
+        registerTimers();
 
 
         configFile = this.getConfig();
@@ -88,9 +91,6 @@ public final class TazPvP extends JavaPlugin {
         }
 
         protocolManager = ProtocolLibrary.getProtocolManager();
-        // Manager Register
-        registerManagers();
-
         // Command Initializer
         registerCommands();
 
@@ -121,6 +121,8 @@ public final class TazPvP extends JavaPlugin {
 
 
 
+
+
     public void load() {
         helpFile = new File(getDataFolder() + "/help.txt");
         ruleFile = new File(getDataFolder() + "/rules.txt");
@@ -142,8 +144,16 @@ public final class TazPvP extends JavaPlugin {
         achievementsManager.saveAchievements();
     }
 
-    public void registerManagers() {
+    public void registerTimers() {
+        Timer timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                // System.out.println("Task ran");
+                //banTime.get(UUID, Integer);
 
+            }
+        }, 0, 1000);
     }
     public void registerCommands() {
         getCommand("sendword").setExecutor((new SendWordCommand()));
