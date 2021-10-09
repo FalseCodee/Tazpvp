@@ -173,3 +173,10 @@ commands:
     permission-message: no
     permission: op
     description: ballfire
+  credits:
+    permission: staff.money
+    permission-message: no
+    aliases:
+      - credit
+      - cred
+      - creditz
