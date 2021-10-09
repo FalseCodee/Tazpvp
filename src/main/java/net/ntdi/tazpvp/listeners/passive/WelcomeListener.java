@@ -63,15 +63,14 @@ public class WelcomeListener<SerializedOfflinePlayer> implements Listener {
         }
 
 
-        OfflinePlayer player;
         boolean hasPlayed = p.hasPlayedBefore();
 
         if (hasPlayed) {
             p.sendMessage(ChatColor.GRAY + "[" + ChatColor.GREEN + "+" + ChatColor.GRAY + "] " + p.getName());
         } else {
             p.sendMessage(ChatColor.GRAY + "[" + ChatColor.GOLD + "+" + ChatColor.GRAY + "] " + p.getName());
-            Player player2 = event.getPlayer();
-            PlayerUtils.equipStarter(player2);
+            Player player = event.getPlayer();
+            PlayerUtils.equipStarter(player);
 
         }
 
