@@ -10,6 +10,7 @@ public enum Items {
     EXTINGUISH(ChatColor.DARK_AQUA + "Extinguish Flower", Material.RED_ROSE),
     SQUID_LAUNCHER(ChatColor.DARK_AQUA + "Tactical Squid Launcher", Material.GOLD_HOE),
     RIDEPEARL(ChatColor.DARK_AQUA + "Ridable Pearl", Material.EYE_OF_ENDER),
+    FIREGUN(ChatColor.DARK_AQUA + "Fireball Gun", Material.FIREBALL),
     LEVFEATHER(ChatColor.DARK_AQUA + "Levitation Feather", Material.FEATHER);
 
     public final String display;

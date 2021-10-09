@@ -20,17 +20,6 @@ public class EntityDamageByEntityListener implements Listener {
                 return;
             }
 
-//            ItemStack air = new ItemStack(Material.AIR);
-//            ArrayList<Material> swords = new ArrayList<>();
-//            swords.add(Material.WOOD_SWORD);
-//            swords.add(Material.STONE_SWORD);
-//            swords.add(Material.IRON_SWORD);
-//            swords.add(Material.DIAMOND_SWORD);
-//            swords.add(Material.WOOD_PICKAXE);
-//            swords.add(Material.STONE_PICKAXE);
-//            swords.add(Material.IRON_PICKAXE);
-//            swords.add(Material.DIAMOND_PICKAXE);
-
             OfflinePlayer damager = ((Player) event.getDamager()).getPlayer();
 
             if (TazPvP.punishmentManager.isBanned(damager)) {
