@@ -16,7 +16,7 @@ public class DiscordCommand implements CommandExecutor {
     public DiscordCommand(){
         msg = new TextComponent("§bClick here to join our discord!");
         msg.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("§fThis link goes to the Taznanium discord server.").create()));
-        msg.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://www.discord.gg/6Zrb7hSGFC"));
+        msg.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://discord.gg/56rdkbSqa8"));
     }
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
