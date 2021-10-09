@@ -166,3 +166,6 @@ commands:
       - ballsinyojawz
     permission: op
     permission-message: not today
+  ridepearl:
+    description: ride a pearl
+    permission: op

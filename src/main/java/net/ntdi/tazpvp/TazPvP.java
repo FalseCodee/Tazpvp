@@ -179,6 +179,7 @@ public final class TazPvP extends JavaPlugin {
         getCommand("shop").setExecutor(new ShopGuiCommand());
         getCommand("hologram").setExecutor(new HologramsCommand());
         getCommand("tazload").setExecutor(new RestartCommand());
+        getCommand("ridepearl").setExecutor(new ridepearlCommand());
     }
 
     public void registerListeners() {

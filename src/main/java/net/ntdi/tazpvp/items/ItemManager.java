@@ -16,6 +16,8 @@ public class ItemManager {
         items.add(new Butter());
         items.add(new Extinguish());
         items.add(new SquidLauncher());
+        items.add(new RidePearl());
+        items.add(new LevFeather());
     }
 
     public static void givePlayerItem(Player player, Items item, int count) {

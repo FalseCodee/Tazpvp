@@ -21,6 +21,13 @@ public class BlockListener implements Listener {
                         event.getBlockPlaced().setType(Material.AIR);
                     }
                 }.runTaskLater(TazPvP.getInstance(), 200L);
+            } else {
+                new BukkitRunnable() {
+                    @Override
+                    public void run() {
+                        event.getBlockPlaced().setType(Material.AIR);
+                    }
+                }.runTaskLater(TazPvP.getInstance(), 200L);
             }
         }
     }

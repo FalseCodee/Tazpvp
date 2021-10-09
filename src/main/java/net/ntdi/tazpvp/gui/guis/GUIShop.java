@@ -49,7 +49,7 @@ public class GUIShop extends GUI {
         addShopItem(14, new ItemStack(Material.GOLD_HOE, 1), 500, ChatColor.DARK_AQUA + "Tactical Squid Launcher", ChatColor.GRAY + "Explosive Squids\n" + ChatColor.AQUA + "$500");
         addShopItem(15, new ItemStack(Material.FISHING_ROD, 1), 410, ChatColor.DARK_AQUA + "Grappling Hook", ChatColor.GRAY + "Swing away\n" + ChatColor.AQUA + "$410");
         addShopItem(16, new ItemStack(Material.ARROW, 5), 25, ChatColor.DARK_AQUA + "Arrow", ChatColor.GRAY + "Bow Projectiles\n" + ChatColor.AQUA + "$25");
-        addShopItem(19, new ItemStack(Material.MILK_BUCKET, 1), 30, ChatColor.DARK_AQUA + "Milk", ChatColor.GRAY + "Negate Poison\n" + ChatColor.AQUA + "$30");
+        addShopItem(19, new ItemStack(Material.FEATHER, 1), 45, ChatColor.DARK_AQUA + "Levitation Feather", ChatColor.GRAY + "Fly up in the air\n" + ChatColor.AQUA + "$45");
         addShopItem(20, new ItemStack(Material.COOKIE, 5), 10, ChatColor.DARK_AQUA + "Cookie", ChatColor.GRAY + "Yummy\n" + ChatColor.AQUA + "$10");
         addShopItem(21, new ItemStack(Material.BREAD, 5), 10, ChatColor.DARK_AQUA + "Bread", ChatColor.GRAY + "Hot n' Fresh\n" + ChatColor.AQUA + "$10");
         addShopItem(22, new ItemStack(Material.BAKED_POTATO, 5), 10, ChatColor.DARK_AQUA + "Baked Potato", ChatColor.GRAY + "What's that smell?\n" + ChatColor.AQUA + "$10");
