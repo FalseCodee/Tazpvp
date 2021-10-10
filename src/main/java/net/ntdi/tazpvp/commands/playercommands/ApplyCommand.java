@@ -13,9 +13,9 @@ import org.bukkit.entity.Player;
 public class ApplyCommand implements CommandExecutor {
     private final TextComponent msg;
     public ApplyCommand(){
-        msg = new TextComponent("§bClick here to apply for staff");
-        msg.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("§fThis link goes to our discord server.\nOnce in, go to §b#information").create()));
-        msg.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://www.discord.gg/6Zrb7hSGFC"));
+        msg = new TextComponent("§b§lDISCORD §cClick Here");
+        msg.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("§fDiscord Server").create()));
+        msg.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://discord.gg/56rdkbSqa8"));
     }
 
     @Override
@@ -26,14 +26,12 @@ public class ApplyCommand implements CommandExecutor {
         }
 
         if(player != null){
-            player.sendMessage(ChatColor.DARK_AQUA + "Thank you for showing interest in our staff team!");
-            player.sendMessage(ChatColor.DARK_AQUA + "Before you apply, make sure you follow all of these requirements:");
-            player.sendMessage(ChatColor.AQUA + " - Must be over the age of 13.");
-            player.sendMessage(ChatColor.AQUA + " - Must have played on the server for at least 5 hours.");
-            player.sendMessage(ChatColor.AQUA + " - Must have had previous staff experience.");
-            player.sendMessage(ChatColor.AQUA + " - Must be able to participate in Voice Calls.");
-            player.sendMessage(ChatColor.RED + "FAILURE TO FOLLOW THESE REQUIREMENTS WILL BE AN INSTANT DENIAL.\n");
+            player.sendMessage(ChatColor.GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+            player.sendMessage(ChatColor.AQUA + "Thank you for showing interest in our staff team!");
+            player.sendMessage(ChatColor.DARK_AQUA + "Our staff applications can be found in the " + ChatColor.WHITE + "#information " + ChatColor.DARK_AQUA + "channel of our discord server.");
             player.spigot().sendMessage(msg);
+            player.sendMessage(ChatColor.GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+
         }
         return true;
     }
