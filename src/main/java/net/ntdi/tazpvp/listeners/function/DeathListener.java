@@ -14,21 +14,20 @@ import org.bukkit.potion.PotionEffectType;
 public class DeathListener implements Listener {
 
     @EventHandler
-    public void onPlayerDeathEvent(PlayerDeathEvent event){
+    public void onPlayerDeathEvent(PlayerDeathEvent event) {
         Player p = event.getEntity();
         Player killer = p.getKiller();
         TazPvP.achievementsManager.onDeath(p);
+        if(killer != null){
         TazPvP.achievementsManager.onKill(killer);
 //        if(!p.getLocation().getWorld().getName().equals(TazPvP.configFile.getString("arena.name"))){
 //            return;
 //        }
-        if(BountyCommand.bounties.get(p.getUniqueId()) != null) {
+        if (BountyCommand.bounties.get(p.getUniqueId()) != null) {
             TazPvP.statsManager.addMoney(killer, BountyCommand.bounties.get(p.getUniqueId()));
             killer.sendMessage(ChatColor.YELLOW + "You have claimed " + p.getDisplayName() + "'s bounty for " + ChatColor.WHITE + "$" + BountyCommand.bounties.get(p.getUniqueId()));
             BountyCommand.bounties.remove(p.getUniqueId());
         }
-        TazPvP.statsManager.setStreak(p,0);
-        TazPvP.statsManager.addStreak(killer, 1);
 //        event.getEntity().spigot().respawn();
 
 //        World wrld = Bukkit.getWorld("spawn");
@@ -37,22 +36,25 @@ public class DeathListener implements Listener {
 
 //        p.teleport(loc);
 
-            p.playSound(p.getLocation(), Sound.FIRE, 5, 1);
-            TazPvP.statsManager.addDeaths(p, 1);
-            TazPvP.statsManager.addKills(killer, 1);
-            TazPvP.statsManager.addMoney(killer, 5);
-        if(TazPvP.statsManager.getRebirths(killer) > 0) {
+        p.playSound(p.getLocation(), Sound.FIRE, 5, 1);
+        TazPvP.statsManager.addStreak(killer, 1);
+        TazPvP.statsManager.addKills(killer, 1);
+        TazPvP.statsManager.addMoney(killer, 5);
+        if (TazPvP.statsManager.getRebirths(killer) > 0) {
             killer.giveExp(8);
             killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 5 Coins " + ChatColor.DARK_AQUA + "+ 8 Experience");
-            killer.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 40, 1,true, false));
-            killer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 40, 1,true, false));
+            killer.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 40, 1, true, false));
+            killer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 40, 1, true, false));
             killer.setHealth(killer.getHealth() + 8);
         } else {
             killer.giveExp(5);
-            p.sendMessage(ChatColor.DARK_GRAY + "You were killed by " + ChatColor.GRAY + "" + killer.getName());
             killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 5 Coins " + ChatColor.DARK_AQUA + "+ 5 Experience");
             killer.setHealth(Math.min(killer.getHealth() + 6, 20));
         }
+        p.sendMessage(ChatColor.DARK_GRAY + "You were killed by " + ChatColor.GRAY + "" + killer.getName());
+    }
+        TazPvP.statsManager.setStreak(p, 0);
+        TazPvP.statsManager.addDeaths(p, 1);
 
     }
 
