@@ -51,7 +51,7 @@ public class WelcomeListener<SerializedOfflinePlayer> implements Listener {
             TazPvP.punishmentManager.removeMute(p);
             p.sendMessage(ChatColor.RED+"You have been unmuted.");
         }
-        if(TazPvP.punishmentManager.isBanned(p) && System.currentTimeMillis()-TazPvP.punishmentManager.getMuteTime(p) >= TazPvP.punishmentManager.getMuteDuration(p)){
+        if(TazPvP.punishmentManager.isBanned(p) && System.currentTimeMillis()-TazPvP.punishmentManager.getMuteTime(p) >= TazPvP.punishmentManager.getBanDuration(p)){
             TazPvP.punishmentManager.removeBan(p);
             p.sendMessage(ChatColor.RED+"You have been unbanned.");
         } else if (TazPvP.punishmentManager.isBanned(p)) {

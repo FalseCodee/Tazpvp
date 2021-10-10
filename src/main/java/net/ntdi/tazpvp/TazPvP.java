@@ -230,8 +230,8 @@ public final class TazPvP extends JavaPlugin {
                     objective.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&3&lTAZPVP"));
                     Score blank = objective.getScore(ChatColor.DARK_GRAY + "" + ChatColor.BOLD + "--------------- ");
                     blank.setScore(7);
-                    Score blank22 = objective.getScore("");
-                    blank22.setScore(6);
+                    Score gaming = objective.getScore("");
+                    gaming.setScore(6);
                     Score blank222 = objective.getScore(ChatColor.RED + "" + ChatColor.BOLD + "YOU ARE BANNED");
                     blank222.setScore(5);
                     Score blank2222 = objective.getScore(ChatColor.RED +  "/discord to appeal");
