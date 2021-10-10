@@ -55,7 +55,7 @@ public final class TazPvP extends JavaPlugin {
     public static File ruleFile;
 
     public static ArrayList<Material> blocks = new ArrayList<>();
-    public static HashMap<UUID, Integer> banTime = new HashMap<>();
+    // public static HashMap<UUID, Integer> banTime = new HashMap<>();
 
     public static TazPvP instance;
     @Override
@@ -63,7 +63,7 @@ public final class TazPvP extends JavaPlugin {
         // Plugin startup logic
         System.out.println("Tazpvp Logic is now ONLINE");
 
-        registerTimers();
+
 
 
         configFile = this.getConfig();
@@ -144,17 +144,17 @@ public final class TazPvP extends JavaPlugin {
         achievementsManager.saveAchievements();
     }
 
-    public void registerTimers() {
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                // System.out.println("Task ran");
-                //banTime.get(UUID, Integer);
-
-            }
-        }, 0, 1000);
-    }
+//    public void registerTimers() {
+//        Timer timer = new Timer();
+//        timer.schedule(new TimerTask() {
+//            @Override
+//            public void run() {
+//                // System.out.println("Task ran");
+//                //banTime.get(UUID, Integer);
+//
+//            }
+//        }, 0, 1000);
+//    }
     public void registerCommands() {
         getCommand("sendword").setExecutor((new SendWordCommand()));
         getCommand("sendmessage").setExecutor(new SendMessageCommand());
@@ -229,33 +229,15 @@ public final class TazPvP extends JavaPlugin {
                     objective.setDisplaySlot(DisplaySlot.SIDEBAR);
                     objective.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&3&lTAZPVP"));
                     Score blank = objective.getScore(ChatColor.DARK_GRAY + "" + ChatColor.BOLD + "--------------- ");
-                    blank.setScore(16);
-                    Score blank1 = objective.getScore(ChatColor.DARK_GRAY + "" + ChatColor.BOLD + "PLAYER");
-                    blank1.setScore(15);
-                    Score level = objective.getScore(ChatColor.DARK_AQUA + "▷ Level  " + ChatColor.GRAY + TazPvP.statsManager.getLevel(player));
-                    level.setScore(14);
-                    Score money = objective.getScore(ChatColor.DARK_AQUA + "▷ Money  " + ChatColor.GRAY +  "$"+ TazPvP.statsManager.getMoney(player));
-                    money.setScore(13);
-                    Score points = objective.getScore(ChatColor.DARK_AQUA + "▷ Points  " + ChatColor.GRAY + TazPvP.statsManager.getPoints(player));
-                    points.setScore(12);
-                    Score credits = objective.getScore(ChatColor.AQUA + "▷ Credits  " + ChatColor.GRAY + TazPvP.statsManager.getCredits(player));
-                    credits.setScore(11);
+                    blank.setScore(7);
                     Score blank22 = objective.getScore("");
-                    blank22.setScore(10);
+                    blank22.setScore(6);
                     Score blank222 = objective.getScore(ChatColor.RED + "" + ChatColor.BOLD + "YOU ARE BANNED");
-                    blank222.setScore(9);
+                    blank222.setScore(5);
+                    Score blank2222 = objective.getScore(ChatColor.RED +  "/discord to appeal");
+                    blank2222.setScore(4);
                     Score blank2 = objective.getScore("");
-                    blank2.setScore(8);
-                    Score blank3 = objective.getScore(ChatColor.DARK_GRAY + "" + ChatColor.BOLD + "STATS");
-                    blank3.setScore(7);
-                    Score streak = objective.getScore(ChatColor.RED + "▷ Streak  " + ChatColor.GRAY + TazPvP.statsManager.getStreak(player));
-                    streak.setScore(6);
-                    Score kills = objective.getScore(ChatColor.RED + "▷ Kills  " + ChatColor.GRAY + TazPvP.statsManager.getKills(player));
-                    kills.setScore(5);
-                    Score deaths = objective.getScore(ChatColor.RED + "▷ Deaths  " + ChatColor.GRAY + TazPvP.statsManager.getDeaths(player));
-                    deaths.setScore(4);
-                    Score kdr = objective.getScore(ChatColor.RED + "▷ KDR  " + ChatColor.GRAY + ((TazPvP.statsManager.getDeaths(player) > 0) ?  MathUtils.round((float) TazPvP.statsManager.getKills(player) / TazPvP.statsManager.getDeaths(player), 2) : TazPvP.statsManager.getKills(player)));
-                    kdr.setScore(3);
+                    blank2.setScore(3);
                     Score blank4 = objective.getScore(ChatColor.DARK_GRAY + "" + ChatColor.BOLD + "---------------");
                     blank4.setScore(2);
                     Score blank5 = objective.getScore(ChatColor.GRAY + "▷ tazpvp.net");

@@ -9,12 +9,19 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scoreboard.Scoreboard;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.UUID;
 
 public class BanCommand implements CommandExecutor {
+
+    public static HashMap<UUID, Integer> banTime = new HashMap<>();
+
     @Override
     @SuppressWarnings("unchecked")
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -44,12 +51,38 @@ public class BanCommand implements CommandExecutor {
                         banned.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "BANNED" + ChatColor.GRAY + " You've been banned for "+ChatColor.WHITE+reason + ChatColor.GRAY + " by " + ChatColor.WHITE + player.getName());
                         banned.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
+                        banTime.put(banned.getUniqueId(), 60*60*1000);
+
+                        for(Scoreboard sb : TazPvP.statsManager.scoreboards.values()) {
+                            TazPvP.statsManager.getTeam(banned, sb).removeEntry(banned.getName());
+                        }
+
+                        TazPvP.statsManager.scoreboards.remove(banned.getUniqueId());
+
+                        new BukkitRunnable() {
+
+                            @Override
+                            public void run() {
+                                TazPvP.statsManager.initScoreboard(banned);
+                            }
+                        }.runTaskLater(TazPvP.getInstance(), 20L);
+
+
 /*                        Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
                         Bukkit.broadcastMessage(ChatColor.RED +"" + ChatColor.BOLD + "BANNED");
                         Bukkit.broadcastMessage(ChatColor.GRAY + "" + banned.getName() + " has been banned for: " + ChatColor.WHITE + "" + ChatColor.BOLD + reason);
                         Bukkit.broadcastMessage(ChatColor.WHITE + "");
                         Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");*/
 
+//                        new BukkitRunnable() {
+//
+//                            @Override
+//                            public void run() {
+//                                if (banTime.get(banned.getUniqueId()) >= 0) {
+//                                    banTime.keySet(banned.getUniqueId(), banTime.get(banned.getUniqueId()) - 1);
+//                                }
+//                            }
+//                        }.runTaskTimer(TazPvP.getInstance(), 0L, 20L);
 
                         JSONObject obj = new JSONObject();
                         JSONArray embed = new JSONArray();
