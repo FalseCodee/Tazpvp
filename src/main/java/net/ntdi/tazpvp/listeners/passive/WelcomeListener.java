@@ -57,7 +57,7 @@ public class WelcomeListener<SerializedOfflinePlayer> implements Listener {
         } else if (TazPvP.punishmentManager.isBanned(p)) {
             p.sendMessage(ChatColor.WHITE + "" +ChatColor.BOLD + "------------------------------------------------------------------------");
             p.sendMessage(ChatColor.WHITE + "");
-            p.sendMessage(ChatColor.RED + "You are Currently "+ ChatColor.BOLD + "BANNED" + ChatColor.RED + ". You have " + TazPvP.punishmentManager.getBanTime(p) + " left");
+            p.sendMessage(ChatColor.RED + "You are Currently "+ ChatColor.BOLD + "BANNED" + ChatColor.RED + ". You have " + (TazPvP.punishmentManager.getBanDuration(p) - (System.currentTimeMillis()-TazPvP.punishmentManager.getBanTime(p))) + " left");
             p.sendMessage(ChatColor.WHITE + "");
             p.sendMessage(ChatColor.WHITE + "" +ChatColor.BOLD + "------------------------------------------------------------------------");
         }
