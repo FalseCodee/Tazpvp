@@ -4,6 +4,7 @@ import net.ntdi.tazpvp.TazPvP;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.Sound;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -39,6 +40,13 @@ public class StaffManager {
 
     public void sendStaffChat(Player player, String message){
         Bukkit.broadcast(ChatColor.YELLOW + "STAFFCHAT " + ChatColor.WHITE + ChatColor.translateAlternateColorCodes('&',TazPvP.chat.getGroupPrefix((String) null, TazPvP.permissions.getPrimaryGroup(player))) + "" + player.getName() + ChatColor.YELLOW +" >> " + ChatColor.WHITE + message, "staff.staffchat");
+        for (Player p : Bukkit.getOnlinePlayers()) {
+            if (p.hasPermission("staff.staffchat")){
+                if (p != player){
+                    p.playSound(p.getLocation(), Sound.ANVIL_LAND, 1, 1);
+                }
+            }
+        }
     }
 
     public boolean hiddenToggled(OfflinePlayer player) {
