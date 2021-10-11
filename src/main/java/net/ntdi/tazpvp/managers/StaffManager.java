@@ -42,7 +42,9 @@ public class StaffManager {
         Bukkit.broadcast(ChatColor.YELLOW + "STAFFCHAT " + ChatColor.WHITE + ChatColor.translateAlternateColorCodes('&',TazPvP.chat.getGroupPrefix((String) null, TazPvP.permissions.getPrimaryGroup(player))) + "" + player.getName() + ChatColor.YELLOW +" >> " + ChatColor.WHITE + message, "staff.staffchat");
         for (Player p : Bukkit.getOnlinePlayers()) {
             if (p.hasPermission("staff.staffchat")){
-                p.playSound(p.getLocation(), Sound.NOTE_BASS_GUITAR, 1, 1);
+                if (p != player){
+                    p.playSound(p.getLocation(), Sound.NOTE_BASS_GUITAR, 1, 1);
+                }
             }
         }
     }
