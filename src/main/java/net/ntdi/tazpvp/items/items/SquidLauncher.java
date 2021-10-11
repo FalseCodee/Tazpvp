@@ -40,8 +40,6 @@ public class SquidLauncher extends ClickableItem {
                         Snowball ball = p.launchProjectile(Snowball.class);
 
                         ball.setMetadata("IsSquid", new FixedMetadataValue(TazPvP.getInstance(), true));
-
-                        Location loc = (Location) p.getWorld();
                     }
                 } else {
                     p.sendMessage(ChatColor.RED + "Hackers arent cool!");

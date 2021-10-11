@@ -42,6 +42,7 @@ public class StatsManager {
         sb.registerNewTeam("l");
         sb.registerNewTeam("m");
         sb.registerNewTeam("n");
+        sb.registerNewTeam("o");
         sb.registerNewTeam("z");
         sb.registerNewObjective("sb", "dummy");
         scoreboards.put(player.getUniqueId(), sb);
@@ -175,33 +176,35 @@ public class StatsManager {
     public Team getTeam(Player player, Scoreboard sb) {
             switch (TazPvP.permissions.getPrimaryGroup(player).toLowerCase()) {
                 case"default":
-                    return sb.getTeam("n");
+                    return sb.getTeam("o");
                 case"owner":
                     return sb.getTeam("a");
                 case"manager":
                     return sb.getTeam("b");
-                case"admin":
+                case"sr.admin":
                     return sb.getTeam("c");
-                case"mod":
-                    return sb.getTeam("e");
-                case"helper":
-                    return sb.getTeam("f");
-                case"builder":
-                    return sb.getTeam("g");
-                case"sr.mod":
+                case"admin":
                     return sb.getTeam("d");
-                case"pro":
-                    return sb.getTeam("j");
-                case"champion":
-                    return sb.getTeam("k");
-                case"legend":
-                    return sb.getTeam("l");
-                case"dev":
+                case"mod":
+                    return sb.getTeam("f");
+                case"helper":
+                    return sb.getTeam("g");
+                case"builder":
                     return sb.getTeam("h");
-                case"youtube":
-                    return sb.getTeam("i");
-                case"mythical":
+                case"sr.mod":
+                    return sb.getTeam("e");
+                case"pro":
+                    return sb.getTeam("k");
+                case"champion":
+                    return sb.getTeam("l");
+                case"legend":
                     return sb.getTeam("m");
+                case"dev":
+                    return sb.getTeam("i");
+                case"youtube":
+                    return sb.getTeam("j");
+                case"mythical":
+                    return sb.getTeam("n");
                 case"banned":
                     return sb.getTeam("z");
             } 
