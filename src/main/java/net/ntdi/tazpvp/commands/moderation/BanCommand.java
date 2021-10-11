@@ -47,8 +47,10 @@ public class BanCommand implements CommandExecutor {
                         banned.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
                         banned.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "UNBANNED" + ChatColor.GRAY + " You've been unbanned by " + ChatColor.WHITE + player.getName());
                         banned.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-
-                        bannedRunnables.remove(banned.getUniqueId());
+                        if(bannedRunnables.containsKey(banned.getUniqueId())) {
+                            bannedRunnables.get(banned.getUniqueId()).cancel();
+                            bannedRunnables.remove(banned.getUniqueId());
+                        }
 
                         for(Scoreboard sb : TazPvP.statsManager.scoreboards.values()) {
                             TazPvP.statsManager.getTeam(banned, sb).removeEntry(banned.getName());
