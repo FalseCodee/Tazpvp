@@ -185,3 +185,12 @@ commands:
       - statistics
       - stat
     usage: "/stats [player]"
+  votekick:
+    aliases:
+      - vk
+    permission: rank.votekick
+    usage: "/votekick (player)"
+  voteyes:
+    usage: "/voteyes"
+  voteno:
+    usage: "/voteno"

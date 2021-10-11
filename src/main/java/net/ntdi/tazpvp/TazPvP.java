@@ -7,6 +7,8 @@ import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.ProtocolManager;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.wrappers.WrappedChatComponent;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.TextComponent;
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.permission.Permission;
 import net.ntdi.tazpvp.commands.*;
@@ -31,11 +33,13 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.scoreboard.*;
 
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.sql.Array;
 import java.util.*;
 
 public final class TazPvP extends JavaPlugin {
@@ -55,6 +59,13 @@ public final class TazPvP extends JavaPlugin {
     public static File ruleFile;
 
     public static ArrayList<Material> blocks = new ArrayList<>();
+
+
+    public static ArrayList<Player> voteYes = new ArrayList<>();
+    public static ArrayList<Player> voteNo = new ArrayList<>();
+    public static Boolean VoteOn = false;
+    public static Player votedOut;
+
     // public static HashMap<UUID, Integer> banTime = new HashMap<>();
 
     public static TazPvP instance;
@@ -128,7 +139,31 @@ public final class TazPvP extends JavaPlugin {
         ruleFile = new File(getDataFolder() + "/rules.txt");
     }
 
+    public void initVoteKick(Player votekicked){
+        TazPvP.votedOut = votekicked;
+        TazPvP.VoteOn = true;
+        TextComponent VoteYes = new TextComponent(ChatColor.GREEN + "" + ChatColor.BOLD + "[YES]");
+        VoteYes.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/voteyes"));
+        TextComponent Voteno = new TextComponent(ChatColor.RED + "" + ChatColor.BOLD + "[NO]");
+        Voteno.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/voteno"));
+        Bukkit.broadcastMessage("Votekick " + votekicked.getName() + "?\n" + VoteYes);
+        Bukkit.broadcastMessage("Vote will end in 1 minute!");
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                if (TazPvP.voteYes.size() > Bukkit.getOnlinePlayers().size()){
+                    Bukkit.broadcastMessage(votekicked.getName() + " has been kicked!");
+                    votekicked.kickPlayer("You have been voted out! L");
+                    TazPvP.VoteOn = false;
+                    TazPvP.votedOut = null;
+                    TazPvP.voteYes.clear();
+                    TazPvP.voteNo.clear();
 
+
+                }
+            }
+        }.runTaskLater(this, 1200L);
+    }
 
     @Override
     public void onDisable() {
@@ -142,6 +177,10 @@ public final class TazPvP extends JavaPlugin {
         punishmentManager.savePunishments();
         staffManager.saveStaffFile();
         achievementsManager.saveAchievements();
+        TazPvP.VoteOn = false;
+        TazPvP.votedOut = null;
+        TazPvP.voteYes.clear();
+        TazPvP.voteNo.clear();
     }
 
 //    public void registerTimers() {
@@ -193,6 +232,9 @@ public final class TazPvP extends JavaPlugin {
         getCommand("firegun").setExecutor(new fireballCommand());
         getCommand("credits").setExecutor(new CreditCommand());
         getCommand("stats").setExecutor(new StatsCommand());
+        getCommand("votekick").setExecutor(new VotekickCommand());
+        getCommand("voteyes").setExecutor(new VoteyesCommand());
+        getCommand("voteno").setExecutor(new VotenoCommand());
     }
 
     public void registerListeners() {
