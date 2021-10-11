@@ -1,6 +1,7 @@
 package net.ntdi.tazpvp.listeners.passive;
 
 import net.ntdi.tazpvp.TazPvP;
+import net.ntdi.tazpvp.commands.moderation.BanCommand;
 import net.ntdi.tazpvp.utils.PlayerUtils;
 import org.bukkit.*;
 import org.bukkit.entity.EntityType;
@@ -11,6 +12,7 @@ import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.Scoreboard;
 
 public class WelcomeListener<SerializedOfflinePlayer> implements Listener {
@@ -60,6 +62,9 @@ public class WelcomeListener<SerializedOfflinePlayer> implements Listener {
             p.sendMessage(ChatColor.RED + "You are Currently "+ ChatColor.BOLD + "BANNED" + ChatColor.RED + ". You have " + (((TazPvP.punishmentManager.getBanDuration(p) - (System.currentTimeMillis()-TazPvP.punishmentManager.getBanTime(p))) / 60000) + 1) + " minutes left");
             p.sendMessage(ChatColor.WHITE + "");
             p.sendMessage(ChatColor.WHITE + "" +ChatColor.BOLD + "------------------------------------------------------------------------");
+            BukkitRunnable runnable = BanCommand.getBanRunnable(p);
+            runnable.runTaskTimer(TazPvP.getInstance(), 0L, 20L);
+            BanCommand.bannedRunnables.put(p.getUniqueId(), runnable);
         }
 
 
@@ -95,7 +100,10 @@ public class WelcomeListener<SerializedOfflinePlayer> implements Listener {
 
         TazPvP.statsManager.scoreboards.remove(p.getUniqueId());
         event.setQuitMessage(ChatColor.GRAY + "[" + ChatColor.RED + "-" + ChatColor.GRAY + "] " + p.getName());
-
+        if(BanCommand.bannedRunnables.containsKey(p.getUniqueId())) {
+            BanCommand.bannedRunnables.get(p.getUniqueId()).cancel();
+            BanCommand.bannedRunnables.remove(p.getUniqueId());
+        }
         p.spigot().setCollidesWithEntities(true);
     }
 

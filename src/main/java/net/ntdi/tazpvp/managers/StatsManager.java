@@ -210,4 +210,10 @@ public class StatsManager {
             } 
             return null;
         }
+        public static <T> T getOrDefault(FileConfiguration file, String path, T defaultReturn) {
+            if(file.contains(path) && file.get(path) != null) {
+                return (T) file.get(path);
+            }
+            return defaultReturn;
+        }
 }

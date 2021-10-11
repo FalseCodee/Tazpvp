@@ -20,7 +20,7 @@ import java.util.UUID;
 
 public class BanCommand implements CommandExecutor {
 
-    public static HashMap<UUID, Integer> banTime = new HashMap<>();
+    public static HashMap<UUID, BukkitRunnable> bannedRunnables = new HashMap<>();
 
     @Override
     @SuppressWarnings("unchecked")
@@ -28,6 +28,10 @@ public class BanCommand implements CommandExecutor {
         Player player = null;
         if(sender instanceof Player) {
             player = (Player) sender;
+        }
+        if(player != null && args[0].equalsIgnoreCase("hm")) {
+            player.sendMessage(bannedRunnables.keySet().size() + "");
+            return true;
         }
 
         if(player != null && player.hasPermission("staff.ban")){
@@ -66,7 +70,6 @@ public class BanCommand implements CommandExecutor {
                         banned.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "BANNED" + ChatColor.GRAY + " You've been banned for "+ChatColor.WHITE+reason + ChatColor.GRAY + " by " + ChatColor.WHITE + player.getName());
                         banned.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
-                        banTime.put(banned.getUniqueId(), 60*60*1000);
 
                         for(Scoreboard sb : TazPvP.statsManager.scoreboards.values()) {
                             TazPvP.statsManager.getTeam(banned, sb).removeEntry(banned.getName());
@@ -87,15 +90,9 @@ public class BanCommand implements CommandExecutor {
                         Bukkit.broadcastMessage(ChatColor.RED + "" + ChatColor.BOLD + "BANNED " + ChatColor.WHITE + banned.getName() + ChatColor.GRAY + " has been punished for " + ChatColor.WHITE + reason);
                         Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
-                        new BukkitRunnable() {
-
-                            @Override
-                            public void run() {
-                                if (banTime.get(banned.getUniqueId()) <= 0) {
-                                    banTime.put(banned.getUniqueId(), banTime.get(banned.getUniqueId())-1);
-                                }
-                            }
-                        }.runTaskTimer(TazPvP.getInstance(), 0L, 20L);
+                        BukkitRunnable runnable = getBanRunnable(banned);
+                        runnable.runTaskTimer(TazPvP.getInstance(), 0L, 20L);
+                        bannedRunnables.put(banned.getUniqueId(), runnable);
 
                         JSONObject obj = new JSONObject();
                         JSONArray embed = new JSONArray();
@@ -132,5 +129,19 @@ public class BanCommand implements CommandExecutor {
         }
 
         return true;
+    }
+    public static BukkitRunnable getBanRunnable(Player banned) {
+       return new BukkitRunnable() {
+
+           @Override
+           public void run() {
+               if(TazPvP.punishmentManager.getBanDuration(banned)-(System.currentTimeMillis()-TazPvP.punishmentManager.getBanTime(banned)) <= 0) {
+                   this.cancel();
+                   bannedRunnables.remove(banned.getUniqueId());
+                   TazPvP.punishmentManager.removeBan(banned);
+                   banned.sendMessage("unbanned");
+               }
+           }
+       };
     }
 }
