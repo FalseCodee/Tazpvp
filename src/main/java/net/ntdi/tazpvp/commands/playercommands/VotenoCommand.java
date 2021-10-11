@@ -16,7 +16,11 @@ public class VotenoCommand implements CommandExecutor {
                 if (!TazPvP.voteYes.contains(p) && !TazPvP.voteNo.contains(p)){
                     TazPvP.voteNo.add(p);
                     p.sendMessage("Succesfully voted NO");
+                } else{
+                    p.sendMessage("You already voted!");
                 }
+            } else {
+                p.sendMessage("there is no vote to vote no for!");
             }
 
         }

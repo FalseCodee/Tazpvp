@@ -17,10 +17,13 @@ public class VoteyesCommand implements CommandExecutor {
                 if (!TazPvP.voteYes.contains(p) && !TazPvP.voteNo.contains(p)){
                     TazPvP.voteYes.add(p);
                     p.sendMessage("Succesfully voted YES");
+                } else{
+                    p.sendMessage("You already voted!");
                 }
+            }else {
+                p.sendMessage("there is no vote to vote no for!");
             }
-
-        }
+            }
         return true;
     }
 }
