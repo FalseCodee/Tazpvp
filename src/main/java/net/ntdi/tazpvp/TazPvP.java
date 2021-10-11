@@ -234,7 +234,7 @@ public final class TazPvP extends JavaPlugin {
                     gaming.setScore(8);
                     Score blank222 = objective.getScore(ChatColor.RED + "" + ChatColor.BOLD + "BANNED");
                     blank222.setScore(7);
-                    Score blank2222 = objective.getScore(ChatColor.RED +  "▷ /discord");
+                    Score blank2222 = objective.getScore(ChatColor.GRAY +  "▷ /discord");
                     blank2222.setScore(6);
                     Score eeee = objective.getScore("");
                     eeee.setScore(5);
