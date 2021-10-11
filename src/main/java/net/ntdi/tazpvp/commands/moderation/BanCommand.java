@@ -87,15 +87,15 @@ public class BanCommand implements CommandExecutor {
                         Bukkit.broadcastMessage(ChatColor.RED + "" + ChatColor.BOLD + "BANNED " + ChatColor.WHITE + banned.getName() + ChatColor.GRAY + " has been punished for " + ChatColor.WHITE + reason);
                         Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
-//                        new BukkitRunnable() {
-//
-//                            @Override
-//                            public void run() {
-//                                if (banTime.get(banned.getUniqueId()) >= 0) {
-//                                    banTime.keySet(banned.getUniqueId(), banTime.get(banned.getUniqueId()) - 1);
-//                                }
-//                            }
-//                        }.runTaskTimer(TazPvP.getInstance(), 0L, 20L);
+                        new BukkitRunnable() {
+
+                            @Override
+                            public void run() {
+                                if (banTime.get(banned.getUniqueId()) <= 0) {
+                                    banTime.put(banned.getUniqueId(), banTime.get(banned.getUniqueId())-1);
+                                }
+                            }
+                        }.runTaskTimer(TazPvP.getInstance(), 0L, 20L);
 
                         JSONObject obj = new JSONObject();
                         JSONArray embed = new JSONArray();
