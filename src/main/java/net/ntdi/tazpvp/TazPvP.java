@@ -1,7 +1,10 @@
 package net.ntdi.tazpvp;
 
 // import com.oracle.xmlns.internal.webservices.jaxws_databinding.SoapBindingUse;
-
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.ProtocolManager;
@@ -35,6 +38,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitTask;
 import org.bukkit.scoreboard.*;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.ComponentBuilder;
+import net.md_5.bungee.api.chat.HoverEvent;
+import net.md_5.bungee.api.chat.TextComponent;
 
 import java.io.File;
 import java.io.IOException;
@@ -146,8 +153,13 @@ public final class TazPvP extends JavaPlugin {
         VoteYes.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/voteyes"));
         TextComponent Voteno = new TextComponent(ChatColor.RED + "" + ChatColor.BOLD + "[NO]");
         Voteno.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/voteno"));
-        Bukkit.broadcastMessage("Votekick " + votekicked.getName() + "?\n" + VoteYes);
-        Bukkit.broadcastMessage("Vote will end in 1 minute!");
+        for (Player p : Bukkit.getOnlinePlayers()){
+            p.sendMessage("Votekick " + votekicked.getName());
+            p.sendMessage("Vote will end in 1 minute!");
+            p.spigot().sendMessage(VoteYes);
+            p.spigot().sendMessage(Voteno);
+
+        }
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -158,7 +170,6 @@ public final class TazPvP extends JavaPlugin {
                     TazPvP.votedOut = null;
                     TazPvP.voteYes.clear();
                     TazPvP.voteNo.clear();
-
 
                 }
             }
