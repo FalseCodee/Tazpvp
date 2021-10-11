@@ -33,6 +33,8 @@ public class BlockListener implements Listener {
                                 event.getBlockPlaced().setType(Material.AIR);
                             }
                         }.runTaskLater(TazPvP.getInstance(), 200L);
+                    } else if (blockType == Material.SOIL) {
+                        event.setCancelled(true);
                     } else {
                         new BukkitRunnable() {
                             @Override
