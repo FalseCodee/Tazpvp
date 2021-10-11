@@ -43,7 +43,7 @@ public class StaffManager {
         for (Player p : Bukkit.getOnlinePlayers()) {
             if (p.hasPermission("staff.staffchat")){
                 if (p != player){
-                    p.playSound(p.getLocation(), Sound.NOTE_PIANO, 3, 1);
+                    p.playSound(p.getLocation(), Sound.NOTE_PIANO, 1, 1);
                 }
             }
         }
