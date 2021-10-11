@@ -65,7 +65,7 @@ public class ChatSpamListener implements Listener {
             }
         } else if (TazPvP.punishmentManager.isBanned(p)){
             e.setCancelled(true);
-            p.sendMessage(ChatColor.RED + "You are banned, please wait for you ban to be over to chat again.");
+            p.sendMessage(ChatColor.RED + "You are banned, please wait " + (((TazPvP.punishmentManager.getBanDuration(p) - (System.currentTimeMillis()-TazPvP.punishmentManager.getBanTime(p))) / 60000) + 1) + " minutes until you can chat again.");
         }
         if (p.hasPermission("staff.chatbypass")) return;
 
