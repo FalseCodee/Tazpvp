@@ -48,6 +48,8 @@ public class BanCommand implements CommandExecutor {
                         banned.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "UNBANNED" + ChatColor.GRAY + " You've been unbanned by " + ChatColor.WHITE + player.getName());
                         banned.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
+                        bannedRunnables.remove(banned.getUniqueId());
+
                         for(Scoreboard sb : TazPvP.statsManager.scoreboards.values()) {
                             TazPvP.statsManager.getTeam(banned, sb).removeEntry(banned.getName());
                         }
@@ -91,7 +93,7 @@ public class BanCommand implements CommandExecutor {
                         Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
                         BukkitRunnable runnable = getBanRunnable(banned);
-                        runnable.runTaskTimer(TazPvP.getInstance(), 0L, 20L);
+                        runnable.runTaskTimer(TazPvP.getInstance(), 0L, 1200L);
                         bannedRunnables.put(banned.getUniqueId(), runnable);
 
                         JSONObject obj = new JSONObject();
@@ -144,6 +146,20 @@ public class BanCommand implements CommandExecutor {
                    banned.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "UNBANNED" + ChatColor.GRAY + " You're ban time is up. Play Fair!");
                    banned.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
+                   for(Scoreboard sb : TazPvP.statsManager.scoreboards.values()) {
+                       TazPvP.statsManager.getTeam(banned, sb).removeEntry(banned.getName());
+                   }
+
+                   TazPvP.statsManager.scoreboards.remove(banned.getUniqueId());
+
+                   new BukkitRunnable() {
+
+                       @Override
+                       public void run() {
+                           TazPvP.statsManager.initScoreboard(banned);
+                       }
+                   }.runTaskLater(TazPvP.getInstance(), 20L);
+               } else {
                    for(Scoreboard sb : TazPvP.statsManager.scoreboards.values()) {
                        TazPvP.statsManager.getTeam(banned, sb).removeEntry(banned.getName());
                    }

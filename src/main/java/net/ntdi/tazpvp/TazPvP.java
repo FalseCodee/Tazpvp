@@ -229,11 +229,13 @@ public final class TazPvP extends JavaPlugin {
                     objective.setDisplaySlot(DisplaySlot.SIDEBAR);
                     objective.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&3&lTAZPVP"));
                     Score blank = objective.getScore(ChatColor.DARK_GRAY + "" + ChatColor.BOLD + "--------------- ");
-                    blank.setScore(7);
+                    blank.setScore(8);
                     Score gaming = objective.getScore(" ");
-                    gaming.setScore(6);
+                    gaming.setScore(7);
                     Score blank222 = objective.getScore(ChatColor.RED + "" + ChatColor.BOLD + "YOU ARE BANNED");
-                    blank222.setScore(5);
+                    blank222.setScore(6);
+                    Score tttt = objective.getScore(ChatColor.RED + "" + (((TazPvP.punishmentManager.getBanDuration(player) - (System.currentTimeMillis()-TazPvP.punishmentManager.getBanTime(player))) / 60000) + 1) + " minutes left");
+                    tttt.setScore(5);
                     Score blank2222 = objective.getScore(ChatColor.RED +  "/discord to appeal");
                     blank2222.setScore(4);
                     Score blank2 = objective.getScore("");
