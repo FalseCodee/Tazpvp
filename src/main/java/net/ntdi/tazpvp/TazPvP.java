@@ -163,7 +163,7 @@ public final class TazPvP extends JavaPlugin {
         new BukkitRunnable() {
             @Override
             public void run() {
-                if (TazPvP.voteYes.size() > Bukkit.getOnlinePlayers().size()){
+                if (TazPvP.voteYes.size() >= TazPvP.voteNo.size()){
                     Bukkit.broadcastMessage(votekicked.getName() + " has been kicked!");
                     votekicked.kickPlayer("You have been voted out! L");
                     TazPvP.VoteOn = false;
@@ -171,6 +171,12 @@ public final class TazPvP extends JavaPlugin {
                     TazPvP.voteYes.clear();
                     TazPvP.voteNo.clear();
 
+                } else {
+                    Bukkit.broadcastMessage(votekicked.getName() + " wasnt voted out, not enough votes!");
+                    TazPvP.VoteOn = false;
+                    TazPvP.votedOut = null;
+                    TazPvP.voteYes.clear();
+                    TazPvP.voteNo.clear();
                 }
             }
         }.runTaskLater(this, 1200L);
