@@ -51,6 +51,7 @@ public class RenameSword implements Listener {
             String msg = e.getMessage();
             renameSword(player, msg);
             TazPvP.renamingSword.remove(player);
+            e.setCancelled(true);
 
         }
     }
