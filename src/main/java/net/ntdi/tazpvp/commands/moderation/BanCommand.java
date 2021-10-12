@@ -139,6 +139,8 @@ public class BanCommand implements CommandExecutor {
                     player.sendMessage(ChatColor.RED + "Player not found.");
                 }
             }
+        } else {
+            player.sendMessage(ChatColor.RED + "You cant ban this person!");
         }
 
         return true;
