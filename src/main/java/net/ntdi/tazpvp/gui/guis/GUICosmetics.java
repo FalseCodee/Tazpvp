@@ -28,7 +28,10 @@ public class GUICosmetics extends GUI {
             switch (runnable){
                 case 1:
                     if (TazPvP.statsManager.getCredits(p) >= 50) {
-                        new RenameSword().renameSword(p, "nice input!");
+
+                        TazPvP.renamingSword.add(p);
+                        p.sendMessage("type in chat what u wantz to rename ur sword:");
+
                     } else {
                         p.sendMessage(ChatColor.RED + "Insufficient Credits!");
                     }

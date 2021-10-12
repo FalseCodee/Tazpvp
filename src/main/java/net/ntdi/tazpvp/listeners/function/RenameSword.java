@@ -1,8 +1,12 @@
 package net.ntdi.tazpvp.listeners.function;
 
+import net.ntdi.tazpvp.TazPvP;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -10,7 +14,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.stream.Collectors;
 
-public class RenameSword {
+public class RenameSword implements Listener {
 
     public void renameSword(Player p, String rename){
 
@@ -21,6 +25,7 @@ public class RenameSword {
             swordMeta.setDisplayName(rename);
             swordMeta.setLore(Collections.singletonList(ChatColor.ITALIC + "" + ChatColor.GRAY + "RENAMED"));
             sword.setItemMeta(swordMeta);
+            p.sendMessage("renamed your sword to " + rename);
         } else {
             p.sendMessage(ChatColor.RED + "Rename failed, contact mom- I mean Ntdi");
         }
@@ -38,4 +43,15 @@ public class RenameSword {
         return null;
     }
 
+    @EventHandler
+    public void onChatListener(AsyncPlayerChatEvent e){
+        Player player = e.getPlayer();
+
+        if (TazPvP.renamingSword.contains(player)){
+            String msg = e.getMessage();
+            renameSword(player, msg);
+            TazPvP.renamingSword.remove(player);
+
+        }
+    }
 }

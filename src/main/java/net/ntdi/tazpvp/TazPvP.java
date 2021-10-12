@@ -73,6 +73,9 @@ public final class TazPvP extends JavaPlugin {
     public static Boolean VoteOn = false;
     public static Player votedOut;
 
+
+    public static ArrayList<Player> renamingSword = new ArrayList<>();
+
     // public static HashMap<UUID, Integer> banTime = new HashMap<>();
 
     public static TazPvP instance;
@@ -198,6 +201,7 @@ public final class TazPvP extends JavaPlugin {
         TazPvP.votedOut = null;
         TazPvP.voteYes.clear();
         TazPvP.voteNo.clear();
+        TazPvP.renamingSword.clear();
     }
 
 //    public void registerTimers() {
@@ -271,6 +275,7 @@ public final class TazPvP extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new BlockListener(), this);
         getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
         getServer().getPluginManager().registerEvents(new TillingListener(), this);
+        getServer().getPluginManager().registerEvents(new RenameSword(), this);
 
     }
 
