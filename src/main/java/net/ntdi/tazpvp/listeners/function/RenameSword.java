@@ -22,8 +22,7 @@ public class RenameSword implements Listener {
 
         if (sword != null){
             ItemMeta swordMeta = sword.getItemMeta();
-            swordMeta.setDisplayName(rename);
-            swordMeta.setLore(Collections.singletonList(ChatColor.ITALIC + "" + ChatColor.GRAY + "RENAMED"));
+            swordMeta.setDisplayName(ChatColor.WHITE + rename);
             sword.setItemMeta(swordMeta);
             p.sendMessage("renamed your sword to " + rename);
         } else {
