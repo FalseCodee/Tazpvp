@@ -5,6 +5,8 @@ import net.citizensnpcs.api.event.NPCRightClickEvent;
 import net.ntdi.tazpvp.gui.guis.GUIAchievement;
 import net.ntdi.tazpvp.gui.guis.GUICosmetics;
 import net.ntdi.tazpvp.gui.guis.GUIShop;
+import net.ntdi.tazpvp.gui.guis.rankstore.GUIMainRankScreen;
+import net.ntdi.tazpvp.gui.guis.rankstore.GUIRankMenu;
 import net.ntdi.tazpvp.gui.guis.upgrades.GUIMainScreen;
 import net.ntdi.tazpvp.listeners.function.Fisherman;
 import org.bukkit.event.EventHandler;
@@ -19,7 +21,7 @@ public class NPCClickEvent implements Listener {
         } else if(event.getNPC().getId() == 15) { //ACHIEVEMENTS
             new GUIAchievement(event.getClicker());
         } else if(event.getNPC().getId() == 19) { //RANKS
-
+            new GUIMainRankScreen(event.getClicker());
         } else if(event.getNPC().getId() == 32) { //UPGRADES
             new GUIMainScreen(event.getClicker());
         } else if (event.getNPC().getId() == 36) { //FISHERMAN
@@ -33,7 +35,7 @@ public class NPCClickEvent implements Listener {
         } else if(event.getNPC().getId() == 15) { //ACHIEVEMENTS
             new GUIAchievement(event.getClicker());
         } else if(event.getNPC().getId() == 19) { //RANKS
-            new GUICosmetics(event.getClicker());
+            new GUIMainRankScreen(event.getClicker());
         } else if(event.getNPC().getId() == 32) { //UPGRADES
             new GUIMainScreen(event.getClicker());
         } else if (event.getNPC().getId() == 36) { //FISHERMAN
