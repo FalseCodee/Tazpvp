@@ -34,12 +34,11 @@ public class BanCommand implements CommandExecutor {
             player.sendMessage(bannedRunnables.keySet().size() + "");
             return true;
         }
-
-        if(player != null && player.hasPermission("staff.ban")){
+        Player banned = Bukkit.getPlayer(args[0]);
+        if(player != null && player.hasPermission("staff.ban") && !banned.hasPermission("staff.banbypass")){
             if(args.length < 2){
                 return false;
             } else {
-                Player banned = Bukkit.getPlayer(args[0]);
                 String reason = StringUtils.buildString(args, 1);
                 if(banned != null){
                     if(TazPvP.punishmentManager.isBanned(banned)){
