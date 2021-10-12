@@ -27,7 +27,7 @@ public class GUIUpgradeMenu extends GUI {
         ItemStack target = updateTarget();
 
         if(target != null) {
-            ItemStack button = new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.RED.getData());
+            ItemStack button = new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLUE.getData());
             //button.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
             button.getItemMeta().addItemFlags(ItemFlag.HIDE_ENCHANTS);
             ItemStack anvil = new ItemStack(Material.ANVIL, 1);
@@ -35,7 +35,7 @@ public class GUIUpgradeMenu extends GUI {
             button.getItemMeta().addItemFlags(ItemFlag.HIDE_ENCHANTS);
             int slot = (type == UpgradeTypes.SWORD || type == UpgradeTypes.PICKAXE) ? 10 : 11 ;
             for(EnchantInfo enchantment : type.enchantments) {
-                setButtons(slot, createItem(button, ChatColor.WHITE + enchantment.name +ChatColor.AQUA +" +1",
+                setButtons(slot, createItem(button, ChatColor.WHITE + enchantment.name +ChatColor.BLUE +" +1",
                                 ChatColor.BLUE + enchantment.description+"\n"
                                         + ChatColor.GOLD + "COST: " + ChatColor.GRAY + enchantment.cost + "\n"
                                         + ChatColor.GOLD + "Max lvl: " + ChatColor.GRAY + enchantment.maxLevel),
