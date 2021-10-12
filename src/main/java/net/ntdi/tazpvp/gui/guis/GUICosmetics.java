@@ -2,12 +2,14 @@ package net.ntdi.tazpvp.gui.guis;
 
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.gui.GUI;
+import net.ntdi.tazpvp.listeners.function.RenameSword;
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
+import net.ntdi.tazpvp.listeners.*;
 import org.bukkit.inventory.meta.ItemMeta;
 
 public class GUICosmetics extends GUI {
@@ -26,7 +28,7 @@ public class GUICosmetics extends GUI {
             switch (runnable){
                 case 1:
                     if (TazPvP.statsManager.getCredits(p) >= 50) {
-                        p.sendMessage(ChatColor.YELLOW + "renaming your sword is totally happening..");
+                        new RenameSword().renameSword(p, "nice input!");
                     } else {
                         p.sendMessage(ChatColor.RED + "Insufficient Credits!");
                     }
