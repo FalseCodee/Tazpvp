@@ -66,6 +66,7 @@ public final class TazPvP extends JavaPlugin {
     public static File ruleFile;
 
     public static ArrayList<Material> blocks = new ArrayList<>();
+    public static Boolean AllowBlocks = true;
 
 
     public static ArrayList<Player> voteYes = new ArrayList<>();
@@ -89,6 +90,8 @@ public final class TazPvP extends JavaPlugin {
 
         configFile = this.getConfig();
         initConfig();
+
+        TazPvP.AllowBlocks = true;
 
         instance = this;
 
