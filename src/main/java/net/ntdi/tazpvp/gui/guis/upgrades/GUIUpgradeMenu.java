@@ -38,7 +38,7 @@ public class GUIUpgradeMenu extends GUI {
                 setButtons(slot, createItem(button, ChatColor.WHITE + enchantment.name +ChatColor.BLUE +" +1",
                                 ChatColor.BLUE + enchantment.description+"\n"
                                         + ChatColor.GOLD + "COST: " + ChatColor.GRAY + enchantment.cost + "\n"
-                                        + ChatColor.GOLD + "Max lvl: " + ChatColor.GRAY + enchantment.maxLevel),
+                                        + ChatColor.GOLD + "Max lvl: " + ChatColor.GRAY + enchantment.maxLevel + ((TazPvP.statsManager.getRebirths(player) > 0) ? 1 : 0)),
                         event -> {
                             event.setCancelled(true);
                             if(TazPvP.statsManager.getPoints(player) >= enchantment.cost) {
