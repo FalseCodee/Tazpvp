@@ -29,6 +29,7 @@ public class GUICosmetics extends GUI {
                 case 1:
                     if (TazPvP.statsManager.getCredits(p) >= 50) {
 
+                        TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p) - 50);
                         TazPvP.renamingSword.add(p);
                         p.sendMessage("type in chat what u wantz to rename ur sword:");
 

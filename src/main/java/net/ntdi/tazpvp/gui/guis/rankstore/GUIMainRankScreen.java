@@ -13,7 +13,7 @@ import net.ntdi.tazpvp.listeners.*;
 public class GUIMainRankScreen extends GUI {
 
     public GUIMainRankScreen(Player player) {
-        super(player, 36, ChatColor.translateAlternateColorCodes('&', "&9&lSTORE &r&c25% OFF SALE"));
+        super(player, 27, ChatColor.translateAlternateColorCodes('&', "&9&lSTORE &r&c25% OFF SALE"));
         init();
         player.openInventory(inventory);
     }
