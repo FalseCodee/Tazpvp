@@ -35,7 +35,8 @@ public class GUIMainRankScreen extends GUI {
 
         });
         setButtons(16, cosmeticsItem, event -> {
-            new GUICosmetics(player);
+            switchScreen(new GUICosmetics(player));
+
         });
         update();
     }
