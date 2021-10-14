@@ -27,6 +27,7 @@ public class lbLevelCommand implements CommandExecutor {
         }
 
         Map<OfflinePlayer, Integer> sortedMapDesc = sortByComparator(unsortMap, DESC);
+        printMap(sortedMapDesc, p);
 
 
 
@@ -73,11 +74,12 @@ public class lbLevelCommand implements CommandExecutor {
         return sortedMap;
     }
 
-    public static void printMap(Map<OfflinePlayer, Integer> map)
+    public static void printMap(Map<OfflinePlayer, Integer> map, Player p)
     {
         for (Map.Entry<OfflinePlayer, Integer> entry : map.entrySet())
         {
-            System.out.println("Key : " + entry.getKey() + " Value : "+ entry.getValue());
+            p.sendMessage(entry.getKey().getName() + " " + entry.getValue());
+
         }
     }
 
