@@ -194,3 +194,9 @@ commands:
     usage: "/voteyes"
   voteno:
     usage: "/voteno"
+  lblevel:
+    usage: "/lblevel"
+    description: "display level leaderboard"
+    aliases:
+      - leaderboardlevel
+      - lbl
