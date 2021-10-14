@@ -53,8 +53,6 @@ public class BlockListener implements Listener {
                 event.setCancelled(true);
                 event.getPlayer().sendMessage(ChatColor.RED + "server is restarting soon! Blocks can no longer be placed");
             }
-        } else {
-            event.setCancelled(true);
         }
     }
 }
