@@ -45,7 +45,7 @@ public class DeathListener implements Listener {
                     killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 5 Coins " + ChatColor.DARK_AQUA + "+ 8 Experience");
                     killer.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 40, 1, true, false));
                     killer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 40, 1, true, false));
-                    killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 5, 3, true, false));
+                    killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 120, 3, true, false));
                 } else {
                     killer.giveExp(5);
                     killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 5 Coins " + ChatColor.DARK_AQUA + "+ 5 Experience");
