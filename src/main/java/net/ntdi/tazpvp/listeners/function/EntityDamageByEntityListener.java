@@ -28,7 +28,7 @@ public class EntityDamageByEntityListener implements Listener {
                 event.setCancelled(true);
                 return;
             }
-            if (TazPvP.invunerable.contains(((Player) event.getEntity()).getPlayer())){
+            if (TazPvP.invunerable.contains((Player) event.getEntity())){
                 event.setCancelled(true);
                 return;
             }
