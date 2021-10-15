@@ -92,7 +92,7 @@ public class BanCommand implements CommandExecutor {
                             }.runTaskLater(TazPvP.getInstance(), 20L);
 
                             ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
-                            String pexcmd = "/pex user " + banned.getName() + " group set banned";
+                            String pexcmd = "pex user " + banned.getName() + " group set banned";
                             Bukkit.dispatchCommand(console, pexcmd);
 
                             for (Player p : Bukkit.getOnlinePlayers()){
