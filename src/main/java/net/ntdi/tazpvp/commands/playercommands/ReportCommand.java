@@ -32,7 +32,7 @@ public class ReportCommand implements CommandExecutor {
         }
         else {
             Player reportee = Bukkit.getPlayer(args[0]);
-            if(reportee != null){
+            if(reportee != null && !TazPvP.punishmentManager.isBanned(player)){
                 Bukkit.broadcast(ChatColor.DARK_GRAY +"▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n"+ChatColor.RED+""+ChatColor.BOLD +"REPORT " + ChatColor.WHITE + reportee.getName() + ChatColor.GRAY + " was reported for " + ChatColor.WHITE + StringUtils.buildString(args, 1) + ChatColor.GRAY+" by "+ChatColor.WHITE + player.getName() + "\n" + ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬", "staff.reports");
                 player.sendMessage(ChatColor.DARK_AQUA + "Thank you for reporting " + ChatColor.WHITE + reportee.getName() + ChatColor.DARK_AQUA + " they will be reviewed shortly.");
                 JSONObject obj = new JSONObject();
