@@ -165,7 +165,9 @@ public class BanCommand implements CommandExecutor {
                    banned.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
                    banned.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "UNBANNED" + ChatColor.GRAY + " You're ban time is up. Play Fair!");
                    banned.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-
+                   ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
+                   String pexcmd = "pex user " + banned.getName() + " group remove banned";
+                   Bukkit.dispatchCommand(console, pexcmd);
                    for(Scoreboard sb : TazPvP.statsManager.scoreboards.values()) {
                        TazPvP.statsManager.getTeam(banned, sb).removeEntry(banned.getName());
                    }
