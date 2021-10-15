@@ -35,6 +35,7 @@ public class EntityDamageByEntityListener implements Listener {
                     ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.GOLD_SWORD) ||
                     ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.DIAMOND_SWORD)){
                 ((Player) event.getDamager()).giveExp(1);
+
             }
         }
     }
