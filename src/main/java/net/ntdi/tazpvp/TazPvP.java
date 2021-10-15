@@ -59,6 +59,8 @@ public final class TazPvP extends JavaPlugin {
     public static Boolean AllowBlocks = true;
 
     public static ArrayList<Player> invunerable = new ArrayList<>();
+
+
     //public static HashMap<Player, Integer> heartGained = new HashMap<>();
 
     public static ArrayList<Player> voteYes = new ArrayList<>();

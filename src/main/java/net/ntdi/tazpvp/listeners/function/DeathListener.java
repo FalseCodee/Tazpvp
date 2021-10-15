@@ -36,6 +36,12 @@ public class DeathListener implements Listener {
 //        Location loc = new Location(wrld, 0.5, 51, 0.5, 180, 0);
 
 //        p.teleport(loc);
+
+                if (killer.getMaxHealth() != 26){
+                    killer.setMaxHealth(killer.getMaxHealth()+2);
+                }
+                p.setMaxHealth(20);
+
                 p.playSound(p.getLocation(), Sound.FIRE, 5, 1);
                 TazPvP.statsManager.addStreak(killer, 1);
                 TazPvP.statsManager.addKills(killer, 1);
