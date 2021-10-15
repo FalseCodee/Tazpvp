@@ -49,6 +49,9 @@ public class BanCommand implements CommandExecutor {
                             banned.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
                             banned.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "UNBANNED" + ChatColor.GRAY + " You've been unbanned by " + ChatColor.WHITE + player.getName());
                             banned.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+                            ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
+                            String pexcmd = "pex user " + banned.getName() + " group remove banned";
+                            Bukkit.dispatchCommand(console, pexcmd);
                             if(bannedRunnables.containsKey(banned.getUniqueId())) {
                                 bannedRunnables.get(banned.getUniqueId()).cancel();
                                 bannedRunnables.remove(banned.getUniqueId());
