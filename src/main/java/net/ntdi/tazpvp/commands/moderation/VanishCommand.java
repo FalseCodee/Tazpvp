@@ -43,9 +43,9 @@ public class VanishCommand implements CommandExecutor, Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event){
-        if(vanishList.contains(event.getPlayer())){
-            PlayerUtils.hidePlayer(event.getPlayer());
-        }
+        for(Player player : vanishList)
+            PlayerUtils.hidePlayer(player);
+
     }
     @EventHandler
     public void onLeave(PlayerQuitEvent event){
