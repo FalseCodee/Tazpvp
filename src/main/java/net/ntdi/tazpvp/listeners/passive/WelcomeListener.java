@@ -24,7 +24,7 @@ public class WelcomeListener<SerializedOfflinePlayer> implements Listener {
 
         Player p = event.getPlayer();
         p.sendMessage(ChatColor.AQUA + "");
-        p.sendMessage(ChatColor.DARK_GRAY + "  ▍  " + ChatColor.RED + ChatColor.BOLD + "TAZPVP " + ChatColor.WHITE + "Season 6");
+        p.sendMessage(ChatColor.DARK_GRAY + "  ▍  " + ChatColor.RED + ChatColor.BOLD + "TAZPVP " + ChatColor.WHITE + "Legacy PvP");
         p.sendMessage(ChatColor.DARK_GRAY + "  ▍  " + ChatColor.GRAY + "Type /discord");
         p.sendMessage(ChatColor.DARK_GRAY + "  ▍  " + ChatColor.GRAY + "Server IP: tazpvp.net");
         p.sendMessage(ChatColor.AQUA + "");
@@ -57,11 +57,11 @@ public class WelcomeListener<SerializedOfflinePlayer> implements Listener {
             TazPvP.punishmentManager.removeBan(p);
             p.sendMessage(ChatColor.RED+"You have been unbanned.");
         } else if (TazPvP.punishmentManager.isBanned(p)) {
-            p.sendMessage(ChatColor.WHITE + "" +ChatColor.BOLD + "------------------------------------------------------------------------");
+            p.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             p.sendMessage(ChatColor.WHITE + "");
-            p.sendMessage(ChatColor.RED + "You are Currently "+ ChatColor.BOLD + "BANNED" + ChatColor.RED + ". You have " + (((TazPvP.punishmentManager.getBanDuration(p) - (System.currentTimeMillis()-TazPvP.punishmentManager.getBanTime(p))) / 60000) + 1) + " minutes left");
+            p.sendMessage(ChatColor.RED + ""+ ChatColor.BOLD + " BANNED" + ChatColor.RED + " You currently have" + ChatColor.WHITE + (((TazPvP.punishmentManager.getBanDuration(p) - (System.currentTimeMillis()-TazPvP.punishmentManager.getBanTime(p))) / 60000) + 1) + ChatColor.RED + " minutes left");
             p.sendMessage(ChatColor.WHITE + "");
-            p.sendMessage(ChatColor.WHITE + "" +ChatColor.BOLD + "------------------------------------------------------------------------");
+            p.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             BukkitRunnable runnable = BanCommand.getBanRunnable(p);
             runnable.runTaskTimer(TazPvP.getInstance(), 0L, 20L);
             BanCommand.bannedRunnables.put(p.getUniqueId(), runnable);
