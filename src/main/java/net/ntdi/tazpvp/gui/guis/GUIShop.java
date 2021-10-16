@@ -56,7 +56,7 @@ public class GUIShop extends GUI {
         addShopItem(23, new ItemStack(Material.COOKED_BEEF, 5), 15, ChatColor.DARK_AQUA + "Steak", ChatColor.GRAY + "Arbies\n" + ChatColor.AQUA + "$15");
         addShopItem(24, new ItemStack(Material.GOLDEN_CARROT, 1), 15, ChatColor.DARK_AQUA + "Gold Carrot", ChatColor.GRAY + "Healthy Choice\n" + ChatColor.AQUA + "$15");
         addShopItem(25, new ItemStack(Material.GOLDEN_APPLE, 1), 225, ChatColor.DARK_AQUA + "Gold Apple", ChatColor.GRAY + "Not Steroids\n" + ChatColor.AQUA + "$225");
-        //addShopItem(37, new ItemStack(Material.WOOL, 64), 50, ChatColor.DARK_AQUA + "White Wool", ChatColor.GRAY + "Placeable Blocks\n" + ChatColor.AQUA + "$50");
+        addShopItem(37, new ItemStack(Material.WOOL, 64, DyeColor.RED.getData()), 50, ChatColor.DARK_AQUA + "White Wool", ChatColor.GRAY + "Placeable Blocks\n" + ChatColor.AQUA + "$50");
         update();
     }
 

@@ -7,15 +7,17 @@ import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.LeatherArmorMeta;
 
 public class GUIRecolor extends GUI {
     public GUIRecolor(Player player) {
-        super(player, 27, "COSMETICS");
+        super(player, 36, "COSMETICS");
         setItems();
         player.openInventory(inventory);
     }
 
     Player p = player;
+
 
     public void addArmorItem(int slot, ItemStack item, int runnable, String name, String lore) {
         setButtons(slot, createItem(item, name, lore), event -> {
@@ -74,12 +76,15 @@ public class GUIRecolor extends GUI {
         });
     }
 
+
+
+
     public void setItems() {
         for(int i = 0; i < inventory.getSize(); i++) {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), ChatColor.BLACK + "");
         }
 
-        addArmorItem(10, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.BROWN.getData()), 1, ChatColor.DARK_AQUA + "RESET ARMOR COLOR", ChatColor.GRAY + "Reset's your armor color!");
+        addArmorItem(10, new ItemStack(Material.LEATHER_CHESTPLATE, 1), 1, ChatColor.DARK_AQUA + "RESET ARMOR COLOR", ChatColor.GRAY + "Reset's your armor color!");
         addArmorItem(11, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.RED.getData()), 2, ChatColor.DARK_AQUA + "SET COLOR TO RED", ChatColor.GRAY + "Color's your armor to RED");
         addArmorItem(12, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.ORANGE.getData()), 3, ChatColor.DARK_AQUA + "SET COLOR TO ORANGE", ChatColor.GRAY + "Color's your armor to ORANGE");
         addArmorItem(13, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.YELLOW.getData()), 4, ChatColor.DARK_AQUA + "SET COLOR TO YELLOW", ChatColor.GRAY + "Color's your armor to YELLOW");
