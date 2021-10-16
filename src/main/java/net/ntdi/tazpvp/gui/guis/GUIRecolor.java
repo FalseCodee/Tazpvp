@@ -97,16 +97,28 @@ public class GUIRecolor extends GUI {
                     }
                     break;
                 case 10:
-                    new RecolorArmor().recolorArmor(p, Color.FUCHSIA);
-                    p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
+                    if (TazPvP.statsManager.getCredits(p) >= 5) {
+                        new RecolorArmor().recolorArmor(p, Color.FUCHSIA);
+                        p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Not enough Credits!");
+                    }
                     break;
                 case 11:
-                    new RecolorArmor().recolorArmor(p, Color.WHITE);
-                    p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
+                    if (TazPvP.statsManager.getCredits(p) >= 5) {
+                        new RecolorArmor().recolorArmor(p, Color.WHITE);
+                        p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Not enough Credits!");
+                    }
                     break;
                 case 12:
-                    new RecolorArmor().recolorArmor(p, Color.BLACK);
-                    p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
+                    if (TazPvP.statsManager.getCredits(p) >= 5) {
+                        new RecolorArmor().recolorArmor(p, Color.BLACK);
+                        p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Not enough Credits!");
+                    }
                     break;
             }
         });
