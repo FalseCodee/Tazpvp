@@ -90,7 +90,7 @@ public class GUIRecolor extends GUI {
         addArmorItem(21, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.PURPLE.getData()), 9, ChatColor.DARK_AQUA + "SET COLOR TO PURPLE", ChatColor.GRAY + "Color's your armor to PURPLE");
         addArmorItem(22, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.PINK.getData()), 10, ChatColor.DARK_AQUA + "SET COLOR TO PINK", ChatColor.GRAY + "Color's your armor to PINK");
         addArmorItem(23, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.WHITE.getData()), 11, ChatColor.DARK_AQUA + "SET COLOR TO WHITE", ChatColor.GRAY + "Color's your armor to WHITE");
-        addArmorItem(24, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.BLACK.getData()), 12, ChatColor.DARK_AQUA + "SET COLOR TO BLACK", ChatColor.GRAY + "Color's your armor to BLACK");
+        addArmorItem(24, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.BLACK.getDyeData()), 12, ChatColor.DARK_AQUA + "SET COLOR TO BLACK", ChatColor.GRAY + "Color's your armor to BLACK");
         update();
     }
 
