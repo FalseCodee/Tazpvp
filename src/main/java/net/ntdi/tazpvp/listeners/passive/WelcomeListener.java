@@ -24,7 +24,7 @@ public class WelcomeListener<SerializedOfflinePlayer> implements Listener {
 
         Player p = event.getPlayer();
         p.sendMessage(ChatColor.AQUA + "");
-        p.sendMessage(ChatColor.DARK_GRAY + "  ▍  " + ChatColor.RED + ChatColor.BOLD + "TAZPVP " + ChatColor.WHITE + "Legacy PvP");
+        p.sendMessage(ChatColor.DARK_GRAY + "  ▍  " + ChatColor.RED + ChatColor.BOLD + "TAZPVP " + ChatColor.WHITE + "Legacy");
         p.sendMessage(ChatColor.DARK_GRAY + "  ▍  " + ChatColor.GRAY + "Type /discord");
         p.sendMessage(ChatColor.DARK_GRAY + "  ▍  " + ChatColor.GRAY + "Server IP: tazpvp.net");
         p.sendMessage(ChatColor.AQUA + "");
