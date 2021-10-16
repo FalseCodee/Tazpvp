@@ -2,6 +2,7 @@ package net.ntdi.tazpvp.gui.guis;
 
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.gui.GUI;
+import net.ntdi.tazpvp.listeners.function.RecolorArmor;
 import net.ntdi.tazpvp.listeners.function.RenameSword;
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
@@ -38,7 +39,7 @@ public class GUICosmetics extends GUI {
                     }
                     break;
                 case 2:
-                    p.sendMessage(ChatColor.YELLOW + "Opening gui that definitely exists");
+                    new RecolorArmor().recolorArmor(p, DyeColor.BLACK);
                     break;
                 case 3:
                     if (TazPvP.statsManager.getCredits(p) >= 100) {
