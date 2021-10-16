@@ -1,22 +1,30 @@
 package net.ntdi.tazpvp.listeners.function;
 
+import org.bukkit.Color;
 import org.bukkit.DyeColor;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.material.MaterialData;
 import sun.jvm.hotspot.oops.Metadata;
 
 public class RecolorArmor {
 
-    public void recolorArmor(Player p, DyeColor dyeType){
+    public void recolorArmor(Player p, Color colorType){
         ItemStack helmet = p.getInventory().getHelmet();
         ItemStack chestplate = p.getInventory().getChestplate();
 
-        DyeColor dye = dyeType;
-        helmet.setData(new MaterialData(dye.getData()));
-        chestplate.setData(new MaterialData(dye.getData()));
+        LeatherArmorMeta helmMeta = (LeatherArmorMeta) helmet.getItemMeta();
+        helmMeta.setColor(colorType);
+        helmet.setItemMeta(helmMeta);
+
+        LeatherArmorMeta chestplateMeta = (LeatherArmorMeta) chestplate.getItemMeta();
+        chestplateMeta.setColor(colorType);
+        chestplate.setItemMeta(chestplateMeta);
+
+
 
     }
 

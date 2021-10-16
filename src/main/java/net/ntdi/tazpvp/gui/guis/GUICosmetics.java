@@ -5,6 +5,7 @@ import net.ntdi.tazpvp.gui.GUI;
 import net.ntdi.tazpvp.listeners.function.RecolorArmor;
 import net.ntdi.tazpvp.listeners.function.RenameSword;
 import org.bukkit.ChatColor;
+import org.bukkit.Color;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -39,7 +40,7 @@ public class GUICosmetics extends GUI {
                     }
                     break;
                 case 2:
-                    new RecolorArmor().recolorArmor(p, DyeColor.BLACK);
+                    switchScreen(new GUIRecolor(p));
                     break;
                 case 3:
                     if (TazPvP.statsManager.getCredits(p) >= 100) {
