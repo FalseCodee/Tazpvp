@@ -45,6 +45,8 @@ public class BlockListener implements Listener {
                                 }
                             }.runTaskLater(TazPvP.getInstance(), 200L);
                         }
+                    } else {
+                        event.setCancelled(true);
                     }
                 } else {
                     event.setCancelled(true);
