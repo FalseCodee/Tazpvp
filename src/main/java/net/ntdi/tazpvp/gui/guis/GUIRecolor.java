@@ -25,40 +25,76 @@ public class GUIRecolor extends GUI {
 
             switch (runnable){
                 case 1:
-                    new RecolorArmor().recolorArmor(p, Color.MAROON);
-                    p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
+                    if (TazPvP.statsManager.getCredits(p) >= 5) {
+                        new RecolorArmor().recolorArmor(p, Color.fromRGB(150, 75, 0));
+                        p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Not enough Credits!");
+                    }
                     break;
                 case 2:
-                    new RecolorArmor().recolorArmor(p, Color.RED);
-                    p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
+                    if (TazPvP.statsManager.getCredits(p) >= 5) {
+                        new RecolorArmor().recolorArmor(p, Color.RED);
+                        p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Not enough Credits!");
+                    }
                     break;
                 case 3:
-                    new RecolorArmor().recolorArmor(p, Color.ORANGE);
-                    p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
+                    if (TazPvP.statsManager.getCredits(p) >= 5) {
+                        new RecolorArmor().recolorArmor(p, Color.ORANGE);
+                        p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Not enough Credits!");
+                    }
                     break;
                 case 4:
-                    new RecolorArmor().recolorArmor(p, Color.YELLOW);
-                    p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
+                    if (TazPvP.statsManager.getCredits(p) >= 5) {
+                        new RecolorArmor().recolorArmor(p, Color.YELLOW);
+                        p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Not enough Credits!");
+                    }
                     break;
                 case 5:
-                    new RecolorArmor().recolorArmor(p, Color.LIME);
-                    p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
+                    if (TazPvP.statsManager.getCredits(p) >= 5) {
+                        new RecolorArmor().recolorArmor(p, Color.LIME);
+                        p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Not enough Credits!");
+                    }
                     break;
                 case 6:
-                    new RecolorArmor().recolorArmor(p, Color.GREEN);
-                    p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
+                    if (TazPvP.statsManager.getCredits(p) >= 5) {
+                        new RecolorArmor().recolorArmor(p, Color.GREEN);
+                        p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Not enough Credits!");
+                    }
                     break;
                 case 7:
-                    new RecolorArmor().recolorArmor(p, Color.TEAL);
-                    p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
+                    if (TazPvP.statsManager.getCredits(p) >= 5) {
+                        new RecolorArmor().recolorArmor(p, Color.TEAL);
+                        p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Not enough Credits!");
+                    }
                     break;
                 case 8:
-                    new RecolorArmor().recolorArmor(p, Color.BLUE);
-                    p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
+                    if (TazPvP.statsManager.getCredits(p) >= 5) {
+                        new RecolorArmor().recolorArmor(p, Color.BLUE);
+                        p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Not enough Credits!");
+                    }
                     break;
                 case 9:
-                    new RecolorArmor().recolorArmor(p, Color.PURPLE);
-                    p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
+                    if (TazPvP.statsManager.getCredits(p) >= 5) {
+                        new RecolorArmor().recolorArmor(p, Color.PURPLE);
+                        p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
+                    } else {
+                        p.sendMessage(ChatColor.RED + "Not enough Credits!");
+                    }
                     break;
                 case 10:
                     new RecolorArmor().recolorArmor(p, Color.FUCHSIA);
