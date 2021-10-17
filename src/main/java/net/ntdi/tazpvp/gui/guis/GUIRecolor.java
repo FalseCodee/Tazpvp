@@ -136,9 +136,6 @@ public class GUIRecolor extends GUI {
         });
     }
 
-
-
-
     public void setItems() {
         for(int i = 0; i < inventory.getSize(); i++) {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), ChatColor.BLACK + "");

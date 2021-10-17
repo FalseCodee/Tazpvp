@@ -14,11 +14,26 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 public class ReportCommand implements CommandExecutor {
     @Override
     @SuppressWarnings("unchecked")
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        HashMap<String, Long> cooldowns = new HashMap<String, Long>();
+
+        int cooldownTime = 60; // Get number of seconds from wherever you want
+        if(cooldowns.containsKey(sender.getName())) {
+            long secondsLeft = ((cooldowns.get(sender.getName())/1000)+cooldownTime) - (System.currentTimeMillis()/1000);
+            if(secondsLeft>0) {
+                // Still cooling down
+                sender.sendMessage("You cant report on cooldown with "+ secondsLeft +" seconds!");
+                return true;
+            }
+        }
+        // No cooldown found or cooldown has expired, save new cooldown
+        cooldowns.put(sender.getName(), System.currentTimeMillis());
+        // Do Command Here
 
         Player player = null;
         if(sender instanceof Player){
