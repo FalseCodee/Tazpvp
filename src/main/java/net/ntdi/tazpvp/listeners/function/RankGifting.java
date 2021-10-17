@@ -14,7 +14,7 @@ public class RankGifting implements Listener {
 
     public void giftPro(Player p, OfflinePlayer gifted){
         if (gifted != null){
-            TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-250);
+            TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p)-250);
             // add checks if the player has that rank or higher
             ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
             String pexcmd = "pex user " + gifted.getName() + " group add pro";
@@ -27,7 +27,7 @@ public class RankGifting implements Listener {
     }
     public void giftChampion(Player p, OfflinePlayer gifted){
         if (gifted != null){
-            TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-500);
+            TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p)-500);
             // add checks if the player has that rank or higher
             ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
             String pexcmd = "pex user " + gifted.getName() + " group add champion";
@@ -39,7 +39,7 @@ public class RankGifting implements Listener {
     }
     public void giftLegend(Player p, OfflinePlayer gifted){
         if (gifted != null){
-            TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-1000);
+            TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p)-1000);
             // add checks if the player has that rank or higher
             ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
             String pexcmd = "pex user " + gifted.getName() + " group add legend";
@@ -52,7 +52,7 @@ public class RankGifting implements Listener {
     }
     public void giftMythical(Player p, OfflinePlayer gifted){
         if (gifted != null){
-            TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-1500);
+            TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p)-1500);
             // add checks if the player has that rank or higher
             ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
             String pexcmd = "pex user " + gifted.getName() + " group add mythical";
