@@ -72,7 +72,7 @@ public class DeathListener implements Listener {
 
     @EventHandler
     public void onHit(EntityDamageByEntityEvent e) {
-        if (e.getEntity() instanceof Player && e.getDamager() instanceof Player) {
+        if (e.getEntity() instanceof Player && e.getDamager() instanceof Player && e.getEntity().getWorld().getName().equals("arena")) {
             Player whoWasHit = (Player) e.getEntity();
             Player whoHit = (Player) e.getDamager();
             // Isn't this supposed to only be when they punch each other?

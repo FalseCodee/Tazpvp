@@ -85,21 +85,21 @@ public class RankGifting implements Listener {
         Player p = event.getPlayer();
         OfflinePlayer giftee = Bukkit.getOfflinePlayer(event.getMessage());
         if (TazPvP.ProGiftRank.contains(p)){
-            event.setCancelled(true);
             giftPro(p, giftee);
             TazPvP.ProGiftRank.remove(p);
-        } else if (TazPvP.ChampionGiftRank.contains(p)){
             event.setCancelled(true);
+        } else if (TazPvP.ChampionGiftRank.contains(p)){
             giftChampion(p, giftee);
             TazPvP.ChampionGiftRank.remove(p);
-        } else if (TazPvP.LegendGiftRank.contains(p)){
             event.setCancelled(true);
+        } else if (TazPvP.LegendGiftRank.contains(p)){
             giftLegend(p, giftee);
             TazPvP.LegendGiftRank.remove(p);
-        } else if (TazPvP.MythicalGiftRank.contains(p)){
             event.setCancelled(true);
+        } else if (TazPvP.MythicalGiftRank.contains(p)){
             giftMythical(p, giftee);
             TazPvP.MythicalGiftRank.remove(p);
+            event.setCancelled(true);
         }
     }
 
