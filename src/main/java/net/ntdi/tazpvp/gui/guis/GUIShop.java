@@ -10,8 +10,13 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.HashMap;
+import java.util.UUID;
+
 public class GUIShop extends GUI {
 
+    HashMap<UUID, Long> cooldown = new HashMap<UUID, Long>();
+    int cooldownTime = 1;
     public GUIShop(Player player) {
         super(player, 54, "SHOP");
         setItems();
@@ -22,6 +27,17 @@ public class GUIShop extends GUI {
     public void addShopItem(int slot, ItemStack item, int cost, String name, String lore) {
         setButtons(slot, createItem(item, name, lore), event -> {
             event.setCancelled(true);
+            if(cooldown.containsKey(player.getUniqueId())){
+                long secondsLeft = cooldown.get(player.getUniqueId())-System.currentTimeMillis();
+                if(secondsLeft>0) {
+                    player.sendMessage(ChatColor.RED + "Please wait a bit before doing this!");
+                    return;
+                } else {
+                    cooldown.remove(player.getUniqueId());
+                }
+            }
+            cooldown.put(player.getUniqueId(), System.currentTimeMillis() + (cooldownTime * 1000L));
+
                 if(TazPvP.statsManager.getMoney(player) >= cost) {
                     TazPvP.statsManager.addMoney(player, -cost);
 
