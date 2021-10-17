@@ -26,7 +26,7 @@ public class GUIRecolor extends GUI {
             switch (runnable){
                 case 1:
                     if (TazPvP.statsManager.getCredits(p) >= 5) {
-                        TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-5);
+                        TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p)-5);
                         new RecolorArmor().recolorArmor(p, Color.fromRGB(150, 75, 0));
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
@@ -35,7 +35,7 @@ public class GUIRecolor extends GUI {
                     break;
                 case 2:
                     if (TazPvP.statsManager.getCredits(p) >= 5) {
-                        TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-5);
+                        TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p)-5);
                         new RecolorArmor().recolorArmor(p, Color.RED);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
@@ -44,7 +44,7 @@ public class GUIRecolor extends GUI {
                     break;
                 case 3:
                     if (TazPvP.statsManager.getCredits(p) >= 5) {
-                        TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-5);
+                        TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p)-5);
                         new RecolorArmor().recolorArmor(p, Color.ORANGE);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
@@ -53,7 +53,7 @@ public class GUIRecolor extends GUI {
                     break;
                 case 4:
                     if (TazPvP.statsManager.getCredits(p) >= 5) {
-                        TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-5);
+                        TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p)-5);
                         new RecolorArmor().recolorArmor(p, Color.YELLOW);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
@@ -62,7 +62,7 @@ public class GUIRecolor extends GUI {
                     break;
                 case 5:
                     if (TazPvP.statsManager.getCredits(p) >= 5) {
-                        TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-5);
+                        TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p)-5);
                         new RecolorArmor().recolorArmor(p, Color.LIME);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
@@ -71,7 +71,7 @@ public class GUIRecolor extends GUI {
                     break;
                 case 6:
                     if (TazPvP.statsManager.getCredits(p) >= 5) {
-                        TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-5);
+                        TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p)-5);
                         new RecolorArmor().recolorArmor(p, Color.GREEN);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
@@ -80,7 +80,7 @@ public class GUIRecolor extends GUI {
                     break;
                 case 7:
                     if (TazPvP.statsManager.getCredits(p) >= 5) {
-                        TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-5);
+                        TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p)-5);
                         new RecolorArmor().recolorArmor(p, Color.TEAL);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
@@ -89,7 +89,7 @@ public class GUIRecolor extends GUI {
                     break;
                 case 8:
                     if (TazPvP.statsManager.getCredits(p) >= 5) {
-                        TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-5);
+                        TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p)-5);
                         new RecolorArmor().recolorArmor(p, Color.BLUE);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
@@ -98,7 +98,7 @@ public class GUIRecolor extends GUI {
                     break;
                 case 9:
                     if (TazPvP.statsManager.getCredits(p) >= 5) {
-                        TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-5);
+                        TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p)-5);
                         new RecolorArmor().recolorArmor(p, Color.PURPLE);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
@@ -107,7 +107,7 @@ public class GUIRecolor extends GUI {
                     break;
                 case 10:
                     if (TazPvP.statsManager.getCredits(p) >= 5) {
-                        TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-5);
+                        TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p)-5);
                         new RecolorArmor().recolorArmor(p, Color.FUCHSIA);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
@@ -116,7 +116,7 @@ public class GUIRecolor extends GUI {
                     break;
                 case 11:
                     if (TazPvP.statsManager.getCredits(p) >= 5) {
-                        TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-5);
+                        TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p)-5);
                         new RecolorArmor().recolorArmor(p, Color.WHITE);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
@@ -125,7 +125,7 @@ public class GUIRecolor extends GUI {
                     break;
                 case 12:
                     if (TazPvP.statsManager.getCredits(p) >= 5) {
-                        TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-5);
+                        TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p)-5);
                         new RecolorArmor().recolorArmor(p, Color.BLACK);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
