@@ -2,6 +2,7 @@ package net.ntdi.tazpvp.gui.guis.rankstore;
 
 import net.ntdi.tazpvp.gui.GUI;
 import net.ntdi.tazpvp.gui.guis.GUICosmetics;
+import net.ntdi.tazpvp.gui.guis.GUIGiftRank;
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
@@ -29,7 +30,7 @@ public class GUIMainRankScreen extends GUI {
 
         });
         setButtons(12, creditsItem, event -> {
-
+            switchScreen(new GUIGiftRank(player));
         });
         setButtons(14, donateItem, event -> {
 
