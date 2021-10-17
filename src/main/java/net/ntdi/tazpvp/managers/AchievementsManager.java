@@ -68,6 +68,8 @@ public class AchievementsManager {
         // 500 smacks
         achievements.add(new SmackAchievement(500, new Rewards[] {Rewards.MONEY}, new int[] {200}));
 
+        achievements.add(new SpeakToYourManagerAchievement(1, new Rewards[] {Rewards.POINTS}, new int[] {3}));
+
     }
 
     public void onDeath(Player deadPlayer) {
