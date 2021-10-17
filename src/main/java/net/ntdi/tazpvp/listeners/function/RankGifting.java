@@ -6,6 +6,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
@@ -63,6 +64,7 @@ public class RankGifting implements Listener {
         }
     }
 
+    @EventHandler
     public void onChat(AsyncPlayerChatEvent event){
         Player p = event.getPlayer();
         if (TazPvP.ProGiftRank.contains(p)){
