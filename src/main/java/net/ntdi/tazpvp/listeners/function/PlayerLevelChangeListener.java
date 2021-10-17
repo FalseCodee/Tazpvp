@@ -20,10 +20,10 @@ public class PlayerLevelChangeListener implements Listener {
             event.getPlayer().sendMessage("");
             event.getPlayer().sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "  REWARDS");
             event.getPlayer().sendMessage(ChatColor.DARK_GRAY + "  +" + ChatColor.BLUE + "1 Point");
-            event.getPlayer().sendMessage(ChatColor.DARK_GRAY + "  +" + ChatColor.GOLD + "100 Coins");
+            event.getPlayer().sendMessage(ChatColor.DARK_GRAY + "  +" + ChatColor.GOLD + "60 Coins");
             event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             TazPvP.statsManager.addPoints(event.getPlayer(), 1);
-            TazPvP.statsManager.addMoney(event.getPlayer(), 100);
+            TazPvP.statsManager.addMoney(event.getPlayer(), 60);
         }
     }
 }
