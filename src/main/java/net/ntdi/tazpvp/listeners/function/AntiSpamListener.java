@@ -40,6 +40,6 @@ public class AntiSpamListener implements Listener {
             public void run() {
                 cooldown.remove(player);
             }
-        }.runTaskLater(TazPvP.getInstance(), 60);
+        }.runTaskLater(TazPvP.getInstance(), 10);
     }
 }
