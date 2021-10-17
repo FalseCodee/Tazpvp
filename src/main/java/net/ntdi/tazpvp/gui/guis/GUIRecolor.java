@@ -26,6 +26,7 @@ public class GUIRecolor extends GUI {
             switch (runnable){
                 case 1:
                     if (TazPvP.statsManager.getCredits(p) >= 5) {
+                        TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-5);
                         new RecolorArmor().recolorArmor(p, Color.fromRGB(150, 75, 0));
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
@@ -34,6 +35,7 @@ public class GUIRecolor extends GUI {
                     break;
                 case 2:
                     if (TazPvP.statsManager.getCredits(p) >= 5) {
+                        TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-5);
                         new RecolorArmor().recolorArmor(p, Color.RED);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
@@ -42,6 +44,7 @@ public class GUIRecolor extends GUI {
                     break;
                 case 3:
                     if (TazPvP.statsManager.getCredits(p) >= 5) {
+                        TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-5);
                         new RecolorArmor().recolorArmor(p, Color.ORANGE);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
@@ -50,6 +53,7 @@ public class GUIRecolor extends GUI {
                     break;
                 case 4:
                     if (TazPvP.statsManager.getCredits(p) >= 5) {
+                        TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-5);
                         new RecolorArmor().recolorArmor(p, Color.YELLOW);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
@@ -58,6 +62,7 @@ public class GUIRecolor extends GUI {
                     break;
                 case 5:
                     if (TazPvP.statsManager.getCredits(p) >= 5) {
+                        TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-5);
                         new RecolorArmor().recolorArmor(p, Color.LIME);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
@@ -66,6 +71,7 @@ public class GUIRecolor extends GUI {
                     break;
                 case 6:
                     if (TazPvP.statsManager.getCredits(p) >= 5) {
+                        TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-5);
                         new RecolorArmor().recolorArmor(p, Color.GREEN);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
@@ -74,6 +80,7 @@ public class GUIRecolor extends GUI {
                     break;
                 case 7:
                     if (TazPvP.statsManager.getCredits(p) >= 5) {
+                        TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-5);
                         new RecolorArmor().recolorArmor(p, Color.TEAL);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
@@ -82,6 +89,7 @@ public class GUIRecolor extends GUI {
                     break;
                 case 8:
                     if (TazPvP.statsManager.getCredits(p) >= 5) {
+                        TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-5);
                         new RecolorArmor().recolorArmor(p, Color.BLUE);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
@@ -90,6 +98,7 @@ public class GUIRecolor extends GUI {
                     break;
                 case 9:
                     if (TazPvP.statsManager.getCredits(p) >= 5) {
+                        TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-5);
                         new RecolorArmor().recolorArmor(p, Color.PURPLE);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
@@ -98,6 +107,7 @@ public class GUIRecolor extends GUI {
                     break;
                 case 10:
                     if (TazPvP.statsManager.getCredits(p) >= 5) {
+                        TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-5);
                         new RecolorArmor().recolorArmor(p, Color.FUCHSIA);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
@@ -106,6 +116,7 @@ public class GUIRecolor extends GUI {
                     break;
                 case 11:
                     if (TazPvP.statsManager.getCredits(p) >= 5) {
+                        TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-5);
                         new RecolorArmor().recolorArmor(p, Color.WHITE);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
@@ -114,6 +125,7 @@ public class GUIRecolor extends GUI {
                     break;
                 case 12:
                     if (TazPvP.statsManager.getCredits(p) >= 5) {
+                        TazPvP.statsManager.addCredits(p, TazPvP.statsManager.getCredits(p)-5);
                         new RecolorArmor().recolorArmor(p, Color.BLACK);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
@@ -133,17 +145,17 @@ public class GUIRecolor extends GUI {
         }
 
         addArmorItem(10, new ItemStack(Material.LEATHER_CHESTPLATE, 1), 1, ChatColor.DARK_AQUA + "RESET ARMOR COLOR", ChatColor.GRAY + "Reset's your armor color!");
-        addArmorItem(11, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.RED.getData()), 2, ChatColor.DARK_AQUA + "SET COLOR TO RED", ChatColor.GRAY + "Color's your armor to RED");
-        addArmorItem(12, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.ORANGE.getData()), 3, ChatColor.DARK_AQUA + "SET COLOR TO ORANGE", ChatColor.GRAY + "Color's your armor to ORANGE");
-        addArmorItem(13, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.YELLOW.getData()), 4, ChatColor.DARK_AQUA + "SET COLOR TO YELLOW", ChatColor.GRAY + "Color's your armor to YELLOW");
-        addArmorItem(14, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.LIME.getData()), 5, ChatColor.DARK_AQUA + "SET COLOR TO LIME", ChatColor.GRAY + "Color's your armor to LIME");
-        addArmorItem(15, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.GREEN.getData()), 6, ChatColor.DARK_AQUA + "SET COLOR TO GREEN", ChatColor.GRAY + "Color's your armor to GREEN");
-        addArmorItem(16, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.LIGHT_BLUE.getData()), 7, ChatColor.DARK_AQUA + "SET COLOR TO LIGHT BLUE", ChatColor.GRAY + "Color's your armor to LIGHT BLUE");
-        addArmorItem(20, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.BLUE.getData()), 8, ChatColor.DARK_AQUA + "SET COLOR TO BLUE", ChatColor.GRAY + "Color's your armor to BLUE");
-        addArmorItem(21, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.PURPLE.getData()), 9, ChatColor.DARK_AQUA + "SET COLOR TO PURPLE", ChatColor.GRAY + "Color's your armor to PURPLE");
-        addArmorItem(22, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.PINK.getData()), 10, ChatColor.DARK_AQUA + "SET COLOR TO PINK", ChatColor.GRAY + "Color's your armor to PINK");
-        addArmorItem(23, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.WHITE.getData()), 11, ChatColor.DARK_AQUA + "SET COLOR TO WHITE", ChatColor.GRAY + "Color's your armor to WHITE");
-        addArmorItem(24, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.BLACK.getDyeData()), 12, ChatColor.DARK_AQUA + "SET COLOR TO BLACK", ChatColor.GRAY + "Color's your armor to BLACK");
+        addArmorItem(11, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.RED.getData()), 2, ChatColor.DARK_AQUA + "SET COLOR TO RED", ChatColor.GRAY + "Color's your armor to RED\n" + ChatColor.AQUA + "5 CREDITS");
+        addArmorItem(12, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.ORANGE.getData()), 3, ChatColor.DARK_AQUA + "SET COLOR TO ORANGE", ChatColor.GRAY + "Color's your armor to ORANGE\n" + ChatColor.AQUA + "5 CREDITS");
+        addArmorItem(13, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.YELLOW.getData()), 4, ChatColor.DARK_AQUA + "SET COLOR TO YELLOW", ChatColor.GRAY + "Color's your armor to YELLOW\n" + ChatColor.AQUA + "5 CREDITS");
+        addArmorItem(14, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.LIME.getData()), 5, ChatColor.DARK_AQUA + "SET COLOR TO LIME", ChatColor.GRAY + "Color's your armor to LIME\n" + ChatColor.AQUA + "5 CREDITS");
+        addArmorItem(15, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.GREEN.getData()), 6, ChatColor.DARK_AQUA + "SET COLOR TO GREEN", ChatColor.GRAY + "Color's your armor to GREEN\n" + ChatColor.AQUA + "5 CREDITS");
+        addArmorItem(16, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.LIGHT_BLUE.getData()), 7, ChatColor.DARK_AQUA + "SET COLOR TO LIGHT BLUE", ChatColor.GRAY + "Color's your armor to LIGHT BLUE\n" + ChatColor.AQUA + "5 CREDITS");
+        addArmorItem(20, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.BLUE.getData()), 8, ChatColor.DARK_AQUA + "SET COLOR TO BLUE", ChatColor.GRAY + "Color's your armor to BLUE\n" + ChatColor.AQUA + "5 CREDITS");
+        addArmorItem(21, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.PURPLE.getData()), 9, ChatColor.DARK_AQUA + "SET COLOR TO PURPLE", ChatColor.GRAY + "Color's your armor to PURPLE\n" + ChatColor.AQUA + "5 CREDITS");
+        addArmorItem(22, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.PINK.getData()), 10, ChatColor.DARK_AQUA + "SET COLOR TO PINK", ChatColor.GRAY + "Color's your armor to PINK\n" + ChatColor.AQUA + "5 CREDITS");
+        addArmorItem(23, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.WHITE.getData()), 11, ChatColor.DARK_AQUA + "SET COLOR TO WHITE", ChatColor.GRAY + "Color's your armor to WHITE\n" + ChatColor.AQUA + "5 CREDITS");
+        addArmorItem(24, new ItemStack(Material.LEATHER_CHESTPLATE, 1, DyeColor.BLACK.getDyeData()), 12, ChatColor.DARK_AQUA + "SET COLOR TO BLACK", ChatColor.GRAY + "Color's your armor to BLACK\n" + ChatColor.AQUA + "5 CREDITS");
         update();
     }
 
