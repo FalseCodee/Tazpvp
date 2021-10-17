@@ -56,13 +56,13 @@ public class GUIShop extends GUI {
         addShopItem(23, new ItemStack(Material.COOKED_BEEF, 5), 15, ChatColor.DARK_AQUA + "Steak", ChatColor.GRAY + "Arbies\n" + ChatColor.AQUA + "$15");
         addShopItem(24, new ItemStack(Material.GOLDEN_CARROT, 1), 15, ChatColor.DARK_AQUA + "Gold Carrot", ChatColor.GRAY + "Healthy Choice\n" + ChatColor.AQUA + "$15");
         addShopItem(25, new ItemStack(Material.GOLDEN_APPLE, 1), 250, ChatColor.DARK_AQUA + "Gold Apple", ChatColor.GRAY + "Not Steroids\n" + ChatColor.AQUA + "$225");
-        addShopItem(37, new ItemStack(Material.WOOL, 60, DyeColor.BLUE.getData()), 50, ChatColor.DARK_AQUA + "Blue BLocks", ChatColor.GRAY + "Placeable Blocks\n" + ChatColor.GREEN + "Rank Required" + ChatColor.AQUA + "$60");
-        addShopItem(37, new ItemStack(Material.WOOL, 60, DyeColor.LIGHT_BLUE.getData()), 50, ChatColor.DARK_AQUA + "Light Blue BLocks", ChatColor.GRAY + "Placeable Blocks\n" + ChatColor.GREEN + "Rank Required" + ChatColor.AQUA + "$60");
-        addShopItem(37, new ItemStack(Material.WOOL, 60, DyeColor.GREEN.getData()), 50, ChatColor.DARK_AQUA + "Green BLocks", ChatColor.GRAY + "Placeable Blocks\n" + ChatColor.GREEN + "Rank Required" + ChatColor.AQUA + "$60");
-        addShopItem(37, new ItemStack(Material.WOOL, 60, DyeColor.YELLOW.getData()), 50, ChatColor.DARK_AQUA + "Yellow BLocks", ChatColor.GRAY + "Placeable Blocks\n" + ChatColor.GREEN + "Rank Required" + ChatColor.AQUA + "$60");
-        addShopItem(37, new ItemStack(Material.WOOL, 60, DyeColor.ORANGE.getData()), 50, ChatColor.DARK_AQUA + "Orange BLocks", ChatColor.GRAY + "Placeable Blocks\n" + ChatColor.GREEN + "Rank Required" + ChatColor.AQUA + "$60");
-        addShopItem(37, new ItemStack(Material.WOOL, 60, DyeColor.PINK.getData()), 50, ChatColor.DARK_AQUA + "Pink BLocks", ChatColor.GRAY + "Placeable Blocks\n" + ChatColor.GREEN + "Rank Required" + ChatColor.AQUA + "$60");
-        addShopItem(37, new ItemStack(Material.WOOL, 60, DyeColor.PURPLE.getData()), 50, ChatColor.DARK_AQUA + "Purple BLocks", ChatColor.GRAY + "Placeable Blocks\n" + ChatColor.GREEN + "Rank Required" + ChatColor.AQUA + "$60");
+        addShopItem(37, new ItemStack(Material.WOOL, 64, DyeColor.BLUE.getData()), 50, ChatColor.DARK_AQUA + "Blue BLocks", ChatColor.GRAY + "Placeable Blocks\n" + ChatColor.GREEN + "Rank Required\n" + ChatColor.AQUA + "$60");
+        addShopItem(38, new ItemStack(Material.WOOL, 64, DyeColor.LIGHT_BLUE.getData()), 50, ChatColor.DARK_AQUA + "Light Blue BLocks", ChatColor.GRAY + "Placeable Blocks\n" + ChatColor.GREEN + "Rank Required\n" + ChatColor.AQUA + "$60");
+        addShopItem(39, new ItemStack(Material.WOOL, 64, DyeColor.GREEN.getData()), 50, ChatColor.DARK_AQUA + "Green BLocks", ChatColor.GRAY + "Placeable Blocks\n" + ChatColor.GREEN + "Rank Required\n" + ChatColor.AQUA + "$60");
+        addShopItem(40, new ItemStack(Material.WOOL, 64, DyeColor.YELLOW.getData()), 50, ChatColor.DARK_AQUA + "Yellow BLocks", ChatColor.GRAY + "Placeable Blocks\n" + ChatColor.GREEN + "Rank Required\n" + ChatColor.AQUA + "$60");
+        addShopItem(41, new ItemStack(Material.WOOL, 64, DyeColor.ORANGE.getData()), 50, ChatColor.DARK_AQUA + "Orange BLocks", ChatColor.GRAY + "Placeable Blocks\n" + ChatColor.GREEN + "Rank Required\n" + ChatColor.AQUA + "$60");
+        addShopItem(42, new ItemStack(Material.WOOL, 64, DyeColor.PINK.getData()), 50, ChatColor.DARK_AQUA + "Pink BLocks", ChatColor.GRAY + "Placeable Blocks\n" + ChatColor.GREEN + "Rank Required\n" + ChatColor.AQUA + "$60");
+        addShopItem(43, new ItemStack(Material.WOOL, 64, DyeColor.PURPLE.getData()), 50, ChatColor.DARK_AQUA + "Purple BLocks", ChatColor.GRAY + "Placeable Blocks\n" + ChatColor.GREEN + "Rank Required\n" + ChatColor.AQUA + "$60");
         update();
     }
 
