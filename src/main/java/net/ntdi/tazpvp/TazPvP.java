@@ -1,6 +1,7 @@
 package net.ntdi.tazpvp;
 
 // import com.oracle.xmlns.internal.webservices.jaxws_databinding.SoapBindingUse;
+import org.bukkit.*;
 import org.bukkit.entity.Player;
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.ProtocolLibrary;
@@ -25,10 +26,9 @@ import net.ntdi.tazpvp.listeners.passive.*;
 import net.ntdi.tazpvp.managers.*;
 
 import net.ntdi.tazpvp.utils.MathUtils;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -120,7 +120,25 @@ public final class TazPvP extends JavaPlugin {
         // Event Register
         registerListeners();
 
-
+        try {
+            while (true) {
+                Bukkit.broadcastMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "Supply Paper has dropped! Find it for some handsome rewards!");
+                ItemStack paper = new ItemStack(Material.PAPER, 1);
+                ItemMeta paperMeta = paper.getItemMeta();
+                paperMeta.setDisplayName(ChatColor.AQUA + "Supply Paper");
+                List<String> Lore = new ArrayList<>();
+                Lore.add(ChatColor.YELLOW + "Click me to claim!");
+                paperMeta.setLore(Lore);
+                paperMeta.spigot().setUnbreakable(true);
+                paper.setItemMeta(paperMeta);
+                World world = Bukkit.getWorld("arena");
+                Location loc = new Location(world, -3.5, 32, 4.5);
+                world.dropItem(loc, paper);
+                Thread.sleep(5 * 60 * 1000);
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         load();
         try {
@@ -387,5 +405,7 @@ public final class TazPvP extends JavaPlugin {
     public static TazPvP getInstance(){
         return instance;
     }
+
+
 
 }
