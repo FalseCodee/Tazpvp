@@ -11,7 +11,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class GUIGiftRank extends GUI {
     public GUIGiftRank(Player player) {
-        super(player, 27, "COSMETICS");
+        super(player, 27, "GIFT RANK");
         setItems();
         player.openInventory(inventory);
     }
