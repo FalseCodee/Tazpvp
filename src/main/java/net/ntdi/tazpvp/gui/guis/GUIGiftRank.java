@@ -25,9 +25,12 @@ public class GUIGiftRank extends GUI {
             switch (runnable){
                 case 1:
                     if (TazPvP.statsManager.getCredits(p) >= 250) {
-
-                        TazPvP.ProGiftRank.add(p);
-                        p.sendMessage("type in chat who you want to gift rank to:");
+                        if (!TazPvP.ProGiftRank.contains(p) && !TazPvP.ChampionGiftRank.contains(p) && !TazPvP.LegendGiftRank.contains(p) && !TazPvP.MythicalGiftRank.contains(p)){
+                            TazPvP.ProGiftRank.add(p);
+                            p.sendMessage("type in chat who you want to gift rank to:");
+                        } else {
+                            p.sendMessage("type in chat who you want to gift the rank to:");
+                        }
 
                     } else {
                         p.sendMessage(ChatColor.RED + "Insufficient Credits!");
@@ -35,9 +38,11 @@ public class GUIGiftRank extends GUI {
                     break;
                 case 2:
                     if (TazPvP.statsManager.getCredits(p) >= 500) {
+                        if (!TazPvP.ProGiftRank.contains(p) && !TazPvP.ChampionGiftRank.contains(p) && !TazPvP.LegendGiftRank.contains(p) && !TazPvP.MythicalGiftRank.contains(p)){
+                            TazPvP.ChampionGiftRank.add(p);
+                            p.sendMessage("type in chat who you want to gift rank to:");
 
-                        TazPvP.ChampionGiftRank.add(p);
-                        p.sendMessage("type in chat who you want to gift rank to:");
+                        }
 
                     } else {
                         p.sendMessage(ChatColor.RED + "Insufficient Credits!");
@@ -45,9 +50,10 @@ public class GUIGiftRank extends GUI {
                     break;
                 case 3:
                     if (TazPvP.statsManager.getCredits(p) >= 1000) {
-
-                        TazPvP.LegendGiftRank.add(p);
-                        p.sendMessage("type in chat who you want to gift rank to:");
+                        if (!TazPvP.ProGiftRank.contains(p) && !TazPvP.ChampionGiftRank.contains(p) && !TazPvP.LegendGiftRank.contains(p) && !TazPvP.MythicalGiftRank.contains(p)){
+                            TazPvP.LegendGiftRank.add(p);
+                            p.sendMessage("type in chat who you want to gift rank to:");
+                        }
 
                     } else {
                         p.sendMessage(ChatColor.RED + "Insufficient Credits!");
@@ -55,9 +61,10 @@ public class GUIGiftRank extends GUI {
                     break;
                 case 4:
                     if (TazPvP.statsManager.getCredits(p) >= 1500) {
-
-                        TazPvP.MythicalGiftRank.add(p);
-                        p.sendMessage("type in chat who you want to gift rank to:");
+                        if (!TazPvP.ProGiftRank.contains(p) && !TazPvP.ChampionGiftRank.contains(p) && !TazPvP.LegendGiftRank.contains(p) && !TazPvP.MythicalGiftRank.contains(p)){
+                            TazPvP.MythicalGiftRank.add(p);
+                            p.sendMessage("type in chat who you want to gift rank to:");
+                        }
 
                     } else {
                         p.sendMessage(ChatColor.RED + "Insufficient Credits!");
