@@ -71,6 +71,11 @@ public final class TazPvP extends JavaPlugin {
 
     public static ArrayList<Player> renamingSword = new ArrayList<>();
 
+    public static ArrayList<Player> ProGiftRank = new ArrayList<>();
+    public static ArrayList<Player> ChampionGiftRank = new ArrayList<>();
+    public static ArrayList<Player> LegendGiftRank = new ArrayList<>();
+    public static ArrayList<Player> MythicalGiftRank = new ArrayList<>();
+
     // public static HashMap<UUID, Integer> banTime = new HashMap<>();
 
     public static TazPvP instance;
@@ -275,6 +280,7 @@ public final class TazPvP extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
         getServer().getPluginManager().registerEvents(new TillingListener(), this);
         getServer().getPluginManager().registerEvents(new RenameSword(), this);
+        getServer().getPluginManager().registerEvents(new RankGifting(), this);
 
     }
 
