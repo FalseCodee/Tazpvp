@@ -19,7 +19,9 @@ public class RankBuying implements Listener {
         String pexcmd = "pex user " + p.getName() + " group add pro";
         Bukkit.dispatchCommand(console, pexcmd);
         p.sendMessage(ChatColor.GREEN + "Successfully bought [PRO] rank to. Thank you!");
-
+        Bukkit.broadcastMessage("");
+        Bukkit.broadcastMessage(ChatColor.GREEN + "" + ChatColor.BOLD + p.getName() + " has just bought [PRO] rank!");
+        Bukkit.broadcastMessage("");
     }
     public void buyChampion(Player p){
         TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p)-500);
@@ -28,6 +30,9 @@ public class RankBuying implements Listener {
         String pexcmd = "pex user " + p.getName() + " group add champion";
         Bukkit.dispatchCommand(console, pexcmd);
         p.sendMessage(ChatColor.GREEN + "Successfully bought [CHAMPION] rank to. Thank you!");
+        Bukkit.broadcastMessage("");
+        Bukkit.broadcastMessage(ChatColor.GREEN + "" + ChatColor.BOLD + p.getName() + " has just bought [CHAMPION] rank!");
+        Bukkit.broadcastMessage("");
     }
     public void buyLegend(Player p){
         TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p)-1000);
@@ -36,6 +41,9 @@ public class RankBuying implements Listener {
         String pexcmd = "pex user " + p.getName() + " group add legend";
         Bukkit.dispatchCommand(console, pexcmd);
         p.sendMessage(ChatColor.GREEN + "Successfully bought [LEGEND] rank. Thank you!");
+        Bukkit.broadcastMessage("");
+        Bukkit.broadcastMessage(ChatColor.GREEN + "" + ChatColor.BOLD + p.getName() + " has just bought [LEGEND] rank!");
+        Bukkit.broadcastMessage("");
     }
     public void buyMythical(Player p){
         TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p)-1500);
@@ -44,6 +52,8 @@ public class RankBuying implements Listener {
         String pexcmd = "pex user " + p.getName() + " group add mythical";
         Bukkit.dispatchCommand(console, pexcmd);
         p.sendMessage(ChatColor.GREEN + "Successfully bought [MYTHICAL]. Thank you!");
+        Bukkit.broadcastMessage("");
+        Bukkit.broadcastMessage(ChatColor.GREEN + "" + ChatColor.BOLD + p.getName() + " has just bought [MYTHICAL] rank!");
+        Bukkit.broadcastMessage("");
     }
-
 }

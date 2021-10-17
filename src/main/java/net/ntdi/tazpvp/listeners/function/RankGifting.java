@@ -20,6 +20,10 @@ public class RankGifting implements Listener {
             String pexcmd = "pex user " + gifted.getName() + " group add pro";
             Bukkit.dispatchCommand(console, pexcmd);
             p.sendMessage(ChatColor.GREEN + "Successfully gifted [PRO] rank to " + gifted.getName() + ". Thank you!");
+            Bukkit.broadcastMessage("");
+            Bukkit.broadcastMessage(ChatColor.GREEN + "" + ChatColor.BOLD + p.getName() + " has just bought [PRO] for " + gifted.getName());
+            Bukkit.broadcastMessage("");
+
         }else{
             p.sendMessage(ChatColor.RED + "ERROR: Player does not exist!");
         }
@@ -33,6 +37,10 @@ public class RankGifting implements Listener {
             String pexcmd = "pex user " + gifted.getName() + " group add champion";
             Bukkit.dispatchCommand(console, pexcmd);
             p.sendMessage(ChatColor.GREEN + "Successfully gifted [CHAMPION] rank to " + gifted.getName() + ". Thank you!");
+            Bukkit.broadcastMessage("");
+            Bukkit.broadcastMessage(ChatColor.GREEN + "" + ChatColor.BOLD + p.getName() + " has just bought [CHAMPION] for " + gifted.getName());
+            Bukkit.broadcastMessage("");
+
         }else{
             p.sendMessage(ChatColor.RED + "ERROR: Player does not exist!");
         }
@@ -45,6 +53,9 @@ public class RankGifting implements Listener {
             String pexcmd = "pex user " + gifted.getName() + " group add legend";
             Bukkit.dispatchCommand(console, pexcmd);
             p.sendMessage(ChatColor.GREEN + "Successfully gifted [LEGEND] rank to " + gifted.getName() + ". Thank you!");
+            Bukkit.broadcastMessage("");
+            Bukkit.broadcastMessage(ChatColor.GREEN + "" + ChatColor.BOLD + p.getName() + " has just bought [LEGEND] for " + gifted.getName());
+            Bukkit.broadcastMessage("");
 
         }else{
             p.sendMessage(ChatColor.RED + "ERROR: Player does not exist!");
@@ -58,6 +69,9 @@ public class RankGifting implements Listener {
             String pexcmd = "pex user " + gifted.getName() + " group add mythical";
             Bukkit.dispatchCommand(console, pexcmd);
             p.sendMessage(ChatColor.GREEN + "Successfully gifted [MYTHICAL] rank to " + gifted.getName() + ". Thank you!");
+            Bukkit.broadcastMessage("");
+            Bukkit.broadcastMessage(ChatColor.GREEN + "" + ChatColor.BOLD + p.getName() + " has just bought [MYTHICAL] for " + gifted.getName());
+            Bukkit.broadcastMessage("");
 
         }else{
             p.sendMessage(ChatColor.RED + "ERROR: Player does not exist!");
