@@ -58,6 +58,9 @@ public final class TazPvP extends JavaPlugin {
     public static ArrayList<Material> blocks = new ArrayList<>();
     public static Boolean AllowBlocks = true;
 
+    public static ArrayList<Player> invunerable = new ArrayList<>();
+
+
     //public static HashMap<Player, Integer> heartGained = new HashMap<>();
 
     public static ArrayList<Player> voteYes = new ArrayList<>();
@@ -67,6 +70,11 @@ public final class TazPvP extends JavaPlugin {
 
 
     public static ArrayList<Player> renamingSword = new ArrayList<>();
+
+    public static ArrayList<Player> ProGiftRank = new ArrayList<>();
+    public static ArrayList<Player> ChampionGiftRank = new ArrayList<>();
+    public static ArrayList<Player> LegendGiftRank = new ArrayList<>();
+    public static ArrayList<Player> MythicalGiftRank = new ArrayList<>();
 
     // public static HashMap<UUID, Integer> banTime = new HashMap<>();
 
@@ -251,6 +259,7 @@ public final class TazPvP extends JavaPlugin {
         getCommand("voteyes").setExecutor(new VoteyesCommand());
         getCommand("voteno").setExecutor(new VotenoCommand());
         getCommand("lblevel").setExecutor(new lbLevelCommand());
+        getCommand("unban").setExecutor(new unbanCommand());
     }
 
     public void registerListeners() {
@@ -271,6 +280,7 @@ public final class TazPvP extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
         getServer().getPluginManager().registerEvents(new TillingListener(), this);
         getServer().getPluginManager().registerEvents(new RenameSword(), this);
+        getServer().getPluginManager().registerEvents(new RankGifting(), this);
 
     }
 

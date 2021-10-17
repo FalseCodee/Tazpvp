@@ -36,23 +36,30 @@ public class DeathListener implements Listener {
 //        Location loc = new Location(wrld, 0.5, 51, 0.5, 180, 0);
 
 //        p.teleport(loc);
+
+                if (killer.getMaxHealth() != 26){
+                    killer.setMaxHealth(killer.getMaxHealth()+2);
+                }
+                p.setMaxHealth(20);
+
                 p.playSound(p.getLocation(), Sound.FIRE, 5, 1);
                 TazPvP.statsManager.addStreak(killer, 1);
                 TazPvP.statsManager.addKills(killer, 1);
-                TazPvP.statsManager.addMoney(killer, 5);
+                TazPvP.statsManager.addMoney(killer, 7);
                 if (TazPvP.statsManager.getRebirths(killer) > 0) {
                     killer.giveExp(8);
-                    killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 5 Coins " + ChatColor.DARK_AQUA + "+ 8 Experience");
+                    killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 8 Experience");
+                    killer.setHealth(Math.min(killer.getHealth() + 6, 20));
                     killer.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 40, 1, true, false));
                     killer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 40, 1, true, false));
                     killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 120, 3, true, false));
                 } else {
                     killer.giveExp(5);
-                    killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 5 Coins " + ChatColor.DARK_AQUA + "+ 5 Experience");
+                    killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 5 Experience");
                     killer.setHealth(Math.min(killer.getHealth() + 6, 20));
                     killer.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 40, 1, true, false));
                     killer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 40, 1, true, false));
-                    killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 5, 3, true, false));
+                    killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 60, 2, true, false));
                 }
                 p.sendMessage(ChatColor.DARK_GRAY + "You were killed by " + ChatColor.GRAY + "" + killer.getName());
             }
@@ -65,7 +72,7 @@ public class DeathListener implements Listener {
 
     @EventHandler
     public void onHit(EntityDamageByEntityEvent e) {
-        if (e.getEntity() instanceof Player && e.getDamager() instanceof Player) {
+        if (e.getEntity() instanceof Player && e.getDamager() instanceof Player && e.getEntity().getWorld().getName().equals("arena")) {
             Player whoWasHit = (Player) e.getEntity();
             Player whoHit = (Player) e.getDamager();
             // Isn't this supposed to only be when they punch each other?

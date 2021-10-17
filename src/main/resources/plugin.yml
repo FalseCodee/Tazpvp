@@ -200,3 +200,6 @@ commands:
     aliases:
       - leaderboardlevel
       - lbl
+  unban:
+    usage: "/unban <player>"
+    description: unban somone

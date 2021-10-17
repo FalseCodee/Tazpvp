@@ -15,6 +15,9 @@ public class TillingListener implements Listener {
             if(event.getBlockPlaced().getType() == Material.SOIL){
                 event.setCancelled(true);
             }
+            else if(event.getBlockPlaced().getType() == Material.DIRT){
+                event.setCancelled(true);
+            }
         }
     }
 }

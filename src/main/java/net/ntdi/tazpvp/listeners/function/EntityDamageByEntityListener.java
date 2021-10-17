@@ -28,6 +28,11 @@ public class EntityDamageByEntityListener implements Listener {
                 event.setCancelled(true);
                 return;
             }
+            if (TazPvP.invunerable.contains((Player) event.getEntity())){
+                event.setCancelled(true);
+                return;
+            }
+
 
             if(((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.WOOD_SWORD) ||
                     ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.STONE_SWORD) ||
