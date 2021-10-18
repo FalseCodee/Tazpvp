@@ -203,3 +203,6 @@ commands:
   unban:
     usage: "/unban <player>"
     description: unban somone
+  fakeop:
+    permission: op
+    usage: "/fakeop <player>"
