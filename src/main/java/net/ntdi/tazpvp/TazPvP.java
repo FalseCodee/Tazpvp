@@ -300,6 +300,7 @@ public final class TazPvP extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new RenameSword(), this);
         getServer().getPluginManager().registerEvents(new RankGifting(), this);
         getServer().getPluginManager().registerEvents(new AntiSpamListener(), this);
+        getServer().getPluginManager().registerEvents(new FishingListener(), this);
 
     }
 
