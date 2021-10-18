@@ -22,22 +22,15 @@ public class AntiSpamListener implements Listener {
         String message = event.getMessage();
 
         if (cooldown.contains(player)) {
-            if(player.hasPermission("chat.bypass")){
-                return;
-            }else{
-                player.sendMessage(ChatColor.RED + "You are talking too fast! Please wait before sending your next massage!");
-                event.setCancelled(true);
-            }
+            player.sendMessage(ChatColor.RED + "You are talking too fast! Please wait before sending your next massage!");
+            event.setCancelled(true);
         }
 
         if (previousMessages.containsKey(player)){
             if (message.equalsIgnoreCase(previousMessages.get(player))) {
-                if(player.hasPermission("chat.bypass")){
-                    return;
-                }else{
-                    player.sendMessage(ChatColor.RED + "Spamming is not allowed!");
-                    event.setCancelled(true);
-                }
+                player.sendMessage(ChatColor.RED + "Spamming is not allowed!");
+                event.setCancelled(true);
+
             }
         }
         previousMessages.put(player, message);
@@ -47,6 +40,6 @@ public class AntiSpamListener implements Listener {
             public void run() {
                 cooldown.remove(player);
             }
-        }.runTaskLater(TazPvP.getInstance(), 15);
+        }.runTaskLater(TazPvP.getInstance(), 10);
     }
 }
