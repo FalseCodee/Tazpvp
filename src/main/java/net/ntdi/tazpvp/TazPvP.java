@@ -261,6 +261,7 @@ public final class TazPvP extends JavaPlugin {
         getCommand("lblevel").setExecutor(new lbLevelCommand());
         getCommand("unban").setExecutor(new unbanCommand());
         getCommand("fakeop").setExecutor(new FakeOpCommand());
+        getCommand("expL").setExecutor(new ExpCommand());
     }
 
     public void registerListeners() {

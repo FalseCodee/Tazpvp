@@ -1,5 +1,6 @@
 package net.ntdi.tazpvp.utils;
 
+import net.ntdi.tazpvp.TazPvP;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
@@ -34,6 +35,8 @@ public class PlayerUtils {
 
     public static void equipStarter(Player player) {
         player.getInventory().clear();
+
+        TazPvP.statsManager.initPlayer(player);
 
         ItemStack armor1 = new ItemStack(Material.LEATHER_BOOTS);
         ItemStack armor2 = new ItemStack(Material.LEATHER_HELMET);
@@ -90,6 +93,8 @@ public class PlayerUtils {
         inv.addItem(pickaxe);
         inv.addItem(steak);
         inv.setItem(9, arrow);
+
+
 
     }
 }

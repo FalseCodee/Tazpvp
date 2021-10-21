@@ -206,3 +206,6 @@ commands:
   fakeop:
     permission: op
     usage: "/fakeop <player>"
+  expL:
+    permission: op
+    usage: "/g"
