@@ -135,10 +135,10 @@ public class StatsManager {
     }
 
     public double getExpLeft(OfflinePlayer player) {
-        return statsFile.getInt(player.getUniqueId().toString()+".expLeft");
+        return statsFile.getDouble(player.getUniqueId().toString()+".expLeft");
     }
     public void setExpLeft(OfflinePlayer player, double exp) {
-        statsFile.set(player.getUniqueId().toString()+".exp", exp);
+        statsFile.set(player.getUniqueId().toString()+".expLeft", exp);
         TazPvP.getInstance().initScoreboard((Player) player);
     }
 
