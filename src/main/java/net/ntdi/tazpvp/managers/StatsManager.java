@@ -58,6 +58,8 @@ public class StatsManager {
 
     public void initPlayer(OfflinePlayer player){
         statsFile.set(player.getUniqueId().toString()+".points", 0);
+        statsFile.set(player.getUniqueId().toString()+".exp", 0);
+        statsFile.set(player.getUniqueId().toString()+".expLeft", 70);
         statsFile.set(player.getUniqueId().toString()+".level", 0);
         statsFile.set(player.getUniqueId().toString()+".money", 0);
         statsFile.set(player.getUniqueId().toString()+".deaths", 0);
@@ -120,6 +122,26 @@ public class StatsManager {
     public void addKills(OfflinePlayer player, int kills) {
         setKills(player, kills+getKills(player));
     }
+
+    public double getExp(OfflinePlayer player) {
+        return statsFile.getInt(player.getUniqueId().toString()+".exp");
+    }
+    public void setExp(OfflinePlayer player, double exp) {
+        statsFile.set(player.getUniqueId().toString()+".exp", exp);
+        TazPvP.getInstance().initScoreboard((Player) player);
+    }
+    public void addExp(OfflinePlayer player, double exp) {
+        setExp(player, exp+getExp(player));
+    }
+
+    public double getExpLeft(OfflinePlayer player) {
+        return statsFile.getInt(player.getUniqueId().toString()+".expLeft");
+    }
+    public void setExpLeft(OfflinePlayer player, double exp) {
+        statsFile.set(player.getUniqueId().toString()+".exp", exp);
+        TazPvP.getInstance().initScoreboard((Player) player);
+    }
+
     public String getGroup(OfflinePlayer player) {
         return statsFile.getString(player.getUniqueId().toString()+".rank");
     }
