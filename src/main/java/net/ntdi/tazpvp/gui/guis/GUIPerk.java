@@ -27,8 +27,9 @@ public class GUIPerk extends GUI {
                 case 1:
                     if (!TazPvP.perkManager.getSaveBlocks(p)){
                         if (TazPvP.statsManager.getMoney(p) >= 500){
-                            TazPvP.statsManager.addMoney(p, TazPvP.statsManager.getMoney(p)-500);
+                            TazPvP.statsManager.addMoney(p, -500);
                             TazPvP.perkManager.setSaveBlocks(p, true);
+                            p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
                             p.sendMessage(ChatColor.RED + "Not enough money!");
                         }
@@ -39,8 +40,9 @@ public class GUIPerk extends GUI {
                 case 2:
                     if (!TazPvP.perkManager.getButter(p)){
                         if (TazPvP.statsManager.getMoney(p) >= 500){
-                            TazPvP.statsManager.addMoney(p, TazPvP.statsManager.getMoney(p)-500);
+                            TazPvP.statsManager.addMoney(p, -500);
                             TazPvP.perkManager.setButter(p, true);
+                            p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
                             p.sendMessage(ChatColor.RED + "Not enough money!");
                         }
@@ -51,8 +53,9 @@ public class GUIPerk extends GUI {
                 case 3:
                     if (!TazPvP.perkManager.getAgility(p)){
                         if (TazPvP.statsManager.getMoney(p) >= 500){
-                            TazPvP.statsManager.addMoney(p, TazPvP.statsManager.getMoney(p)-500);
+                            TazPvP.statsManager.addMoney(p, -500);
                             TazPvP.perkManager.setAgility(p, true);
+                            p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
                             p.sendMessage(ChatColor.RED + "Not enough money!");
                         }
@@ -63,8 +66,9 @@ public class GUIPerk extends GUI {
                 case 4:
                     if (!TazPvP.perkManager.getExtinguish(p)){
                         if (TazPvP.statsManager.getMoney(p) >= 250){
-                            TazPvP.statsManager.addMoney(p, TazPvP.statsManager.getMoney(p)-250);
+                            TazPvP.statsManager.addMoney(p, -250);
                             TazPvP.perkManager.setExtinguish(p, true);
+                            p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
                             p.sendMessage(ChatColor.RED + "Not enough money!");
                         }
@@ -75,8 +79,9 @@ public class GUIPerk extends GUI {
                 case 5:
                     if (!TazPvP.perkManager.getFallDamage(p)){
                         if (TazPvP.statsManager.getMoney(p) >= 500){
-                            TazPvP.statsManager.addMoney(p, TazPvP.statsManager.getMoney(p)-500);
+                            TazPvP.statsManager.addMoney(p, -500);
                             TazPvP.perkManager.setFallDamage(p, true);
+                            p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
                             p.sendMessage(ChatColor.RED + "Not enough money!");
                         }
@@ -87,8 +92,9 @@ public class GUIPerk extends GUI {
                 case 6:
                     if (!TazPvP.perkManager.getHunger(p)){
                         if (TazPvP.statsManager.getMoney(p) >= 500){
-                            TazPvP.statsManager.addMoney(p, TazPvP.statsManager.getMoney(p)-500);
+                            TazPvP.statsManager.addMoney(p, -500);
                             TazPvP.perkManager.setHunger(p, true);
+                            p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
                             p.sendMessage(ChatColor.RED + "Not enough money!");
                         }
@@ -99,8 +105,9 @@ public class GUIPerk extends GUI {
                 case 7:
                     if (!TazPvP.perkManager.getHaste(p)){
                         if (TazPvP.statsManager.getMoney(p) >= 500){
-                            TazPvP.statsManager.addMoney(p, TazPvP.statsManager.getMoney(p)-500);
+                            TazPvP.statsManager.addMoney(p, -500);
                             TazPvP.perkManager.setHaste(p, true);
+                            p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
                             p.sendMessage(ChatColor.RED + "Not enough money!");
                         }
@@ -111,8 +118,9 @@ public class GUIPerk extends GUI {
                 case 8:
                     if (!TazPvP.perkManager.getRobbery(p)){
                         if (TazPvP.statsManager.getMoney(p) >= 500){
-                            TazPvP.statsManager.addMoney(p, TazPvP.statsManager.getMoney(p)-500);
+                            TazPvP.statsManager.addMoney(p, -500);
                             TazPvP.perkManager.setRobbery(p, true);
+                            p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
                             p.sendMessage(ChatColor.RED + "Not enough money!");
                         }
@@ -123,8 +131,9 @@ public class GUIPerk extends GUI {
                 case 9:
                     if (!TazPvP.perkManager.getStrength(p)){
                         if (TazPvP.statsManager.getMoney(p) >= 1000){
-                            TazPvP.statsManager.addMoney(p, TazPvP.statsManager.getMoney(p)-1000);
+                            TazPvP.statsManager.addMoney(p, -1000);
                             TazPvP.perkManager.setStrength(p, true);
+                            p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
                             p.sendMessage(ChatColor.RED + "Not enough money!");
                         }
