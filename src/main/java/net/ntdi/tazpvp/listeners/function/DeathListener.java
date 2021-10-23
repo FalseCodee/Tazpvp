@@ -1,5 +1,6 @@
 package net.ntdi.tazpvp.listeners.function;
 
+import net.milkbowl.vault.chat.Chat;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.commands.functions.BountyCommand;
 import org.bukkit.*;
@@ -11,7 +12,12 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import java.util.Random;
+
 public class DeathListener implements Listener {
+
+    private final Random rand = new Random();
+
 
     @EventHandler
     public void onPlayerDeathEvent(PlayerDeathEvent event) {
@@ -58,6 +64,38 @@ public class DeathListener implements Listener {
                     killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 5 Experience");
                     killer.setHealth(Math.min(killer.getHealth() + 6, 20));
                     killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 60, 1, true, false));
+
+                    if (rand.nextInt(10) == 1) {
+                        if (TazPvP.perkManager.getButter(killer)){
+                            if(killer.getHealth() <= 16) {
+                                killer.setHealth(p.getHealth() + 4);
+                            } else {
+                                killer.setHealth(20);
+                            }
+                            killer.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 20*60, 0));
+                            killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20*3, 0));
+                            killer.sendMessage(ChatColor.GRAY + "Butter Perk activated!");
+                        }
+                    }
+                    if (rand.nextInt(10) == 2) {
+                        if (TazPvP.perkManager.getAgility(killer)){
+                            killer.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 20*5, 0));
+                            killer.sendMessage(ChatColor.GRAY + "Agility Perk activated!");
+                        }
+                    }
+                    if (rand.nextInt(10) == 3) {
+                        if (TazPvP.perkManager.getExtinguish(killer)){
+                            killer.setFireTicks(0);
+                            killer.sendMessage(ChatColor.GRAY + "Extinguish Perk activated!");
+                        }
+                    }
+                    if (rand.nextInt(10) == 4) {
+                        if (TazPvP.perkManager.getHunger(killer)){
+                            killer.setFoodLevel(20);
+                            killer.sendMessage(ChatColor.GRAY + "Hunger Perk activated!");
+                        }
+                    }
+
                 }
                 p.sendMessage(ChatColor.DARK_GRAY + "You were killed by " + ChatColor.GRAY + "" + killer.getName());
             }

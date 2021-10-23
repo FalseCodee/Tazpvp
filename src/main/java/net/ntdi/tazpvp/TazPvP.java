@@ -144,10 +144,6 @@ public final class TazPvP extends JavaPlugin {
         blocks.add(Material.EMERALD_ORE);
     }
 
-
-
-
-
     public void load() {
         helpFile = new File(getDataFolder() + "/help.txt");
         ruleFile = new File(getDataFolder() + "/rules.txt");
@@ -209,17 +205,6 @@ public final class TazPvP extends JavaPlugin {
         TazPvP.renamingSword.clear();
     }
 
-//    public void registerTimers() {
-//        Timer timer = new Timer();
-//        timer.schedule(new TimerTask() {
-//            @Override
-//            public void run() {
-//                // System.out.println("Task ran");
-//                //banTime.get(UUID, Integer);
-//
-//            }
-//        }, 0, 1000);
-//    }
     public void registerCommands() {
         getCommand("sendword").setExecutor((new SendWordCommand()));
         getCommand("sendmessage").setExecutor(new SendMessageCommand());
@@ -287,6 +272,7 @@ public final class TazPvP extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new RenameSword(), this);
         getServer().getPluginManager().registerEvents(new RankGifting(), this);
         getServer().getPluginManager().registerEvents(new AntiSpamListener(), this);
+        getServer().getPluginManager().registerEvents(new FallDamageListener(), this);
 
     }
 

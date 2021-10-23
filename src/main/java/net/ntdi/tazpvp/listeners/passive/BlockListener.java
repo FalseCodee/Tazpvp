@@ -7,11 +7,23 @@ import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class BlockListener implements Listener {
+
+    private final Random random = new Random();
+
+    private int next() {
+        if (random.nextBoolean()) {
+            return 1;
+        } else {
+            return 2;
+        }
+    }
 
     @EventHandler
     public void onPlaceBlock(BlockPlaceEvent event) {
@@ -29,6 +41,11 @@ public class BlockListener implements Listener {
 
                     if (!unreq.contains(blockType)) {
                         if (blockType == Material.WOOD) {
+                            if (TazPvP.perkManager.getSaveBlocks(event.getPlayer())){
+                                if (next() == 2){
+                                    event.getPlayer().getInventory().addItem(event.getPlayer().getItemInHand());
+                                }
+                            }
                             new BukkitRunnable() {
                                 @Override
                                 public void run() {
