@@ -5,6 +5,7 @@ import net.citizensnpcs.api.event.NPCRightClickEvent;
 import net.ntdi.tazpvp.gui.GUIManager;
 import net.ntdi.tazpvp.gui.guis.GUIAchievement;
 import net.ntdi.tazpvp.gui.guis.GUICosmetics;
+import net.ntdi.tazpvp.gui.guis.GUIPerk;
 import net.ntdi.tazpvp.gui.guis.GUIShop;
 import net.ntdi.tazpvp.gui.guis.rankstore.GUIMainRankScreen;
 import net.ntdi.tazpvp.gui.guis.rankstore.GUIRankMenu;
@@ -30,6 +31,8 @@ public class NPCClickEvent implements Listener {
             new GUIMainScreen(event.getClicker());
         } else if (event.getNPC().getId() == 36) { //FISHERMAN
             new Fisherman(event.getClicker());
+        } else if (event.getNPC().getId() == 38) { //PERKS
+            new GUIPerk((event.getClicker()));
         }
     }
     @EventHandler
@@ -47,6 +50,8 @@ public class NPCClickEvent implements Listener {
             new GUIMainScreen(event.getClicker());
         } else if (event.getNPC().getId() == 36) { //FISHERMAN
             new Fisherman(event.getClicker());
+        } else if (event.getNPC().getId() == 38) { //PERKS
+            new GUIPerk((event.getClicker()));
         }
     }
 }
