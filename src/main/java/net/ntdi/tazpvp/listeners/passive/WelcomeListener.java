@@ -105,6 +105,11 @@ public class WelcomeListener<SerializedOfflinePlayer> implements Listener {
             BanCommand.bannedRunnables.remove(p.getUniqueId());
         }
         p.spigot().setCollidesWithEntities(true);
+
+        if(TazPvP.robbery.containsKey(p)){
+            p.getInventory().addItem(TazPvP.robbery.get(p));
+        }
+
     }
 
     @EventHandler

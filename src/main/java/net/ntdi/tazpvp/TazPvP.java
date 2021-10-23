@@ -29,6 +29,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -61,7 +62,7 @@ public final class TazPvP extends JavaPlugin {
 
     public static ArrayList<Player> invunerable = new ArrayList<>();
 
-
+    public static HashMap<Player, ItemStack> robbery = new HashMap<>();
     //public static HashMap<Player, Integer> heartGained = new HashMap<>();
 
     public static ArrayList<Player> voteYes = new ArrayList<>();

@@ -95,6 +95,11 @@ public class DeathListener implements Listener {
                             killer.sendMessage(ChatColor.GRAY + "Hunger Perk activated!");
                         }
                     }
+                    if(rand.nextInt(10) == 5){
+                        if (TazPvP.perkManager.getStrength(killer)){
+                            killer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 40, 1, true, false));
+                        }
+                    }
 
                 }
                 p.sendMessage(ChatColor.DARK_GRAY + "You were killed by " + ChatColor.GRAY + "" + killer.getName());

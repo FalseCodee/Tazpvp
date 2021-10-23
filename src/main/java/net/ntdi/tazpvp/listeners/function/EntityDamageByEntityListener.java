@@ -13,8 +13,11 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.Objects;
+import java.util.Random;
 
 public class EntityDamageByEntityListener implements Listener {
+
+    Random rand = new Random();
 
     @EventHandler
     public void entityDamageByEntity(EntityDamageByEntityEvent event) {
@@ -35,6 +38,7 @@ public class EntityDamageByEntityListener implements Listener {
             }
 
             Player p = (Player) event.getDamager();
+            Player victim = (Player) event.getEntity();
 
 
 
@@ -55,6 +59,26 @@ public class EntityDamageByEntityListener implements Listener {
                     TazPvP.statsManager.setExp(p, 0);
                     p.setLevel(TazPvP.statsManager.getLevel(p));
 
+                }
+            } else {
+                if (TazPvP.perkManager.getRobbery(p)){
+                    if(rand.nextInt(100) == 52){
+                        if (!TazPvP.robbery.containsKey((Player) event.getEntity())){
+                            TazPvP.robbery.put(victim, victim.getItemInHand());
+                            victim.getItemInHand().setType(Material.AIR);
+                            victim.sendMessage(ChatColor.GRAY + "Your item has been robbed by " + p.getName());
+                            victim.sendMessage(ChatColor.GRAY + "Your item will be returned in 3 seconds");
+                            p.sendMessage(ChatColor.GRAY + "You have robbed " + victim.getName() + "'s item in hand because of your robbery perk!");
+
+                            new BukkitRunnable() {
+                                @Override
+                                public void run() {
+                                victim.getInventory().addItem(TazPvP.robbery.get(victim));
+                                victim.sendMessage(ChatColor.GRAY + "Your item has been returned!");
+                                }
+                            }.runTaskLater(TazPvP.getInstance(), 60L);
+                        }
+                    }
                 }
             }
         }
