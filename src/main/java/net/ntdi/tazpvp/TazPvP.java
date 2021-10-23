@@ -45,6 +45,7 @@ public final class TazPvP extends JavaPlugin {
     public static PunishmentManager punishmentManager;
     public static StaffManager staffManager;
     public static AchievementsManager achievementsManager;
+    public static PerkManager perkManager;
 
     public static Permission permissions;
     public static Chat chat;
@@ -98,6 +99,7 @@ public final class TazPvP extends JavaPlugin {
         punishmentManager = new PunishmentManager();
         staffManager = new StaffManager();
         achievementsManager = new AchievementsManager();
+        perkManager = new PerkManager();
         ItemManager.init();
 
         if(getServer().getPluginManager().getPlugin("Vault") != null) {
@@ -199,6 +201,7 @@ public final class TazPvP extends JavaPlugin {
         punishmentManager.savePunishments();
         staffManager.saveStaffFile();
         achievementsManager.saveAchievements();
+        perkManager.saveStats();
         TazPvP.VoteOn = false;
         TazPvP.votedOut = null;
         TazPvP.voteYes.clear();
