@@ -20,6 +20,9 @@ public class AntiSpamListener implements Listener {
     public void onPlayerChat(AsyncPlayerChatEvent event) {
         Player player = event.getPlayer();
         String message = event.getMessage();
+        if (player.hasPermission("staff.chatbypass")){
+            return;
+        }
 
         if (cooldown.contains(player)) {
             player.sendMessage(ChatColor.RED + "You are talking too fast! Please wait before sending your next massage!");

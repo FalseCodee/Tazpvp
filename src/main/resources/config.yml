@@ -8,6 +8,6 @@ spawn:
 arena:
   name: arena
 webhooks:
-  reports: https://discord.com/api/webhooks/889540268594962493/rYf_4O0NRNv58XTHXm6Kvv1DuA7WuiGtT0Z5Cb62o1xdZ0wdPc_-W2sDAxepSw81YGth
-  bans: https://discord.com/api/webhooks/889606695351906315/16zyrXbhIFIFB4PKj0j-GK7LxtPkU62G_ZhYV7SyQiwrCaIl22XU-cx6Hb13e-vDmJPO
-  logs: https://discord.com/api/webhooks/895773276368941056/rzgrOwX6E36CZrqJfMRPUs6rXfwi79MgBU3YzOYJBuoNkhEOzqV8c389FfgbScfUpf88
+  reports: https://discord.com/api/webhooks/901630567391588432/yesf6CvK_uNKW3FCoCALkeIf_eDutkJibhgl1p6Kev7qwKfLJXOWd4bwyIDuIJ5WPQmC
+  bans: https://discord.com/api/webhooks/901630631249838081/54cm-IvK6usqizC6zG28WV6ZRUPEKauRQ-fLQxUAfOiEi_8AEYBJkkRYJexrc_rwNGiK
+  logs: https://discord.com/api/webhooks/901630685960339477/4O-IyMpMBfRMvQg_9mKhaINP3vBAZNhj3aRPG2269OxkXe7WbYMYdLMkdlmTChu7D8HA

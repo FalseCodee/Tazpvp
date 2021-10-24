@@ -8,6 +8,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
@@ -43,7 +44,8 @@ public class BlockListener implements Listener {
                         if (blockType == Material.WOOD) {
                             if (TazPvP.perkManager.getSaveBlocks(event.getPlayer())){
                                 if (next() == 2){
-                                    event.getPlayer().getInventory().addItem(event.getPlayer().getItemInHand());
+                                    ItemStack item = new ItemStack(event.getBlock().getType(), 1, (short) event.getBlock().getTypeId());
+                                    event.getPlayer().getInventory().addItem(item);
                                 }
                             }
                             new BukkitRunnable() {
@@ -55,6 +57,13 @@ public class BlockListener implements Listener {
                         } else if (blockType == Material.SOIL) {
                             event.setCancelled(true);
                         } else {
+                            if (TazPvP.perkManager.getSaveBlocks(event.getPlayer())){
+                                if (next() == 2){
+                                    ItemStack item = event.getPlayer().getInventory().getItemInHand().clone();
+                                    item.setAmount(1);
+
+                                }
+                            }
                             new BukkitRunnable() {
                                 @Override
                                 public void run() {
