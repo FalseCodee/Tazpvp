@@ -156,7 +156,7 @@ public class GUIPerk extends GUI {
 
         ItemStack pickaxe = new ItemStack(Material.GOLD_PICKAXE, 1);
         ItemMeta pickaxeMeta = pickaxe.getItemMeta();
-        pickaxeMeta.removeItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+        pickaxeMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         pickaxe.setItemMeta(pickaxeMeta);
 
         addShopItem(10, new ItemStack(Material.WOOD, 1), 1, ChatColor.DARK_AQUA + "BUY SAVE BLOCKS PERK", ChatColor.GRAY + "Get a chance to get not loose your blocks when you place it\n" + ChatColor.YELLOW + "$500");
