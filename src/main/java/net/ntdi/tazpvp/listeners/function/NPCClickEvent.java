@@ -31,8 +31,6 @@ public class NPCClickEvent implements Listener {
             new GUIMainScreen(event.getClicker());
         } else if (event.getNPC().getId() == 36) { //FISHERMAN
             new Fisherman(event.getClicker());
-        } else if (event.getNPC().getId() == 38) { //PERKS
-            new GUIPerk((event.getClicker()));
         }
     }
     @EventHandler
@@ -50,8 +48,6 @@ public class NPCClickEvent implements Listener {
             new GUIMainScreen(event.getClicker());
         } else if (event.getNPC().getId() == 36) { //FISHERMAN
             new Fisherman(event.getClicker());
-        } else if (event.getNPC().getId() == 38) { //PERKS
-            new GUIPerk((event.getClicker()));
         }
     }
 }

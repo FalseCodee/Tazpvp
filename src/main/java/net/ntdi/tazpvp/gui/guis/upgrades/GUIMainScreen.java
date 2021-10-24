@@ -2,6 +2,7 @@ package net.ntdi.tazpvp.gui.guis.upgrades;
 
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.gui.GUI;
+import net.ntdi.tazpvp.gui.guis.GUIPerk;
 import net.ntdi.tazpvp.utils.PlayerUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -26,6 +27,7 @@ public class GUIMainScreen extends GUI {
         ItemStack bow = createItem(Material.BOW, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "BOW", ChatColor.GRAY + "Click to see upgrades.");
         ItemStack armor = createItem(Material.LEATHER_CHESTPLATE, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "ARMOR", ChatColor.GRAY + "Click to see upgrades.");
         ItemStack eye = createItem(Material.EYE_OF_ENDER, 1, ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "REBIRTH", ChatColor.DARK_PURPLE + "≻ +1 Enchant Level\n" + ChatColor.DARK_PURPLE + "≻ +3 Exp Per Kill\n" + ChatColor.DARK_PURPLE + "≻ Strength on kill\n" + ChatColor.DARK_PURPLE + "≻ Speed 1\n" + ChatColor.RED + "Level " + ChatColor.WHITE + "150");
+        ItemStack emerald = createItem(Material.EMERALD, 1, ChatColor.GOLD + "PERKS", ChatColor.GRAY + "Click to see available perks");
         for(int i = 0; i < inventory.getSize(); i++) {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), "");
         }
@@ -57,6 +59,9 @@ public class GUIMainScreen extends GUI {
                 player.sendMessage(ChatColor.RED + "Reach level " + ChatColor.WHITE + "150" + ChatColor.RED + " to unlock this feature!");
             }
         });
+
+        setButtons(4,emerald, event -> switchScreen(new GUIPerk(player)));
+
         update();
     }
 
