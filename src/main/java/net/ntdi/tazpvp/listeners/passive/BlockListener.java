@@ -16,15 +16,7 @@ import java.util.Random;
 
 public class BlockListener implements Listener {
 
-    private final Random random = new Random();
-
-    private int next() {
-        if (random.nextBoolean()) {
-            return 1;
-        } else {
-            return 2;
-        }
-    }
+    private final Random rand = new Random();
 
     @EventHandler
     public void onPlaceBlock(BlockPlaceEvent event) {
@@ -42,12 +34,6 @@ public class BlockListener implements Listener {
 
                     if (!unreq.contains(blockType)) {
                         if (blockType == Material.WOOD) {
-                            if (TazPvP.perkManager.getSaveBlocks(event.getPlayer())){
-                                if (next() == 2){
-                                    ItemStack item = new ItemStack(event.getBlock().getType(), 1, (short) event.getBlock().getTypeId());
-                                    event.getPlayer().getInventory().addItem(item);
-                                }
-                            }
                             new BukkitRunnable() {
                                 @Override
                                 public void run() {
@@ -58,10 +44,10 @@ public class BlockListener implements Listener {
                             event.setCancelled(true);
                         } else {
                             if (TazPvP.perkManager.getSaveBlocks(event.getPlayer())){
-                                if (next() == 2){
-                                    ItemStack item = event.getPlayer().getInventory().getItemInHand().clone();
-                                    item.setAmount(1);
-
+                                if (rand.nextInt(4) == 3){
+                                    ItemStack item = new ItemStack(event.getBlock().getType(), 1, event.getBlock().getData());
+                                    item.getItemMeta().setDisplayName(event.getPlayer().getItemInHand().getItemMeta().getDisplayName());
+                                    event.getPlayer().getInventory().addItem(item);
                                 }
                             }
                             new BukkitRunnable() {

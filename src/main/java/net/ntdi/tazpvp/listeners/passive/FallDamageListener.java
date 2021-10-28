@@ -12,23 +12,18 @@ import java.util.Random;
 
 public class FallDamageListener implements Listener {
 
-    private final Random random = new Random();
+    private final Random rand = new Random();
 
-    private int next() {
-        if (random.nextBoolean()) {
-            return 1;
-        } else {
-            return 2;
-        }
-    }
 
     @EventHandler
     public void onFallDamage(EntityDamageEvent event){
         Player p = (Player) event.getEntity();
         if (event.getCause() == EntityDamageEvent.DamageCause.FALL) {
             if (TazPvP.perkManager.getFallDamage(p)){
-                if (next() == 2){
+                if (rand.nextInt(4) == 2){
+                    double dmg = event.getDamage();
                     event.setCancelled(true);
+                    p.damage(dmg/2);
                     p.sendMessage(ChatColor.GRAY + "Fall Damage perked activated");
                 }
             }
