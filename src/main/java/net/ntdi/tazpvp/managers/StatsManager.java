@@ -215,17 +215,17 @@ public class StatsManager {
                     return sb.getTeam("h");
                 case"sr.mod":
                     return sb.getTeam("e");
-                case"pro":
+                case"vip":
                     return sb.getTeam("k");
-                case"champion":
+                case"mvp":
                     return sb.getTeam("l");
-                case"legend":
+                case"mvp+":
                     return sb.getTeam("m");
                 case"dev":
                     return sb.getTeam("i");
-                case"youtube":
+                case"media":
                     return sb.getTeam("j");
-                case"mythical":
+                case"mvp++":
                     return sb.getTeam("n");
                 case"banned":
                     return sb.getTeam("z");
