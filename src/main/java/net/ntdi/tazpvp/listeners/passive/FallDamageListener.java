@@ -17,17 +17,18 @@ public class FallDamageListener implements Listener {
 
     @EventHandler
     public void onFallDamage(EntityDamageEvent event){
-        Player p = (Player) event.getEntity();
-        if (event.getCause() == EntityDamageEvent.DamageCause.FALL) {
-            if (TazPvP.perkManager.getFallDamage(p)){
-                if (rand.nextInt(3) == 2){
-                    double dmg = event.getDamage();
-                    event.setCancelled(true);
-                    p.damage(dmg/2);
-                    p.sendMessage(ChatColor.GRAY + "Fall Damage perked activated");
+        if (event.getEntity() instanceof Player){
+            Player p = (Player) event.getEntity();
+            if (event.getCause() == EntityDamageEvent.DamageCause.FALL) {
+                if (TazPvP.perkManager.getFallDamage(p)){
+                    if (rand.nextInt(3) == 2){
+                        double dmg = event.getDamage();
+                        event.setCancelled(true);
+                        p.damage(dmg/2);
+                        p.sendMessage(ChatColor.GRAY + "Fall Damage perked activated");
+                    }
                 }
             }
         }
     }
-
 }

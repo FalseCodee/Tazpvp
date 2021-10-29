@@ -117,19 +117,19 @@ public class GUIPerk extends GUI {
                         p.sendMessage(ChatColor.RED + "You already own this perk!");
                     }
                     break;
-                case 8:
-                    if (!TazPvP.perkManager.getRobbery(p)){
-                        if (TazPvP.statsManager.getMoney(p) >= 500){
-                            TazPvP.statsManager.addMoney(p, -500);
-                            TazPvP.perkManager.setRobbery(p, true);
-                            p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
-                        }else{
-                            p.sendMessage(ChatColor.RED + "Not enough money!");
-                        }
-                    }else{
-                        p.sendMessage(ChatColor.RED + "You already own this perk!");
-                    }
-                    break;
+//                case 8:
+//                    if (!TazPvP.perkManager.getRobbery(p)){
+//                        if (TazPvP.statsManager.getMoney(p) >= 500){
+//                            TazPvP.statsManager.addMoney(p, -500);
+//                            TazPvP.perkManager.setRobbery(p, true);
+//                            p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
+//                        }else{
+//                            p.sendMessage(ChatColor.RED + "Not enough money!");
+//                        }
+//                    }else{
+//                        p.sendMessage(ChatColor.RED + "You already own this perk!");
+//                    }
+//                    break;
                 case 9:
                     if (!TazPvP.perkManager.getStrength(p)){
                         if (TazPvP.statsManager.getMoney(p) >= 1000){
@@ -166,8 +166,7 @@ public class GUIPerk extends GUI {
         addShopItem(14, new ItemStack(Material.FEATHER, 1), 5, ChatColor.DARK_AQUA + "BUY FALLDAMAGE PERK", ChatColor.GRAY + "Get a chance to get ignore fall damage when you fall\n" + ChatColor.YELLOW + "$500");
         addShopItem(15, new ItemStack(Material.COOKED_BEEF, 1), 6, ChatColor.DARK_AQUA + "BUY HUNGER PERK", ChatColor.GRAY + "Get a chance to get refuel your hunger bar on kill\n" + ChatColor.YELLOW + "$500");
         addShopItem(16, pickaxe, 7, ChatColor.DARK_AQUA + "BUY HASTE PERK", ChatColor.GRAY + "Get a chance to get haste affects on ore mined\n" + ChatColor.YELLOW + "$500");
-        addShopItem(19, new ItemStack(Material.IRON_FENCE, 1), 8, ChatColor.DARK_AQUA + "BUY ROBBERY PERK", ChatColor.GRAY + "Get a chance to disarm your opponent whilst hitting them without holding your sword\n" + ChatColor.YELLOW + "$500");
-        addShopItem(20, new ItemStack(Material.POTION, 1), 9, ChatColor.DARK_AQUA + "BUY STRENGTH PERK", ChatColor.GRAY + "Get a chance to get strength affects on kill\n" + ChatColor.YELLOW + "$1000");
+        addShopItem(19, new ItemStack(Material.POTION, 1), 9, ChatColor.DARK_AQUA + "BUY STRENGTH PERK", ChatColor.GRAY + "Get a chance to get strength affects on kill\n" + ChatColor.YELLOW + "$1000");
 
         update();
     }
