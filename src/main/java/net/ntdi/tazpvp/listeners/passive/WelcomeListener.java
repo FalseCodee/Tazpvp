@@ -130,7 +130,7 @@ public class WelcomeListener<SerializedOfflinePlayer> implements Listener {
                 Location location = new Location(world, 0, 30, 0);
                 p.teleport(location);
             } else if (random_int == 2) {
-                Location location = new Location(world, -18, 30, -11);
+                Location location = new Location(world, -15, 30, -10);
                 p.teleport(location);
             } else if (random_int == 3) {
                 Location location = new Location(world, 13, 30, -28);
@@ -139,7 +139,7 @@ public class WelcomeListener<SerializedOfflinePlayer> implements Listener {
                 Location location = new Location(world, 26, 30, -1);
                 p.teleport(location);
             } else if (random_int == 5) {
-                Location location = new Location(world, 6, 30, 35);
+                Location location = new Location(world, 8, 30, 31);
                 p.teleport(location);
             } else {
                 Location location = new Location(world, -30, 30, 16);
