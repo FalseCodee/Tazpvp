@@ -11,6 +11,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scoreboard.Scoreboard;
 
 import java.util.Objects;
 import java.util.Random;
@@ -44,7 +45,6 @@ public class EntityDamageByEntityListener implements Listener {
 
             if(((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.WOOD_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.STONE_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.IRON_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.GOLD_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.DIAMOND_SWORD)){
                 TazPvP.statsManager.addExp((OfflinePlayer) event.getDamager(), 1);
-
                 if (TazPvP.statsManager.getExp(p) >= TazPvP.statsManager.getExpLeft(p)){
                     TazPvP.statsManager.setLevel(p, TazPvP.statsManager.getLevel(p)+1);
                     p.sendMessage(ChatColor.DARK_AQUA + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
@@ -61,6 +61,20 @@ public class EntityDamageByEntityListener implements Listener {
                     p.setLevel(TazPvP.statsManager.getLevel(p));
 
                 }
+
+                for(Scoreboard sb : TazPvP.statsManager.scoreboards.values()) {
+                    TazPvP.statsManager.getTeam(((Player) event.getDamager()).getPlayer(), sb).removeEntry(((Player) event.getDamager()).getPlayer().getName());
+                }
+
+                TazPvP.statsManager.scoreboards.remove(((Player) event.getDamager()).getPlayer().getUniqueId());
+
+                new BukkitRunnable() {
+
+                    @Override
+                    public void run() {
+                        TazPvP.statsManager.initScoreboard(((Player) event.getDamager()).getPlayer());
+                    }
+                }.runTaskLater(TazPvP.getInstance(), 20L);
             } else {
                 if (TazPvP.perkManager.getRobbery(p)){
                     if(rand.nextInt(100) == 52){

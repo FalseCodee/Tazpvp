@@ -52,6 +52,11 @@ public class DeathListener implements Listener {
                 TazPvP.statsManager.addStreak(killer, 1);
                 TazPvP.statsManager.addKills(killer, 1);
                 TazPvP.statsManager.addMoney(killer, 7);
+
+                if (Bukkit.getOnlinePlayers().size() < 10){
+                    Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "" + event.getEntity().getName() + " was killed by " + event.getEntity().getKiller());
+                }
+
                 if (TazPvP.statsManager.getRebirths(killer) > 0) {
                     TazPvP.statsManager.addExp(killer, 8);
                     killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 8 Experience");
