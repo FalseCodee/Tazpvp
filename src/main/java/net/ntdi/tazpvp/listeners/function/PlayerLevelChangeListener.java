@@ -4,6 +4,7 @@ import net.ntdi.tazpvp.TazPvP;
 import org.bukkit.ChatColor;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerExpChangeEvent;
 import org.bukkit.event.player.PlayerLevelChangeEvent;
 
 public class PlayerLevelChangeListener implements Listener {
@@ -26,4 +27,10 @@ public class PlayerLevelChangeListener implements Listener {
 //            TazPvP.statsManager.addMoney(event.getPlayer(), 60);
 //        }
     }
+
+    @EventHandler
+    public void onGainExp(PlayerExpChangeEvent event){
+        event.setAmount(0);
+    }
+
 }

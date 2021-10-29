@@ -59,17 +59,6 @@ public class GUIGiftRank extends GUI {
                         p.sendMessage(ChatColor.RED + "Insufficient Credits!");
                     }
                     break;
-                case 4:
-                    if (TazPvP.statsManager.getCredits(p) >= 1500) {
-                        if (!TazPvP.ProGiftRank.contains(p) && !TazPvP.ChampionGiftRank.contains(p) && !TazPvP.LegendGiftRank.contains(p) && !TazPvP.MythicalGiftRank.contains(p)){
-                            TazPvP.MythicalGiftRank.add(p);
-                            p.sendMessage("type in chat who you want to gift rank to:");
-                        }
-
-                    } else {
-                        p.sendMessage(ChatColor.RED + "Insufficient Credits!");
-                    }
-                    break;
             }
         });
     }
@@ -81,10 +70,9 @@ public class GUIGiftRank extends GUI {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), ChatColor.BLACK + "");
         }
 
-        addShopItem(10, new ItemStack(Material.DIAMOND_BLOCK, 1), 1, ChatColor.DARK_AQUA + "GIFT PRO RANK", ChatColor.GRAY + "Gift someone the Pro rank!\n" + ChatColor.AQUA + "250 Credits");
-        addShopItem(12, new ItemStack(Material.EMERALD_BLOCK, 1), 2, ChatColor.DARK_AQUA + "GIFT CHAMPION RANK", ChatColor.GRAY + "Gift someone the Champion rank!\n" + ChatColor.AQUA + "500 Credits");
-        addShopItem(14, new ItemStack(Material.GOLD_BLOCK, 1), 3, ChatColor.DARK_AQUA + "GIFT LEGEND RANK", ChatColor.GRAY + "Gift someone the Legend rank!\n" + ChatColor.AQUA + "1000 Credits");
-        addShopItem(16, new ItemStack(Material.STAINED_GLASS, 1, DyeColor.MAGENTA.getData()), 4, ChatColor.DARK_AQUA + "GIFT MYTHICAL RANK", ChatColor.GRAY + "Gift someone the Mythical rank!\n" + ChatColor.AQUA + "1500 Credits");
+        addShopItem(11, new ItemStack(Material.EMERALD_ORE, 1), 1, ChatColor.DARK_AQUA + "GIFT VIP RANK", ChatColor.GRAY + "Gift someone the VIP rank!\n" + ChatColor.AQUA + "250 Credits");
+        addShopItem(13, new ItemStack(Material.DIAMOND_BLOCK, 1), 2, ChatColor.DARK_AQUA + "GIFT MVP RANK", ChatColor.GRAY + "Gift someone the MVP rank!\n" + ChatColor.AQUA + "500 Credits");
+        addShopItem(15, new ItemStack(Material.LAPIS_BLOCK, 1), 3, ChatColor.DARK_AQUA + "GIFT MVP+ RANK", ChatColor.GRAY + "Gift someone the MVP+ rank!\n" + ChatColor.AQUA + "1000 Credits");
         update();
     }
 

@@ -29,7 +29,7 @@ public class NPCClickEvent implements Listener {
             new GUIMainRankScreen(event.getClicker());
         } else if(event.getNPC().getId() == 32) { //UPGRADES
             new GUIMainScreen(event.getClicker());
-        } else if (event.getNPC().getId() == 36) { //FISHERMAN
+        } else if (event.getNPC().getId() == 40) { //FISHERMAN
             new Fisherman(event.getClicker());
         }
     }
@@ -46,7 +46,7 @@ public class NPCClickEvent implements Listener {
             new GUIMainRankScreen(event.getClicker());
         } else if(event.getNPC().getId() == 32) { //UPGRADES
             new GUIMainScreen(event.getClicker());
-        } else if (event.getNPC().getId() == 36) { //FISHERMAN
+        } else if (event.getNPC().getId() == 40) { //FISHERMAN
             new Fisherman(event.getClicker());
         }
     }

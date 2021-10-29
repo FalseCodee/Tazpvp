@@ -209,3 +209,6 @@ commands:
   expL:
     permission: op
     usage: "/g"
+  spawnzombie:
+    permission: op
+    permission-message: no

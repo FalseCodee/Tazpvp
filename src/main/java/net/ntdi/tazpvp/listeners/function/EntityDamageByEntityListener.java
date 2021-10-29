@@ -44,6 +44,7 @@ public class EntityDamageByEntityListener implements Listener {
 
             if(((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.WOOD_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.STONE_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.IRON_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.GOLD_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.DIAMOND_SWORD)){
                 TazPvP.statsManager.addExp((OfflinePlayer) event.getDamager(), 1);
+
                 if (TazPvP.statsManager.getExp(p) >= TazPvP.statsManager.getExpLeft(p)){
                     TazPvP.statsManager.setLevel(p, TazPvP.statsManager.getLevel(p)+1);
                     p.sendMessage(ChatColor.DARK_AQUA + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");

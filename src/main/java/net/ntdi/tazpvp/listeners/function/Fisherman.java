@@ -63,7 +63,7 @@ public class Fisherman {
             TazPvP.statsManager.addMoney(p, amount * 15);
             p.sendMessage(ChatColor.YELLOW + "+" + amount * 15);
         } else {
-            p.sendMessage(ChatColor.GOLD + "[" + ChatColor.WHITE + "Fisherman" + ChatColor.GOLD + "]" + ChatColor.WHITE + "I can't buy this!");
+            p.sendMessage(ChatColor.YELLOW + "[NPC] Miner:" + ChatColor.WHITE + " I can't buy this!");
         }
     }
 }

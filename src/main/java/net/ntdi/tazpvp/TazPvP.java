@@ -1,6 +1,8 @@
 package net.ntdi.tazpvp;
 
 // import com.oracle.xmlns.internal.webservices.jaxws_databinding.SoapBindingUse;
+import org.bukkit.World;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.ProtocolLibrary;
@@ -29,6 +31,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Skeleton;
+import org.bukkit.entity.Zombie;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -47,6 +51,7 @@ public final class TazPvP extends JavaPlugin {
     public static StaffManager staffManager;
     public static AchievementsManager achievementsManager;
     public static PerkManager perkManager;
+    public static ZombieLogic zombieLogic;
 
     public static Permission permissions;
     public static Chat chat;
@@ -84,17 +89,26 @@ public final class TazPvP extends JavaPlugin {
     @Override
     public void onEnable() {
         // Plugin startup logic
+        instance = this;
         System.out.println("Tazpvp Logic is now ONLINE");
 
+        World world = Bukkit.getWorld("grind");
+        for(Entity e : world.getEntities()) {
+            if (e instanceof Zombie || e instanceof Skeleton){
+                e.remove();
+                System.out.println("refreshing mobs");
+            }
+        }
 
-
+        new ZombieLogic().initZombies(4, 200);
+        new ZombieLogic().initSkelton(3);
+        new ZombieLogic().initOpSkeleton(2);
+        new ZombieLogic().initBaby(1);
 
         configFile = this.getConfig();
         initConfig();
 
         TazPvP.AllowBlocks = true;
-
-        instance = this;
 
         statsManager = new StatsManager();
         punishmentManager = new PunishmentManager();
@@ -251,6 +265,7 @@ public final class TazPvP extends JavaPlugin {
         getCommand("unban").setExecutor(new unbanCommand());
         getCommand("fakeop").setExecutor(new FakeOpCommand());
         getCommand("expL").setExecutor(new ExpCommand());
+        getCommand("spawnzombie").setExecutor(new SpawnZombieCommand());
     }
 
     public void registerListeners() {
@@ -274,6 +289,7 @@ public final class TazPvP extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new RankGifting(), this);
         getServer().getPluginManager().registerEvents(new AntiSpamListener(), this);
         getServer().getPluginManager().registerEvents(new FallDamageListener(), this);
+        getServer().getPluginManager().registerEvents(new ZombieLogic(), this);
 
     }
 
@@ -325,10 +341,12 @@ public final class TazPvP extends JavaPlugin {
                     objective.setDisplaySlot(DisplaySlot.SIDEBAR);
                     objective.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&3&lTAZPVP"));
                     Score blank = objective.getScore(ChatColor.DARK_GRAY + "" + ChatColor.BOLD + "--------------- ");
-                    blank.setScore(14);
+                    blank.setScore(15);
                     Score blank1 = objective.getScore(ChatColor.DARK_GRAY + "" + ChatColor.BOLD + "PLAYER");
-                    blank1.setScore(13);
+                    blank1.setScore(14);
                     Score level = objective.getScore(ChatColor.DARK_AQUA + "▷ Level  " + ChatColor.GRAY + TazPvP.statsManager.getLevel(player));
+                    level.setScore(13);
+                    Score levelleft = objective.getScore(ChatColor.DARK_AQUA + "▷ Exp left  " + ChatColor.GRAY + (TazPvP.statsManager.getExpLeft(player)-TazPvP.statsManager.getExp(player)));
                     level.setScore(12);
                     Score money = objective.getScore(ChatColor.DARK_AQUA + "▷ Money  " + ChatColor.GRAY +  "$"+ TazPvP.statsManager.getMoney(player));
                     money.setScore(11);

@@ -22,7 +22,7 @@ public class GUIMainRankScreen extends GUI {
     public void init() {
          ItemStack rankItem = createItem(Material.EYE_OF_ENDER, ChatColor.BLUE + "" + ChatColor.BOLD + "RANKS", ChatColor.GRAY + "Purchase a rank.", true);
         ItemStack creditsItem = createItem(Material.DIAMOND, ChatColor.BLUE + "" + ChatColor.BOLD + "CREDITS", ChatColor.GRAY + "Purchase credits to gift ranks or custom prefixes.", true);
-        ItemStack donateItem = createItem(Material.SLIME_BALL, ChatColor.BLUE + "" + ChatColor.BOLD + "DONATE", ChatColor.GRAY + "Just donate.", true);
+        ItemStack donateItem = createItem(Material.BARRIER, ChatColor.BLUE + "" + ChatColor.BOLD + "UNBAN", ChatColor.GRAY + "Buy a unban.", true);
         ItemStack cosmeticsItem = createItem(Material.YELLOW_FLOWER, ChatColor.BLUE + "" + ChatColor.BOLD + "COSMETICS", ChatColor.GRAY + "Open the cosmetics menu.", true);
         for(int i = 0; i < inventory.getSize(); i++) {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), "");
@@ -33,10 +33,10 @@ public class GUIMainRankScreen extends GUI {
         setButtons(12, creditsItem, event -> {
             switchScreen(new GUIGiftRank(player));
         });
-        setButtons(14, donateItem, event -> {
+        setButtons(16, donateItem, event -> {
 
         });
-        setButtons(16, cosmeticsItem, event -> {
+        setButtons(14, cosmeticsItem, event -> {
             switchScreen(new GUICosmetics(player));
 
         });
