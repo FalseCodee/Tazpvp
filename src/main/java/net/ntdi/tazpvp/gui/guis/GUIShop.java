@@ -15,8 +15,8 @@ import java.util.UUID;
 
 public class GUIShop extends GUI {
 
-    HashMap<UUID, Long> cooldown = new HashMap<UUID, Long>();
-    int cooldownTime = 1;
+    final HashMap<UUID, Long> cooldown = new HashMap<>();
+    final int cooldownTime = 1;
     public GUIShop(Player player) {
         super(player, 54, "SHOP");
         setItems();
@@ -54,6 +54,7 @@ public class GUIShop extends GUI {
 
     ItemStack flower = new ItemStack(Material.RED_ROSE, 1, (short) 1);
 
+    @SuppressWarnings("deprecation")
     public void setItems() {
         for(int i = 0; i < inventory.getSize(); i++) {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), ChatColor.BLACK + "");

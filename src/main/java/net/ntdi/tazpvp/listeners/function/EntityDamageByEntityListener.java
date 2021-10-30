@@ -1,7 +1,6 @@
 package net.ntdi.tazpvp.listeners.function;
 
 import net.ntdi.tazpvp.TazPvP;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
@@ -9,11 +8,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.Scoreboard;
 
-import java.util.Objects;
 import java.util.Random;
 
 public class EntityDamageByEntityListener implements Listener {

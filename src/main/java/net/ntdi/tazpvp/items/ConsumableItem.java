@@ -4,13 +4,12 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.HashMap;
 import java.util.UUID;
 import java.util.WeakHashMap;
 
 public class ConsumableItem extends Item{
-    WeakHashMap<UUID, Long> cooldown = new WeakHashMap<>();
-    int cooldownTime;
+    final WeakHashMap<UUID, Long> cooldown = new WeakHashMap<>();
+    final int cooldownTime;
     public ConsumableItem(Items item, int cooldownTime) {
         super(item);
         this.cooldownTime = cooldownTime;

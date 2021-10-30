@@ -1,8 +1,6 @@
 package net.ntdi.tazpvp.listeners.items;
 
-import org.bukkit.block.data.type.Fire;
 import org.bukkit.entity.Fireball;
-import org.bukkit.entity.Snowball;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.ProjectileHitEvent;

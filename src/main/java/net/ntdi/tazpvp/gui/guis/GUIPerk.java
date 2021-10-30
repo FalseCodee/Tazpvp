@@ -2,7 +2,6 @@ package net.ntdi.tazpvp.gui.guis;
 
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.gui.GUI;
-import net.ntdi.tazpvp.listeners.function.RankBuying;
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
@@ -19,7 +18,7 @@ public class GUIPerk extends GUI {
         player.openInventory(inventory);
     }
 
-    Player p = player;
+    final Player p = player;
 
     public void addShopItem(int slot, ItemStack item, int runnable, String name, String lore) {
         setButtons(slot, createItem(item, name, lore), event -> {
@@ -148,7 +147,7 @@ public class GUIPerk extends GUI {
     }
 
     ItemStack flower = new ItemStack(Material.RED_ROSE, 1, (short) 1);
-
+    @SuppressWarnings("deprecation")
     public void setItems() {
         for(int i = 0; i < inventory.getSize(); i++) {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), ChatColor.BLACK + "");

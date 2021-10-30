@@ -2,7 +2,6 @@ package net.ntdi.tazpvp.listeners.passive;
 
 import net.ntdi.tazpvp.TazPvP;
 import org.bukkit.*;
-import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -34,10 +33,7 @@ public class ParkourListener implements Listener {
     public void onParkourWorldEnter(PlayerChangedWorldEvent event){
         if (event.getPlayer().getWorld().getName().equals("parkour")){
             Player p = event.getPlayer();
-            if (TazPvP.statsManager.getCheckpoints(p) == 0){
-                return;
-            }
-            else if (TazPvP.statsManager.getCheckpoints(p) == 1){
+            if (TazPvP.statsManager.getCheckpoints(p) == 1){
                 p.teleport(new Location(p.getWorld(), -2.5, 38, -61.5, -179, 0));
             }
         }

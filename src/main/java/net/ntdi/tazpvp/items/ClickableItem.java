@@ -7,8 +7,8 @@ import java.util.UUID;
 import java.util.WeakHashMap;
 
 public class ClickableItem extends Item{
-    WeakHashMap<UUID, Long> cooldown = new WeakHashMap<>();
-    int cooldownTime;
+    final WeakHashMap<UUID, Long> cooldown = new WeakHashMap<>();
+    final int cooldownTime;
     public ClickableItem(Items item, int cooldownTime) {
         super(item);
         this.cooldownTime = cooldownTime;

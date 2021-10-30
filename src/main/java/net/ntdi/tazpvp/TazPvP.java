@@ -64,26 +64,26 @@ public final class TazPvP extends JavaPlugin {
     public static File helpFile;
     public static File ruleFile;
 
-    public static ArrayList<Material> blocks = new ArrayList<>();
+    public static final ArrayList<Material> blocks = new ArrayList<>();
     public static Boolean AllowBlocks = true;
 
-    public static ArrayList<Player> invunerable = new ArrayList<>();
+    public static final ArrayList<Player> invunerable = new ArrayList<>();
 
-    public static HashMap<Player, ItemStack> robbery = new HashMap<>();
+    public static final HashMap<Player, ItemStack> robbery = new HashMap<>();
     //public static HashMap<Player, Integer> heartGained = new HashMap<>();
 
-    public static ArrayList<Player> voteYes = new ArrayList<>();
-    public static ArrayList<Player> voteNo = new ArrayList<>();
+    public static final ArrayList<Player> voteYes = new ArrayList<>();
+    public static final ArrayList<Player> voteNo = new ArrayList<>();
     public static Boolean VoteOn = false;
     public static Player votedOut;
 
 
-    public static ArrayList<Player> renamingSword = new ArrayList<>();
+    public static final ArrayList<Player> renamingSword = new ArrayList<>();
 
-    public static ArrayList<Player> ProGiftRank = new ArrayList<>();
-    public static ArrayList<Player> ChampionGiftRank = new ArrayList<>();
-    public static ArrayList<Player> LegendGiftRank = new ArrayList<>();
-    public static ArrayList<Player> MythicalGiftRank = new ArrayList<>();
+    public static final ArrayList<Player> ProGiftRank = new ArrayList<>();
+    public static final ArrayList<Player> ChampionGiftRank = new ArrayList<>();
+    public static final ArrayList<Player> LegendGiftRank = new ArrayList<>();
+    public static final ArrayList<Player> MythicalGiftRank = new ArrayList<>();
 
     // public static HashMap<UUID, Integer> banTime = new HashMap<>();
 

@@ -1,14 +1,9 @@
 package net.ntdi.tazpvp.listeners.function;
 
 import org.bukkit.Color;
-import org.bukkit.DyeColor;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
-import org.bukkit.material.MaterialData;
-import sun.jvm.hotspot.oops.Metadata;
 
 public class RecolorArmor {
 

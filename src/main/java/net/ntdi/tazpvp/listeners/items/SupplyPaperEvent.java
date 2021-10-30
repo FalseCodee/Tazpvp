@@ -22,7 +22,7 @@ public class SupplyPaperEvent implements Listener {
                     event.getPlayer().getItemInHand().setAmount(event.getPlayer().getItemInHand().getAmount()-1);
                 }
 
-                Player p = (Player) event.getPlayer();
+                Player p =  event.getPlayer();
                 p.sendMessage(ChatColor.GREEN + "Claimed Supply Paper!");
                 p.sendMessage("+100 Coins");
                 p.sendMessage("+1 point");

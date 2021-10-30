@@ -4,18 +4,16 @@ import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.commands.moderation.BanCommand;
 import net.ntdi.tazpvp.utils.PlayerUtils;
 import org.bukkit.*;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.Scoreboard;
 
-public class WelcomeListener<SerializedOfflinePlayer> implements Listener {
+public class WelcomeListener implements Listener {
 
     public TazPvP plugin;
 

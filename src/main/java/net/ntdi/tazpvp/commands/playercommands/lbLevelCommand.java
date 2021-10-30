@@ -13,8 +13,8 @@ import java.util.*;
 
 public class lbLevelCommand implements CommandExecutor {
 
-    private static HashMap<OfflinePlayer, Integer> unsortMap = new HashMap<>();
-    public static boolean DESC = false;
+    private static final HashMap<OfflinePlayer, Integer> unsortMap = new HashMap<>();
+    public static final boolean DESC = false;
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -43,24 +43,15 @@ public class lbLevelCommand implements CommandExecutor {
     private static Map<OfflinePlayer, Integer> sortByComparator(Map<OfflinePlayer, Integer> unsortMap, final boolean order)
     {
 
-        List<Map.Entry<OfflinePlayer, Integer>> list = new LinkedList<Map.Entry<OfflinePlayer, Integer>>(unsortMap.entrySet());
+        List<Map.Entry<OfflinePlayer, Integer>> list = new LinkedList<>(unsortMap.entrySet());
 
         // Sorting the list based on values
-        Collections.sort(list, new Comparator<Map.Entry<OfflinePlayer, Integer>>()
-        {
+        list.sort((o1, o2) -> {
+            if (order) {
+                return o1.getValue().compareTo(o2.getValue());
+            } else {
+                return o2.getValue().compareTo(o1.getValue());
 
-            public int compare(Map.Entry<OfflinePlayer, Integer> o1,
-                               Map.Entry<OfflinePlayer, Integer> o2)
-            {
-                if (order)
-                {
-                    return o1.getValue().compareTo(o2.getValue());
-                }
-                else
-                {
-                    return o2.getValue().compareTo(o1.getValue());
-
-                }
             }
         });
 

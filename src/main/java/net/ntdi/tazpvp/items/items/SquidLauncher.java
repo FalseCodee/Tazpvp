@@ -4,7 +4,6 @@ import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.items.ClickableItem;
 import net.ntdi.tazpvp.items.Items;
 import org.bukkit.ChatColor;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
