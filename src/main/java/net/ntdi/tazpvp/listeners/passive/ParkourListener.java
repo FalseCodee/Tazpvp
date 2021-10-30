@@ -38,7 +38,7 @@ public class ParkourListener implements Listener {
                 return;
             }
             else if (TazPvP.statsManager.getCheckpoints(p) == 1){
-                p.teleport(new Location(p.getWorld(), -3.5, 38, -62.5, -179, 0));
+                p.teleport(new Location(p.getWorld(), -2.5, 38, -61.5, -179, 0));
             }
         }
     }
@@ -52,7 +52,7 @@ public class ParkourListener implements Listener {
                     p.teleport(new Location(p.getWorld(), 0.5, 30, 1, -179, 0));
                 }
                 else if (TazPvP.statsManager.getCheckpoints(p) == 1){
-                    p.teleport(new Location(p.getWorld(), -3.5, 38, -62.5, -179, 0));
+                    p.teleport(new Location(p.getWorld(), -2.5, 38, -61.5, -179, 0));
                 }
             }
         }
