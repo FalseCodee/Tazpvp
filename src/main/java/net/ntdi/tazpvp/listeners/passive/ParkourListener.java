@@ -48,7 +48,7 @@ public class ParkourListener implements Listener {
             if (event.getPlayer().getLocation().getY() <= 26){
                 Player p = event.getPlayer();
                 if (TazPvP.statsManager.getCheckpoints(p) == 0){
-                    return;
+                    p.teleport(new Location(p.getWorld(), 0, 30, -1));
                 }
                 else if (TazPvP.statsManager.getCheckpoints(p) == 1){
                     p.teleport(new Location(p.getWorld(), -3, 38, -61));
