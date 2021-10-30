@@ -292,6 +292,7 @@ public final class TazPvP extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new AntiSpamListener(), this);
         getServer().getPluginManager().registerEvents(new FallDamageListener(), this);
         getServer().getPluginManager().registerEvents(new ZombieLogic(), this);
+        getServer().getPluginManager().registerEvents(new ParkourListener(), this);
 
     }
 
