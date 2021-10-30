@@ -44,7 +44,7 @@ public class BlockListener implements Listener {
                             event.setCancelled(true);
                         } else {
                             if (TazPvP.perkManager.getSaveBlocks(event.getPlayer())){
-                                if (rand.nextInt(4) == 3){
+                                if (rand.nextInt(15) == 4){
                                     ItemStack item = new ItemStack(event.getBlock().getType(), 1, event.getBlock().getData());
                                     item.getItemMeta().setDisplayName(event.getPlayer().getItemInHand().getItemMeta().getDisplayName());
                                     event.getPlayer().getInventory().addItem(item);
