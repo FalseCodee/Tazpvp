@@ -214,3 +214,4 @@ commands:
     permission-message: no
   help2:
     usage: "/help2"
+    description: help2
