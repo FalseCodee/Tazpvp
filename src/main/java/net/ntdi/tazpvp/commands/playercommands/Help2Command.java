@@ -12,7 +12,7 @@ public class Help2Command implements CommandExecutor {
 
         if(sender instanceof Player){
             Player p = (Player) sender;
-            p.sendMessage(ChatColor.AQUA + "-----" + ChatColor.DARK_AQUA + "-----" + ChatColor.AQUA + "-----" + ChatColor.RED + "TAZPVP" + ChatColor.AQUA + "-----" + ChatColor.DARK_AQUA + "-----" + ChatColor.AQUA + "-----");
+            p.sendMessage(ChatColor.AQUA + "-----" + ChatColor.DARK_AQUA + "-----" + ChatColor.AQUA + "-----" + ChatColor.RED + ChatColor.BOLD + "" + "TAZPVP " + ChatColor.AQUA + "-----" + ChatColor.DARK_AQUA + "-----" + ChatColor.AQUA + "-----");
             p.sendMessage(ChatColor.WHITE + "/report " + ChatColor.GRAY + "Report rule breakers.");
             p.sendMessage(ChatColor.WHITE + "/apply " + ChatColor.GRAY + "Apply for a staff position.");
             p.sendMessage(ChatColor.WHITE + "/spawn " + ChatColor.GRAY + "Teleport back to the spawn.");
