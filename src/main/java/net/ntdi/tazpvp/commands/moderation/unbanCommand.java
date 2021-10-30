@@ -37,17 +37,11 @@ public class unbanCommand implements CommandExecutor {
                         BanCommand.bannedRunnables.remove(banned.getUniqueId());
                     }
 
-                    for(Scoreboard sb : TazPvP.statsManager.scoreboards.values()) {
-                        TazPvP.statsManager.getTeam(banned, sb).removeEntry(banned.getName());
-                    }
-
-                    TazPvP.statsManager.scoreboards.remove(banned.getUniqueId());
-
                     new BukkitRunnable() {
 
                         @Override
                         public void run() {
-                            TazPvP.statsManager.initScoreboard(banned);
+                            TazPvP.getInstance().initScoreboard(banned);
                         }
                     }.runTaskLater(TazPvP.getInstance(), 20L);
 
