@@ -352,14 +352,15 @@ public final class TazPvP extends JavaPlugin {
                     blank.setScore(14);
                     Score blank1 = objective.getScore(ChatColor.DARK_GRAY + "" + ChatColor.BOLD + "PLAYER");
                     blank1.setScore(13);
-                    Score level = objective.getScore(ChatColor.DARK_AQUA + "▷ Level  " + ChatColor.GRAY + TazPvP.statsManager.getLevel(player) + ChatColor.DARK_GRAY + "  " + TazPvP.statsManager.getExp(player) + "/" + df.format(d));
+                    Score level = objective.getScore(ChatColor.DARK_AQUA + "▷ Level  " + ChatColor.GRAY + TazPvP.statsManager.getLevel(player));
                     level.setScore(12);
                     Score money = objective.getScore(ChatColor.DARK_AQUA + "▷ Money  " + ChatColor.GRAY +  "$"+ TazPvP.statsManager.getMoney(player));
                     money.setScore(11);
                     Score points = objective.getScore(ChatColor.DARK_AQUA + "▷ Points  " + ChatColor.GRAY + TazPvP.statsManager.getPoints(player));
                     points.setScore(10);
-                    Score credits = objective.getScore(ChatColor.AQUA + "▷ Credits  " + ChatColor.GRAY + TazPvP.statsManager.getCredits(player));
-                    credits.setScore(9);
+                    Score exp = objective.getScore(ChatColor.DARK_AQUA + "▷ EXP  " + ChatColor.DARK_GRAY + "" + TazPvP.statsManager.getExp(player) + "/" + df.format(d));
+                    //Score credits = objective.getScore(ChatColor.AQUA + "▷ Credits  " + ChatColor.GRAY + TazPvP.statsManager.getCredits(player));
+                    exp.setScore(9);
                     Score blank2 = objective.getScore("");
                     blank2.setScore(8);
                     Score blank3 = objective.getScore(ChatColor.DARK_GRAY + "" + ChatColor.BOLD + "STATS");
