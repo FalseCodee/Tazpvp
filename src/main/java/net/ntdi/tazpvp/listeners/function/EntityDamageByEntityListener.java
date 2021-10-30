@@ -75,27 +75,27 @@ public class EntityDamageByEntityListener implements Listener {
                         TazPvP.statsManager.initScoreboard(((Player) event.getDamager()).getPlayer());
                     }
                 }.runTaskLater(TazPvP.getInstance(), 20L);
-            } else {
-                if (TazPvP.perkManager.getRobbery(p)){
-                    if(rand.nextInt(100) == 52){
-                        if (!TazPvP.robbery.containsKey((Player) event.getEntity())){
-                            TazPvP.robbery.put(victim, victim.getItemInHand());
-                            victim.getItemInHand().setType(Material.AIR);
-                            victim.sendMessage(ChatColor.GRAY + "Your item has been robbed by " + p.getName());
-                            victim.sendMessage(ChatColor.GRAY + "Your item will be returned in 3 seconds");
-                            p.sendMessage(ChatColor.GRAY + "You have robbed " + victim.getName() + "'s item in hand because of your robbery perk!");
-
-                            new BukkitRunnable() {
-                                @Override
-                                public void run() {
-                                victim.getInventory().addItem(TazPvP.robbery.get(victim));
-                                victim.sendMessage(ChatColor.GRAY + "Your item has been returned!");
-                                }
-                            }.runTaskLater(TazPvP.getInstance(), 60L);
-                        }
-                    }
-                }
-            }
+            } //else {
+//                if (TazPvP.perkManager.getRobbery(p)){
+//                    if(rand.nextInt(100) == 52){
+//                        if (!TazPvP.robbery.containsKey((Player) event.getEntity())){
+//                            TazPvP.robbery.put(victim, victim.getItemInHand());
+//                            victim.getItemInHand().setType(Material.AIR);
+//                            victim.sendMessage(ChatColor.GRAY + "Your item has been robbed by " + p.getName());
+//                            victim.sendMessage(ChatColor.GRAY + "Your item will be returned in 3 seconds");
+//                            p.sendMessage(ChatColor.GRAY + "You have robbed " + victim.getName() + "'s item in hand because of your robbery perk!");
+//
+//                            new BukkitRunnable() {
+//                                @Override
+//                                public void run() {
+//                                victim.getInventory().addItem(TazPvP.robbery.get(victim));
+//                                victim.sendMessage(ChatColor.GRAY + "Your item has been returned!");
+//                                }
+//                            }.runTaskLater(TazPvP.getInstance(), 60L);
+//                        }
+//                    }
+//                }
+            //}
         }
     }
 }
