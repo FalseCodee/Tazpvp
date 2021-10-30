@@ -59,17 +59,11 @@ public class EntityDamageByEntityListener implements Listener {
 
                 }
 
-                for(Scoreboard sb : TazPvP.statsManager.scoreboards.values()) {
-                    TazPvP.statsManager.getTeam(((Player) event.getDamager()).getPlayer(), sb).removeEntry(((Player) event.getDamager()).getPlayer().getName());
-                }
-
-                TazPvP.statsManager.scoreboards.remove(((Player) event.getDamager()).getPlayer().getUniqueId());
-
                 new BukkitRunnable() {
 
                     @Override
                     public void run() {
-                        TazPvP.statsManager.initScoreboard(((Player) event.getDamager()).getPlayer());
+                        TazPvP.getInstance().initScoreboard(((Player) event.getDamager()).getPlayer());
                     }
                 }.runTaskLater(TazPvP.getInstance(), 20L);
             } //else {
