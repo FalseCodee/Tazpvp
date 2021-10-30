@@ -27,7 +27,7 @@ public class GUIMainRankScreen extends GUI {
         for(int i = 0; i < inventory.getSize(); i++) {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), "");
         }
-        setButtons(10, rankItem, event -> switchScreen(new GUIrG(player)));
+        setButtons(10, rankItem, event -> switchScreen(new GUIBuyRank(player)));
         setButtons(12, creditsItem, event -> switchScreen(new GUIGiftRank(player)));
         setButtons(16, donateItem, event -> {
 
