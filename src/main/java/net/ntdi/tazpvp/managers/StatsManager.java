@@ -70,6 +70,7 @@ public class StatsManager {
         statsFile.set(player.getUniqueId().toString()+".rebirths", 0);
         statsFile.set(player.getUniqueId().toString()+".credits", 0);
         statsFile.set(player.getUniqueId().toString()+".streak", 0);
+        statsFile.set(player.getUniqueId().toString()+".checkpoint", 0);
     }
 
     public int getMoney(OfflinePlayer player) {
@@ -193,6 +194,15 @@ public class StatsManager {
     }
     public void addStreak(OfflinePlayer player, int kills) {
         setStreak(player, kills+getStreak(player));
+    }
+    public void setCheckpoints(OfflinePlayer player, int checkpoint) {
+        statsFile.set(player.getUniqueId().toString()+".checkpoint", checkpoint);
+    }
+    public void resetCheckpoints(OfflinePlayer player){
+        statsFile.set(player.getUniqueId().toString()+".checkpoint", 0);
+    }
+    public int getCheckpoints(OfflinePlayer player) {
+        return statsFile.getInt(player.getUniqueId().toString()+".checkpoint");
     }
     
     public Team getTeam(Player player, Scoreboard sb) {
