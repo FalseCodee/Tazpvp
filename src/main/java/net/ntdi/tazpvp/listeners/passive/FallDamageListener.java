@@ -17,7 +17,7 @@ public class FallDamageListener implements Listener {
 
     @EventHandler
     public void onFallDamage(EntityDamageEvent event){
-        if (event.getEntity() instanceof Player){
+        if (event.getEntity() instanceof Player && event.getEntity().getWorld().getName().equals("arena")){
             Player p = (Player) event.getEntity();
             if (event.getCause() == EntityDamageEvent.DamageCause.FALL) {
                 if (TazPvP.perkManager.getFallDamage(p)){

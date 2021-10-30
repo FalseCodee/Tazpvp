@@ -37,7 +37,7 @@ public class ZombieLogic implements Listener {
         if (event.getEntity() instanceof Zombie && event.getEntity().getName().equals(ChatColor.RED + "" + "Ntdi's Henchmen")){
 
             Random rand = new Random();
-
+            TazPvP.statsManager.addExp(event.getEntity().getKiller(), 0.5);
             new BukkitRunnable(){
                 @Override
                 public void run() {
@@ -80,13 +80,13 @@ public class ZombieLogic implements Listener {
         if (event.getEntity() instanceof Skeleton && event.getEntity().getName().equals(ChatColor.BLUE + "" + "Rownox's Archers")){
 
             Random rand = new Random();
-
+            TazPvP.statsManager.addExp(event.getEntity().getKiller(), 1);
             new BukkitRunnable(){
                 @Override
                 public void run() {
                     spawnSkeleton();
                 }
-            }.runTaskLater(TazPvP.getInstance(), rand.nextInt(1000));
+            }.runTaskLater(TazPvP.getInstance(), rand.nextInt(1000)+200);
         }
     }
 
@@ -121,13 +121,13 @@ public class ZombieLogic implements Listener {
         if (event.getEntity() instanceof Skeleton && event.getEntity().getName().equals(ChatColor.AQUA + "" + "Rownox's Super Archers")){
 
             Random rand = new Random();
-
+            TazPvP.statsManager.addExp(event.getEntity().getKiller(), 3);
             new BukkitRunnable(){
                 @Override
                 public void run() {
                     spawnOpSkeleton();
                 }
-            }.runTaskLater(TazPvP.getInstance(), rand.nextInt(5000));
+            }.runTaskLater(TazPvP.getInstance(), rand.nextInt(5000)+600);
         }
     }
 
@@ -162,13 +162,13 @@ public class ZombieLogic implements Listener {
         if (event.getEntity() instanceof Zombie && event.getEntity().getName().equals(ChatColor.GREEN + "" + "Falsecode's Newborn Son")){
 
             Random rand = new Random();
-
+            TazPvP.statsManager.addExp(event.getEntity().getKiller(), 10);
             new BukkitRunnable(){
                 @Override
                 public void run() {
                     spawnBaby();
                 }
-            }.runTaskLater(TazPvP.getInstance(), rand.nextInt(5000));
+            }.runTaskLater(TazPvP.getInstance(), rand.nextInt(5000)+600);
         }
     }
 

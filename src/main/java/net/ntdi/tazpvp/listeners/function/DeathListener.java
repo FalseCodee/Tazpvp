@@ -53,18 +53,17 @@ public class DeathListener implements Listener {
                 TazPvP.statsManager.addKills(killer, 1);
                 TazPvP.statsManager.addMoney(killer, 7);
 
-                if (Bukkit.getOnlinePlayers().size() < 10){
-                    Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "" + event.getEntity().getName() + " was killed by " + event.getEntity().getKiller());
-                }
 
                 if (TazPvP.statsManager.getRebirths(killer) > 0) {
                     TazPvP.statsManager.addExp(killer, 8);
+                    TazPvP.statsManager.addKills(killer, 1);
                     killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 8 Experience");
                     killer.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 40, 0, true, false));
                     killer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 40, 0, true, false));
                     killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 120, 1, true, false));
                 } else {
                     TazPvP.statsManager.addExp(killer, 5);
+                    TazPvP.statsManager.addKills(killer, 1);
                     killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 5 Experience");
                     killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 60, 1, true, false));
 
@@ -106,10 +105,12 @@ public class DeathListener implements Listener {
 
                 }
                 p.sendMessage(ChatColor.DARK_GRAY + "You were killed by " + ChatColor.GRAY + "" + killer.getName());
+//                if (Bukkit.getOnlinePlayers().size() < 10){
+//                    Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "" + event.getEntity().getName() + " was killed by " + event.getEntity().getKiller().getName());
+//                }
             }
             TazPvP.statsManager.setStreak(p, 0);
             TazPvP.statsManager.addDeaths(p, 1);
-
             }
         }
 

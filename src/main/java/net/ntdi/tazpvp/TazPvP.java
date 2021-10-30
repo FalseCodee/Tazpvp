@@ -42,6 +42,8 @@ import org.bukkit.scoreboard.*;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.*;
 
 public final class TazPvP extends JavaPlugin {
@@ -334,6 +336,11 @@ public final class TazPvP extends JavaPlugin {
                     }
                     player.setScoreboard(sb);
                 } else {
+
+                    DecimalFormat df = new DecimalFormat("#.##");
+                    df.setRoundingMode(RoundingMode.CEILING);
+                    Double d = (TazPvP.statsManager.getExpLeft(player));
+
                     Scoreboard sb = statsManager.scoreboards.get(player.getUniqueId());
                     Objective objective = sb.getObjective("sb");
                     objective.unregister();
@@ -341,12 +348,10 @@ public final class TazPvP extends JavaPlugin {
                     objective.setDisplaySlot(DisplaySlot.SIDEBAR);
                     objective.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&3&lTAZPVP"));
                     Score blank = objective.getScore(ChatColor.DARK_GRAY + "" + ChatColor.BOLD + "--------------- ");
-                    blank.setScore(15);
+                    blank.setScore(14);
                     Score blank1 = objective.getScore(ChatColor.DARK_GRAY + "" + ChatColor.BOLD + "PLAYER");
-                    blank1.setScore(14);
-                    Score level = objective.getScore(ChatColor.DARK_AQUA + "▷ Level  " + ChatColor.GRAY + TazPvP.statsManager.getLevel(player));
-                    level.setScore(13);
-                    Score levelleft = objective.getScore(ChatColor.DARK_AQUA + "▷ Exp left  " + ChatColor.GRAY + (TazPvP.statsManager.getExpLeft(player)-TazPvP.statsManager.getExp(player)));
+                    blank1.setScore(13);
+                    Score level = objective.getScore(ChatColor.DARK_AQUA + "▷ Level  " + ChatColor.GRAY + TazPvP.statsManager.getLevel(player) + ChatColor.DARK_GRAY + "  " + TazPvP.statsManager.getExp(player) + "/" + df.format(d));
                     level.setScore(12);
                     Score money = objective.getScore(ChatColor.DARK_AQUA + "▷ Money  " + ChatColor.GRAY +  "$"+ TazPvP.statsManager.getMoney(player));
                     money.setScore(11);
