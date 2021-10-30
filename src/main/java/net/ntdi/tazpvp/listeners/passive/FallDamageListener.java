@@ -25,7 +25,7 @@ public class FallDamageListener implements Listener {
                         double dmg = event.getDamage();
                         event.setCancelled(true);
                         p.damage(dmg/2);
-                        p.sendMessage(ChatColor.GRAY + "Fall Damage perked activated");
+                        //p.sendMessage(ChatColor.GRAY + "Fall Damage perked activated");
                     }
                 }
             }

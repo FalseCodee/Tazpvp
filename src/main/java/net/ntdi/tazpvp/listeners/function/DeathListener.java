@@ -74,30 +74,30 @@ public class DeathListener implements Listener {
                             }
                             killer.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 20*60, 0));
                             killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20*3, 0));
-                            killer.sendMessage(ChatColor.GRAY + "Butter Perk activated!");
+                            //killer.sendMessage(ChatColor.GRAY + "Butter Perk activated!");
                         }
                     }
                     if (rand.nextInt(10) == 2) {
                         if (TazPvP.perkManager.getAgility(killer)){
                             killer.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 20*5, 0));
-                            killer.sendMessage(ChatColor.GRAY + "Agility Perk activated!");
+                            //killer.sendMessage(ChatColor.GRAY + "Agility Perk activated!");
                         }
                     }
                     if (rand.nextInt(10) == 3) {
                         if (TazPvP.perkManager.getExtinguish(killer)){
                             killer.setFireTicks(0);
-                            killer.sendMessage(ChatColor.GRAY + "Extinguish Perk activated!");
+                            //killer.sendMessage(ChatColor.GRAY + "Extinguish Perk activated!");
                         }
                     }
                     if (rand.nextInt(10) == 4) {
                         if (TazPvP.perkManager.getHunger(killer)){
                             killer.setFoodLevel(20);
-                            killer.sendMessage(ChatColor.GRAY + "Hunger Perk activated!");
+                            //killer.sendMessage(ChatColor.GRAY + "Hunger Perk activated!");
                         }
                     }
                     if(rand.nextInt(10) == 5){
                         if (TazPvP.perkManager.getStrength(killer)){
-                            killer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 40, 1, true, false));
+                            //killer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 40, 1, true, false));
                         }
                     }
 

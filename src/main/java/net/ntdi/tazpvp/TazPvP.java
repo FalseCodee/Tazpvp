@@ -316,7 +316,7 @@ public final class TazPvP extends JavaPlugin {
                     gaming.setScore(8);
                     Score blank222 = objective.getScore(ChatColor.RED + "" + ChatColor.BOLD + "BANNED");
                     blank222.setScore(7);
-                    Score blank2222 = objective.getScore(ChatColor.GRAY +  "﹂ /appeal");
+                    Score blank2222 = objective.getScore(ChatColor.GRAY +  "﹂/appeal");
                     blank2222.setScore(6);
                     Score eeee = objective.getScore("");
                     eeee.setScore(5);
@@ -326,7 +326,7 @@ public final class TazPvP extends JavaPlugin {
                     blank2.setScore(3);
                     Score blank4 = objective.getScore(ChatColor.DARK_GRAY + "" + ChatColor.BOLD + "---------------");
                     blank4.setScore(2);
-                    Score blank5 = objective.getScore(ChatColor.GRAY + "〡 tazpvp.net");
+                    Score blank5 = objective.getScore(ChatColor.GRAY + "﹂ tazpvp.net");
                     blank5.setScore(1);
                     for(Player player1 : Bukkit.getOnlinePlayers()) {
                         statsManager.getTeam(player1, sb).addEntry(player1.getName());
@@ -376,7 +376,7 @@ public final class TazPvP extends JavaPlugin {
                     kdr.setScore(3);
                     Score blank4 = objective.getScore(ChatColor.DARK_GRAY + "" + ChatColor.BOLD + "---------------");
                     blank4.setScore(2);
-                    Score blank5 = objective.getScore(ChatColor.GRAY + "〡 tazpvp.net");
+                    Score blank5 = objective.getScore(ChatColor.GRAY + "tazpvp.net");
                     blank5.setScore(1);
                     for(Player player1 : Bukkit.getOnlinePlayers()) {
                         statsManager.getTeam(player1, sb).addEntry(player1.getName());
