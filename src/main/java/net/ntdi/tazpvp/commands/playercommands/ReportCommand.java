@@ -20,7 +20,7 @@ public class ReportCommand implements CommandExecutor {
     @Override
     @SuppressWarnings("unchecked")
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        HashMap<String, Long> cooldowns = new HashMap<String, Long>();
+        HashMap<String, Long> cooldowns = new HashMap<>();
 
         int cooldownTime = 60; // Get number of seconds from wherever you want
         if(cooldowns.containsKey(sender.getName())) {

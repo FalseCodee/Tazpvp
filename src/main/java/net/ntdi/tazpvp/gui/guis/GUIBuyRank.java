@@ -17,7 +17,7 @@ public class GUIBuyRank extends GUI {
         player.openInventory(inventory);
     }
 
-    Player p = player;
+    final Player p = player;
 
     public void addShopItem(int slot, ItemStack item, int runnable, String name, String lore) {
         setButtons(slot, createItem(item, name, lore), event -> {
@@ -48,7 +48,7 @@ public class GUIBuyRank extends GUI {
             }
         });
     }
-
+    @SuppressWarnings("deprecation")
     public void setItems() {
         for(int i = 0; i < inventory.getSize(); i++) {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), ChatColor.BLACK + "");

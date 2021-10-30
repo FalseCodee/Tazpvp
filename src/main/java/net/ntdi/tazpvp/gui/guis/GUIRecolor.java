@@ -7,7 +7,6 @@ import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.LeatherArmorMeta;
 
 public class GUIRecolor extends GUI {
     public GUIRecolor(Player player) {
@@ -16,7 +15,7 @@ public class GUIRecolor extends GUI {
         player.openInventory(inventory);
     }
 
-    Player p = player;
+    final Player p = player;
 
 
     public void addArmorItem(int slot, ItemStack item, int runnable, String name, String lore) {
@@ -135,7 +134,7 @@ public class GUIRecolor extends GUI {
             }
         });
     }
-
+    @SuppressWarnings("deprecation")
     public void setItems() {
         for(int i = 0; i < inventory.getSize(); i++) {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), ChatColor.BLACK + "");

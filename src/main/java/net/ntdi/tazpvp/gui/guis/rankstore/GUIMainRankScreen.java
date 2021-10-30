@@ -10,7 +10,6 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
-import net.ntdi.tazpvp.listeners.*;
 
 public class GUIMainRankScreen extends GUI {
 
@@ -19,6 +18,7 @@ public class GUIMainRankScreen extends GUI {
         init();
         player.openInventory(inventory);
     }
+    @SuppressWarnings("deprecation")
     public void init() {
          ItemStack rankItem = createItem(Material.EYE_OF_ENDER, ChatColor.BLUE + "" + ChatColor.BOLD + "RANKS", ChatColor.GRAY + "Purchase a rank.", true);
         ItemStack creditsItem = createItem(Material.DIAMOND, ChatColor.BLUE + "" + ChatColor.BOLD + "CREDITS", ChatColor.GRAY + "Purchase credits to gift ranks or custom prefixes.", true);
@@ -27,19 +27,12 @@ public class GUIMainRankScreen extends GUI {
         for(int i = 0; i < inventory.getSize(); i++) {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), "");
         }
-        setButtons(10, rankItem, event -> {
-            switchScreen(new GUIBuyRank(player));
-        });
-        setButtons(12, creditsItem, event -> {
-            switchScreen(new GUIGiftRank(player));
-        });
+        setButtons(10, rankItem, event -> switchScreen(new GUIBuyRank(player)));
+        setButtons(12, creditsItem, event -> switchScreen(new GUIGiftRank(player)));
         setButtons(16, donateItem, event -> {
 
         });
-        setButtons(14, cosmeticsItem, event -> {
-            switchScreen(new GUICosmetics(player));
-
-        });
+        setButtons(14, cosmeticsItem, event -> switchScreen(new GUICosmetics(player)));
         update();
     }
 

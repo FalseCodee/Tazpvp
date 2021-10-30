@@ -8,7 +8,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
@@ -19,6 +18,7 @@ public class BlockListener implements Listener {
     private final Random rand = new Random();
 
     @EventHandler
+    @SuppressWarnings("deprecation")
     public void onPlaceBlock(BlockPlaceEvent event) {
         if (event.getPlayer().getGameMode() == GameMode.SURVIVAL) {
             if (TazPvP.AllowBlocks){

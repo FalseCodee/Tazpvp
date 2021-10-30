@@ -2,17 +2,12 @@ package net.ntdi.tazpvp.gui.guis;
 
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.gui.GUI;
-import net.ntdi.tazpvp.listeners.function.RecolorArmor;
-import net.ntdi.tazpvp.listeners.function.RenameSword;
 import org.bukkit.ChatColor;
-import org.bukkit.Color;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
-import net.ntdi.tazpvp.listeners.*;
-import org.bukkit.inventory.meta.ItemMeta;
 
 public class GUICosmetics extends GUI {
     public GUICosmetics(Player player) {
@@ -21,7 +16,7 @@ public class GUICosmetics extends GUI {
         player.openInventory(inventory);
     }
 
-    Player p = player;
+    final Player p = player;
 
     public void addShopItem(int slot, ItemStack item, int runnable, String name, String lore) {
         setButtons(slot, createItem(item, name, lore), event -> {
@@ -54,7 +49,7 @@ public class GUICosmetics extends GUI {
     }
 
     ItemStack flower = new ItemStack(Material.RED_ROSE, 1, (short) 1);
-
+    @SuppressWarnings("deprecation")
     public void setItems() {
         for(int i = 0; i < inventory.getSize(); i++) {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), ChatColor.BLACK + "");

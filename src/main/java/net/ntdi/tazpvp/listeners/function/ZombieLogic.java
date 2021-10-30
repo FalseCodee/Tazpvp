@@ -1,6 +1,5 @@
 package net.ntdi.tazpvp.listeners.function;
 
-import net.ntdi.tazpvp.TazPvP;
 import org.bukkit.*;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
@@ -14,23 +13,23 @@ import java.util.Random;
 
 public class ZombieLogic implements Listener {
 
-    World world = Bukkit.getWorld("grind");
+    final World world = Bukkit.getWorld("grind");
 
-    double xzomb = 37.5;
-    double yzomb = 41;
-    double zzomb = -96.5;
+    final double xzomb = 37.5;
+    final double yzomb = 41;
+    final double zzomb = -96.5;
 
-    double xskeleton = 46.5;
-    double yskeleton = 41;
-    double zskeleton = -121.5;
+    final double xskeleton = 46.5;
+    final double yskeleton = 41;
+    final double zskeleton = -121.5;
 
-    double xopskeleton = 65.5;
-    double yopskeleton = 41;
-    double zopskeleton = -112.5;
+    final double xopskeleton = 65.5;
+    final double yopskeleton = 41;
+    final double zopskeleton = -112.5;
 
-    double xbaby = 59.5;
-    double ybaby = 42;
-    double zbaby = -88.5;
+    final double xbaby = 59.5;
+    final double ybaby = 42;
+    final double zbaby = -88.5;
 
     @EventHandler
     public void onZombieDie(EntityDeathEvent event){

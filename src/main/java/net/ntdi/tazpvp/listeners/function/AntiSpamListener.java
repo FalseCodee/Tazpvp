@@ -13,8 +13,8 @@ import java.util.HashMap;
 
 public class AntiSpamListener implements Listener {
 
-    HashMap<Player, String> previousMessages = new HashMap<>();
-    ArrayList<Player> cooldown = new ArrayList<>();
+    final HashMap<Player, String> previousMessages = new HashMap<>();
+    final ArrayList<Player> cooldown = new ArrayList<>();
 
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event) {

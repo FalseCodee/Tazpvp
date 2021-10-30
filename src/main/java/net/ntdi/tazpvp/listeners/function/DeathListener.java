@@ -1,6 +1,5 @@
 package net.ntdi.tazpvp.listeners.function;
 
-import net.milkbowl.vault.chat.Chat;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.commands.functions.BountyCommand;
 import org.bukkit.*;

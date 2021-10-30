@@ -6,8 +6,6 @@ import net.ntdi.tazpvp.items.Items;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 
 public class CreditPaper extends ConsumableItem {
 
