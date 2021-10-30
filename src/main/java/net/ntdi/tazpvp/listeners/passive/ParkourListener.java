@@ -17,10 +17,11 @@ public class ParkourListener implements Listener {
         if (event.getPlayer().getWorld().getName().equals("parkour")){
             if (event.getAction().equals(Action.PHYSICAL)){
                 if (event.getClickedBlock().getType() == Material.STONE_PLATE){
-                    if (event.getClickedBlock().getLocation() == new Location(Bukkit.getWorld("parkour"), -3, 38, -61) && TazPvP.statsManager.getCheckpoints(event.getPlayer()) < 1){
+                    System.out.println(event.getClickedBlock().getLocation() + " " + event.getClickedBlock().getType());
+                    if (new Location(Bukkit.getWorld("parkour"), -3, 38, -62).distanceSquared(event.getPlayer().getLocation()) < 1.5 && TazPvP.statsManager.getCheckpoints(event.getPlayer()) < 1){
                         TazPvP.statsManager.setCheckpoints(event.getPlayer(), 1);
                         event.getPlayer().sendMessage(ChatColor.GREEN + "Checkpoint set");
-                    } else if (event.getClickedBlock().getLocation() == new Location(Bukkit.getWorld("parkour"), 1, 0, 1) && TazPvP.statsManager.getCheckpoints(event.getPlayer()) < 2){
+                    } else if (new Location(Bukkit.getWorld("parkour"), 1, 1, 1).distanceSquared(event.getPlayer().getLocation()) < 1.5 && TazPvP.statsManager.getCheckpoints(event.getPlayer()) < 2){
                         TazPvP.statsManager.setCheckpoints(event.getPlayer(), 2);
                         event.getPlayer().sendMessage(ChatColor.GREEN + "Checkpoint set");
                     }
@@ -37,7 +38,7 @@ public class ParkourListener implements Listener {
                 return;
             }
             else if (TazPvP.statsManager.getCheckpoints(p) == 1){
-                p.teleport(new Location(p.getWorld(), -3, 38, -61));
+                p.teleport(new Location(p.getWorld(), -3, 38, -62));
             }
         }
     }
@@ -51,7 +52,7 @@ public class ParkourListener implements Listener {
                     p.teleport(new Location(p.getWorld(), 0.5, 30, 1, -179, 0));
                 }
                 else if (TazPvP.statsManager.getCheckpoints(p) == 1){
-                    p.teleport(new Location(p.getWorld(), -3, 38, -61));
+                    p.teleport(new Location(p.getWorld(), -3, 38, -62));
                 }
             }
         }
