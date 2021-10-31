@@ -11,11 +11,13 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import java.util.HashMap;
 import java.util.Random;
 
 public class DeathListener implements Listener {
 
     private final Random rand = new Random();
+    public static HashMap<Player, Player> revenge = new HashMap<>();
 
 
     @EventHandler
