@@ -21,15 +21,10 @@ public class HideCommand implements CommandExecutor {
             player.sendMessage(ChatColor.DARK_AQUA + "You turned Hidden: " + ChatColor.WHITE + ((TazPvP.staffManager.hiddenToggled(player)) ? "On" : "Off"));
             if(TazPvP.staffManager.hiddenToggled(player)) {
                 TazPvP.statsManager.setGroup(player, TazPvP.permissions.getPrimaryGroup(player));
-                for(World w : Bukkit.getServer().getWorlds()){
-                    TazPvP.permissions.playerRemoveGroup(w.getName(), player, TazPvP.permissions.getPrimaryGroup(player));
-                }
-                TazPvP.permissions.playerRemoveGroup(null, player, TazPvP.permissions.getPrimaryGroup(player));
-                TazPvP.permissions.playerAdd(player, "staff.hide");
+                TazPvP.permissions.playerAddGroup(null, player, "default");
 
             } else {
-                TazPvP.permissions.playerAddGroup(null, player, TazPvP.statsManager.getGroup(player));
-                TazPvP.permissions.playerRemove(player, "staff.hide");
+                TazPvP.permissions.playerRemoveGroup(null, player, "default");
             }
             for(Player players : Bukkit.getOnlinePlayers()) {
                 TazPvP.getInstance().initScoreboard(players);
