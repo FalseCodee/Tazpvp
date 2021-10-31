@@ -379,7 +379,7 @@ public final class TazPvP extends JavaPlugin {
             kdr.setScore(3);
             Score blank4 = objective.getScore(ChatColor.DARK_GRAY + "" + ChatColor.BOLD + "---------------");
             blank4.setScore(2);
-            Score blank5 = objective.getScore(ChatColor.GRAY + "tazpvp.net");
+            Score blank5 = objective.getScore(ChatColor.GRAY + "〡 tazpvp.net");
             blank5.setScore(1);
             for(Player player1 : Bukkit.getOnlinePlayers()) {
                 statsManager.getTeam(player1, sb).addEntry(player1.getName());
