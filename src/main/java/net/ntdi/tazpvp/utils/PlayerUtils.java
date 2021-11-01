@@ -94,7 +94,5 @@ public class PlayerUtils {
         inv.addItem(steak);
         inv.setItem(9, arrow);
 
-
-
     }
 }

@@ -44,6 +44,10 @@ public class AchievementsManager {
         achievements.add(new KillAchievement(1000, new Rewards[] {Rewards.POINTS}, new int[] {25}));
         achievements.add(new KillAchievement(1500, new Rewards[] {Rewards.MONEY}, new int[] {15000}));
 
+        //kill streak achievement
+
+
+        //revenge achivement
         // one heart achievement
         achievements.add(new LivingOnEdgeAchievement(1, new Rewards[] {Rewards.MONEY}, new int[] {50}));
 
