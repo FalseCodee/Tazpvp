@@ -54,7 +54,7 @@ public class EntityDamageByEntityListener implements Listener {
                     p.sendMessage(ChatColor.DARK_AQUA + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
                     TazPvP.statsManager.addPoints(p, 1);
                     TazPvP.statsManager.addMoney(p, 60);
-                    TazPvP.statsManager.setExpLeft(p, TazPvP.statsManager.getExpLeft(p)*1.105);
+                    TazPvP.statsManager.setExpLeft(p, TazPvP.statsManager.getExpLeft(p)*1.10);
                     TazPvP.statsManager.setExp(p, 0);
                     p.setLevel(TazPvP.statsManager.getLevel(p));
                     p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1 );

@@ -9,7 +9,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class MuteCommand implements CommandExecutor {
+public class UnmuteCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player player = null;
@@ -18,7 +18,7 @@ public class MuteCommand implements CommandExecutor {
         }
 
         if(player != null && player.hasPermission("staff.mute")){
-            if(args.length < 2){
+            if(args.length < 1){
                 return false;
             } else {
                 Player muted = Bukkit.getPlayer(args[0]);
@@ -31,7 +31,7 @@ public class MuteCommand implements CommandExecutor {
 
                     } else {
                         //short mute to test
-                        TazPvP.punishmentManager.initMute(muted, false, args[1]*60*1000);
+                        TazPvP.punishmentManager.initMute(muted, false, 30*60*1000);
                         player.sendMessage(ChatColor.RED + muted.getName() + " has been muted.");
                         muted.sendMessage(ChatColor.RED+"You have been muted for "+ChatColor.WHITE+reason);
 
