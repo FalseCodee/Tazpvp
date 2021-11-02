@@ -4,6 +4,7 @@ import net.ntdi.tazpvp.TazPvP;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -53,10 +54,10 @@ public class EntityDamageByEntityListener implements Listener {
                     p.sendMessage(ChatColor.DARK_AQUA + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
                     TazPvP.statsManager.addPoints(p, 1);
                     TazPvP.statsManager.addMoney(p, 60);
-                    TazPvP.statsManager.setExpLeft(p, TazPvP.statsManager.getExpLeft(p)*1.19);
+                    TazPvP.statsManager.setExpLeft(p, TazPvP.statsManager.getExpLeft(p)*1.13);
                     TazPvP.statsManager.setExp(p, 0);
                     p.setLevel(TazPvP.statsManager.getLevel(p));
-
+                    p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1 );
                 }
 
                 new BukkitRunnable() {
