@@ -22,18 +22,16 @@ public class MuteCommand implements CommandExecutor {
                 return false;
             } else {
                 Player muted = Bukkit.getPlayer(args[0]);
-                String reason = StringUtils.buildString(args, 1);
+                Integer time = Integer.valueOf(args[1]);
                 if(muted != null){
                     if(TazPvP.punishmentManager.isMuted(muted)){
-                        TazPvP.punishmentManager.removeMute(muted);
-                        player.sendMessage(ChatColor.RED + muted.getName() + " has been unmuted.");
-                        muted.sendMessage(ChatColor.RED+"You have been unmuted.");
 
+                        player.sendMessage(ChatColor.RED + muted.getName() + " is already muted.");
                     } else {
                         //short mute to test
-                        TazPvP.punishmentManager.initMute(muted, false, args[1]*60*1000);
+                        TazPvP.punishmentManager.initMute(muted, false, time*60*1000);
                         player.sendMessage(ChatColor.RED + muted.getName() + " has been muted.");
-                        muted.sendMessage(ChatColor.RED+"You have been muted for "+ChatColor.WHITE+reason);
+                        muted.sendMessage(ChatColor.RED+"You have been muted for "+ChatColor.WHITE+time+ChatColor.RED + " minutes left");
 
                     }
                 } else {
