@@ -4,6 +4,7 @@ import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.commands.moderation.BanCommand;
 import net.ntdi.tazpvp.utils.PlayerUtils;
 import org.bukkit.*;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -53,6 +54,9 @@ public class WelcomeListener implements Listener {
         }
         if(TazPvP.punishmentManager.isBanned(p) && System.currentTimeMillis()-TazPvP.punishmentManager.getBanTime(p) >= TazPvP.punishmentManager.getBanDuration(p)){
             TazPvP.punishmentManager.removeBan(p);
+            ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
+            String pexcmd = "pex user " + p.getName() + " group remove banned";
+            Bukkit.dispatchCommand(console, pexcmd);
             p.sendMessage(ChatColor.RED+"You have been unbanned.");
         } else if (TazPvP.punishmentManager.isBanned(p)) {
             p.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
@@ -65,6 +69,11 @@ public class WelcomeListener implements Listener {
             BanCommand.bannedRunnables.put(p.getUniqueId(), runnable);
         }
 
+        if (!TazPvP.punishmentManager.isBanned(p)){
+            ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
+            String pexcmd = "pex user " + p.getName() + " group remove banned";
+            Bukkit.dispatchCommand(console, pexcmd);
+        }
 
         boolean hasPlayed = p.hasPlayedBefore();
 
