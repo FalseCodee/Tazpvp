@@ -1,6 +1,7 @@
 package net.ntdi.tazpvp;
 
 // import com.oracle.xmlns.internal.webservices.jaxws_databinding.SoapBindingUse;
+import net.ntdi.tazpvp.items.items.LevFeather;
 import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -295,6 +296,7 @@ public final class TazPvP extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new FallDamageListener(), this);
         getServer().getPluginManager().registerEvents(new ZombieLogic(), this);
         getServer().getPluginManager().registerEvents(new ParkourListener(), this);
+        getServer().getPluginManager().registerEvents(new LevFeather(), this);
 
     }
 
