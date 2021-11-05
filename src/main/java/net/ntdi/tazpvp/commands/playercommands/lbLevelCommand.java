@@ -15,6 +15,7 @@ public class lbLevelCommand implements CommandExecutor {
 
     private static final HashMap<OfflinePlayer, Integer> unsortMap = new HashMap<>();
     public static final boolean DESC = false;
+    public static int times = 1;
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -28,15 +29,6 @@ public class lbLevelCommand implements CommandExecutor {
 
         Map<OfflinePlayer, Integer> sortedMapDesc = sortByComparator(unsortMap, DESC);
         printMap(sortedMapDesc, p);
-
-
-
-//        List list = new ArrayList(hashMap.values());
-//        Collections.sort(list);
-//        for(int i=0; i<10; i++) {
-//            p.sendMessage(list.get(list.size()-1-i) + "\n");
-//        }
-
         return true;
     }
 
@@ -69,9 +61,13 @@ public class lbLevelCommand implements CommandExecutor {
     {
         for (Map.Entry<OfflinePlayer, Integer> entry : map.entrySet())
         {
-            p.sendMessage(entry.getKey().getName() + " " + entry.getValue());
+            if (times >= 11){
+                return;
+            } else {
+                p.sendMessage(ChatColor.GOLD + "#" + times + " " +  entry.getKey().getName() + " " + entry.getValue());
+            }
+
 
         }
     }
-
 }
