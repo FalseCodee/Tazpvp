@@ -31,6 +31,8 @@ public class DeathListener implements Listener {
 //        if(!p.getLocation().getWorld().getName().equals(TazPvP.configFile.getString("arena.name"))){
 //            return;
 //        }
+                p.spigot().respawn();
+
                 if (BountyCommand.bounties.get(p.getUniqueId()) != null) {
                     TazPvP.statsManager.addMoney(killer, BountyCommand.bounties.get(p.getUniqueId()));
                     killer.sendMessage(ChatColor.YELLOW + "You have claimed " + p.getDisplayName() + "'s bounty for " + ChatColor.WHITE + "$" + BountyCommand.bounties.get(p.getUniqueId()));
