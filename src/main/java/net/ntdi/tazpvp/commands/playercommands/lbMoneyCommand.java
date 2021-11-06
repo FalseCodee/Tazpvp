@@ -67,15 +67,16 @@ public class lbMoneyCommand implements CommandExecutor {
             if (times >= 11){
                 return;
             } else {
-                if (entry.getKey().getPlayer().hasPermission("rank.mvpp")){
-                    p.sendMessage(ChatColor.GOLD + "#" + times + " " + ChatColor.BLUE +  entry.getKey().getName() + ": " + ChatColor.GREEN + entry.getValue());
-                } else if (entry.getKey().getPlayer().hasPermission("rank.mvp")) {
-                    p.sendMessage(ChatColor.GOLD + "#" + times + " " + ChatColor.GOLD + entry.getKey().getName() + ": " + ChatColor.GREEN + entry.getValue());
-                } else if (entry.getKey().getPlayer().hasPermission("rank.vip")) {
-                    p.sendMessage(ChatColor.GOLD + "#" + times + " " + ChatColor.RED + entry.getKey().getName() + ": " + ChatColor.GREEN + entry.getValue());
-                } else  {
-                    p.sendMessage(ChatColor.GOLD + "#" + times + " " + ChatColor.GRAY + entry.getKey().getName() + ": " + ChatColor.GREEN + entry.getValue());
-                }
+//                if (entry.getKey().getPlayer().hasPermission("rank.mvpp")){
+//                    p.sendMessage(ChatColor.GOLD + "#" + times + " " + ChatColor.BLUE +  entry.getKey().getName() + ": " + ChatColor.GREEN + entry.getValue());
+//                } else if (entry.getKey().getPlayer().hasPermission("rank.mvp")) {
+//                    p.sendMessage(ChatColor.GOLD + "#" + times + " " + ChatColor.GOLD + entry.getKey().getName() + ": " + ChatColor.GREEN + entry.getValue());
+//                } else if (entry.getKey().getPlayer().hasPermission("rank.vip")) {
+//                    p.sendMessage(ChatColor.GOLD + "#" + times + " " + ChatColor.RED + entry.getKey().getName() + ": " + ChatColor.GREEN + entry.getValue());
+//                } else  {
+//                    p.sendMessage(ChatColor.GOLD + "#" + times + " " + ChatColor.GRAY + entry.getKey().getName() + ": " + ChatColor.GREEN + entry.getValue());
+//                }
+                p.sendMessage(ChatColor.GOLD + "#" + times + " " + ChatColor.GRAY + entry.getKey().getName() + ": " + ChatColor.GREEN + entry.getValue());
                 times++;
             }
         }
