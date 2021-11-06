@@ -65,6 +65,7 @@ public class lbLevelCommand implements CommandExecutor {
                 return;
             } else {
                 p.sendMessage(ChatColor.GOLD + "#" + times + " " +  entry.getKey().getName() + " " + entry.getValue());
+                times++;
             }
 
 
