@@ -50,9 +50,9 @@ public class GUIUpgradeMenu extends GUI {
                                         leggings.addEnchantment(enchantment.ench, leggings.getEnchantmentLevel(enchantment.ench)+1);
                                         player.getInventory().setLeggings(leggings);
                                     }
-                                    player.sendMessage(ChatColor.BLUE+"Bought 1 " + ChatColor.WHITE + enchantment.name + ChatColor.BLUE + " for " + ChatColor.WHITE + enchantment.cost + ChatColor.BLUE+" points.");
+                                    player.sendMessage(ChatColor.DARK_PURPLE+"You upgraded " + ChatColor.LIGHT_PURPLE + enchantment.name + ChatColor.DARK_PURPLE + " on your tool for " + ChatColor.LIGHT_PURPLE + enchantment.cost + ChatColor.DARK_PURPLE+" points");
                                 } else {
-                                    player.sendMessage(ChatColor.RED + "You already have the max level!");
+                                    player.sendMessage(ChatColor.RED + "This upgrade is already MAX");
                                 }
                             } else {
                                 player.sendMessage(ChatColor.RED + "Insufficient points.");
@@ -147,7 +147,7 @@ public class GUIUpgradeMenu extends GUI {
                     });
             }
         } else {
-            player.sendMessage(ChatColor.RED + "There was an error fetching your item.");
+            player.sendMessage(ChatColor.RED + "There was an error fetching the item from your inventory.");
             Bukkit.getScheduler().runTask(TazPvP.getInstance(), player::closeInventory);
         }
         update();
