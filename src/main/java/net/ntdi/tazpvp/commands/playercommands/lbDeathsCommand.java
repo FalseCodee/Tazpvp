@@ -23,7 +23,7 @@ public class lbDeathsCommand implements CommandExecutor {
         Player p = (Player) sender;
 
         p.sendMessage(ChatColor.GREEN + "----------");
-        p.sendMessage(ChatColor.RED + "Highest Kills Leaderboard:");
+        p.sendMessage(ChatColor.RED + "Highest Deaths Leaderboard:");
         for (OfflinePlayer player : Bukkit.getOfflinePlayers()) {
             unsortMap.put(player, TazPvP.statsManager.getDeaths(player));
         }
