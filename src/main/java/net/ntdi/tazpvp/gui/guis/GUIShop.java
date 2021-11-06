@@ -5,6 +5,7 @@ import net.ntdi.tazpvp.gui.GUI;
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
@@ -33,6 +34,7 @@ public class GUIShop extends GUI {
                     item.setItemMeta(namin);
 
                     player.getInventory().addItem(item);
+                    player.playSound(player.getLocation(), Sound.ORB_PICKUP, 1, 1 );
                 } else {
                     player.sendMessage(ChatColor.RED + "Insufficient funds");
                 }
