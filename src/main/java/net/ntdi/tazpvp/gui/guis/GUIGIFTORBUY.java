@@ -1,5 +1,7 @@
 package net.ntdi.tazpvp.gui.guis;
 
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.TextComponent;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.gui.GUI;
 import net.ntdi.tazpvp.listeners.function.RankBuying;
@@ -33,19 +35,25 @@ public class GUIGIFTORBUY extends GUI {
                         if (TazPvP.statsManager.getCredits(p) >= 250) {
                             new RankBuying().buyPro(p);
                         } else {
-                            p.sendMessage(ChatColor.RED + "Insufficient Credits!");
+                            TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! " + ChatColor.WHITE + "[CLICK HERE]");
+                            nocred.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://taznet.tebex.io/"));
+                            p.spigot().sendMessage(nocred);
                         }
                     } else if (this.gooeey == 2){
                         if (TazPvP.statsManager.getCredits(p) >= 500) {
                             new RankBuying().buyChampion(p);
                         } else {
-                            p.sendMessage(ChatColor.RED + "Insufficient Credits!");
+                            TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! " + ChatColor.WHITE + "[CLICK HERE]");
+                            nocred.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://taznet.tebex.io/"));
+                            p.spigot().sendMessage(nocred);
                         }
                     } else if (this.gooeey == 3){
                         if (TazPvP.statsManager.getCredits(p) >= 1000) {
                             new RankBuying().buyLegend(p);
                         } else {
-                            p.sendMessage(ChatColor.RED + "Insufficient Credits!");
+                            TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! " + ChatColor.WHITE + "[CLICK HERE]");
+                            nocred.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://taznet.tebex.io/"));
+                            p.spigot().sendMessage(nocred);
                         }
                     }
                     break;
@@ -60,7 +68,9 @@ public class GUIGIFTORBUY extends GUI {
                             }
 
                         } else {
-                            p.sendMessage(ChatColor.RED + "Insufficient Credits!");
+                            TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! " + ChatColor.WHITE + "[CLICK HERE]");
+                            nocred.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://taznet.tebex.io/"));
+                            p.spigot().sendMessage(nocred);
                         }
                     } else if (this.gooeey == 2){
                         if (TazPvP.statsManager.getCredits(p) >= 500) {
@@ -71,7 +81,9 @@ public class GUIGIFTORBUY extends GUI {
                             }
 
                         } else {
-                            p.sendMessage(ChatColor.RED + "Insufficient Credits!");
+                            TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! " + ChatColor.WHITE + "[CLICK HERE]");
+                            nocred.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://taznet.tebex.io/"));
+                            p.spigot().sendMessage(nocred);
                         }
                     } else if (this.gooeey == 3){
                         if (TazPvP.statsManager.getCredits(p) >= 1000) {
@@ -81,7 +93,9 @@ public class GUIGIFTORBUY extends GUI {
                             }
 
                         } else {
-                            p.sendMessage(ChatColor.RED + "Insufficient Credits!");
+                            TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! " + ChatColor.WHITE + "[CLICK HERE]");
+                            nocred.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://taznet.tebex.io/"));
+                            p.spigot().sendMessage(nocred);
                         }
                     }
                     break;

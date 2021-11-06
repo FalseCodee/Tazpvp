@@ -1,5 +1,7 @@
 package net.ntdi.tazpvp.gui.guis;
 
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.TextComponent;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.gui.GUI;
 import org.bukkit.ChatColor;
@@ -31,7 +33,9 @@ public class GUICosmetics extends GUI {
                         p.sendMessage("type in chat what u wantz to rename ur sword:");
 
                     } else {
-                        p.sendMessage(ChatColor.RED + "Insufficient Credits!");
+                        TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! Click to purchase them!");
+                        nocred.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://taznet.tebex.io/"));
+                        p.spigot().sendMessage(nocred);
                     }
                     break;
                 case 2:
@@ -41,7 +45,9 @@ public class GUICosmetics extends GUI {
                     if (TazPvP.statsManager.getCredits(p) >= 100) {
                         p.sendMessage(ChatColor.YELLOW + "prefix's dont deserve to be renamed");
                     } else {
-                        p.sendMessage(ChatColor.RED + "Insufficient Credits!");
+                        TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! Click to purchase them!");
+                        nocred.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://taznet.tebex.io/"));
+                        p.spigot().sendMessage(nocred);
                     }
                     break;
             }

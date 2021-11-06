@@ -4,9 +4,14 @@ import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.gui.GUI;
 import net.ntdi.tazpvp.listeners.function.RecolorArmor;
 import org.bukkit.*;
+import org.bukkit.Color;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
+
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.TextComponent;
+
 
 public class GUIRecolor extends GUI {
     public GUIRecolor(Player player) {
@@ -29,7 +34,9 @@ public class GUIRecolor extends GUI {
                         new RecolorArmor().recolorArmor(p, Color.fromRGB(150, 75, 0));
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Not enough Credits!");
+                        TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! " + ChatColor.WHITE + "[CLICK HERE]");
+                            nocred.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://taznet.tebex.io/"));
+                            p.spigot().sendMessage(nocred);
                     }
                     break;
                 case 2:
@@ -38,7 +45,9 @@ public class GUIRecolor extends GUI {
                         new RecolorArmor().recolorArmor(p, Color.RED);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Not enough Credits!");
+                        TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! " + ChatColor.WHITE + "[CLICK HERE]");
+                            nocred.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://taznet.tebex.io/"));
+                            p.spigot().sendMessage(nocred);
                     }
                     break;
                 case 3:
@@ -47,7 +56,9 @@ public class GUIRecolor extends GUI {
                         new RecolorArmor().recolorArmor(p, Color.ORANGE);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Not enough Credits!");
+                        TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! " + ChatColor.WHITE + "[CLICK HERE]");
+                            nocred.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://taznet.tebex.io/"));
+                            p.spigot().sendMessage(nocred);
                     }
                     break;
                 case 4:
@@ -56,7 +67,9 @@ public class GUIRecolor extends GUI {
                         new RecolorArmor().recolorArmor(p, Color.YELLOW);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Not enough Credits!");
+                        TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! " + ChatColor.WHITE + "[CLICK HERE]");
+                            nocred.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://taznet.tebex.io/"));
+                            p.spigot().sendMessage(nocred);
                     }
                     break;
                 case 5:
@@ -65,7 +78,9 @@ public class GUIRecolor extends GUI {
                         new RecolorArmor().recolorArmor(p, Color.LIME);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Not enough Credits!");
+                        TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! " + ChatColor.WHITE + "[CLICK HERE]");
+                            nocred.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://taznet.tebex.io/"));
+                            p.spigot().sendMessage(nocred);
                     }
                     break;
                 case 6:
@@ -74,7 +89,9 @@ public class GUIRecolor extends GUI {
                         new RecolorArmor().recolorArmor(p, Color.GREEN);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Not enough Credits!");
+                        TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! " + ChatColor.WHITE + "[CLICK HERE]");
+                            nocred.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://taznet.tebex.io/"));
+                            p.spigot().sendMessage(nocred);
                     }
                     break;
                 case 7:
@@ -83,7 +100,9 @@ public class GUIRecolor extends GUI {
                         new RecolorArmor().recolorArmor(p, Color.TEAL);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Not enough Credits!");
+                        TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! " + ChatColor.WHITE + "[CLICK HERE]");
+                            nocred.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://taznet.tebex.io/"));
+                            p.spigot().sendMessage(nocred);
                     }
                     break;
                 case 8:
@@ -92,7 +111,9 @@ public class GUIRecolor extends GUI {
                         new RecolorArmor().recolorArmor(p, Color.BLUE);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Not enough Credits!");
+                        TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! " + ChatColor.WHITE + "[CLICK HERE]");
+                            nocred.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://taznet.tebex.io/"));
+                            p.spigot().sendMessage(nocred);
                     }
                     break;
                 case 9:
@@ -101,7 +122,9 @@ public class GUIRecolor extends GUI {
                         new RecolorArmor().recolorArmor(p, Color.PURPLE);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Not enough Credits!");
+                        TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! " + ChatColor.WHITE + "[CLICK HERE]");
+                            nocred.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://taznet.tebex.io/"));
+                            p.spigot().sendMessage(nocred);
                     }
                     break;
                 case 10:
@@ -110,7 +133,9 @@ public class GUIRecolor extends GUI {
                         new RecolorArmor().recolorArmor(p, Color.FUCHSIA);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Not enough Credits!");
+                        TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! " + ChatColor.WHITE + "[CLICK HERE]");
+                            nocred.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://taznet.tebex.io/"));
+                            p.spigot().sendMessage(nocred);
                     }
                     break;
                 case 11:
@@ -119,7 +144,9 @@ public class GUIRecolor extends GUI {
                         new RecolorArmor().recolorArmor(p, Color.WHITE);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Not enough Credits!");
+                        TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! " + ChatColor.WHITE + "[CLICK HERE]");
+                            nocred.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://taznet.tebex.io/"));
+                            p.spigot().sendMessage(nocred);
                     }
                     break;
                 case 12:
@@ -128,7 +155,9 @@ public class GUIRecolor extends GUI {
                         new RecolorArmor().recolorArmor(p, Color.BLACK);
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                     } else {
-                        p.sendMessage(ChatColor.RED + "Not enough Credits!");
+                        TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! " + ChatColor.WHITE + "[CLICK HERE]");
+                            nocred.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://taznet.tebex.io/"));
+                            p.spigot().sendMessage(nocred);
                     }
                     break;
             }

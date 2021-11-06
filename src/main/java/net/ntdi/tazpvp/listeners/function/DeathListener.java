@@ -38,6 +38,7 @@ public class DeathListener implements Listener {
                     @Override
                     public void run() {
                         p.setVelocity(new Vector(0, 0, 0));
+                        p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
                     }
                 }.runTaskLater(TazPvP.getInstance(), 1);
                 //p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
