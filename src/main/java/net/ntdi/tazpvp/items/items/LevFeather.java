@@ -36,24 +36,24 @@ public class LevFeather extends ConsumableItem implements Listener {
     @EventHandler
     public void onFeatherHit(EntityDamageByEntityEvent event){
         if (event.getEntity() instanceof Player && event.getDamager() instanceof Player){
-            Player victim = (Player) event.getEntity();
-            Player damager = (Player) event.getDamager();
-            if (damager.getInventory().getItemInHand().getType() == Material.FEATHER){
-                if(cooldown.containsKey(damager.getUniqueId())){
-                    long secondsLeft = cooldown.get(damager.getUniqueId())-System.currentTimeMillis();
-                    if(secondsLeft>0) {
-                        damager.sendMessage(ChatColor.RED + "On Cooldown!");
-                    } else {
-                        damager.sendMessage(ChatColor.GREEN + "Poisoned " + victim.getName());
-                        victim.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 40, 1));
-                        cooldown.remove(damager.getUniqueId());
+            if (event.getEntity().getWorld().getName().equals("arena") || event.getEntity().getWorld().getName().equals("grind")) {
+                Player victim = (Player) event.getEntity();
+                Player damager = (Player) event.getDamager();
+                if (damager.getInventory().getItemInHand().getType() == Material.FEATHER){
+                    if(cooldown.containsKey(damager.getUniqueId())){
+                        long secondsLeft = cooldown.get(damager.getUniqueId())-System.currentTimeMillis();
+                        if(secondsLeft>0) {
+                            damager.sendMessage(ChatColor.RED + "On Cooldown!");
+                        } else {
+                            damager.sendMessage(ChatColor.GREEN + "Poisoned " + victim.getName());
+                            victim.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 40, 1));
+                            cooldown.remove(damager.getUniqueId());
+                        }
                     }
+                    cooldown.put(damager.getUniqueId(), System.currentTimeMillis() + (cooldownTime * 1000L));
                 }
-                cooldown.put(damager.getUniqueId(), System.currentTimeMillis() + (cooldownTime * 1000L));
             }
-
         }
     }
-
 }
 
