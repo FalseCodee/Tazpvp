@@ -34,6 +34,7 @@ public class DeathListener implements Listener {
 //        }
                 p.spigot().respawn();
                 p.setVelocity(new Vector(0, 0, 0));
+                p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
 
                 if (BountyCommand.bounties.get(p.getUniqueId()) != null) {
                     TazPvP.statsManager.addMoney(killer, BountyCommand.bounties.get(p.getUniqueId()));
