@@ -10,6 +10,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import org.bukkit.util.Vector;
 
 import java.util.HashMap;
 import java.util.Random;
@@ -32,6 +33,7 @@ public class DeathListener implements Listener {
 //            return;
 //        }
                 p.spigot().respawn();
+                p.setVelocity(new Vector(0, 0, 0));
 
                 if (BountyCommand.bounties.get(p.getUniqueId()) != null) {
                     TazPvP.statsManager.addMoney(killer, BountyCommand.bounties.get(p.getUniqueId()));
