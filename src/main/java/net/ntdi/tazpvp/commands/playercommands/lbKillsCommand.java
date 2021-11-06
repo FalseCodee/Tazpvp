@@ -22,15 +22,14 @@ public class lbKillsCommand implements CommandExecutor {
 
         Player p = (Player) sender;
 
-        p.sendMessage(ChatColor.GREEN + "----------");
-        p.sendMessage(ChatColor.RED + "Highest Kills Leaderboard:");
+        p.sendMessage(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "TOP " + ChatColor.AQUA + "" + ChatColor.BOLD + "KILLS");
+        p.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
         for (OfflinePlayer player : Bukkit.getOfflinePlayers()) {
             unsortMap.put(player, TazPvP.statsManager.getKills(player));
         }
-        p.sendMessage(ChatColor.GREEN + "----------");
-
         Map<OfflinePlayer, Integer> sortedMapDesc = sortByComparator(unsortMap, DESC);
         printMap(sortedMapDesc, p);
+        p.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
         return true;
     }
 

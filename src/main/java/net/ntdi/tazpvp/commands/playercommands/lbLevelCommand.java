@@ -22,15 +22,14 @@ public class lbLevelCommand implements CommandExecutor {
 
         Player p = (Player) sender;
 
-        p.sendMessage(ChatColor.GREEN + "----------");
-        p.sendMessage(ChatColor.RED + "Highest Level Leaderboard:");
+        p.sendMessage(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "TOP " + ChatColor.AQUA + "" + ChatColor.BOLD + "LEVEL");
+        p.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
         for (OfflinePlayer player : Bukkit.getOfflinePlayers()) {
             unsortMap.put(player, TazPvP.statsManager.getLevel(player));
         }
-        p.sendMessage(ChatColor.GREEN + "----------");
-
         Map<OfflinePlayer, Integer> sortedMapDesc = sortByComparator(unsortMap, DESC);
         printMap(sortedMapDesc, p);
+        p.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
         return true;
     }
 
