@@ -34,14 +34,14 @@ public class GUIAchievement extends GUI {
 
             if(TazPvP.achievementsManager.playerCompletedAchievement(ach, player)) {
                 items[i+displacement] = createItem(Material.STORAGE_MINECART, 1, ChatColor.RED + ach.name,
-                        ChatColor.GREEN+"Completed!\n"
-                                + ChatColor.WHITE + ach.description + "\n"
-                                + ChatColor.WHITE + "Reward: " + ach.getStringRewards()[0]);
+                        ChatColor.WHITE + ach.description + "\n"
+                                + ChatColor.GRAY + "Reward: " + ach.getStringRewards()[0]
+                                + ChatColor.RED+"\nCompleted!\n");
             } else {
                 items[i+displacement] = createItem(Material.MINECART, 1, ChatColor.RED + ach.name,
-                        ChatColor.RED+"Incomplete!\n"
-                                + ChatColor.WHITE + ach.description + "\n"
-                                + ChatColor.WHITE + "Reward: " + ach.getStringRewards()[0]);
+                        ChatColor.WHITE + ach.description + "\n"
+                                + ChatColor.GRAY + "Reward: " + ach.getStringRewards()[0]
+                                + ChatColor.RED+"\nIncomplete!\n");
             }
             if((i+1) % 7 == 0) {
                 displacement += 2;

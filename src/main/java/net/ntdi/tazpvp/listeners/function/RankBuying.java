@@ -15,10 +15,9 @@ public class RankBuying implements Listener {
         ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
         String pexcmd = "pex user " + p.getName() + " group add vip";
         Bukkit.dispatchCommand(console, pexcmd);
-        p.sendMessage(ChatColor.GREEN + "Successfully bought [MVP] rank. Thank you!");
-        Bukkit.broadcastMessage("");
-        Bukkit.broadcastMessage(ChatColor.GREEN + "" + ChatColor.BOLD + p.getName() + " has just bought [PRO] rank!");
-        Bukkit.broadcastMessage("");
+        Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+        Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "  " + ChatColor.BOLD + "STORE " + ChatColor.YELLOW + p.getName() + ChatColor.GOLD + " just purchased" + ChatColor.YELLOW + " [VIP] " + ChatColor.GOLD + "in the store!");
+        Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
     }
     public void buyChampion(Player p){
         TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p)-500);
@@ -26,10 +25,9 @@ public class RankBuying implements Listener {
         ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
         String pexcmd = "pex user " + p.getName() + " group add mvp";
         Bukkit.dispatchCommand(console, pexcmd);
-        p.sendMessage(ChatColor.GREEN + "Successfully bought [MVP] rank. Thank you!");
-        Bukkit.broadcastMessage("");
-        Bukkit.broadcastMessage(ChatColor.GREEN + "" + ChatColor.BOLD + p.getName() + " has just bought [MVP] rank!");
-        Bukkit.broadcastMessage("");
+        Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+        Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "  " + ChatColor.BOLD + "STORE " + ChatColor.YELLOW + p.getName() + ChatColor.GOLD + " just purchased" + ChatColor.YELLOW + " [MVP] " + ChatColor.GOLD + "in the store!");
+        Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
     }
     public void buyLegend(Player p){
         TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p)-1000);
@@ -37,10 +35,9 @@ public class RankBuying implements Listener {
         ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
         String pexcmd = "pex user " + p.getName() + " group add mvp+";
         Bukkit.dispatchCommand(console, pexcmd);
-        p.sendMessage(ChatColor.GREEN + "Successfully bought [MVP+] rank. Thank you!");
-        Bukkit.broadcastMessage("");
-        Bukkit.broadcastMessage(ChatColor.GREEN + "" + ChatColor.BOLD + p.getName() + " has just bought [MVP+] rank!");
-        Bukkit.broadcastMessage("");
+        Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+        Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "  " + ChatColor.BOLD + "STORE " + ChatColor.YELLOW + p.getName() + ChatColor.GOLD + " just purchased" + ChatColor.YELLOW + " [MVP+] " + ChatColor.GOLD + "in the store!");
+        Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
     }
 //    public void buyMythical(Player p){
 //        TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p)-1500);

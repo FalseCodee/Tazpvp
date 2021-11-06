@@ -19,10 +19,9 @@ public class RankGifting implements Listener {
             ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
             String pexcmd = "pex user " + gifted.getName() + " group add vip";
             Bukkit.dispatchCommand(console, pexcmd);
-            p.sendMessage(ChatColor.GREEN + "Successfully gifted [vip] rank to " + gifted.getName() + ". Thank you!");
-            Bukkit.broadcastMessage("");
-            Bukkit.broadcastMessage(ChatColor.GREEN + "" + ChatColor.BOLD + p.getName() + " has just bought [vip] for " + gifted.getName());
-            Bukkit.broadcastMessage("");
+            Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+            Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "  " + ChatColor.BOLD + "STORE " + ChatColor.YELLOW + p.getName() + ChatColor.GOLD + " gifted" + ChatColor.YELLOW + " [VIP] " + ChatColor.GOLD + "to " + ChatColor.YELLOW + gifted.getName());
+            Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
         }else{
             p.sendMessage(ChatColor.RED + "ERROR: Player does not exist!");
@@ -35,10 +34,10 @@ public class RankGifting implements Listener {
             ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
             String pexcmd = "pex user " + gifted.getName() + " group add mvp";
             Bukkit.dispatchCommand(console, pexcmd);
-            p.sendMessage(ChatColor.GREEN + "Successfully gifted [mvp] rank to " + gifted.getName() + ". Thank you!");
-            Bukkit.broadcastMessage("");
-            Bukkit.broadcastMessage(ChatColor.GREEN + "" + ChatColor.BOLD + p.getName() + " has just bought [mvp] for " + gifted.getName());
-            Bukkit.broadcastMessage("");
+            Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+            Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "  " + ChatColor.BOLD + "STORE " + ChatColor.YELLOW + p.getName() + ChatColor.GOLD + " gifted" + ChatColor.YELLOW + " [MVP] " + ChatColor.GOLD + "to " + ChatColor.YELLOW + gifted.getName());
+            Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+
 
         }else{
             p.sendMessage(ChatColor.RED + "ERROR: Player does not exist!");
@@ -51,10 +50,9 @@ public class RankGifting implements Listener {
             ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
             String pexcmd = "pex user " + gifted.getName() + " group add mvp+";
             Bukkit.dispatchCommand(console, pexcmd);
-            p.sendMessage(ChatColor.GREEN + "Successfully gifted [mvp+] rank to " + gifted.getName() + ". Thank you!");
-            Bukkit.broadcastMessage("");
-            Bukkit.broadcastMessage(ChatColor.GREEN + "" + ChatColor.BOLD + p.getName() + " has just bought [mvp+] for " + gifted.getName());
-            Bukkit.broadcastMessage("");
+            Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+            Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "  " + ChatColor.BOLD + "STORE " + ChatColor.YELLOW + p.getName() + ChatColor.GOLD + " gifted" + ChatColor.YELLOW + " [MVP+] " + ChatColor.GOLD + "to " + ChatColor.YELLOW + gifted.getName());
+            Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
         }else{
             p.sendMessage(ChatColor.RED + "ERROR: Player does not exist!");
