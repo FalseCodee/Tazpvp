@@ -22,7 +22,7 @@ public class lbMoneyCommand implements CommandExecutor {
 
         Player p = (Player) sender;
 
-        p.sendMessage(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "TOP " + ChatColor.AQUA + "" + ChatColor.BOLD + "LEVEL");
+        p.sendMessage(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "TOP " + ChatColor.AQUA + "" + ChatColor.BOLD + "MONEY");
         p.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
         for (OfflinePlayer player : Bukkit.getOfflinePlayers()) {
             unsortMap.put(player, TazPvP.statsManager.getMoney(player));
