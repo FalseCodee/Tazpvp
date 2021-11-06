@@ -62,14 +62,16 @@ public class DeathListener implements Listener {
 
                 if (TazPvP.statsManager.getRebirths(killer) > 0) {
                     TazPvP.statsManager.addExp(killer, 8);
-                    p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1 );
+                    killer.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1 );
+                    p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1 );
                     killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 8 Experience");
                     killer.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 40, 0, true, false));
                     killer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 40, 0, true, false));
                     killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 120, 1, true, false));
                 } else {
                     TazPvP.statsManager.addExp(killer, 5);
-                    p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1 );
+                    killer.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1 );
+                    p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1 );
                     killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 5 Experience");
                     killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 60, 1, true, false));
 
@@ -81,7 +83,7 @@ public class DeathListener implements Listener {
                                 killer.setHealth(20);
                             }
                             killer.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 20*60, 0));
-                            killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20*3, 0));
+                            killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20*5, 0));
                             //killer.sendMessage(ChatColor.GRAY + "Butter Perk activated!");
                         }
                     }
