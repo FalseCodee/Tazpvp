@@ -18,11 +18,12 @@ public class StatsCommand implements CommandExecutor {
         }
         if(player != null) {
             if(args.length == 0) {
+                double kdr = TazPvP.statsManager.getKills(player) / (double) TazPvP.statsManager.getDeaths(player);
                 player.sendMessage(ChatColor.GREEN + "Your stats are: ");
                 player.sendMessage("");
                 player.sendMessage(ChatColor.GREEN + "Kills: " + TazPvP.statsManager.getKills(player));
                 player.sendMessage(ChatColor.GREEN + "Deaths: " + TazPvP.statsManager.getDeaths(player));
-                player.sendMessage(ChatColor.GREEN + "KDR: " + TazPvP.statsManager.getKills(player) / TazPvP.statsManager.getDeaths(player));
+                player.sendMessage(ChatColor.GREEN + "KDR: " + kdr);
                 player.sendMessage(ChatColor.GREEN + "Smacks: " + TazPvP.statsManager.getSmacks(player));
                 player.sendMessage("");
                 player.sendMessage(ChatColor.GREEN + "Level: " + TazPvP.statsManager.getLevel(player));
@@ -38,11 +39,12 @@ public class StatsCommand implements CommandExecutor {
                 Player target = Bukkit.getPlayer(args[0]);
                 if(target != null) {
                     int seconds = target.getStatistic(Statistic.PLAY_ONE_TICK)/20;
+                    double kdr = TazPvP.statsManager.getKills(target) / (double) TazPvP.statsManager.getDeaths(target);
                     player.sendMessage(ChatColor.GREEN + target.getName() + "'s stats are: ");
                     player.sendMessage("");
                     player.sendMessage(ChatColor.GREEN + "Kills: " + TazPvP.statsManager.getKills(target));
                     player.sendMessage(ChatColor.GREEN + "Deaths: " + TazPvP.statsManager.getDeaths(target));
-                    player.sendMessage(ChatColor.GREEN + "KDR: " + TazPvP.statsManager.getKills(target) / TazPvP.statsManager.getDeaths(target));
+                    player.sendMessage(ChatColor.GREEN + "KDR: " + kdr);
                     player.sendMessage(ChatColor.GREEN + "Smacks: " + TazPvP.statsManager.getSmacks(target));
                     player.sendMessage("");
                     player.sendMessage(ChatColor.GREEN + "Level: " + TazPvP.statsManager.getLevel(target));
