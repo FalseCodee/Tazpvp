@@ -4,6 +4,8 @@ import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.achievements.Achievements;
 import net.ntdi.tazpvp.achievements.Requirement;
 import net.ntdi.tazpvp.achievements.Rewards;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
 public class KillAchievement extends Achievements {
@@ -28,7 +30,8 @@ public class KillAchievement extends Achievements {
     @Override
     public void onAchievement(Player player) {
         TazPvP.achievementsManager.addAchievement(this, player);
-        player.sendMessage("You have completed the " + count + " kills achievement!");
+        Bukkit.broadcastMessage(ChatColor.AQUA + player.getName() + ChatColor.DARK_AQUA + " has completed the " + ChatColor.RED + count + " kills " + ChatColor.DARK_AQUA + "achievement!");
+
         redeemRewards(player);
     }
 }
