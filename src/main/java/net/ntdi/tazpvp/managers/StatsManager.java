@@ -59,7 +59,7 @@ public class StatsManager {
     public void initPlayer(OfflinePlayer player){
         statsFile.set(player.getUniqueId().toString()+".points", 0);
         statsFile.set(player.getUniqueId().toString()+".exp", 0);
-        statsFile.set(player.getUniqueId().toString()+".expLeft", 50);
+        statsFile.set(player.getUniqueId().toString()+".expLeft", 45);
         statsFile.set(player.getUniqueId().toString()+".level", 0);
         statsFile.set(player.getUniqueId().toString()+".money", 0);
         statsFile.set(player.getUniqueId().toString()+".deaths", 0);
