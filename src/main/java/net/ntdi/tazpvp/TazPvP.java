@@ -271,6 +271,9 @@ public final class TazPvP extends JavaPlugin {
         getCommand("spawnzombie").setExecutor(new SpawnZombieCommand());
         getCommand("help2").setExecutor(new Help2Command());
         getCommand("unmute").setExecutor(new UnmuteCommand());
+        getCommand("lbd").setExecutor(new lbDeathsCommand());
+        getCommand("lbk").setExecutor(new lbKillsCommand());
+        getCommand("lbm").setExecutor(new lbMoneyCommand());
     }
 
     public void registerListeners() {

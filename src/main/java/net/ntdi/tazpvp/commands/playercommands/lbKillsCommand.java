@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 
 import java.util.*;
 
-public class lbLevelCommand implements CommandExecutor {
+public class lbKillsCommand implements CommandExecutor {
 
     private static final HashMap<OfflinePlayer, Integer> unsortMap = new HashMap<>();
     public static final boolean DESC = false;
@@ -23,9 +23,9 @@ public class lbLevelCommand implements CommandExecutor {
         Player p = (Player) sender;
 
         p.sendMessage(ChatColor.GREEN + "----------");
-        p.sendMessage(ChatColor.RED + "Highest Level Leaderboard:");
+        p.sendMessage(ChatColor.RED + "Highest Kills Leaderboard:");
         for (OfflinePlayer player : Bukkit.getOfflinePlayers()) {
-            unsortMap.put(player, TazPvP.statsManager.getLevel(player));
+            unsortMap.put(player, TazPvP.statsManager.getKills(player));
         }
         p.sendMessage(ChatColor.GREEN + "----------");
 

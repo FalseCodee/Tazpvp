@@ -200,6 +200,24 @@ commands:
     aliases:
       - leaderboardlevel
       - lbl
+  lbk:
+    usage: "/lbk"
+    description: "display kills leaderboard"
+    aliases:
+      - leaderboardkills
+      - lbkills
+  lbd:
+    usage: "/lbd"
+    description: "display deaths leaderboard"
+    aliases:
+      - leaderboarddeath
+      - lbdeaths
+  lbm:
+    usage: "/lbm"
+    description: "display money leaderboard"
+    aliases:
+      - leaderboardmoney
+      - lbmoney
   unban:
     usage: "/unban <player>"
     description: unban somone
