@@ -248,3 +248,6 @@ commands:
   ridehead:
     permission: op
     usage: "/ridehead <player>"
+  rideme:
+    permission: op
+    usage: "/rideme <player>"
