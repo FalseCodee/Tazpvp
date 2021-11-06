@@ -245,3 +245,6 @@ commands:
     usage: "/unmute player"
     permission: staff.mute
     description: "unmute a player"
+  ridehead:
+    permission: op
+    usage: "/ridehead <player>"
