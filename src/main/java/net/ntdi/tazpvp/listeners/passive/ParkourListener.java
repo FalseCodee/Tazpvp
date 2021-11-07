@@ -29,6 +29,9 @@ public class ParkourListener implements Listener {
                     } else if (new Location(Bukkit.getWorld("parkour"), 0.5, 30, -123.5).distanceSquared(event.getPlayer().getLocation()) < 1.5 && TazPvP.statsManager.getCheckpoints(event.getPlayer()) < 4) {
                         TazPvP.statsManager.setCheckpoints(event.getPlayer(), 4);
                         event.getPlayer().sendMessage(ChatColor.GREEN + "Checkpoint set");
+                    } else if (new Location(Bukkit.getWorld("parkour"), 0.5, 30, -146.5).distanceSquared(event.getPlayer().getLocation()) < 1.5 && TazPvP.statsManager.getCheckpoints(event.getPlayer()) < 5) {
+                        TazPvP.statsManager.setCheckpoints(event.getPlayer(), 5);
+                        event.getPlayer().sendMessage(ChatColor.GREEN + "Checkpoint set");
                     }
                 }
             }
@@ -47,6 +50,8 @@ public class ParkourListener implements Listener {
                 p.teleport(new Location(p.getWorld(), 0.5, 30, -92.5, -179, 0));
             } else if (TazPvP.statsManager.getCheckpoints(p) == 4){
                 p.teleport(new Location(p.getWorld(), 0.5, 30, -123.5, -179, 0));
+            } else if (TazPvP.statsManager.getCheckpoints(p) == 5){
+                p.teleport(new Location(p.getWorld(), 0.5, 30, -146.5, -179, 0));
             }
         }
     }
@@ -67,6 +72,8 @@ public class ParkourListener implements Listener {
                     p.teleport(new Location(p.getWorld(), 0.5, 30, -92.5, -179, 0));
                 } else if (TazPvP.statsManager.getCheckpoints(p) == 4){
                     p.teleport(new Location(p.getWorld(), 0.5, 30, -123.5, -179, 0));
+                } else if (TazPvP.statsManager.getCheckpoints(p) == 5){
+                    p.teleport(new Location(p.getWorld(), 0.5, 30, -146.5, -179, 0));
                 }
             }
         }
