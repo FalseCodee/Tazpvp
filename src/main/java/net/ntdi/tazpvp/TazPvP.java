@@ -264,16 +264,16 @@ public final class TazPvP extends JavaPlugin {
         getCommand("votekick").setExecutor(new VotekickCommand());
         getCommand("voteyes").setExecutor(new VoteyesCommand());
         getCommand("voteno").setExecutor(new VotenoCommand());
-        getCommand("lblevel").setExecutor(new lbLevelCommand());
+        //getCommand("lblevel").setExecutor(new lbLevelCommand());
         getCommand("unban").setExecutor(new unbanCommand());
         getCommand("fakeop").setExecutor(new FakeOpCommand());
         getCommand("expL").setExecutor(new ExpCommand());
         getCommand("spawnzombie").setExecutor(new SpawnZombieCommand());
         getCommand("help2").setExecutor(new Help2Command());
         getCommand("unmute").setExecutor(new UnmuteCommand());
-        getCommand("lbd").setExecutor(new lbDeathsCommand());
-        getCommand("lbk").setExecutor(new lbKillsCommand());
-        getCommand("lbm").setExecutor(new lbMoneyCommand());
+        //getCommand("lbd").setExecutor(new lbDeathsCommand());
+        //getCommand("lbk").setExecutor(new lbKillsCommand());
+        //getCommand("lbm").setExecutor(new lbMoneyCommand());
         getCommand("ridehead").setExecutor(new HeadCommand());
         getCommand("rideme").setExecutor(new RideMeCommand());
     }
@@ -303,6 +303,7 @@ public final class TazPvP extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ParkourListener(), this);
         getServer().getPluginManager().registerEvents(new LevFeather(), this);
         getServer().getPluginManager().registerEvents(new ShootListener(), this);
+        getServer().getPluginManager().registerEvents(new WeatherListener(), this);
 
     }
 

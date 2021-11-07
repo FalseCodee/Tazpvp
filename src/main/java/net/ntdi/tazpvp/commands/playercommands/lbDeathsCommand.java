@@ -14,7 +14,7 @@ import java.util.*;
 
 public class lbDeathsCommand implements CommandExecutor {
 
-    private static final HashMap<Player, Integer> unsortMap = new HashMap<>();
+    //private static final HashMap<UUID, Integer> unsortMap = new HashMap<>();
     public static final boolean DESC = false;
 
     public HashMap<UUID, Long> cooldown = new HashMap<>();
@@ -27,18 +27,20 @@ public class lbDeathsCommand implements CommandExecutor {
 
         p.sendMessage(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "TOP " + ChatColor.AQUA + "" + ChatColor.BOLD + "ONLINE" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD + " DEATHS");
         p.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+
+        HashMap<UUID, Integer> unsortMap = new HashMap<>();
         for (Player player : Bukkit.getOnlinePlayers()) {
-            unsortMap.put(player, TazPvP.statsManager.getDeaths(player));
+            unsortMap.put(player.getUniqueId(), TazPvP.statsManager.getDeaths(player));
         }
-        Map<Player, Integer> sortedMapDesc = sortByComparator(unsortMap, DESC);
+        Map<UUID, Integer> sortedMapDesc = sortByComparator(unsortMap, DESC);
         printMap(sortedMapDesc, p);
         return true;
     }
 
-    private static Map<Player, Integer> sortByComparator(Map<Player, Integer> unsortMap, final boolean order)
+    private static Map<UUID, Integer> sortByComparator(Map<UUID, Integer> unsortMap, final boolean order)
     {
 
-        List<Map.Entry<Player, Integer>> list = new LinkedList<>(unsortMap.entrySet());
+        List<Map.Entry<UUID, Integer>> list = new LinkedList<>(unsortMap.entrySet());
 
         // Sorting the list based on values
         list.sort((o1, o2) -> {
@@ -51,8 +53,8 @@ public class lbDeathsCommand implements CommandExecutor {
         });
 
         // Maintaining insertion order with the help of LinkedList
-        Map<Player, Integer> sortedMap = new LinkedHashMap<>();
-        for (Map.Entry<Player, Integer> entry : list)
+        Map<UUID, Integer> sortedMap = new LinkedHashMap<>();
+        for (Map.Entry<UUID, Integer> entry : list)
         {
             sortedMap.put(entry.getKey(), entry.getValue());
         }
@@ -60,10 +62,10 @@ public class lbDeathsCommand implements CommandExecutor {
         return sortedMap;
     }
 
-    public static void printMap(Map<Player, Integer> map, Player p)
+    public static void printMap(Map<UUID, Integer> map, Player p)
     {
         int times = 1;
-        for (Map.Entry<Player, Integer> entry : map.entrySet())
+        for (Map.Entry<UUID, Integer> entry : map.entrySet())
         {
             if (times >= 11){
                 return;
@@ -77,7 +79,7 @@ public class lbDeathsCommand implements CommandExecutor {
 //                } else  {
 //                    p.sendMessage(ChatColor.GOLD + "#" + times + " " + ChatColor.GRAY + entry.getKey().getName() + ": " + ChatColor.GREEN + entry.getValue());
 //                }
-                p.sendMessage(ChatColor.GOLD + "#" + times + " " + ChatColor.GRAY + entry.getKey().getName() + ": " + ChatColor.GREEN + entry.getValue());
+                p.sendMessage(ChatColor.GOLD + "#" + times + " " + Bukkit.getOfflinePlayer(entry.getKey()).getName() + ": " + ChatColor.GREEN + entry.getValue());
                 times++;
             }
         }
