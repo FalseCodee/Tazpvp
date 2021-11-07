@@ -14,7 +14,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class GUIMainScreen extends GUI {
     public GUIMainScreen(Player player) {
-        super(player, 27, ChatColor.BLUE + "" + ChatColor.BOLD + "Upgrade Menu");
+        super(player, 45, ChatColor.BLUE + "" + ChatColor.BOLD + "Upgrade Menu");
         init();
         player.openInventory(inventory);
     }
@@ -33,18 +33,18 @@ public class GUIMainScreen extends GUI {
         }
 
         //initialize the buttons
-        setButtons(11, sword,
+        setButtons(20, sword,
         event -> switchScreen(new GUIUpgradeMenu(player, UpgradeTypes.SWORD)));
 
-        setButtons(12,pickaxe, event -> switchScreen(new GUIUpgradeMenu(player, UpgradeTypes.PICKAXE)));
+        setButtons(21,pickaxe, event -> switchScreen(new GUIUpgradeMenu(player, UpgradeTypes.PICKAXE)));
 
-        setButtons(13,rod, event -> switchScreen(new GUIUpgradeMenu(player, UpgradeTypes.ROD)));
+        setButtons(22,rod, event -> switchScreen(new GUIUpgradeMenu(player, UpgradeTypes.ROD)));
 
-        setButtons(14,bow, event -> switchScreen(new GUIUpgradeMenu(player, UpgradeTypes.BOW)));
+        setButtons(23,bow, event -> switchScreen(new GUIUpgradeMenu(player, UpgradeTypes.BOW)));
 
-        setButtons(15,armor, event -> switchScreen(new GUIUpgradeMenu(player, UpgradeTypes.ARMOR)));
+        setButtons(24,armor, event -> switchScreen(new GUIUpgradeMenu(player, UpgradeTypes.ARMOR)));
 
-        setButtons(22,eye, event -> {
+        setButtons(31,eye, event -> {
             if(TazPvP.statsManager.getLevel(player) >= 150){
                 player.sendMessage("Congratulations you have rebirthed!");
                 TazPvP.statsManager.addRebirths(player, 1);
@@ -60,7 +60,7 @@ public class GUIMainScreen extends GUI {
             }
         });
 
-        setButtons(4,emerald, event -> switchScreen(new GUIPerk(player)));
+        setButtons(13,emerald, event -> switchScreen(new GUIPerk(player)));
 
         update();
     }
