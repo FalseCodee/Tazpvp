@@ -35,7 +35,7 @@ public class BeefAchievement extends Achievements {
     public void onAchievement(Player player) {
         TazPvP.achievementsManager.addAchievement(this, player);
         //player.sendMessage(ChatColor.AQUA + "You " + ChatColor.DARK_AQUA + "have completed the" + ChatColor.RED +" Starting Beef " + ChatColor.DARK_AQUA + " achievement!");
-        Bukkit.broadcastMessage(ChatColor.AQUA + player.getName() + ChatColor.DARK_AQUA + " has completed the " + ChatColor.RED + "Starting Beef " + ChatColor.DARK_AQUA + "achievement!");
+        player.sendMessage(ChatColor.AQUA + player.getName() + ChatColor.DARK_AQUA + " has completed the " + ChatColor.RED + "Starting Beef " + ChatColor.DARK_AQUA + "achievement!");
         redeemRewards(player);
     }
 }

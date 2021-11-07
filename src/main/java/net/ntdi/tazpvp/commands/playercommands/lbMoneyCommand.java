@@ -14,7 +14,7 @@ import java.util.*;
 
 public class lbMoneyCommand implements CommandExecutor {
 
-    private static final HashMap<OfflinePlayer, Integer> unsortMap = new HashMap<>();
+    private static final HashMap<Player, Integer> unsortMap = new HashMap<>();
     public static final boolean DESC = false;
 
     lbDeathsCommand lbDeaths = new lbDeathsCommand();
@@ -26,29 +26,20 @@ public class lbMoneyCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         Player p = (Player) sender;
-        if(cooldown.containsKey(p.getUniqueId())){
-            long secondsLeft = cooldown.get(p.getUniqueId())-System.currentTimeMillis();
-            if(secondsLeft>0) {
-                p.sendMessage(ChatColor.RED + "You must wait " + secondsLeft/1000 + " seconds before using this command again.");
-            } else {
-                p.sendMessage(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "TOP " + ChatColor.AQUA + "" + ChatColor.BOLD + "MONEY");
-                p.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-                for (OfflinePlayer player : Bukkit.getOfflinePlayers()) {
-                    unsortMap.put(player, TazPvP.statsManager.getMoney(player));
-                }
-                Map<OfflinePlayer, Integer> sortedMapDesc = sortByComparator(unsortMap, DESC);
-                printMap(sortedMapDesc, p);
-                cooldown.remove(p.getUniqueId());
-            }
+        p.sendMessage(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "TOP " + ChatColor.AQUA + "" + ChatColor.BOLD + "ONLINE" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD + " MONEY");
+        p.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            unsortMap.put(player, TazPvP.statsManager.getMoney(player));
         }
-        cooldown.put(p.getUniqueId(), System.currentTimeMillis() + (cooldownTime * 1000L));
+        Map<Player, Integer> sortedMapDesc = sortByComparator(unsortMap, DESC);
+        printMap(sortedMapDesc, p);
         return true;
     }
 
-    private static Map<OfflinePlayer, Integer> sortByComparator(Map<OfflinePlayer, Integer> unsortMap, final boolean order)
+    private static Map<Player, Integer> sortByComparator(Map<Player, Integer> unsortMap, final boolean order)
     {
 
-        List<Map.Entry<OfflinePlayer, Integer>> list = new LinkedList<>(unsortMap.entrySet());
+        List<Map.Entry<Player, Integer>> list = new LinkedList<>(unsortMap.entrySet());
 
         // Sorting the list based on values
         list.sort((o1, o2) -> {
@@ -61,8 +52,8 @@ public class lbMoneyCommand implements CommandExecutor {
         });
 
         // Maintaining insertion order with the help of LinkedList
-        Map<OfflinePlayer, Integer> sortedMap = new LinkedHashMap<>();
-        for (Map.Entry<OfflinePlayer, Integer> entry : list)
+        Map<Player, Integer> sortedMap = new LinkedHashMap<>();
+        for (Map.Entry<Player, Integer> entry : list)
         {
             sortedMap.put(entry.getKey(), entry.getValue());
         }
@@ -70,10 +61,10 @@ public class lbMoneyCommand implements CommandExecutor {
         return sortedMap;
     }
 
-    public static void printMap(Map<OfflinePlayer, Integer> map, Player p)
+    public static void printMap(Map<Player, Integer> map, Player p)
     {
         int times = 1;
-        for (Map.Entry<OfflinePlayer, Integer> entry : map.entrySet())
+        for (Map.Entry<Player, Integer> entry : map.entrySet())
         {
             if (times >= 11){
                 return;

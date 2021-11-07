@@ -29,7 +29,7 @@ public class TakeOverAchievement extends Achievements {
     @Override
     public void onAchievement(Player player) {
         TazPvP.achievementsManager.addAchievement(this, player);
-        Bukkit.broadcastMessage(ChatColor.AQUA + player.getName() + ChatColor.DARK_AQUA + " has completed the " + ChatColor.RED + "Takeover" + ChatColor.DARK_AQUA + " achievement!");
+        player.sendMessage(ChatColor.AQUA + player.getName() + ChatColor.DARK_AQUA + " has completed the " + ChatColor.RED + "Takeover" + ChatColor.DARK_AQUA + " achievement!");
 
         redeemRewards(player);
     }
