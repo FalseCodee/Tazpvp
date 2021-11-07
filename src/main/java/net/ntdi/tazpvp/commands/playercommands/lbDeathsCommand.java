@@ -18,7 +18,7 @@ public class lbDeathsCommand implements CommandExecutor {
     public static final boolean DESC = false;
 
     public HashMap<UUID, Long> cooldown = new HashMap<>();
-    public int cooldownTime = 5;
+    public int cooldownTime = 10;
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -30,7 +30,6 @@ public class lbDeathsCommand implements CommandExecutor {
             if(secondsLeft>0) {
                 p.sendMessage(ChatColor.RED + "You must wait " + secondsLeft/1000 + " seconds before using this command again.");
             } else {
-                cooldown.remove(p.getUniqueId());
                 p.sendMessage(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "TOP " + ChatColor.AQUA + "" + ChatColor.BOLD + "DEATHS");
                 p.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
                 for (OfflinePlayer player : Bukkit.getOfflinePlayers()) {
@@ -38,6 +37,7 @@ public class lbDeathsCommand implements CommandExecutor {
                 }
                 Map<OfflinePlayer, Integer> sortedMapDesc = sortByComparator(unsortMap, DESC);
                 printMap(sortedMapDesc, p);
+                cooldown.remove(p.getUniqueId());
             }
         }
         cooldown.put(p.getUniqueId(), System.currentTimeMillis() + (cooldownTime * 1000L));

@@ -19,17 +19,18 @@ public class lbLevelCommand implements CommandExecutor {
 
     lbDeathsCommand lbDeaths = new lbDeathsCommand();
 
+    public HashMap<UUID, Long> cooldown = new HashMap<>();
+    public int cooldownTime = 10;
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         Player p = (Player) sender;
-
-        if(lbDeaths.cooldown.containsKey(p.getUniqueId())){
-            long secondsLeft = lbDeaths.cooldown.get(p.getUniqueId())-System.currentTimeMillis();
+        if(cooldown.containsKey(p.getUniqueId())){
+            long secondsLeft = cooldown.get(p.getUniqueId())-System.currentTimeMillis();
             if(secondsLeft>0) {
                 p.sendMessage(ChatColor.RED + "You must wait " + secondsLeft/1000 + " seconds before using this command again.");
             } else {
-                lbDeaths.cooldown.remove(p.getUniqueId());
                 p.sendMessage(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "TOP " + ChatColor.AQUA + "" + ChatColor.BOLD + "LEVEL");
                 p.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
                 for (OfflinePlayer player : Bukkit.getOfflinePlayers()) {
@@ -37,9 +38,11 @@ public class lbLevelCommand implements CommandExecutor {
                 }
                 Map<OfflinePlayer, Integer> sortedMapDesc = sortByComparator(unsortMap, DESC);
                 printMap(sortedMapDesc, p);
+                cooldown.remove(p.getUniqueId());
             }
         }
-        lbDeaths.cooldown.put(p.getUniqueId(), System.currentTimeMillis() + (lbDeaths.cooldownTime * 1000L));
+        cooldown.put(p.getUniqueId(), System.currentTimeMillis() + (cooldownTime * 1000L));
+
         return true;
     }
 
