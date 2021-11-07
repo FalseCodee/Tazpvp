@@ -17,11 +17,14 @@ public class ParkourListener implements Listener {
             if (event.getAction().equals(Action.PHYSICAL)){
                 if (event.getClickedBlock().getType() == Material.STONE_PLATE){
                     System.out.println(event.getClickedBlock().getLocation() + " " + event.getClickedBlock().getType());
-                    if (new Location(Bukkit.getWorld("parkour"), -3, 38, -62).distanceSquared(event.getPlayer().getLocation()) < 1.5 && TazPvP.statsManager.getCheckpoints(event.getPlayer()) < 1){
+                    if (new Location(Bukkit.getWorld("parkour"), 0.5, 30, -39.5).distanceSquared(event.getPlayer().getLocation()) < 1.5 && TazPvP.statsManager.getCheckpoints(event.getPlayer()) < 1){
                         TazPvP.statsManager.setCheckpoints(event.getPlayer(), 1);
                         event.getPlayer().sendMessage(ChatColor.GREEN + "Checkpoint set");
-                    } else if (new Location(Bukkit.getWorld("parkour"), 1, 1, 1).distanceSquared(event.getPlayer().getLocation()) < 1.5 && TazPvP.statsManager.getCheckpoints(event.getPlayer()) < 2){
+                    } else if (new Location(Bukkit.getWorld("parkour"), 0.5, 30, -66.5).distanceSquared(event.getPlayer().getLocation()) < 1.5 && TazPvP.statsManager.getCheckpoints(event.getPlayer()) < 2){
                         TazPvP.statsManager.setCheckpoints(event.getPlayer(), 2);
+                        event.getPlayer().sendMessage(ChatColor.GREEN + "Checkpoint set");
+                    } else if (new Location(Bukkit.getWorld("parkour"), 0.5, 30, -92.5).distanceSquared(event.getPlayer().getLocation()) < 1.5 && TazPvP.statsManager.getCheckpoints(event.getPlayer()) < 3) {
+                        TazPvP.statsManager.setCheckpoints(event.getPlayer(), 3);
                         event.getPlayer().sendMessage(ChatColor.GREEN + "Checkpoint set");
                     }
                 }
@@ -34,7 +37,11 @@ public class ParkourListener implements Listener {
         if (event.getPlayer().getWorld().getName().equals("parkour")){
             Player p = event.getPlayer();
             if (TazPvP.statsManager.getCheckpoints(p) == 1){
-                p.teleport(new Location(p.getWorld(), -2.5, 38, -61.5, -179, 0));
+                p.teleport(new Location(p.getWorld(), 0.5, 30, -39.5, -179, 0));
+            } else if (TazPvP.statsManager.getCheckpoints(p) == 2){
+                p.teleport(new Location(p.getWorld(), 0.5, 38, -66.5, -179, 0));
+            } else if (TazPvP.statsManager.getCheckpoints(p) == 3){
+                p.teleport(new Location(p.getWorld(), 0.5, 38, -92.5, -179, 0));
             }
         }
     }
@@ -48,7 +55,11 @@ public class ParkourListener implements Listener {
                     p.teleport(new Location(p.getWorld(), 0.5, 30, 1, -179, 0));
                 }
                 else if (TazPvP.statsManager.getCheckpoints(p) == 1){
-                    p.teleport(new Location(p.getWorld(), -2.5, 38, -61.5, -179, 0));
+                    p.teleport(new Location(p.getWorld(), 0.5, 30, -39.5, -179, 0));
+                } else if (TazPvP.statsManager.getCheckpoints(p) == 2){
+                    p.teleport(new Location(p.getWorld(), 0.5, 38, -66.5, -179, 0));
+                } else if (TazPvP.statsManager.getCheckpoints(p) == 3){
+                    p.teleport(new Location(p.getWorld(), 0.5, 38, -92.5, -179, 0));
                 }
             }
         }
