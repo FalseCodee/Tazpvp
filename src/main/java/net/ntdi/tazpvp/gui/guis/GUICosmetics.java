@@ -13,7 +13,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class GUICosmetics extends GUI {
     public GUICosmetics(Player player) {
-        super(player, 27, "COSMETICS");
+        super(player, 27, ChatColor.BLUE + "Credits: " + TazPvP.statsManager.getCredits(player));
         setItems();
         player.openInventory(inventory);
     }
