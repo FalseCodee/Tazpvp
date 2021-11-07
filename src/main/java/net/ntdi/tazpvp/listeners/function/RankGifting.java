@@ -21,7 +21,7 @@ public class RankGifting implements Listener {
             String pexcmd = "pex user " + gifted.getName() + " group add vip";
             Bukkit.dispatchCommand(console, pexcmd);
             Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            Bukkit.broadcastMessage(ChatColor.YELLOW + p.getName() + ChatColor.GOLD + " gifted" + ChatColor.YELLOW + " [VIP] " + ChatColor.GOLD + "to " + ChatColor.YELLOW + gifted.getName());
+            Bukkit.broadcastMessage(ChatColor.YELLOW + p.getName() + ChatColor.GOLD + " has gifted" + ChatColor.YELLOW + " [VIP] " + ChatColor.GOLD + "to " + ChatColor.YELLOW + gifted.getName());
             Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             for (Player pl : Bukkit.getOnlinePlayers()) {
                 pl.playSound(pl.getLocation(), Sound.WITHER_DEATH, 1, 1);
@@ -38,7 +38,7 @@ public class RankGifting implements Listener {
             String pexcmd = "pex user " + gifted.getName() + " group add mvp";
             Bukkit.dispatchCommand(console, pexcmd);
             Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            Bukkit.broadcastMessage(ChatColor.YELLOW + p.getName() + ChatColor.GOLD + " gifted" + ChatColor.YELLOW + " [MVP] " + ChatColor.GOLD + "to " + ChatColor.YELLOW + gifted.getName());
+            Bukkit.broadcastMessage(ChatColor.YELLOW + p.getName() + ChatColor.GOLD + " has gifted" + ChatColor.YELLOW + " [MVP] " + ChatColor.GOLD + "to " + ChatColor.YELLOW + gifted.getName());
             Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             for (Player pl : Bukkit.getOnlinePlayers()) {
                 pl.playSound(pl.getLocation(), Sound.WITHER_DEATH, 1, 1);

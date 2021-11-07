@@ -46,9 +46,9 @@ public class GUIRankStore extends GUI {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), ChatColor.BLACK + "");
         }
 
-        addShopItem(11, new ItemStack(Material.STAINED_GLASS, 1, DyeColor.RED.getData()), 1, 1, ChatColor.DARK_AQUA + "VIP RANK", ChatColor.GRAY + "Get the VIP rank!\n" + ChatColor.AQUA + "250 Credits");
-        addShopItem(13, new ItemStack(Material.DIAMOND_BLOCK, 1), 2, ChatColor.DARK_AQUA + "MVP RANK", ChatColor.GRAY + "Get the MVP rank!\n" + ChatColor.AQUA + "500 Credits");
-        addShopItem(15, new ItemStack(Material.LAPIS_BLOCK, 1), 3, ChatColor.DARK_AQUA + "MVP+ RANK", ChatColor.GRAY + "Get the MVP+ rank!\n" + ChatColor.AQUA + "1000 Credits");
+        addShopItem(11, new ItemStack(Material.STAINED_GLASS, 1, DyeColor.RED.getData()), 1, ChatColor.DARK_AQUA + "VIP RANK", ChatColor.GRAY + "Get the VIP rank!\n" + ChatColor.AQUA + "250 Credits");
+        addShopItem(13, new ItemStack(Material.DIAMOND_BLOCK, 1, DyeColor.RED.getData()),2, ChatColor.DARK_AQUA + "MVP RANK", ChatColor.GRAY + "Get the MVP rank!\n" + ChatColor.AQUA + "500 Credits");
+        addShopItem(15, new ItemStack(Material.LAPIS_BLOCK, 1, DyeColor.RED.getData()),3, ChatColor.DARK_AQUA + "MVP+ RANK", ChatColor.GRAY + "Get the MVP+ rank!\n" + ChatColor.AQUA + "1000 Credits");
         update();
     }
 
