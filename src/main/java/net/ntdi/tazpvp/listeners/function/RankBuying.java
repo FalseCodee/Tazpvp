@@ -3,6 +3,7 @@ package net.ntdi.tazpvp.listeners.function;
 import net.ntdi.tazpvp.TazPvP;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Sound;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
@@ -16,8 +17,11 @@ public class RankBuying implements Listener {
         String pexcmd = "pex user " + p.getName() + " group add vip";
         Bukkit.dispatchCommand(console, pexcmd);
         Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-        Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "  " + ChatColor.BOLD + "STORE " + ChatColor.YELLOW + p.getName() + ChatColor.GOLD + " just purchased" + ChatColor.YELLOW + " [VIP] " + ChatColor.GOLD + "in the store!");
+        Bukkit.broadcastMessage(ChatColor.YELLOW + p.getName() + ChatColor.GOLD + " just purchased" + ChatColor.YELLOW + " [VIP] " + ChatColor.GOLD + "in the store!");
         Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+        for (Player pl : Bukkit.getOnlinePlayers()) {
+            pl.playSound(pl.getLocation(), Sound.WITHER_DEATH, 1, 1);
+        }
     }
     public void buyChampion(Player p){
         TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p)-500);
@@ -26,8 +30,11 @@ public class RankBuying implements Listener {
         String pexcmd = "pex user " + p.getName() + " group add mvp";
         Bukkit.dispatchCommand(console, pexcmd);
         Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-        Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "  " + ChatColor.BOLD + "STORE " + ChatColor.YELLOW + p.getName() + ChatColor.GOLD + " just purchased" + ChatColor.YELLOW + " [MVP] " + ChatColor.GOLD + "in the store!");
+        Bukkit.broadcastMessage(ChatColor.YELLOW + p.getName() + ChatColor.GOLD + " just purchased" + ChatColor.YELLOW + " [MVP] " + ChatColor.GOLD + "in the store!");
         Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+        for (Player pl : Bukkit.getOnlinePlayers()) {
+            pl.playSound(pl.getLocation(), Sound.WITHER_DEATH, 1, 1);
+        }
     }
     public void buyLegend(Player p){
         TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p)-1000);
@@ -36,8 +43,11 @@ public class RankBuying implements Listener {
         String pexcmd = "pex user " + p.getName() + " group add mvp+";
         Bukkit.dispatchCommand(console, pexcmd);
         Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-        Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "  " + ChatColor.BOLD + "STORE " + ChatColor.YELLOW + p.getName() + ChatColor.GOLD + " just purchased" + ChatColor.YELLOW + " [MVP+] " + ChatColor.GOLD + "in the store!");
+        Bukkit.broadcastMessage(ChatColor.YELLOW + p.getName() + ChatColor.GOLD + " just purchased" + ChatColor.YELLOW + " [MVP+] " + ChatColor.GOLD + "in the store!");
         Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+        for (Player pl : Bukkit.getOnlinePlayers()) {
+            pl.playSound(pl.getLocation(), Sound.WITHER_DEATH, 1, 1);
+        }
     }
 //    public void buyMythical(Player p){
 //        TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p)-1500);

@@ -4,6 +4,7 @@ import net.ntdi.tazpvp.TazPvP;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.Sound;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -20,9 +21,11 @@ public class RankGifting implements Listener {
             String pexcmd = "pex user " + gifted.getName() + " group add vip";
             Bukkit.dispatchCommand(console, pexcmd);
             Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "  " + ChatColor.BOLD + "STORE " + ChatColor.YELLOW + p.getName() + ChatColor.GOLD + " gifted" + ChatColor.YELLOW + " [VIP] " + ChatColor.GOLD + "to " + ChatColor.YELLOW + gifted.getName());
+            Bukkit.broadcastMessage(ChatColor.YELLOW + p.getName() + ChatColor.GOLD + " gifted" + ChatColor.YELLOW + " [VIP] " + ChatColor.GOLD + "to " + ChatColor.YELLOW + gifted.getName());
             Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-
+            for (Player pl : Bukkit.getOnlinePlayers()) {
+                pl.playSound(pl.getLocation(), Sound.WITHER_DEATH, 1, 1);
+            }
         }else{
             p.sendMessage(ChatColor.RED + "ERROR: Player does not exist!");
         }
@@ -35,8 +38,11 @@ public class RankGifting implements Listener {
             String pexcmd = "pex user " + gifted.getName() + " group add mvp";
             Bukkit.dispatchCommand(console, pexcmd);
             Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "  " + ChatColor.BOLD + "STORE " + ChatColor.YELLOW + p.getName() + ChatColor.GOLD + " gifted" + ChatColor.YELLOW + " [MVP] " + ChatColor.GOLD + "to " + ChatColor.YELLOW + gifted.getName());
+            Bukkit.broadcastMessage(ChatColor.YELLOW + p.getName() + ChatColor.GOLD + " gifted" + ChatColor.YELLOW + " [MVP] " + ChatColor.GOLD + "to " + ChatColor.YELLOW + gifted.getName());
             Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+            for (Player pl : Bukkit.getOnlinePlayers()) {
+                pl.playSound(pl.getLocation(), Sound.WITHER_DEATH, 1, 1);
+            }
 
 
         }else{
@@ -51,8 +57,11 @@ public class RankGifting implements Listener {
             String pexcmd = "pex user " + gifted.getName() + " group add mvp+";
             Bukkit.dispatchCommand(console, pexcmd);
             Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "  " + ChatColor.BOLD + "STORE " + ChatColor.YELLOW + p.getName() + ChatColor.GOLD + " gifted" + ChatColor.YELLOW + " [MVP+] " + ChatColor.GOLD + "to " + ChatColor.YELLOW + gifted.getName());
+            Bukkit.broadcastMessage(ChatColor.YELLOW + p.getName() + ChatColor.GOLD + " gifted" + ChatColor.YELLOW + " [MVP+] " + ChatColor.GOLD + "to " + ChatColor.YELLOW + gifted.getName());
             Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+            for (Player pl : Bukkit.getOnlinePlayers()) {
+                pl.playSound(pl.getLocation(), Sound.WITHER_DEATH, 1, 1);
+            }
 
         }else{
             p.sendMessage(ChatColor.RED + "ERROR: Player does not exist!");
