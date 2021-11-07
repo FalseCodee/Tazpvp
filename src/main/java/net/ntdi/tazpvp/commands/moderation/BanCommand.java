@@ -40,6 +40,8 @@ public class BanCommand implements CommandExecutor {
             if(player != null && player.hasPermission("staff.ban") && !banned.hasPermission("staff.banbypass")){
                 if(args.length < 2){
                     return false;
+                } else if(args.length == 0){
+                    return false;
                 } else {
                     String reason = StringUtils.buildString(args, 1);
                     if(TazPvP.punishmentManager.isBanned(banned)){
