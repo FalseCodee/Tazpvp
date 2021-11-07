@@ -5,7 +5,7 @@ public enum UpgradeTypes {
     PICKAXE("PICKAXE",20, EnchantInfo.EFFICIENCY, EnchantInfo.FORTUNE, EnchantInfo.SILK_TOUCH),
     ROD("FISHING ROD",-1, EnchantInfo.LURE, EnchantInfo.LOTS, EnchantInfo.LOOTING),
     BOW("BOW",-1, EnchantInfo.POWER, EnchantInfo.PUNCH, EnchantInfo.INFINITY),
-    ARMOR("ARMOR", 30, EnchantInfo.PROTECTION, EnchantInfo.FEATHER_FALLING);
+    ARMOR("ARMOR", 25, EnchantInfo.PROTECTION, EnchantInfo.FEATHER_FALLING);
 
     final EnchantInfo[] enchantments;
     final String name;
