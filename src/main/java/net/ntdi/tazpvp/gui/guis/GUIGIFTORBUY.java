@@ -62,9 +62,9 @@ public class GUIGIFTORBUY extends GUI {
                         if (TazPvP.statsManager.getCredits(p) >= 250) {
                             if (!TazPvP.ProGiftRank.contains(p) && !TazPvP.ChampionGiftRank.contains(p) && !TazPvP.LegendGiftRank.contains(p) && !TazPvP.MythicalGiftRank.contains(p)){
                                 TazPvP.ProGiftRank.add(p);
-                                p.sendMessage("type in chat who you want to gift rank to:");
+                                p.sendMessage(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "GIFT" + ChatColor.DARK_PURPLE + "Please type who you want to gift below.");
                             } else {
-                                p.sendMessage("type in chat who you want to gift the rank to:");
+                                p.sendMessage(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "GIFT" + ChatColor.DARK_PURPLE + "Please type who you want to gift below.");
                             }
 
                         } else {

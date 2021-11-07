@@ -27,7 +27,7 @@ public class unbanCommand implements CommandExecutor {
                     TazPvP.punishmentManager.removeBan(banned);
                     player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "UNBAN " + ChatColor.RED + "You just unbanned " + ChatColor.WHITE + banned.getName());
                     banned.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-                    banned.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "UNBANNED" + ChatColor.GRAY + " You've been unbanned by " + ChatColor.WHITE + player.getName());
+                    banned.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "UNBAN" + ChatColor.GRAY + " You've been unbanned by " + ChatColor.WHITE + player.getName());
                     banned.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
                     ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
                     String pexcmd = "pex user " + banned.getName() + " group remove banned";
@@ -46,7 +46,7 @@ public class unbanCommand implements CommandExecutor {
                     }.runTaskLater(TazPvP.getInstance(), 20L);
 
                 } else {
-                    player.sendMessage(ChatColor.GREEN + "You cant unban someone thats not banned!");
+                    player.sendMessage(ChatColor.GREEN + "You can't unban someone that's not banned!");
                 }
             }
         }
