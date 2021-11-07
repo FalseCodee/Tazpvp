@@ -42,11 +42,11 @@ public class ParkourListener implements Listener {
             if (TazPvP.statsManager.getCheckpoints(p) == 1){
                 p.teleport(new Location(p.getWorld(), 0.5, 30, -39.5, -179, 0));
             } else if (TazPvP.statsManager.getCheckpoints(p) == 2){
-                p.teleport(new Location(p.getWorld(), 0.5, 38, -66.5, -179, 0));
+                p.teleport(new Location(p.getWorld(), 0.5, 30, -66.5, -179, 0));
             } else if (TazPvP.statsManager.getCheckpoints(p) == 3){
-                p.teleport(new Location(p.getWorld(), 0.5, 38, -92.5, -179, 0));
-            } else if (TazPvP.statsManager.getCheckpoints(p) == 3){
-                p.teleport(new Location(p.getWorld(), 0.5, 38, -123.5, -179, 0));
+                p.teleport(new Location(p.getWorld(), 0.5, 30, -92.5, -179, 0));
+            } else if (TazPvP.statsManager.getCheckpoints(p) == 4){
+                p.teleport(new Location(p.getWorld(), 0.5, 30, -123.5, -179, 0));
             }
         }
     }
@@ -62,11 +62,11 @@ public class ParkourListener implements Listener {
                 else if (TazPvP.statsManager.getCheckpoints(p) == 1){
                     p.teleport(new Location(p.getWorld(), 0.5, 30, -39.5, -179, 0));
                 } else if (TazPvP.statsManager.getCheckpoints(p) == 2){
-                    p.teleport(new Location(p.getWorld(), 0.5, 38, -66.5, -179, 0));
+                    p.teleport(new Location(p.getWorld(), 0.5, 30, -66.5, -179, 0));
                 } else if (TazPvP.statsManager.getCheckpoints(p) == 3){
-                    p.teleport(new Location(p.getWorld(), 0.5, 38, -92.5, -179, 0));
-                } else if (TazPvP.statsManager.getCheckpoints(p) == 3){
-                    p.teleport(new Location(p.getWorld(), 0.5, 38, -123.5, -179, 0));
+                    p.teleport(new Location(p.getWorld(), 0.5, 30, -92.5, -179, 0));
+                } else if (TazPvP.statsManager.getCheckpoints(p) == 4){
+                    p.teleport(new Location(p.getWorld(), 0.5, 30, -123.5, -179, 0));
                 }
             }
         }
