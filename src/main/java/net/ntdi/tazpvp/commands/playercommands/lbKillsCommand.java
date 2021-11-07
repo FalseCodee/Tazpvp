@@ -8,6 +8,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import net.ntdi.tazpvp.commands.playercommands.lbDeathsCommand;
 
 import java.util.*;
 
@@ -16,19 +17,30 @@ public class lbKillsCommand implements CommandExecutor {
     private static final HashMap<OfflinePlayer, Integer> unsortMap = new HashMap<>();
     public static final boolean DESC = false;
 
+    lbDeathsCommand lbDeaths = new lbDeathsCommand();
+
+
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         Player p = (Player) sender;
-
-        p.sendMessage(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "TOP " + ChatColor.AQUA + "" + ChatColor.BOLD + "KILLS");
-        p.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-        for (OfflinePlayer player : Bukkit.getOfflinePlayers()) {
-            unsortMap.put(player, TazPvP.statsManager.getKills(player));
+        if(lbDeaths.cooldown.containsKey(p.getUniqueId())){
+            long secondsLeft = lbDeaths.cooldown.get(p.getUniqueId())-System.currentTimeMillis();
+            if(secondsLeft>0) {
+                p.sendMessage(ChatColor.RED + "You must wait " + secondsLeft/1000 + " seconds before using this command again.");
+            } else {
+                lbDeaths.cooldown.remove(p.getUniqueId());
+                p.sendMessage(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "TOP " + ChatColor.AQUA + "" + ChatColor.BOLD + "KILLS");
+                p.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+                for (OfflinePlayer player : Bukkit.getOfflinePlayers()) {
+                    unsortMap.put(player, TazPvP.statsManager.getKills(player));
+                }
+                Map<OfflinePlayer, Integer> sortedMapDesc = sortByComparator(unsortMap, DESC);
+                printMap(sortedMapDesc, p);
+            }
         }
-        Map<OfflinePlayer, Integer> sortedMapDesc = sortByComparator(unsortMap, DESC);
-        printMap(sortedMapDesc, p);
+        lbDeaths.cooldown.put(p.getUniqueId(), System.currentTimeMillis() + (lbDeaths.cooldownTime * 1000L));
         return true;
     }
 
