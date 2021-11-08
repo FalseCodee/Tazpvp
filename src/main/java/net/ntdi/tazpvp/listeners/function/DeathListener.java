@@ -78,13 +78,13 @@ public class DeathListener implements Listener {
                     killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 8 Experience");
                     killer.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 40, 0, true, false));
                     killer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 40, 0, true, false));
-                    killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 90, 2, true, false));
+                    killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 100, 2, true, false));
                 } else {
                     TazPvP.statsManager.addExp(killer, 5);
                     killer.playSound(killer.getLocation(), Sound.ORB_PICKUP, 1, 1 );
                     p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1 );
                     killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 5 Experience");
-                    killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 90, 2, true, false));
+                    killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 100, 2, true, false));
 
                     if (rand.nextInt(10) == 1) {
                         if (TazPvP.perkManager.getButter(killer)){
