@@ -79,9 +79,9 @@ public class BanCommand implements CommandExecutor {
 
 
 
-                        BukkitRunnable runnable = getBanRunnable(banned);
-                        runnable.runTaskTimer(TazPvP.getInstance(), 0L, 1200L);
-                        bannedRunnables.put(banned.getUniqueId(), runnable);
+//                        BukkitRunnable runnable = getBanRunnable(banned);
+//                        runnable.runTaskTimer(TazPvP.getInstance(), 0L, 1200L);
+//                        bannedRunnables.put(banned.getUniqueId(), runnable);
 
                         JSONObject obj = new JSONObject();
                         JSONArray embed = new JSONArray();
@@ -148,4 +148,4 @@ public class BanCommand implements CommandExecutor {
            }
        };*/
     }
-}
+
