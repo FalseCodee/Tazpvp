@@ -2,6 +2,7 @@ package net.ntdi.tazpvp.commands.moderation;
 
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.utils.PlayerUtils;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -30,11 +31,13 @@ public class VanishCommand implements CommandExecutor, Listener {
                 vanishList.add(player);
                 PlayerUtils.hidePlayer(player);
                 player.sendMessage(ChatColor.RED + "You have entered vanish mode.");
+                Bukkit.broadcastMessage(ChatColor.GRAY + "[" + ChatColor.RED + "-" + ChatColor.GRAY + "] " + player.getName());
                 TazPvP.invunerable.add(player);
             } else {
                 vanishList.remove(player);
                 PlayerUtils.showPlayer(player);
                 player.sendMessage(ChatColor.RED + "You are no longer in vanish mode.");
+                Bukkit.broadcastMessage(ChatColor.GRAY + "[" + ChatColor.GREEN + "+" + ChatColor.GRAY + "] " + player.getName());
                 TazPvP.invunerable.remove(player);
 
             }
