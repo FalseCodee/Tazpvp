@@ -46,7 +46,7 @@ public class LevFeather extends ConsumableItem implements Listener {
                             damager.sendMessage(ChatColor.RED + "On Cooldown!");
                         } else {
                             damager.sendMessage(ChatColor.GREEN + "Poisoned " + victim.getName());
-                            victim.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 40, 1));
+                            victim.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 81, 2));
                             cooldown.remove(damager.getUniqueId());
                         }
                     }
