@@ -108,7 +108,7 @@ public class BanCommand implements CommandExecutor {
                             PostHelper.postRequest(TazPvP.configFile.getString("webhooks.bans"), obj.toString());
                         } catch (IOException e) {
                             e.printStackTrace();
-                            player.sendMessage(ChatColor.RED + "Webhook failed, please contact an admin.");
+                            player.sendMessage(ChatColor.RED + "Webhook failed, please contact an admin");
                         }
                     }
                 }
