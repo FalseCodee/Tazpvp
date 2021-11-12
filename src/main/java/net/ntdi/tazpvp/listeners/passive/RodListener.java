@@ -8,10 +8,10 @@ public class RodListener implements Listener {
 
     @EventHandler
     public void onPlayerFish(org.bukkit.event.player.PlayerFishEvent event) {
-        if (TazPvP.punishmentManager.isBanned(event.getPlayer())) {
-            event.setCancelled(true);
+        if (!event.getPlayer().hasPermission("op")) {
+            if (TazPvP.punishmentManager.isBanned(event.getPlayer())) {
+                event.setCancelled(true);
+            }
         }
-
     }
-
 }
