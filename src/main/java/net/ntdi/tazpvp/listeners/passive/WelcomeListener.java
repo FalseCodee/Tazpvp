@@ -61,12 +61,10 @@ public class WelcomeListener implements Listener {
         } else if (TazPvP.punishmentManager.isBanned(p)) {
             p.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             p.sendMessage(ChatColor.WHITE + "");
-            p.sendMessage(ChatColor.RED + ""+ ChatColor.BOLD + " BANNED" + ChatColor.RED + " You currently have" + ChatColor.WHITE + (((TazPvP.punishmentManager.getBanDuration(p) - (System.currentTimeMillis()-TazPvP.punishmentManager.getBanTime(p))) / 60000) + 1) + ChatColor.RED + " minutes left");
+            p.sendMessage(ChatColor.RED + ""+ ChatColor.BOLD + " BANNED" + ChatColor.RED + " You are currently banned.");
+//            p.sendMessage(ChatColor.RED + ""+ ChatColor.BOLD + " BANNED" + ChatColor.RED + " You are currently banned." + ChatColor.WHITE + (((TazPvP.punishmentManager.getBanDuration(p) - (System.currentTimeMillis()-TazPvP.punishmentManager.getBanTime(p))) / 60000) + 1) + ChatColor.RED + " minutes left");
             p.sendMessage(ChatColor.WHITE + "");
             p.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            BukkitRunnable runnable = BanCommand.getBanRunnable(p);
-            runnable.runTaskTimer(TazPvP.getInstance(), 0L, 20L);
-            BanCommand.bannedRunnables.put(p.getUniqueId(), runnable);
         }
 
         if (!TazPvP.punishmentManager.isBanned(p)){
