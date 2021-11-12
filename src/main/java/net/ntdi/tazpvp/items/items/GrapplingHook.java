@@ -10,7 +10,7 @@ import org.bukkit.util.Vector;
 public class GrapplingHook extends ClickableItem {
 
     public GrapplingHook() {
-        super(Items.GRAPPLING_HOOK, 3);
+        super(Items.GRAPPLING_HOOK, 15);
     }
 
     public void onReel(Player player, Location location){
