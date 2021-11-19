@@ -15,7 +15,7 @@ import org.bukkit.inventory.ItemStack;
 public class GUIRankStore extends GUI {
 
     public GUIRankStore(Player player) {
-        super(player, 27, ChatColor.BLUE + "" + ChatColor.BOLD + "CREDITS〡" + TazPvP.statsManager.getCredits(player));
+        super(player, 27, ChatColor.BLUE + "" + ChatColor.BOLD + "CREDITS〡" + ChatColor.DARK_AQUA + TazPvP.statsManager.getCredits(player));
         setItems();
         player.openInventory(inventory);
     }

@@ -17,7 +17,7 @@ public class GUIGIFTORBUY extends GUI {
     public int gooeey;
 
     public GUIGIFTORBUY(Player player, Integer gooey) {
-        super(player, 27, "RANKS");
+        super(player, 27, ChatColor.BLUE + "" + ChatColor.BOLD + "PURCHASE");
         this.gooeey = gooey;
         setItems();
         player.openInventory(inventory);

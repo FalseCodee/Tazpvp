@@ -15,7 +15,7 @@ import net.md_5.bungee.api.chat.TextComponent;
 
 public class GUIRecolor extends GUI {
     public GUIRecolor(Player player) {
-        super(player, 36, "COSMETICS");
+        super(player, 36, ChatColor.BLUE + "" + ChatColor.BOLD + "CREDITS〡" + ChatColor.DARK_AQUA + TazPvP.statsManager.getCredits(player));
         setItems();
         player.openInventory(inventory);
     }

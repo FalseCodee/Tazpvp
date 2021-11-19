@@ -15,7 +15,7 @@ import org.bukkit.inventory.ItemStack;
 public class GUIMainRankScreen extends GUI {
 
     public GUIMainRankScreen(Player player) {
-        super(player, 27, ChatColor.translateAlternateColorCodes('&', "&9&lSTORE &r&c25% OFF SALE"));
+        super(player, 27, ChatColor.translateAlternateColorCodes('&', "&9&lSTORE &c&l25% SALE"));
         init();
         player.openInventory(inventory);
     }
