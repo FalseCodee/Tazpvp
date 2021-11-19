@@ -66,12 +66,12 @@ public class ChatSpamListener implements Listener {
 
             } else {
                 e.setCancelled(true);
-                p.sendMessage(ChatColor.RED + "You are muted, you will be unmuted in, " + ChatColor.WHITE + (((muteTime+muteDuration)-System.currentTimeMillis())/1000) + "s");
+                p.sendMessage(ChatColor.RED + "You cannot chat while muted.");
                 return;
             }
         } else if (TazPvP.punishmentManager.isBanned(p)){
             e.setCancelled(true);
-            p.sendMessage(ChatColor.RED + "You are banned, please wait " + (((TazPvP.punishmentManager.getBanDuration(p) - (System.currentTimeMillis()-TazPvP.punishmentManager.getBanTime(p))) / 60000) + 1) + " minutes until you can chat again.");
+            p.sendMessage(ChatColor.RED + "You cannot chat while banned.");
         }
         if (p.hasPermission("staff.chatbypass")) return;
 
@@ -93,8 +93,7 @@ public class ChatSpamListener implements Listener {
         if(this.cooldowns.containsKey(p)){
             long lastUse = this.cooldowns.get(p);
             if (time - lastUse < 1000) {
-                p.sendMessage(ChatColor.GREEN + "There is a 1 second chat cooldown");
-                p.sendMessage(ChatColor.GREEN + "Buy a rank to remove it!");
+                p.sendMessage(ChatColor.RED + "Please wait before chatting again, purchase a rank to remove the cooldown.");
                 e.setCancelled(true);
             }
             /*
@@ -102,7 +101,7 @@ public class ChatSpamListener implements Listener {
              *   this conditional     V
              */
             else if (time - lastUse < 5*100) {
-                p.sendMessage(ChatColor.GREEN + "Dont Spam!");
+                p.sendMessage(ChatColor.GREEN + "Please wait before chatting again, purchase a rank to remove the cooldown.");
                 e.setCancelled(true);
             }
         }

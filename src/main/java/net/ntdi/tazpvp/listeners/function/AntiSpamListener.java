@@ -25,13 +25,11 @@ public class AntiSpamListener implements Listener {
         }
 
         if (cooldown.contains(player)) {
-            player.sendMessage(ChatColor.RED + "You are talking too fast! Please wait before sending your next massage!");
             event.setCancelled(true);
         }
 
         if (previousMessages.containsKey(player)){
             if (message.equalsIgnoreCase(previousMessages.get(player))) {
-                player.sendMessage(ChatColor.RED + "Spamming is not allowed!");
                 event.setCancelled(true);
 
             }
