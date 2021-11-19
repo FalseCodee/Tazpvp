@@ -1,13 +1,17 @@
 package net.ntdi.tazpvp.managers;
 
 import net.ntdi.tazpvp.TazPvP;
+import org.bukkit.ChatColor;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.Map;
 
-public class RefundManager {
+public class RefundManager implements Listener {
 
     public void refundEnchant(Player p, ItemStack item) {
         item.getEnchantments().forEach((enchant, level) -> {
@@ -57,5 +61,26 @@ public class RefundManager {
         });
     }
 
+    @EventHandler
+    public void onChat(AsyncPlayerChatEvent e) {
+        Player p = e.getPlayer();
+        if (TazPvP.RefundItem.contains(p)) {
+            e.setCancelled(true);
+            if (e.getMessage().equalsIgnoreCase("go")) {
+                if (p.getItemInHand().getEnchantments().size() > 0 && p.getItemInHand().getType() != null) {
+                    TazPvP.statsManager.addCredits(p, -50);
+                    refundEnchant(p, p.getInventory().getItemInHand());
+                    p.sendMessage(ChatColor.GREEN + "Item Refunded!");
+                    TazPvP.RefundItem.remove(p);
+                } else {
+                    p.sendMessage(ChatColor.RED + "You must have an enchant to refund!");
+                }
+            } else {
+                p.sendMessage(ChatColor.RED + "Refunding canceled!");
+                TazPvP.RefundItem.remove(p);
+            }
+        }
+
+    }
 
 }

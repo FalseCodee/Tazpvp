@@ -22,7 +22,6 @@ public class ChatSpamListener implements Listener {
         badlist.add("bitch");
     }
 
-
     public boolean hasIllegalWord(String msg) {
         msg = msg.replaceAll("1","i");
         msg = msg.replaceAll("!","i");

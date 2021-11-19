@@ -50,6 +50,9 @@ public class GUICosmetics extends GUI {
                         p.spigot().sendMessage(nocred);
                     }
                     break;
+                case 4:
+                    switchScreen(new GUIRefund(p));
+                    break;
             }
         });
     }
@@ -61,9 +64,10 @@ public class GUICosmetics extends GUI {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), ChatColor.BLACK + "");
         }
 
-        addShopItem(11, new ItemStack(Material.WOOD_SWORD, 1), 1, ChatColor.DARK_AQUA + "RENAME SWORD", ChatColor.GRAY + "Rename your sword!\n" + ChatColor.AQUA + "50 Credits");
-        addShopItem(13, new ItemStack(Material.LEATHER_CHESTPLATE, 1), 2, ChatColor.DARK_AQUA + "RECOLOR ARMOR", ChatColor.GRAY + "Recolor your armor!");
-        addShopItem(15, new ItemStack(Material.NAME_TAG, 1), 3, ChatColor.DARK_AQUA + "RENAME PREFIX", ChatColor.GRAY + "Rename your prefix!\n" + ChatColor.AQUA + "100 Credits");
+        addShopItem(10, new ItemStack(Material.WOOD_SWORD, 1), 1, ChatColor.DARK_AQUA + "RENAME SWORD", ChatColor.GRAY + "Rename your sword!\n" + ChatColor.AQUA + "50 Credits");
+        addShopItem(12, new ItemStack(Material.LEATHER_CHESTPLATE, 1), 2, ChatColor.DARK_AQUA + "RECOLOR ARMOR", ChatColor.GRAY + "Recolor your armor!");
+        addShopItem(14, new ItemStack(Material.LEATHER_CHESTPLATE, 1), 4, ChatColor.DARK_AQUA + "REFUND ENCHANTS", ChatColor.GRAY + "Refund the enchants on a item!");
+        addShopItem(16, new ItemStack(Material.NAME_TAG, 1), 3, ChatColor.DARK_AQUA + "RENAME PREFIX", ChatColor.GRAY + "Rename your prefix!\n" + ChatColor.AQUA + "100 Credits");
         update();
     }
 
