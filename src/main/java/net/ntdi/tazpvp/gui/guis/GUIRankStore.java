@@ -47,11 +47,11 @@ public class GUIRankStore extends GUI {
         }
 
         addShopItem(11, new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.RED.getData()), 1, ChatColor.DARK_AQUA + "VIP" + ChatColor.AQUA + " 250 Credits",
-                ChatColor.RED + "〡Enderchest command\n" + ChatColor.RED + "〡Hat command\n" + ChatColor.RED + "〡Durable Blocks\n" + ChatColor.RED + "〡Anti-Spam Bypass\n" + ChatColor.RED + "〡RGB Blocks\n" + ChatColor.RED + "〡VIP++ discord rank");
+                ChatColor.RED + "〡Enderchest command\n" + ChatColor.RED + "〡Hat command\n" + ChatColor.RED + "〡Durable Blocks\n" + ChatColor.RED + "〡Anti-spam Bypass\n" + ChatColor.RED + "〡RGB Blocks\n" + ChatColor.RED + "〡VIP++ discord rank");
         addShopItem(13, new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.YELLOW.getData()),2, ChatColor.DARK_AQUA + "MVP RANK",
-                ChatColor.GOLD + "〡Enderchest command\n" + ChatColor.GOLD + "〡Hat command\n" + ChatColor.GOLD + "〡Nickname command\n" + ChatColor.GOLD + "〡Invsee command\n" + ChatColor.GOLD + "〡Durable Blocks\n" + ChatColor.GOLD + "〡Anti-Spam Bypass\n" + ChatColor.GOLD + "〡RGB Blocks\n" + ChatColor.GOLD + "〡VIP++ discord rank");
+                ChatColor.GOLD + "〡Enderchest command\n" + ChatColor.GOLD + "〡Hat command\n" + ChatColor.GOLD + "〡Nickname command\n" + ChatColor.GOLD + "〡Invsee command\n" + ChatColor.GOLD + "〡Durable Blocks\n" + ChatColor.GOLD + "〡Anti-spam Bypass\n" + ChatColor.GOLD + "〡RGB Blocks\n" + ChatColor.GOLD + "〡VIP++ discord rank");
         addShopItem(15, new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLUE.getData()),3, ChatColor.DARK_AQUA + "MVP+ RANK",
-                ChatColor.AQUA + "〡Enderchest command\n" + ChatColor.AQUA + "〡Hat command\n" + ChatColor.AQUA + "〡Nickname command\n" + ChatColor.AQUA + "〡Votekick command\n" + ChatColor.AQUA + "〡Invsee command\n" + ChatColor.AQUA + "〡Durable Blocks\n" + ChatColor.AQUA + "〡Anti-Spam Bypass\n" + ChatColor.AQUA + "〡No Lag-Back\n" + ChatColor.AQUA + "〡RGB Blocks\n" + ChatColor.AQUA + "〡VIP++ discord rank");
+                ChatColor.AQUA + "〡Enderchest command\n" + ChatColor.AQUA + "〡Hat command\n" + ChatColor.AQUA + "〡Nickname command\n" + ChatColor.AQUA + "〡Votekick command\n" + ChatColor.AQUA + "〡Invsee command\n" + ChatColor.AQUA + "〡Durable Blocks\n" + ChatColor.AQUA + "〡Anti-spam Bypass\n" + ChatColor.AQUA + "〡No Lag-back\n" + ChatColor.AQUA + "〡RGB Blocks\n" + ChatColor.AQUA + "〡VIP++ discord rank");
         update();
     }
 
