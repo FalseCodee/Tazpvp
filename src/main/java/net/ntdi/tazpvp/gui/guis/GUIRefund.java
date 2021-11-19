@@ -12,7 +12,7 @@ import org.bukkit.inventory.ItemStack;
 public class GUIRefund extends GUI {
 
     public GUIRefund(Player player) {
-        super(player, 27, ChatColor.BLUE + "" + ChatColor.BOLD + "CREDITS〡" + ChatColor.DARK_AQUA + TazPvP.statsManager.getCredits(player));
+        super(player, 27, ChatColor.BLUE + "" + ChatColor.BOLD + "CREDITS〡" + ChatColor.DARK_BLUE + "" + ChatColor.BOLD + TazPvP.statsManager.getCredits(player));
         setItems();
         player.openInventory(inventory);
     }

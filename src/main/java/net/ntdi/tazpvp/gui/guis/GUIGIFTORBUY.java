@@ -17,7 +17,7 @@ public class GUIGIFTORBUY extends GUI {
     public int gooeey;
 
     public GUIGIFTORBUY(Player player, Integer gooey) {
-        super(player, 27, ChatColor.BLUE + "" + ChatColor.BOLD + "PURCHASE");
+        super(player, 27, ChatColor.BLUE + "" + ChatColor.BOLD + "CREDITS〡" + ChatColor.DARK_BLUE + "" + ChatColor.BOLD + TazPvP.statsManager.getCredits(player));
         this.gooeey = gooey;
         setItems();
         player.openInventory(inventory);
@@ -62,9 +62,9 @@ public class GUIGIFTORBUY extends GUI {
                         if (TazPvP.statsManager.getCredits(p) >= 250) {
                             if (!TazPvP.ProGiftRank.contains(p) && !TazPvP.ChampionGiftRank.contains(p) && !TazPvP.LegendGiftRank.contains(p) && !TazPvP.MythicalGiftRank.contains(p)){
                                 TazPvP.ProGiftRank.add(p);
-                                p.sendMessage(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "GIFT" + ChatColor.DARK_PURPLE + "Please type who you want to gift below.");
+                                p.sendMessage(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "GIFT " + ChatColor.DARK_PURPLE + "Please type who you want to gift below.");
                             } else {
-                                p.sendMessage(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "GIFT" + ChatColor.DARK_PURPLE + "Please type who you want to gift below.");
+                                p.sendMessage(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "GIFT " + ChatColor.DARK_PURPLE + "Please type who you want to gift below.");
                             }
 
                         } else {
@@ -76,7 +76,7 @@ public class GUIGIFTORBUY extends GUI {
                         if (TazPvP.statsManager.getCredits(p) >= 500) {
                             if (!TazPvP.ProGiftRank.contains(p) && !TazPvP.ChampionGiftRank.contains(p) && !TazPvP.LegendGiftRank.contains(p) && !TazPvP.MythicalGiftRank.contains(p)){
                                 TazPvP.ChampionGiftRank.add(p);
-                                p.sendMessage("type in chat who you want to gift rank to:");
+                                p.sendMessage(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "GIFT " + ChatColor.DARK_PURPLE + "Please type who you want to gift below.");
 
                             }
 
