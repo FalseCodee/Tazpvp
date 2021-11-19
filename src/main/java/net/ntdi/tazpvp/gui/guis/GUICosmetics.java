@@ -30,7 +30,7 @@ public class GUICosmetics extends GUI {
 
                         TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p) - 50);
                         TazPvP.renamingSword.add(p);
-                        p.sendMessage("Please type what you would like your sword name to be.");
+                        p.sendMessage(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "RENAME " + ChatColor.DARK_PURPLE + "Please type your new sword name below.");
 
                     } else {
                         TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! Click to purchase them!");
@@ -43,7 +43,7 @@ public class GUICosmetics extends GUI {
                     break;
                 case 3:
                     if (TazPvP.statsManager.getCredits(p) >= 100) {
-                        p.sendMessage(ChatColor.YELLOW + "Please type what you would like your prefix to be.");
+                        p.sendMessage(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "GIFT " + ChatColor.DARK_PURPLE + "Please type your new prefix out below.");
                     } else {
                         TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! Click to purchase them!");
                         nocred.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://taznet.tebex.io/"));
