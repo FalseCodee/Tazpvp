@@ -14,7 +14,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class GUIMainScreen extends GUI {
     public GUIMainScreen(Player player) {
-        super(player, 45, ChatColor.BLUE + "" + ChatColor.BOLD + "Upgrade Menu");
+        super(player, 45, ChatColor.BLUE + "" + ChatColor.BOLD + "UPGRADE");
         init();
         player.openInventory(inventory);
     }

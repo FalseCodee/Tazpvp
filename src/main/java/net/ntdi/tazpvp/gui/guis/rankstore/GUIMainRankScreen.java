@@ -21,9 +21,9 @@ public class GUIMainRankScreen extends GUI {
     }
     @SuppressWarnings("deprecation")
     public void init() {
-        ItemStack rankItem = createItem(Material.EYE_OF_ENDER, ChatColor.BLUE + "" + ChatColor.BOLD + "RANKS", ChatColor.GRAY + "Buy and Gift Ranks.", true);
-        ItemStack donateItem = createItem(Material.BARRIER, ChatColor.BLUE + "" + ChatColor.BOLD + "UNBAN", ChatColor.GRAY + "Buy a unban.\n" + ChatColor.RED + "$2.00", true);
-        ItemStack cosmeticsItem = createItem(Material.YELLOW_FLOWER, ChatColor.BLUE + "" + ChatColor.BOLD + "CREDIT SHOP", ChatColor.GRAY + "Open the cosmetics menu.", true);
+        ItemStack rankItem = createItem(Material.EYE_OF_ENDER, ChatColor.BLUE + "" + ChatColor.BOLD + "RANKS", ChatColor.GRAY + "Purchase ranks", true);
+        ItemStack donateItem = createItem(Material.BARRIER, ChatColor.BLUE + "" + ChatColor.BOLD + "UNBAN", ChatColor.GRAY + "Unban yourself\n" + ChatColor.RED + "100 Credits", true);
+        ItemStack cosmeticsItem = createItem(Material.YELLOW_FLOWER, ChatColor.BLUE + "" + ChatColor.BOLD + "CREDIT SHOP", ChatColor.GRAY + "View cosmetics", true);
         for(int i = 0; i < inventory.getSize(); i++) {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), "");
         }

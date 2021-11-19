@@ -12,7 +12,7 @@ import org.bukkit.inventory.ItemStack;
 public class GUIAchievement extends GUI {
 
     public GUIAchievement(Player player) {
-        super(player, 54, "Achievement");
+        super(player, 54, ChatColor.BLUE + "" + ChatColor.BOLD + "ACHIEVEMENTS");
         init();
         player.openInventory(inventory);
     }

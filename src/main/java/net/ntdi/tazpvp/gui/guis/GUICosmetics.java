@@ -13,7 +13,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class GUICosmetics extends GUI {
     public GUICosmetics(Player player) {
-        super(player, 27, ChatColor.BLUE + "Credits: " + TazPvP.statsManager.getCredits(player));
+        super(player, 27, ChatColor.BLUE + "" + ChatColor.BOLD + "CREDITS〡" + TazPvP.statsManager.getCredits(player));
         setItems();
         player.openInventory(inventory);
     }
@@ -30,7 +30,7 @@ public class GUICosmetics extends GUI {
 
                         TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p) - 50);
                         TazPvP.renamingSword.add(p);
-                        p.sendMessage("type in chat what u wantz to rename ur sword:");
+                        p.sendMessage("Please type what you would like your sword name to be.");
 
                     } else {
                         TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! Click to purchase them!");
@@ -43,7 +43,7 @@ public class GUICosmetics extends GUI {
                     break;
                 case 3:
                     if (TazPvP.statsManager.getCredits(p) >= 100) {
-                        p.sendMessage(ChatColor.YELLOW + "prefix's dont deserve to be renamed");
+                        p.sendMessage(ChatColor.YELLOW + "Please type what you would like your prefix to be.");
                     } else {
                         TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! Click to purchase them!");
                         nocred.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://taznet.tebex.io/"));
@@ -64,10 +64,10 @@ public class GUICosmetics extends GUI {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), ChatColor.BLACK + "");
         }
 
-        addShopItem(10, new ItemStack(Material.WOOD_SWORD, 1), 1, ChatColor.DARK_AQUA + "RENAME SWORD", ChatColor.GRAY + "Rename your sword!\n" + ChatColor.AQUA + "50 Credits");
-        addShopItem(12, new ItemStack(Material.LEATHER_CHESTPLATE, 1), 2, ChatColor.DARK_AQUA + "RECOLOR ARMOR", ChatColor.GRAY + "Recolor your armor!");
-        addShopItem(14, new ItemStack(Material.LEATHER_CHESTPLATE, 1), 4, ChatColor.DARK_AQUA + "REFUND ENCHANTS", ChatColor.GRAY + "Refund the enchants on a item!");
-        addShopItem(16, new ItemStack(Material.NAME_TAG, 1), 3, ChatColor.DARK_AQUA + "RENAME PREFIX", ChatColor.GRAY + "Rename your prefix!\n" + ChatColor.AQUA + "100 Credits");
+        addShopItem(10, new ItemStack(Material.WOOD_SWORD, 1), 1, ChatColor.DARK_AQUA + "RENAME SWORD", ChatColor.GRAY + "Rename your sword\n" + ChatColor.AQUA + "50 Credits");
+        addShopItem(12, new ItemStack(Material.LEATHER_CHESTPLATE, 1), 2, ChatColor.DARK_AQUA + "RECOLOR ARMOR", ChatColor.GRAY + "Colorize your armor");
+        addShopItem(14, new ItemStack(Material.ANVIL, 1), 4, ChatColor.DARK_AQUA + "REFUND ENCHANTS", ChatColor.GRAY + "Refund your enchanted item");
+        addShopItem(16, new ItemStack(Material.NAME_TAG, 1), 3, ChatColor.DARK_AQUA + "RENAME PREFIX", ChatColor.GRAY + "Customize your prefix\n" + ChatColor.AQUA + "100 Credits");
         update();
     }
 

@@ -17,7 +17,7 @@ import java.util.UUID;
 public class GUIShop extends GUI {
 
     public GUIShop(Player player) {
-        super(player, 54, "SHOP");
+        super(player, 54, ChatColor.BLUE + "" + ChatColor.BOLD + "SHOP");
         setItems();
         player.openInventory(inventory);
 
