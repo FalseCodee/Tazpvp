@@ -16,7 +16,7 @@ public enum EnchantInfo {
     LOOTING("Looting", "Instantly put fish in inventory.", 6, 1, Enchantment.LOOT_BONUS_MOBS),
 
     POWER("Power", "Powerful arrows.", 69420666, 1, Enchantment.ARROW_DAMAGE),
-    PUNCH("Punch", "More knockback.", 4, 1, Enchantment.ARROW_KNOCKBACK),
+    PUNCH("Punch", "More knockback.", 4, 2, Enchantment.ARROW_KNOCKBACK),
     INFINITY("Infinity", "Infinite arrows.", 12, 1, Enchantment.ARROW_INFINITE),
 
     PROTECTION("Protection", "Decreases damage taken.", 4, 1, Enchantment.PROTECTION_ENVIRONMENTAL),
