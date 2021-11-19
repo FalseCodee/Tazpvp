@@ -47,9 +47,11 @@ public class GUIRankStore extends GUI {
         }
 
         addShopItem(11, new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.RED.getData()), 1, ChatColor.DARK_AQUA + "VIP" + ChatColor.AQUA + " 250 Credits",
-                ChatColor.RED + "/enderchest command\n" + "/hat command\n" + "/enderchest command\n" + "Durable Blocks\n" + "Anti-Spam bypass\n" + "RGB blocks\n" + "VIP++ discord rank\n");
-        addShopItem(13, new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.YELLOW.getData()),2, ChatColor.DARK_AQUA + "MVP RANK", ChatColor.GRAY + "Get the MVP rank!\n" + ChatColor.AQUA + "500 Credits");
-        addShopItem(15, new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLUE.getData()),3, ChatColor.DARK_AQUA + "MVP+ RANK", ChatColor.GRAY + "Get the MVP+ rank!\n" + ChatColor.AQUA + "1000 Credits");
+                ChatColor.RED + "〡Enderchest command\n" + "〡Hat command\n" + "〡Durable Blocks\n" + "〡 Anti-Spam Bypass\n" + "〡RGB Blocks\n" + "〡VIP++ discord rank");
+        addShopItem(13, new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.YELLOW.getData()),2, ChatColor.DARK_AQUA + "MVP RANK",
+                ChatColor.GOLD + "〡Enderchest command\n" + "〡Hat command\n" + "〡Nickname command\n" + "〡 Invsee command\n" + "〡Durable Blocks\n" + "〡Anti-Spam Bypass\n" + "〡RGB Blocks\n" + "〡VIP++ discord rank");
+        addShopItem(15, new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLUE.getData()),3, ChatColor.DARK_AQUA + "MVP+ RANK",
+                ChatColor.AQUA + "〡Enderchest command\n" + "〡Hat command\n" + "〡Nickname command\n" + "〡 Votekick command\n" + "〡 Invsee command\n" + "〡Durable Blocks\n" + "〡Anti-Spam Bypass\n" + "〡 No Lag-Back\n" + "〡RGB Blocks\n" + "〡VIP++ discord rank");
         update();
     }
 
