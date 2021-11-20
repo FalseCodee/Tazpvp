@@ -21,8 +21,9 @@ public class RefundManager implements Listener {
                 return;
             }
             else if(item.getEnchantments().containsKey(enchantInfo.ench)){
-                item.removeEnchantment(enchantInfo.ench);
                 TazPvP.statsManager.addPoints(p, enchantInfo.cost * item.getEnchantments().get(enchantInfo.ench));
+                item.removeEnchantment(enchantInfo.ench);
+
             }
         }
 

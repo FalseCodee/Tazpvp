@@ -36,7 +36,7 @@ public class GUIRefund extends GUI {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), ChatColor.BLACK + "");
         }
 
-        addRefundItem(13, new ItemStack(Material.ANVIL, 1), ChatColor.GOLD + "Refund an item", ChatColor.AQUA + "50 Credits\n" + ChatColor.RED + "READ CHAT INSTRUCTIONS AFTER CLICKING");
+        addRefundItem(13, new ItemStack(Material.ANVIL, 1), ChatColor.GOLD + "Refund an item", ChatColor.AQUA + "10 Credits\n" + ChatColor.RED + "READ CHAT INSTRUCTIONS AFTER CLICKING");
         update();
     }
 
