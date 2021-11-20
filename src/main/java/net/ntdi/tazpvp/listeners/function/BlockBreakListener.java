@@ -22,7 +22,11 @@ public class BlockBreakListener implements Listener {
         Player p = event.getPlayer();
 
         if(p.getWorld().getName().equals("arena") && p.getGameMode() == GameMode.SURVIVAL) {
-            event.setCancelled(true);
+            if (event.getBlock().hasMetadata("breakable")) {
+                return;
+            } else {
+                event.setCancelled(true);
+            }
             return;
         }
 

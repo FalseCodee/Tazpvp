@@ -33,6 +33,7 @@ public class BlockListener implements Listener {
                     unreq.add(Material.EMERALD_ORE);
 
                     if (!unreq.contains(blockType)) {
+                        event.getBlock().setMetadata("breakable", event.getBlock().getMetadata("breakable").get(0));
                         if (blockType == Material.WOOD) {
                             new BukkitRunnable() {
                                 @Override

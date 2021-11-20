@@ -23,7 +23,7 @@ public class LevFeather extends ConsumableItem implements Listener {
 
     @Override
     public boolean execute(Player p, ItemStack itemStack){
-        super.execute(p, itemStack);
+        //super.execute(p, itemStack);
 
         return true;
     }
