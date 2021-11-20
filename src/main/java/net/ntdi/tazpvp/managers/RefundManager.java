@@ -1,6 +1,7 @@
 package net.ntdi.tazpvp.managers;
 
 import net.ntdi.tazpvp.TazPvP;
+import net.ntdi.tazpvp.gui.guis.upgrades.EnchantInfo;
 import org.bukkit.ChatColor;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -14,7 +15,18 @@ import java.util.Map;
 public class RefundManager implements Listener {
 
     public void refundEnchant(Player p, ItemStack item) {
-        item.getEnchantments().forEach((enchant, level) -> {
+
+        for(EnchantInfo enchantInfo : EnchantInfo.values()) {
+            if(item.getEnchantments().size() <= 0) {
+                return;
+            }
+            else if(item.getEnchantments().containsKey(enchantInfo.ench)){
+                item.removeEnchantment(enchantInfo.ench);
+                TazPvP.statsManager.addPoints(p, enchantInfo.cost * item.getEnchantments().get(enchantInfo.ench));
+            }
+        }
+
+        /*item.getEnchantments().forEach((enchant, level) -> {
             System.out.println(enchant.getName());
             System.out.println(level);
             System.out.println(item.getEnchantments());
@@ -61,7 +73,7 @@ public class RefundManager implements Listener {
                item.removeEnchantment(enchant);
                TazPvP.statsManager.addPoints(p, level * 4);
            }
-        });
+        }); */
     }
 
     @EventHandler
