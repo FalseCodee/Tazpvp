@@ -37,7 +37,7 @@ public class MoneyCommand implements CommandExecutor {
                                 case "set":
                                     if(args.length == 3){
                                         try{
-                                            TazPvP.statsManager.setMoney(offlinePlayer, Integer.parseInt(args[2]));
+                                            TazPvP.statsManager.setMoney(offlinePlayer,getPlayer(), Integer.parseInt(args[2]));
                                             player.sendMessage(ChatColor.RED + "set " + offlinePlayer.getName() + "'s balance to $"+ args[2] +".");
                                         } catch(NumberFormatException e){
                                             player.sendMessage(ChatColor.RED + "Use integers only.");
@@ -49,7 +49,7 @@ public class MoneyCommand implements CommandExecutor {
                                 case "add":
                                     if(args.length == 3){
                                         try{
-                                            TazPvP.statsManager.addMoney(offlinePlayer, Integer.parseInt(args[2]));
+                                            TazPvP.statsManager.addMoney(offlinePlayer,getPlayer(), Integer.parseInt(args[2]));
                                             player.sendMessage(ChatColor.RED + offlinePlayer.getName() + " now has $"+ TazPvP.statsManager.getMoney(offlinePlayer) +".");
                                         } catch(NumberFormatException e){
                                             player.sendMessage(ChatColor.RED + "Use integers only.");
