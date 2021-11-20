@@ -171,12 +171,12 @@ public final class TazPvP extends JavaPlugin {
     public void initVoteKick(Player votekicked){
         TazPvP.votedOut = votekicked;
         TazPvP.VoteOn = true;
-        TextComponent VoteYes = new TextComponent(ChatColor.GREEN + "〡YES〡");
+        TextComponent VoteYes = new TextComponent(ChatColor.GREEN + " 〡YES");
         VoteYes.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/voteyes"));
-        TextComponent Voteno = new TextComponent(ChatColor.RED + "〡NO〡");
+        TextComponent Voteno = new TextComponent(ChatColor.RED + " 〡NO");
         Voteno.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/voteno"));
         for (Player p : Bukkit.getOnlinePlayers()){
-            p.sendMessage(ChatColor.AQUA + votekicked.getName() + ChatColor.DARK_AQUA + "Is being vote-kicked. Click an option below to vote.");
+            p.sendMessage(ChatColor.AQUA + " " + votekicked.getName() + ChatColor.DARK_AQUA + " is being vote-kicked. Click an option below to vote.");
             p.spigot().sendMessage(VoteYes);
             p.spigot().sendMessage(Voteno);
 
