@@ -15,6 +15,9 @@ public class RefundManager implements Listener {
 
     public void refundEnchant(Player p, ItemStack item) {
         item.getEnchantments().forEach((enchant, level) -> {
+            System.out.println(enchant.getName());
+            System.out.println(level);
+            System.out.println(item.getEnchantments());
            if (enchant == Enchantment.DAMAGE_ALL) {
                item.removeEnchantment(enchant);
                TazPvP.statsManager.addPoints(p, level * 4);
