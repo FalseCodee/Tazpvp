@@ -48,7 +48,6 @@ public class BanCommand implements CommandExecutor {
                         player.sendMessage(ChatColor.RED + "Player is already banned");
 
                     } else {
-                        //short ban to test
                         TazPvP.punishmentManager.initBan(banned, true, 60*60*1000);
                         player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "BAN " + ChatColor.RED + "You just banned " + ChatColor.WHITE + banned.getName());
                         banned.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");

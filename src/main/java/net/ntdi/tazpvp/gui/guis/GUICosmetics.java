@@ -43,7 +43,7 @@ public class GUICosmetics extends GUI {
                     break;
                 case 3:
                     if (TazPvP.statsManager.getCredits(p) >= 100) {
-                        p.sendMessage(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "GIFT " + ChatColor.DARK_PURPLE + "Please type your new prefix out below.");
+                        p.sendMessage(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "PREFIX " + ChatColor.DARK_PURPLE + "Please type your new prefix out below.");
                     } else {
                         TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! Click to purchase them!");
                         nocred.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://taznet.tebex.io/"));
@@ -64,10 +64,10 @@ public class GUICosmetics extends GUI {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), ChatColor.BLACK + "");
         }
 
-        addShopItem(10, new ItemStack(Material.WOOD_SWORD, 1), 1, ChatColor.DARK_AQUA + "RENAME SWORD", ChatColor.GRAY + "Rename your sword\n" + ChatColor.AQUA + "10 Credits");
-        addShopItem(12, new ItemStack(Material.LEATHER_CHESTPLATE, 1), 2, ChatColor.DARK_AQUA + "RECOLOR ARMOR", ChatColor.GRAY + "Colorize your armor");
-        addShopItem(14, new ItemStack(Material.ANVIL, 1), 4, ChatColor.DARK_AQUA + "REFUND ENCHANTS", ChatColor.GRAY + "Refund your enchanted item");
-        addShopItem(16, new ItemStack(Material.NAME_TAG, 1), 3, ChatColor.DARK_AQUA + "RENAME PREFIX", ChatColor.GRAY + "Customize your prefix\n" + ChatColor.AQUA + "100 Credits");
+        addShopItem(10, new ItemStack(Material.WOOD_SWORD, 1), 1, ChatColor.DARK_AQUA + "RENAME SWORD", ChatColor.GRAY + "Rename your sword\n" + ChatColor.GREEN + "Rank Required\n" + ChatColor.AQUA + "10 Credits");
+        addShopItem(12, new ItemStack(Material.LEATHER_CHESTPLATE, 1), 2, ChatColor.DARK_AQUA + "RECOLOR ARMOR", ChatColor.GRAY + "Colorize your armor\n" + ChatColor.GREEN + "Rank Required");
+        addShopItem(14, new ItemStack(Material.ANVIL, 1), 4, ChatColor.DARK_AQUA + "REFUND ENCHANTS", ChatColor.GRAY + "Refund your enchanted item\n" + ChatColor.GREEN + "Rank Required");
+        addShopItem(16, new ItemStack(Material.NAME_TAG, 1), 3, ChatColor.DARK_AQUA + "RENAME PREFIX", ChatColor.GRAY + "Customize your prefix\n" + ChatColor.GREEN + "Rank Required\n" + ChatColor.AQUA + "100 Credits");
         update();
     }
 
