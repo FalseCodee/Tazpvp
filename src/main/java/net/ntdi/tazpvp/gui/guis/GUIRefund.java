@@ -22,7 +22,7 @@ public class GUIRefund extends GUI {
             event.setCancelled(true);
 
             player.closeInventory();
-            if (TazPvP.statsManager.getCredits(player) >= 50) {
+            if (TazPvP.statsManager.getCredits(player) >= 10) {
                 TazPvP.RefundItem.add(player);
                 player.sendMessage(ChatColor.RED + "Please hold your item that you wish to refund in your hand\nOnce you've done that type " + ChatColor.GOLD + " \"GO\" " + ChatColor.RED + " in the chat.\nYou may type anything else to cancel this.");
             } else {

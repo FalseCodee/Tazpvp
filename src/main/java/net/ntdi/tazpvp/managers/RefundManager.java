@@ -71,7 +71,7 @@ public class RefundManager implements Listener {
             e.setCancelled(true);
             if (e.getMessage().equalsIgnoreCase("go")) {
                 if (p.getItemInHand().getEnchantments().size() > 0 && p.getItemInHand().getType() != null) {
-                    TazPvP.statsManager.addCredits(p, -50);
+                    TazPvP.statsManager.addCredits(p, -10);
                     refundEnchant(p, p.getInventory().getItemInHand());
                     p.sendMessage(ChatColor.GREEN + "Item Refunded!");
                     TazPvP.RefundItem.remove(p);
