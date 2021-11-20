@@ -81,7 +81,7 @@ public class GUICosmetics extends GUI {
         pickaxeMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         sword.setItemMeta(pickaxeMeta);
 
-        addShopItem(10, sword, 1, ChatColor.DARK_AQUA + "Sword Rename ", ChatColor.GRAY + "Rename your sword\n" + ChatColor.GRAY + "Cost: " + ChatColor.AQUA + "10 Credits\n" + "\n" + ChatColor.GREEN + "Rank Required");
+        addShopItem(10, sword, 1, ChatColor.DARK_AQUA + "Sword Rename ", ChatColor.GRAY + "Rename your sword\n" + ChatColor.GRAY + "Cost: " + ChatColor.AQUA + "10 Credits");
         addShopItem(12, new ItemStack(Material.LEATHER_CHESTPLATE, 1), 2, ChatColor.DARK_AQUA + "Recolor Armor", ChatColor.GRAY + "Colorize your armor\n" + "\n" + ChatColor.GREEN + "Rank Required");
         addShopItem(14, new ItemStack(Material.ANVIL, 1), 4, ChatColor.DARK_AQUA + "Refund Item", ChatColor.GRAY + "Refund your enchanted item\n" + "\n" + ChatColor.GREEN + "Rank Required");
         addShopItem(16, new ItemStack(Material.NAME_TAG, 1), 3, ChatColor.DARK_AQUA + "Custom Prefix ", ChatColor.GRAY + "Customize your prefix\n" + ChatColor.GRAY + "Cost: " + ChatColor.AQUA + "100 Credits\n");
