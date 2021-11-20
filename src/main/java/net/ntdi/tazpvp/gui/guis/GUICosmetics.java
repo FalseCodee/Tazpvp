@@ -26,9 +26,9 @@ public class GUICosmetics extends GUI {
 
             switch (runnable){
                 case 1:
-                    if (TazPvP.statsManager.getCredits(p) >= 50) {
+                    if (TazPvP.statsManager.getCredits(p) >= 10) {
 
-                        TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p) - 50);
+                        TazPvP.statsManager.setCredits(p, TazPvP.statsManager.getCredits(p) - 10);
                         TazPvP.renamingSword.add(p);
                         p.sendMessage(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "RENAME " + ChatColor.DARK_PURPLE + "Please type your new sword name below.");
 
@@ -64,7 +64,7 @@ public class GUICosmetics extends GUI {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), ChatColor.BLACK + "");
         }
 
-        addShopItem(10, new ItemStack(Material.WOOD_SWORD, 1), 1, ChatColor.DARK_AQUA + "RENAME SWORD", ChatColor.GRAY + "Rename your sword\n" + ChatColor.AQUA + "50 Credits");
+        addShopItem(10, new ItemStack(Material.WOOD_SWORD, 1), 1, ChatColor.DARK_AQUA + "RENAME SWORD", ChatColor.GRAY + "Rename your sword\n" + ChatColor.AQUA + "10 Credits");
         addShopItem(12, new ItemStack(Material.LEATHER_CHESTPLATE, 1), 2, ChatColor.DARK_AQUA + "RECOLOR ARMOR", ChatColor.GRAY + "Colorize your armor");
         addShopItem(14, new ItemStack(Material.ANVIL, 1), 4, ChatColor.DARK_AQUA + "REFUND ENCHANTS", ChatColor.GRAY + "Refund your enchanted item");
         addShopItem(16, new ItemStack(Material.NAME_TAG, 1), 3, ChatColor.DARK_AQUA + "RENAME PREFIX", ChatColor.GRAY + "Customize your prefix\n" + ChatColor.AQUA + "100 Credits");
