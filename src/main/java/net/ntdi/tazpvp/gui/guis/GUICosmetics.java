@@ -41,15 +41,25 @@ public class GUICosmetics extends GUI {
                     }
                     break;
                 case 2:
-                    switchScreen(new GUIRecolor(p));
+                    if (p.hasPermission("rank.buy")){
+                        switchScreen(new GUIRecolor(p));
+                    } else {
+                        p.closeInventory();
+                        p.sendMessage(ChatColor.RED + "You do not have permission to use this feature!");
+                    }
                     break;
                 case 3:
-                    if (TazPvP.statsManager.getCredits(p) >= 100) {
-                        p.sendMessage(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "PREFIX " + ChatColor.DARK_PURPLE + "Please type your new prefix out below.");
+                    if (p.hasPermission("rank.buy")){
+                        if (TazPvP.statsManager.getCredits(p) >= 100) {
+                            p.sendMessage(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "PREFIX " + ChatColor.DARK_PURPLE + "Please type your new prefix out below.");
+                        } else {
+                            TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! Click to purchase them!");
+                            nocred.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://taznet.tebex.io/"));
+                            p.spigot().sendMessage(nocred);
+                        }
                     } else {
-                        TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! Click to purchase them!");
-                        nocred.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://taznet.tebex.io/"));
-                        p.spigot().sendMessage(nocred);
+                        p.closeInventory();
+                        p.sendMessage(ChatColor.RED + "You do not have permission to use this feature!");
                     }
                     break;
                 case 4:

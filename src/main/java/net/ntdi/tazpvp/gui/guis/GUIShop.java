@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.apache.commons.lang.StringUtils;
 
 import java.util.HashMap;
 import java.util.UUID;
@@ -27,14 +28,33 @@ public class GUIShop extends GUI {
         setButtons(slot, createItem(item, name, lore), event -> {
             event.setCancelled(true);
                 if(TazPvP.statsManager.getMoney(player) >= cost) {
-                    TazPvP.statsManager.addMoney(player, -cost);
+                    if (item.getType() == Material.WOOL) {
+                        if (player.hasPermission("rank.buy")){
+                            TazPvP.statsManager.addMoney(player, -cost);
 
-                    ItemMeta namin = item.getItemMeta();
-                    namin.setDisplayName(name);
-                    item.setItemMeta(namin);
+                            ItemMeta namin = item.getItemMeta();
+                            namin.setDisplayName(name);
+                            item.setItemMeta(namin);
 
-                    player.getInventory().addItem(item);
-                    player.playSound(player.getLocation(), Sound.ORB_PICKUP, 1, 1 );
+                            String displName = namin.getDisplayName();
+
+                            player.getInventory().addItem(item);
+                            player.playSound(player.getLocation(), Sound.ORB_PICKUP, 1, 1 );
+                        } else {
+                            player.sendMessage(ChatColor.RED + "You do not have permission to buy this item.");
+                        }
+                    } else {
+                        TazPvP.statsManager.addMoney(player, -cost);
+
+                        ItemMeta namin = item.getItemMeta();
+                        namin.setDisplayName(name);
+                        item.setItemMeta(namin);
+
+                        String displName = namin.getDisplayName();
+
+                        player.getInventory().addItem(item);
+                        player.playSound(player.getLocation(), Sound.ORB_PICKUP, 1, 1 );
+                    }
                 } else {
                     player.sendMessage(ChatColor.RED + "Insufficient funds");
                 }
