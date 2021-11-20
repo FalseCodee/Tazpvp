@@ -2,9 +2,7 @@ package net.ntdi.tazpvp.gui.guis.rankstore;
 
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.gui.GUI;
-import net.ntdi.tazpvp.gui.guis.GUIBuyRank;
 import net.ntdi.tazpvp.gui.guis.GUICosmetics;
-import net.ntdi.tazpvp.gui.guis.GUIGiftRank;
 import net.ntdi.tazpvp.gui.guis.GUIRankStore;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;

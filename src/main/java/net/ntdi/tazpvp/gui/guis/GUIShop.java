@@ -12,9 +12,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.apache.commons.lang.StringUtils;
 
-import java.util.HashMap;
-import java.util.UUID;
-
 public class GUIShop extends GUI {
 
     public GUIShop(Player player) {

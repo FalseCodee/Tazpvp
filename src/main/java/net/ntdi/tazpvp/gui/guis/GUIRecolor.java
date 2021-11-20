@@ -4,7 +4,6 @@ import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.gui.GUI;
 import net.ntdi.tazpvp.listeners.function.RecolorArmor;
 import org.bukkit.*;
-import org.bukkit.Color;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;

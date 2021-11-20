@@ -3,8 +3,6 @@ package net.ntdi.tazpvp.gui.guis;
 
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.gui.GUI;
-import net.ntdi.tazpvp.gui.guis.upgrades.GUIUpgradeMenu;
-import net.ntdi.tazpvp.gui.guis.upgrades.UpgradeTypes;
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
