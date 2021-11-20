@@ -18,6 +18,7 @@ public class GUIRankStore extends GUI {
         super(player, 27, ChatColor.BLUE + "" + ChatColor.BOLD + "CREDITS〡" + ChatColor.DARK_BLUE + "" + ChatColor.BOLD + TazPvP.statsManager.getCredits(player));
         setItems();
         player.openInventory(inventory);
+
     }
 
     final Player p = player;

@@ -37,6 +37,7 @@ public class GUIRefund extends GUI {
         }
 
         addRefundItem(13, new ItemStack(Material.ANVIL, 1), ChatColor.GOLD + "Refund an item", ChatColor.AQUA + "50 Credits\n" + ChatColor.RED + "READ CHAT INSTRUCTIONS AFTER CLICKING");
+        update();
     }
 
     @Override

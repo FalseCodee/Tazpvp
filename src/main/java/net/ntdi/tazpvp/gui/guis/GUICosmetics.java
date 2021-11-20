@@ -9,7 +9,9 @@ import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 public class GUICosmetics extends GUI {
     public GUICosmetics(Player player) {
@@ -63,6 +65,11 @@ public class GUICosmetics extends GUI {
         for(int i = 0; i < inventory.getSize(); i++) {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), ChatColor.BLACK + "");
         }
+
+        ItemStack sword = new ItemStack(Material.WOOD_SWORD, 1);
+        ItemMeta pickaxeMeta = sword.getItemMeta();
+        pickaxeMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+        sword.setItemMeta(pickaxeMeta);
 
         addShopItem(10, new ItemStack(Material.WOOD_SWORD, 1), 1, ChatColor.DARK_AQUA + "Sword Rename " + ChatColor.AQUA + "10 Credits", ChatColor.GRAY + "Rename your sword\n" + ChatColor.GREEN + "Rank Required");
         addShopItem(12, new ItemStack(Material.LEATHER_CHESTPLATE, 1), 2, ChatColor.DARK_AQUA + "Recolor Armor", ChatColor.GRAY + "Colorize your armor\n" + ChatColor.GREEN + "Rank Required");
