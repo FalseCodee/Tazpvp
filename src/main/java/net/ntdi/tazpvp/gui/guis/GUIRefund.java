@@ -17,21 +17,16 @@ public class GUIRefund extends GUI {
         player.openInventory(inventory);
     }
 
-    public void addShopItem(int slot, ItemStack item, int runnable, String name, String lore) {
+    public void addRefundItem(int slot, ItemStack item, String name, String lore) {
         setButtons(slot, createItem(item, name, lore), event -> {
             event.setCancelled(true);
 
-            switch (runnable){
-                case 1:
-                    player.closeInventory();
-                    if (TazPvP.statsManager.getCredits(player) >= 50) {
-                        TazPvP.RefundItem.add(player);
-                        player.sendMessage(ChatColor.RED + "Please hold your item that you wish to refund in your hand\nOnce you've done that type " + ChatColor.GOLD + " \"GO\" " + ChatColor.RED + " in the chat.\nYou may type anything else to cancel this.");
-
-                    } else {
-                        player.sendMessage(ChatColor.RED + "You do not have enough credits to refund this item.");
-                    }
-                    break;
+            player.closeInventory();
+            if (TazPvP.statsManager.getCredits(player) >= 50) {
+                TazPvP.RefundItem.add(player);
+                player.sendMessage(ChatColor.RED + "Please hold your item that you wish to refund in your hand\nOnce you've done that type " + ChatColor.GOLD + " \"GO\" " + ChatColor.RED + " in the chat.\nYou may type anything else to cancel this.");
+            } else {
+                player.sendMessage(ChatColor.RED + "You do not have enough credits to refund this item.");
             }
         });
     }
@@ -41,8 +36,7 @@ public class GUIRefund extends GUI {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), ChatColor.BLACK + "");
         }
 
-        addShopItem(13, new ItemStack(Material.ANVIL, 1), 1, ChatColor.GOLD + "Refund an item", ChatColor.AQUA + "50 Credits\n" + ChatColor.RED + "READ CHAT INSTRUCTIONS AFTER CLICKING");
-
+        addRefundItem(13, new ItemStack(Material.ANVIL, 1), ChatColor.GOLD + "Refund an item", ChatColor.AQUA + "50 Credits\n" + ChatColor.RED + "READ CHAT INSTRUCTIONS AFTER CLICKING");
     }
 
     @Override
