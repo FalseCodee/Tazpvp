@@ -13,7 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class GUIPerk extends GUI {
     public GUIPerk(Player player) {
-        super(player, 36, "BUY PERKS");
+        super(player, 27, "BUY PERKS");
         setItems();
         player.openInventory(inventory);
     }
