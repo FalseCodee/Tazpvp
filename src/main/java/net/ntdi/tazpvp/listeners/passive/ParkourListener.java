@@ -11,7 +11,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 
 public class ParkourListener implements Listener {
-    @EventHandler
+/*    @EventHandler
     public void onCheckPoint(PlayerInteractEvent event){
         if (event.getPlayer().getWorld().getName().equals("parkour")){
             if (event.getAction().equals(Action.PHYSICAL)){
@@ -77,5 +77,5 @@ public class ParkourListener implements Listener {
                 }
             }
         }
-    }
+    }*/
 }
