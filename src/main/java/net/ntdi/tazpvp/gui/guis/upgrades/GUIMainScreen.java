@@ -4,10 +4,7 @@ import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.gui.GUI;
 import net.ntdi.tazpvp.gui.guis.GUIPerk;
 import net.ntdi.tazpvp.utils.PlayerUtils;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.DyeColor;
-import org.bukkit.Material;
+import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemFlag;
@@ -65,6 +62,9 @@ public class GUIMainScreen extends GUI {
                 player.setExp(0);
                 PlayerUtils.equipStarter(player);
                 Bukkit.getScheduler().runTask(TazPvP.getInstance(), player::closeInventory);
+                for (Player pl : Bukkit.getOnlinePlayers()) {
+                    pl.playSound(pl.getLocation(), Sound.WITHER_DEATH, 1, 1);
+                }
             } else {
                 player.sendMessage(ChatColor.RED + "Reach level " + ChatColor.WHITE + "100" + ChatColor.RED + " to use this feature!");
             }
