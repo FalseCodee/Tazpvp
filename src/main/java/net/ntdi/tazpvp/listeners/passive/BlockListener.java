@@ -8,6 +8,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ public class BlockListener implements Listener {
                     unreq.add(Material.EMERALD_ORE);
 
                     if (!unreq.contains(blockType)) {
-                        event.getBlock().setMetadata("breakable", event.getBlock().getMetadata("breakable").get(0));
+                        event.getBlock().setMetadata("breakable", new FixedMetadataValue(TazPvP.getInstance(), true));
                         if (blockType == Material.WOOD) {
                             new BukkitRunnable() {
                                 @Override
