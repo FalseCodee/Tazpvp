@@ -61,6 +61,9 @@ public class DeathListener implements Listener {
                 }
                 p.setMaxHealth(20);
 
+                p.getWorld().playEffect(p.getLocation(), Effect.STEP_SOUND, Material.REDSTONE_BLOCK);
+                p.getWorld().playEffect(p.getLocation(), Effect.STEP_SOUND, Material.REDSTONE_BLOCK);
+                p.getWorld().playEffect(p.getLocation(), Effect.STEP_SOUND, Material.REDSTONE_BLOCK);
                 p.playSound(p.getLocation(), Sound.FIRE, 5, 1);
                 TazPvP.statsManager.addStreak(killer, 1);
                 TazPvP.statsManager.addKills(killer, 1);
