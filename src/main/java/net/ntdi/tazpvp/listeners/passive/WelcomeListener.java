@@ -123,22 +123,22 @@ public class WelcomeListener implements Listener {
             int random_int = (int)Math.floor(Math.random()*(max-min+1)+min);
 
             if (random_int == 1) {
-                Location location = new Location(world, 0, 30, 0);
+                Location location = new Location(world, 0, 51, 0);
                 p.teleport(location);
             } else if (random_int == 2) {
-                Location location = new Location(world, -15, 30, -10);
+                Location location = new Location(world, -15, 51, -10);
                 p.teleport(location);
             } else if (random_int == 3) {
-                Location location = new Location(world, 13, 30, -28);
+                Location location = new Location(world, 13, 51, -28);
                 p.teleport(location);
             } else if (random_int == 4) {
-                Location location = new Location(world, 26, 30, -1);
+                Location location = new Location(world, 26, 51, -1);
                 p.teleport(location);
             } else if (random_int == 5) {
-                Location location = new Location(world, 8, 30, 31);
+                Location location = new Location(world, 17, 51, 33);
                 p.teleport(location);
             } else {
-                Location location = new Location(world, -30, 30, 16);
+                Location location = new Location(world, -30, 51, 16);
                 p.teleport(location);
             }
         }
