@@ -33,16 +33,7 @@ public class DeathListener implements Listener {
 //        if(!p.getLocation().getWorld().getName().equals(TazPvP.configFile.getString("arena.name"))){
 //            return;
 //        }
-                double x = p.getLocation().getX();
-                double y = p.getLocation().getY();
-                double z = p.getLocation().getZ();
-
-                Location loc = new Location(p.getWorld(), x, y+1, z);
-
-                p.getWorld().playEffect(loc, Effect.STEP_SOUND, Material.REDSTONE_BLOCK);
-                p.getWorld().playEffect(loc, Effect.LARGE_SMOKE, Material.REDSTONE_BLOCK);
-                p.getWorld().playEffect(loc, Effect.LARGE_SMOKE, Material.REDSTONE_BLOCK);
-
+                Location loc = p.getLocation();
 
                 p.spigot().respawn();
                 new BukkitRunnable() {
@@ -76,6 +67,8 @@ public class DeathListener implements Listener {
                 TazPvP.statsManager.addStreak(killer, 1);
                 TazPvP.statsManager.addKills(killer, 1);
                 TazPvP.statsManager.addMoney(killer, 7);
+                loc.getWorld().playEffect(loc, Effect.LARGE_SMOKE, Material.REDSTONE_BLOCK);
+                loc.getWorld().playEffect(loc, Effect.LARGE_SMOKE, Material.REDSTONE_BLOCK);
 
                 if ((TazPvP.statsManager.getStreak(killer) % 5) == 0) {
                     Bukkit.broadcastMessage(ChatColor.GOLD + killer.getDisplayName() + ChatColor.YELLOW + " has a kill streak of " + ChatColor.GOLD + TazPvP.statsManager.getStreak(killer));
