@@ -1,6 +1,5 @@
 package net.ntdi.tazpvp.items.items;
 
-import net.milkbowl.vault.chat.Chat;
 import net.ntdi.tazpvp.items.ConsumableItem;
 import net.ntdi.tazpvp.items.Items;
 import org.bukkit.ChatColor;
@@ -12,23 +11,19 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
-import org.bukkit.util.Vector;
 
 import java.util.HashMap;
 import java.util.UUID;
-import java.util.WeakHashMap;
 
 public class LevFeather extends ConsumableItem implements Listener {
 
     public LevFeather() { super(Items.LEVFEATHER, 10); }
     final HashMap<UUID, Long> cooldown = new HashMap<>();
-    int cooldownTime = 10;
+    final int cooldownTime = 10;
 
     @Override
     public boolean execute(Player p, ItemStack itemStack){
-        if(super.execute(p, itemStack)) {
-            return true;
-        }
+        //super.execute(p, itemStack);
 
         return true;
     }

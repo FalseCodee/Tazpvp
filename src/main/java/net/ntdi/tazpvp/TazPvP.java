@@ -187,18 +187,14 @@ public final class TazPvP extends JavaPlugin {
                 if (TazPvP.voteYes.size() >= TazPvP.voteNo.size()){
                     Bukkit.broadcastMessage(votekicked.getName() + " has been kicked!");
                     votekicked.kickPlayer("You have been voted out! L");
-                    TazPvP.VoteOn = false;
-                    TazPvP.votedOut = null;
-                    TazPvP.voteYes.clear();
-                    TazPvP.voteNo.clear();
 
                 } else {
                     Bukkit.broadcastMessage(votekicked.getName() + " wasnt voted out, not enough votes!");
-                    TazPvP.VoteOn = false;
-                    TazPvP.votedOut = null;
-                    TazPvP.voteYes.clear();
-                    TazPvP.voteNo.clear();
                 }
+                TazPvP.VoteOn = false;
+                TazPvP.votedOut = null;
+                TazPvP.voteYes.clear();
+                TazPvP.voteNo.clear();
             }
         }.runTaskLater(this, 1200L);
     }
@@ -305,6 +301,7 @@ public final class TazPvP extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ShootListener(), this);
         getServer().getPluginManager().registerEvents(new WeatherListener(), this);
         getServer().getPluginManager().registerEvents(new RefundManager(), this);
+        getServer().getPluginManager().registerEvents(new ArmorTakeOffListener(), this);
 
     }
 

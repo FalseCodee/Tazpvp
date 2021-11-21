@@ -14,7 +14,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class GUIGIFTORBUY extends GUI {
 
-    public int gooeey;
+    public final int gooeey;
 
     public GUIGIFTORBUY(Player player, Integer gooey) {
         super(player, 27, ChatColor.BLUE + "" + ChatColor.BOLD + "CREDITS〡" + ChatColor.DARK_BLUE + "" + ChatColor.BOLD + TazPvP.statsManager.getCredits(player));
@@ -62,10 +62,8 @@ public class GUIGIFTORBUY extends GUI {
                         if (TazPvP.statsManager.getCredits(p) >= 250) {
                             if (!TazPvP.ProGiftRank.contains(p) && !TazPvP.ChampionGiftRank.contains(p) && !TazPvP.LegendGiftRank.contains(p) && !TazPvP.MythicalGiftRank.contains(p)){
                                 TazPvP.ProGiftRank.add(p);
-                                p.sendMessage(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "GIFT " + ChatColor.DARK_PURPLE + "Please type who you want to gift below.");
-                            } else {
-                                p.sendMessage(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "GIFT " + ChatColor.DARK_PURPLE + "Please type who you want to gift below.");
                             }
+                            p.sendMessage(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "GIFT " + ChatColor.DARK_PURPLE + "Please type who you want to gift below.");
 
                         } else {
                             TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! " + ChatColor.WHITE + "[CLICK HERE]");

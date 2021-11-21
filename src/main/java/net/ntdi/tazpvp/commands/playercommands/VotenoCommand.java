@@ -12,7 +12,7 @@ public class VotenoCommand implements CommandExecutor {
         if(sender instanceof Player) {
 
             Player p = (Player) sender;
-            if (TazPvP.VoteOn == true){
+            if (TazPvP.VoteOn){
                 if (!TazPvP.voteYes.contains(p) && !TazPvP.voteNo.contains(p)){
                     TazPvP.voteNo.add(p);
                     p.sendMessage("Succesfully voted NO");

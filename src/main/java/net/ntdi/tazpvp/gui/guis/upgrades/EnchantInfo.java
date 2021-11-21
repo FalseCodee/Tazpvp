@@ -22,11 +22,11 @@ public enum EnchantInfo {
     PROTECTION("Protection", "Decreases damage taken.", 4, 1, Enchantment.PROTECTION_ENVIRONMENTAL),
     FEATHER_FALLING("Feather Falling", "Decreases fall damage.", 4, 3, Enchantment.PROTECTION_FALL);
 
-    final String name;
-    final String description;
-    final int cost;
-    final int maxLevel;
-    final Enchantment ench;
+    public final String name;
+    public final String description;
+    public final int cost;
+    public final int maxLevel;
+    public final Enchantment ench;
     EnchantInfo(String name, String description, int cost, int maxLevel, Enchantment ench){
         this.name = name;
         this.description = description;

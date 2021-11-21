@@ -1,7 +1,6 @@
 package net.ntdi.tazpvp.commands.moderation;
 
 import net.ntdi.tazpvp.TazPvP;
-import net.ntdi.tazpvp.utils.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -22,7 +21,7 @@ public class MuteCommand implements CommandExecutor {
                 return false;
             } else if (args.length == 2){
                 Player muted = Bukkit.getPlayer(args[0]);
-                Integer time = Integer.valueOf(args[1]);
+                int time = Integer.parseInt(args[1]);
                 if(muted != null){
                     if(TazPvP.punishmentManager.isMuted(muted)){
 

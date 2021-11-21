@@ -13,7 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class GUIPerk extends GUI {
     public GUIPerk(Player player) {
-        super(player, 36, "BUY PERKS");
+        super(player, 27, "BUY PERKS");
         setItems();
         player.openInventory(inventory);
     }
@@ -174,12 +174,12 @@ public class GUIPerk extends GUI {
         addShopItem(10, new ItemStack(Material.WOOD, 1), 1, ChatColor.DARK_AQUA + "Builder I", ChatColor.GRAY + "Chance to not consume placed blocks.\n" + ChatColor.YELLOW + "$350");
         addShopItem(11, new ItemStack(Material.GOLD_INGOT, 1), 2, ChatColor.DARK_AQUA + "Health I", ChatColor.GRAY + "Chance to gain absorption hearts on kill.\n" + ChatColor.YELLOW + "$400");
         addShopItem(12, new ItemStack(Material.EYE_OF_ENDER, 1), 3, ChatColor.DARK_AQUA + "Agility I", ChatColor.GRAY + "Chance to get speed on kill.\n" + ChatColor.YELLOW + "$200");
-        addShopItem(13, new ItemStack(Material.RED_ROSE, 1), 4, ChatColor.DARK_AQUA + "Firefighter I", ChatColor.GRAY + "Instantly extinguish yourself when on fire.\n" + ChatColor.YELLOW + "$150");
+        //addShopItem(13, new ItemStack(Material.RED_ROSE, 1), 4, ChatColor.DARK_AQUA + "Firefighter I", ChatColor.GRAY + "Instantly extinguish yourself when on fire.\n" + ChatColor.YELLOW + "$150");
         addShopItem(14, new ItemStack(Material.FEATHER, 1), 5, ChatColor.DARK_AQUA + "Super I", ChatColor.GRAY + "Reduce fall damage.\n" + ChatColor.YELLOW + "$500");
         addShopItem(15, new ItemStack(Material.COOKED_BEEF, 1), 6, ChatColor.DARK_AQUA + "Not Hobo I", ChatColor.GRAY + "Chance to gain hunger bars on kill.\n" + ChatColor.YELLOW + "$300");
-        addShopItem(16, pickaxe, 7, ChatColor.DARK_AQUA + "Miner I", ChatColor.GRAY + "Chance to gain haste when mining.\n" + ChatColor.YELLOW + "$50");
-        addShopItem(19, new ItemStack(Material.POTION, 1), 9, ChatColor.DARK_AQUA + "Buff I", ChatColor.GRAY + "Chance to gain strength after kill.\n" + ChatColor.YELLOW + "$1000");
-        addShopItem(20, new ItemStack(Material.ARROW, 1), 9, ChatColor.DARK_AQUA + "Archer I", ChatColor.GRAY + "Chance to get your arrow back.\n" + ChatColor.YELLOW + "$250");
+        //addShopItem(16, pickaxe, 7, ChatColor.DARK_AQUA + "Miner I", ChatColor.GRAY + "Chance to gain haste when mining.\n" + ChatColor.YELLOW + "$50");
+        addShopItem(13, new ItemStack(Material.POTION, 1), 9, ChatColor.DARK_AQUA + "Buff I", ChatColor.GRAY + "Chance to gain strength after kill.\n" + ChatColor.YELLOW + "$1000");
+        addShopItem(16, new ItemStack(Material.ARROW, 1), 9, ChatColor.DARK_AQUA + "Archer I", ChatColor.GRAY + "Chance to get your arrow back.\n" + ChatColor.YELLOW + "$250");
 
         update();
     }

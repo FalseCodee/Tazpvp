@@ -10,7 +10,9 @@ import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 public class GUIMainScreen extends GUI {
     public GUIMainScreen(Player player) {
@@ -22,7 +24,13 @@ public class GUIMainScreen extends GUI {
     @SuppressWarnings("deprecation")
     public void init() {
         ItemStack sword = createItem(Material.WOOD_SWORD, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "SWORD", ChatColor.GRAY + "Click to see upgrades.");
+        ItemMeta swordMeta = sword.getItemMeta();
+        swordMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+        sword.setItemMeta(swordMeta);
         ItemStack pickaxe = createItem(Material.WOOD_PICKAXE, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "PICKAXE", ChatColor.GRAY + "Click to see upgrades.");
+        ItemMeta pickaxeMeta = pickaxe.getItemMeta();
+        pickaxeMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+        pickaxe.setItemMeta(pickaxeMeta);
         ItemStack rod = createItem(Material.FISHING_ROD, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "FISHING ROD", ChatColor.GRAY + "Click to see upgrades.");
         ItemStack bow = createItem(Material.BOW, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "BOW", ChatColor.GRAY + "Click to see upgrades.");
         ItemStack armor = createItem(Material.LEATHER_CHESTPLATE, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "ARMOR", ChatColor.GRAY + "Click to see upgrades.");

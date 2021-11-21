@@ -1,13 +1,14 @@
 package net.ntdi.tazpvp.gui.guis.rankstore;
 
+import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.gui.GUI;
-import net.ntdi.tazpvp.gui.guis.GUIBuyRank;
 import net.ntdi.tazpvp.gui.guis.GUICosmetics;
-import net.ntdi.tazpvp.gui.guis.GUIGiftRank;
 import net.ntdi.tazpvp.gui.guis.GUIRankStore;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
@@ -29,6 +30,19 @@ public class GUIMainRankScreen extends GUI {
         }
         setButtons(11, rankItem, event -> switchScreen(new GUIRankStore(player)));
         setButtons(15, donateItem, event -> {
+            // TODO: make unban work :D
+            if (TazPvP.punishmentManager.isBanned(player)) {
+                if (TazPvP.statsManager.getCredits(player) >= 100) {
+                    TazPvP.statsManager.addCredits(player, -100);
+                    TazPvP.punishmentManager.removeBan(player);
+                    player.sendMessage(ChatColor.GREEN + "You have been unbanned!");
+                    ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
+                    String pexcmd = "pex user " + player.getName() + " group remove banned";
+                    Bukkit.dispatchCommand(console, pexcmd);
+                }
+            } else {
+                player.sendMessage(ChatColor.RED + "You are not banned!");
+            }
 
         });
         setButtons(13, cosmeticsItem, event -> switchScreen(new GUICosmetics(player)));

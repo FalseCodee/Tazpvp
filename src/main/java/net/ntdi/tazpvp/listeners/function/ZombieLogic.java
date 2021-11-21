@@ -42,7 +42,7 @@ public class ZombieLogic implements Listener {
                 public void run() {
                     spawnZombie();
                 }
-            }.runTaskLater(TazPvP.getInstance(), rand.nextInt(1000));
+            }.runTaskLater(TazPvP.getInstance(), rand.nextInt(30) * 20);
         }
     }
 
@@ -85,7 +85,7 @@ public class ZombieLogic implements Listener {
                 public void run() {
                     spawnSkeleton();
                 }
-            }.runTaskLater(TazPvP.getInstance(), rand.nextInt(1000)+200);
+            }.runTaskLater(TazPvP.getInstance(), rand.nextInt(45)*20);
         }
     }
 
@@ -126,7 +126,7 @@ public class ZombieLogic implements Listener {
                 public void run() {
                     spawnOpSkeleton();
                 }
-            }.runTaskLater(TazPvP.getInstance(), rand.nextInt(5000)+600);
+            }.runTaskLater(TazPvP.getInstance(), rand.nextInt(90)*20);
         }
     }
 
@@ -153,9 +153,6 @@ public class ZombieLogic implements Listener {
         }.runTaskLater(TazPvP.getInstance(), 200L);
     }
 
-
-
-
     @EventHandler
     public void onBabyDie(EntityDeathEvent event){
         if (event.getEntity() instanceof Zombie && event.getEntity().getName().equals(ChatColor.GREEN + "" + "Falsecode's Newborn Son")){
@@ -167,7 +164,7 @@ public class ZombieLogic implements Listener {
                 public void run() {
                     spawnBaby();
                 }
-            }.runTaskLater(TazPvP.getInstance(), rand.nextInt(5000)+600);
+            }.runTaskLater(TazPvP.getInstance(), rand.nextInt(135)*20);
         }
     }
 
