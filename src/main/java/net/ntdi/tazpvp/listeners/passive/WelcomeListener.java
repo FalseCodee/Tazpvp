@@ -132,7 +132,7 @@ public class WelcomeListener implements Listener {
                 Location location = new Location(world, 13, 51, -28);
                 p.teleport(location);
             } else if (random_int == 4) {
-                Location location = new Location(world, 26, 51, -1);
+                Location location = new Location(world, 18, 51, -2);
                 p.teleport(location);
             } else if (random_int == 5) {
                 Location location = new Location(world, 17, 51, 33);
