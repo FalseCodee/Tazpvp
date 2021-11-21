@@ -21,17 +21,15 @@ public class GUIRefund extends GUI {
         setButtons(slot, createItem(item, name, lore), event -> {
             event.setCancelled(true);
 
-            switch (runnable){
-                case 1:
-                    player.closeInventory();
-                    if (TazPvP.statsManager.getCredits(player) >= 50) {
-                        TazPvP.RefundItem.add(player);
-                        player.sendMessage(ChatColor.RED + "Please hold your item that you wish to refund in your hand\nOnce you've done that type " + ChatColor.GOLD + " \"GO\" " + ChatColor.RED + " in the chat.\nYou may type anything else to cancel this.");
+            if (runnable == 1) {
+                player.closeInventory();
+                if (TazPvP.statsManager.getCredits(player) >= 50) {
+                    TazPvP.RefundItem.add(player);
+                    player.sendMessage(ChatColor.RED + "Please hold your item that you wish to refund in your hand\nOnce you've done that type " + ChatColor.GOLD + " \"GO\" " + ChatColor.RED + " in the chat.\nYou may type anything else to cancel this.");
 
-                    } else {
-                        player.sendMessage(ChatColor.RED + "You do not have enough credits to refund this item.");
-                    }
-                    break;
+                } else {
+                    player.sendMessage(ChatColor.RED + "You do not have enough credits to refund this item.");
+                }
             }
         });
     }
