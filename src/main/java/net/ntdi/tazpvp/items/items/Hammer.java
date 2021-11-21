@@ -34,7 +34,13 @@ public class Hammer extends ClickableItem {
                 Player target = (Player) e;
 
                 e.getWorld().strikeLightning(e.getLocation());
-                e.setVelocity(new Vector(0,3,0));
+                e.getWorld().strikeLightning(e.getLocation());
+                e.getWorld().strikeLightning(e.getLocation());
+                e.getWorld().strikeLightning(e.getLocation());
+                e.getWorld().strikeLightning(e.getLocation());
+                e.getWorld().strikeLightning(e.getLocation());
+                e.getWorld().strikeLightning(e.getLocation());
+                e.setVelocity(new Vector(0,1,0));
 
             }
         }
