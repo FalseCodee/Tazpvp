@@ -39,10 +39,10 @@ public class DeathListener implements Listener {
 
                 Location loc = new Location(p.getWorld(), x, y+1, z);
 
-                p.getWorld().playEffect(loc, Effect.LARGE_SMOKE, Material.DEAD_BUSH);
-                p.getWorld().playEffect(loc, Effect.LARGE_SMOKE, Material.DEAD_BUSH);
-                p.getWorld().playEffect(loc, Effect.LARGE_SMOKE, Material.DEAD_BUSH);
-                p.getWorld().playEffect(loc, Effect.LARGE_SMOKE, Material.DEAD_BUSH);
+                p.getWorld().playEffect(loc, Effect.STEP_SOUND, Material.REDSTONE_BLOCK);
+                p.getWorld().playEffect(loc, Effect.LARGE_SMOKE, Material.REDSTONE_BLOCK);
+                p.getWorld().playEffect(loc, Effect.LARGE_SMOKE, Material.REDSTONE_BLOCK);
+
 
                 p.spigot().respawn();
                 new BukkitRunnable() {
