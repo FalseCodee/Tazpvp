@@ -19,6 +19,7 @@ public class ItemManager {
         items.add(new RidePearl());
         items.add(new LevFeather());
         items.add(new Fireballz());
+        items.add(new Hammer());
     }
 
     public static void givePlayerItem(Player player, Items item, int count) {
