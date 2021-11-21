@@ -272,6 +272,7 @@ public final class TazPvP extends JavaPlugin {
         //getCommand("lbm").setExecutor(new lbMoneyCommand());
         getCommand("ridehead").setExecutor(new HeadCommand());
         getCommand("rideme").setExecutor(new RideMeCommand());
+        getCommand("giveitem").setExecutor(new giveItem());
     }
 
     public void registerListeners() {

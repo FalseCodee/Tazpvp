@@ -33,6 +33,17 @@ public class DeathListener implements Listener {
 //        if(!p.getLocation().getWorld().getName().equals(TazPvP.configFile.getString("arena.name"))){
 //            return;
 //        }
+                double x = p.getLocation().getX();
+                double y = p.getLocation().getY();
+                double z = p.getLocation().getZ();
+
+                Location loc = new Location(p.getWorld(), x, y+1, z);
+
+                p.getWorld().playEffect(loc, Effect.STEP_SOUND, Material.REDSTONE_BLOCK);
+                p.getWorld().playEffect(loc, Effect.LARGE_SMOKE, Material.REDSTONE_BLOCK);
+                p.getWorld().playEffect(loc, Effect.LARGE_SMOKE, Material.REDSTONE_BLOCK);
+
+
                 p.spigot().respawn();
                 new BukkitRunnable() {
                     @Override

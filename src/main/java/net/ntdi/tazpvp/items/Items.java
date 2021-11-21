@@ -13,6 +13,7 @@ public enum Items {
     FIREGUN(ChatColor.DARK_AQUA + "Fireballz Gun", Material.FIREBALL),
     LEVFEATHER(ChatColor.DARK_AQUA + "Lethal Injection", Material.FEATHER),
     FIREBALL(ChatColor.DARK_AQUA + "Fireballz", Material.FIREBALL),
+    HAMMER(ChatColor.DARK_AQUA + "Hammer", Material.GOLD_SPADE),
     CREDITPAPER(ChatColor.DARK_AQUA + "Paper", Material.PAPER);
 
     public final String display;
