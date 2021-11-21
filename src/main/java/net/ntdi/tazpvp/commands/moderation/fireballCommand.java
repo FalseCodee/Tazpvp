@@ -14,7 +14,7 @@ public class fireballCommand implements CommandExecutor {
         Player p = (Player) sender;
 
         if (p.hasPermission("op")) {
-            ItemManager.givePlayerItem(p, Items.FIREGUN, 16);
+            ItemManager.givePlayerItem(p, Items.FIREBALL, 16);
         }
 
 
