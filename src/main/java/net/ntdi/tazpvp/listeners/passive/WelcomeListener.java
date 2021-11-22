@@ -105,6 +105,10 @@ public class WelcomeListener implements Listener {
         if(TazPvP.robbery.containsKey(p)){
             p.getInventory().addItem(TazPvP.robbery.get(p));
         }
+        if (TazPvP.SS.contains(p)) {
+            TazPvP.SS.remove(p);
+            Bukkit.broadcast(ChatColor.RED + p.getName() + ChatColor.GREEN + " has left the server and can no longer be SS'd", "staff.staffchat");
+        }
 
     }
 
@@ -113,9 +117,6 @@ public class WelcomeListener implements Listener {
         if (event.getPlayer().getWorld().getName().equals("arena")) {
             World world = event.getPlayer().getWorld();
             Player p = event.getPlayer();
-
-
-
 
             int min = 1;
             int max = 6;

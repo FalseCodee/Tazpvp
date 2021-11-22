@@ -5,6 +5,7 @@ import net.ntdi.tazpvp.utils.StringUtils;
 import net.ntdi.tazpvp.utils.https.PostHelper;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -51,9 +52,11 @@ public class BanCommand implements CommandExecutor {
                         player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "BAN " + ChatColor.RED + "You just banned " + ChatColor.WHITE + banned.getName());
                         banned.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
                         banned.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "BAN" + ChatColor.GRAY + " You've been banned for "+ChatColor.WHITE+reason);
-                        banned.sendMessage(ChatColor.GRAY + "Do not log out if you wish to be unbanned.");
+                        banned.sendMessage(ChatColor.GRAY + "Do not log out if you wish to be unbanned. Join the discord and create a ticket.");
                         banned.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
+                        banned.teleport(new Location(Bukkit.getWorld("world"), 0.5, 51, 0.5, -179, 0));
+                        TazPvP.SS.add(banned);
 
                         new BukkitRunnable() {
 
