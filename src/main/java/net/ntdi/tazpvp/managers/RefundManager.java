@@ -3,6 +3,7 @@ package net.ntdi.tazpvp.managers;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.gui.guis.upgrades.EnchantInfo;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -13,14 +14,19 @@ public class RefundManager implements Listener {
 
     public void refundEnchant(Player p, ItemStack item) {
 
-        for(EnchantInfo enchantInfo : EnchantInfo.values()) {
-            if(item.getEnchantments().size() <= 0) {
-                return;
-            }
-            else if(item.getEnchantments().containsKey(enchantInfo.ench)){
-                TazPvP.statsManager.addPoints(p, enchantInfo.cost * item.getEnchantments().get(enchantInfo.ench));
-                item.removeEnchantment(enchantInfo.ench);
+        if (item.getType() == Material.LEATHER_BOOTS || item.getType() == Material.LEATHER_LEGGINGS || item.getType() == Material.CHAINMAIL_BOOTS || item.getType() == Material.CHAINMAIL_LEGGINGS || item.getType() == Material.IRON_BOOTS || item.getType() == Material.IRON_LEGGINGS || item.getType() == Material.DIAMOND_BOOTS || item.getType() == Material.DIAMOND_LEGGINGS || item.getType() == Material.GOLD_BOOTS || item.getType() == Material.GOLD_LEGGINGS) {
+            p.sendMessage(ChatColor.RED + "You cannot refund this item!");
+            return;
+        } else {
+            for(EnchantInfo enchantInfo : EnchantInfo.values()) {
+                if(item.getEnchantments().size() <= 0) {
+                    return;
+                }
+                else if(item.getEnchantments().containsKey(enchantInfo.ench)){
+                    TazPvP.statsManager.addPoints(p, enchantInfo.cost * item.getEnchantments().get(enchantInfo.ench));
+                    item.removeEnchantment(enchantInfo.ench);
 
+                }
             }
         }
     }
