@@ -254,3 +254,6 @@ commands:
   giveitem:
     permission: op
     usage: "/giveitem <item>"
+  ss:
+    permission: staff.ban
+    usage: "/ss <player>"
