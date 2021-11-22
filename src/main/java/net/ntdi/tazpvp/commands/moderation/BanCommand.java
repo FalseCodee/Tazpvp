@@ -55,7 +55,7 @@ public class BanCommand implements CommandExecutor {
                         banned.sendMessage(ChatColor.GRAY + "Do not log out if you wish to be unbanned. Join the discord and create a ticket.");
                         banned.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
-                        banned.teleport(new Location(Bukkit.getWorld("world"), 0.5, 51, 0.5, -179, 0));
+//                        banned.teleport(new Location(Bukkit.getWorld("world"), 0.5, 51, 0.5, -179, 0));
                         TazPvP.SS.add(banned);
 
                         new BukkitRunnable() {
