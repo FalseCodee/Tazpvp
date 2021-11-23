@@ -92,6 +92,8 @@ commands:
     description: Report players
     permission-message: No Permission
     usage: "/report <Player> <Reason>"
+    aliases:
+      - wdr
   warn:
     description: Warn players
     permission: staff.warn
