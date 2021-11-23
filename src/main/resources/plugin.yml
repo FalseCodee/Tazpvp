@@ -1,6 +1,6 @@
 name: Tazpvp
 prefix: Tazpvp
-version: ${project.version}
+version: 1.0
 main: net.ntdi.tazpvp.TazPvP
 api-version: 1.16
 authors: [ Ntdi, FalseCode, rownox ]
