@@ -2,7 +2,6 @@ name: Tazpvp
 prefix: Tazpvp
 version: 1.0
 main: net.ntdi.tazpvp.TazPvP
-api-version: 1.16
 authors: [ Ntdi, FalseCode, rownox ]
 depend:
   - Vault
@@ -154,11 +153,8 @@ commands:
   shop:
     description: Opens the shop menu
     usage: "/shop"
-  holograms:
+  hologramz:
     description: loads holograms
-    aliases:
-      - holo
-      - hologram
     usage: "/holograms"
   tazload:
     description: reload tazpvp
