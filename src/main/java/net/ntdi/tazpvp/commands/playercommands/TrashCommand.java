@@ -22,6 +22,9 @@ public class TrashCommand implements CommandExecutor {
                 || item == Material.GOLD_BOOTS || item == Material.GOLD_CHESTPLATE || item == Material.GOLD_HELMET || item == Material.GOLD_LEGGINGS
                 || item == Material.DIAMOND_BOOTS || item == Material.DIAMOND_CHESTPLATE || item == Material.DIAMOND_HELMET || item == Material.DIAMOND_LEGGINGS
                 || item == Material.BOW || item == Material.FISHING_ROD) {
+                p.sendMessage(ChatColor.RED + "You can't trash this item!");
+            } else {
+
 
                 if (args.length == 0) {
                     p.getItemInHand().setType(Material.AIR);
