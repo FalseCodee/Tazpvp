@@ -86,7 +86,6 @@ public final class TazPvP extends JavaPlugin {
     public static final ArrayList<Player> LegendGiftRank = new ArrayList<>();
     public static final ArrayList<Player> MythicalGiftRank = new ArrayList<>();
     public static final ArrayList<Player> RefundItem = new ArrayList<>();
-    public static final ArrayList<Player> SS = new ArrayList<>();
 
     // public static HashMap<UUID, Integer> banTime = new HashMap<>();
 
@@ -274,7 +273,6 @@ public final class TazPvP extends JavaPlugin {
         getCommand("ridehead").setExecutor(new HeadCommand());
         getCommand("rideme").setExecutor(new RideMeCommand());
         getCommand("giveitem").setExecutor(new giveItem());
-        getCommand("ss").setExecutor(new SSCommand());
     }
 
     public void registerListeners() {

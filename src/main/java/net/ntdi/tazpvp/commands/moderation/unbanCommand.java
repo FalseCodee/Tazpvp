@@ -36,9 +36,7 @@ public class unbanCommand implements CommandExecutor {
                         BanCommand.bannedRunnables.remove(banned.getUniqueId());
                     }
 
-                    if (TazPvP.SS.contains(banned)){
-                        TazPvP.SS.remove(banned);
-                    }
+
 
                     new BukkitRunnable() {
 
