@@ -250,3 +250,6 @@ commands:
   giveitem:
     permission: op
     usage: "/giveitem <item>"
+  trash:
+    usage: "/trash [amount]"
+    description: "trash items in your hand"
