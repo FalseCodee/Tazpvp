@@ -36,7 +36,7 @@ public class GUIAchievement extends GUI {
                 items[i+displacement] = createItem(Material.STORAGE_MINECART, 1, ChatColor.RED + ach.name,
                         ChatColor.WHITE + ach.description + "\n"
                                 + ChatColor.GRAY + "Reward: " + ach.getStringRewards()[0]
-                                + "\n" + ChatColor.RED + "Completed!\n");
+                                + "\n" + ChatColor.GREEN + "Completed!\n");
             } else {
                 items[i+displacement] = createItem(Material.MINECART, 1, ChatColor.RED + ach.name,
                         ChatColor.WHITE + ach.description + "\n"

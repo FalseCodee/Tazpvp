@@ -49,7 +49,6 @@ public class BanCommand implements CommandExecutor {
 
                     } else {
                         TazPvP.punishmentManager.initBan(banned, true, 60*60*1000);
-                        player.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "BAN " + ChatColor.RED + "You just banned " + ChatColor.WHITE + banned.getName());
                         banned.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
                         banned.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "BAN" + ChatColor.GRAY + " You've been banned for "+ChatColor.WHITE+reason);
                         banned.sendMessage(ChatColor.GRAY + "Do not log out if you wish to be unbanned. Join the discord and create a ticket.");
