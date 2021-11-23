@@ -23,6 +23,7 @@ public class StatsManager {
         file = new File(TazPvP.getInstance().getDataFolder() + "/stats.yml");
         statsFile = YamlConfiguration.loadConfiguration(file);
     }
+
     public void initScoreboard(Player player) {
         Scoreboard sb = Bukkit.getScoreboardManager().getNewScoreboard();
         sb.registerNewTeam("a");
