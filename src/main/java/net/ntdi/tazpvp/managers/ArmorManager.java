@@ -1,16 +1,20 @@
 package net.ntdi.tazpvp.managers;
 
+import net.ntdi.tazpvp.TazPvP;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import java.io.*;
+import java.util.*;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 public class ArmorManager {
 
     static Map<UUID, ItemStack[]> items = new HashMap<UUID, ItemStack[]>();
     static Map<UUID, ItemStack[]> armor = new HashMap<UUID, ItemStack[]>();
+    final static String outputFilePath = TazPvP.getInstance().getDataFolder().getAbsolutePath() + "/inv.properties";
+    final static String outputFilePath2 = TazPvP.getInstance().getDataFolder().getAbsolutePath() + "/inv.properties";
 
     public static void storeAndClearInventory(Player player){
         UUID uuid = player.getUniqueId();
@@ -51,4 +55,28 @@ public class ArmorManager {
         player.getInventory().setLeggings(null);
         player.getInventory().setBoots(null);
     }
+
+    public static void saveinv() throws IOException {
+        File file = new File(outputFilePath);
+        Properties properties = new Properties();
+        properties.putAll(items);
+
+        properties.store(new FileOutputStream(outputFilePath), null);
+
+    }
+
+    public static void savearmor() throws IOException {
+        File file = new File(outputFilePath2);
+        Properties properties = new Properties();
+        properties.putAll(armor);
+
+        properties.store(new FileOutputStream(outputFilePath2), null);
+
+    }
+
+//    public static void loadinv() throws IOException {
+//        Properties properties = new Properties();
+//        properties.load(new FileInputStream(outputFilePath));
+//        items.putAll(properties);
+//    }
 }

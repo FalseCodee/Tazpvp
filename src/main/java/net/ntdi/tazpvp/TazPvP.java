@@ -121,6 +121,8 @@ public final class TazPvP extends JavaPlugin {
         perkManager = new PerkManager();
         ItemManager.init();
 
+
+
         if(getServer().getPluginManager().getPlugin("Vault") != null) {
             RegisteredServiceProvider<Permission> rsp = getServer().getServicesManager().getRegistration(Permission.class);
             RegisteredServiceProvider<Chat> rsp1 = getServer().getServicesManager().getRegistration(Chat.class);
@@ -140,7 +142,6 @@ public final class TazPvP extends JavaPlugin {
 
         // Event Register
         registerListeners();
-
 
 
         load();
@@ -217,6 +218,16 @@ public final class TazPvP extends JavaPlugin {
         TazPvP.voteYes.clear();
         TazPvP.voteNo.clear();
         TazPvP.renamingSword.clear();
+        try {
+            ArmorManager.saveinv();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            ArmorManager.savearmor();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void registerCommands() {
