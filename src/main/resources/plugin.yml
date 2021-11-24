@@ -255,3 +255,9 @@ commands:
   trash:
     usage: "/trash [amount]"
     description: "trash items in your hand"
+  saveinv:
+    permission: op
+    usage: "/saveinv"
+  loadinv:
+    permission: op
+    usage: "/loadinv"

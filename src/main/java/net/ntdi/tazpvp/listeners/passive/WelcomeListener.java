@@ -2,6 +2,7 @@ package net.ntdi.tazpvp.listeners.passive;
 
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.commands.moderation.BanCommand;
+import net.ntdi.tazpvp.managers.ArmorManager;
 import net.ntdi.tazpvp.utils.PlayerUtils;
 import org.bukkit.*;
 import org.bukkit.command.ConsoleCommandSender;
@@ -93,6 +94,7 @@ public class WelcomeListener implements Listener {
         for(Scoreboard sb : TazPvP.statsManager.scoreboards.values()) {
             TazPvP.statsManager.getTeam(p, sb).removeEntry(p.getName());
         }
+        ArmorManager.restoreInventory(p);
 
         TazPvP.statsManager.scoreboards.remove(p.getUniqueId());
         event.setQuitMessage(ChatColor.GRAY + "[" + ChatColor.RED + "-" + ChatColor.GRAY + "] " + p.getName());
