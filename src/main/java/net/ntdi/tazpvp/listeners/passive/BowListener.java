@@ -19,6 +19,7 @@ public class BowListener implements Listener {
                 if(secondsLeft>0) {
                     event.setCancelled(true);
                     p.sendMessage("Your bow is on cool-down "+ secondsLeft +" seconds!");
+                    return;
                 }
             }
             // No cooldown found or cooldown has expired, save new cooldown
