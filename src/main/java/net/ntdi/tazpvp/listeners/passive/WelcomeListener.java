@@ -12,6 +12,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.Scoreboard;
 
 public class WelcomeListener implements Listener {
@@ -120,6 +121,9 @@ public class WelcomeListener implements Listener {
                 p.sendMessage(ChatColor.RED + "Changed world, adding invunerability due to being vanished");
             }
 
+            TazPvP.FallDamageImmune.add(p);
+
+
             int min = 1;
             int max = 6;
 
@@ -144,6 +148,13 @@ public class WelcomeListener implements Listener {
                 Location location = new Location(world, -30, 51, 16);
                 p.teleport(location);
             }
+
+            new BukkitRunnable() {
+                @Override
+                public void run() {
+                    TazPvP.FallDamageImmune.remove(p);
+                }
+            }.runTaskLater(TazPvP.getInstance(), 20 * 5);
         }
     }
 }
