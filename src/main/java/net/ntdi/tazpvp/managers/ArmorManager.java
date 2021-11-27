@@ -38,12 +38,14 @@ public class ArmorManager {
 
         if(contents != null){
             player.getInventory().setContents(contents);
+            System.out.println("Restored inventory");
         } else {
             //player.getInventory().clear();
         }
 
         if(armorContents != null){
             player.getInventory().setArmorContents(armorContents);
+            System.out.println("Restored inventory");
         } else {
             //remArmor(player);
         }
