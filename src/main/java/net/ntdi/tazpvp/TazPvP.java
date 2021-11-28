@@ -288,6 +288,7 @@ public final class TazPvP extends JavaPlugin {
         getCommand("trash").setExecutor(new TrashCommand());
         getCommand("saveinv").setExecutor(new SaveinvCommand());
         getCommand("loadinv").setExecutor(new LoadinvCommand());
+        getCommand("ac").setExecutor(new ACCommand());
     }
 
     public void registerListeners() {
