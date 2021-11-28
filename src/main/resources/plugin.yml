@@ -262,5 +262,5 @@ commands:
     permission: op
     usage: "/loadinv"
   ac:
-    perission: "staff.ban"
+    permission: "staff.ban"
     usage: "/ac <player>"
