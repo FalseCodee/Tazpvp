@@ -13,7 +13,7 @@ public class GUIVulcan extends GUI {
     Player target;
 
     public GUIVulcan(Player player, Player ac) {
-        super(player, 9, ChatColor.RED + "" + ChatColor.BOLD + "AC " + ac.getName() + "'s " + ChatColor.GOLD + "Vulcan");
+        super(player, 27, ChatColor.RED + "" + ChatColor.BOLD + "AC " + ac.getName() + "'s " + ChatColor.GOLD + "Vulcan");
         target = ac;
         setItems();
         player.openInventory(inventory);
