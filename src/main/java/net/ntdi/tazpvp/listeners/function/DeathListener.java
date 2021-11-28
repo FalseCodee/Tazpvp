@@ -136,7 +136,7 @@ public class DeathListener implements Listener {
                     }
                     TazPvP.statsManager.setStreak(p, 0);
                     TazPvP.statsManager.addDeaths(p, 1);
-                    loc.getWorld().playEffect(loc, Effect.LARGE_SMOKE, Material.REDSTONE_BLOCK);
+                    //loc.getWorld().playEffect(loc, Effect.LARGE_SMOKE, Material.REDSTONE_BLOCK);
                 }
             }
         }
