@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public class BowListener implements Listener {
     public HashMap<String, Long> cooldowns = new HashMap<String, Long>();
-    int cooldownTime = 5;
+    int cooldownTime = 3;
 
     @EventHandler
     public void onShoot(org.bukkit.event.entity.EntityShootBowEvent event) {

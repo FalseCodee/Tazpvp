@@ -154,7 +154,7 @@ public class WelcomeListener implements Listener {
                 public void run() {
                     TazPvP.FallDamageImmune.remove(p);
                 }
-            }.runTaskLater(TazPvP.getInstance(), 20 * 5);
+            }.runTaskLater(TazPvP.getInstance(), 20 * 20);
         }
     }
 }

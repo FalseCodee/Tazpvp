@@ -21,6 +21,8 @@ public class ACCommand implements CommandExecutor {
                         Player target = Bukkit.getPlayer(args[0]);
 
                         new GUIVulcan(player, target);
+                    } else {
+                        player.sendMessage("Player not found!");
                     }
                 } else {
                     return false;
