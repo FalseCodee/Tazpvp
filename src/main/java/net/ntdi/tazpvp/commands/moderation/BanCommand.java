@@ -36,7 +36,7 @@ public class BanCommand implements CommandExecutor {
             player.sendMessage(bannedRunnables.keySet().size() + "");
             return true;
         }
-        OfflinePlayer banned = Bukkit.getPlayer(args[0]);
+        OfflinePlayer banned = Bukkit.getOfflinePlayer(args[0]);
         if (banned != null) {
             if(player != null && player.hasPermission("staff.ban") && !banned.getPlayer().hasPermission("staff.banbypass")){
                 if(args.length < 2){
