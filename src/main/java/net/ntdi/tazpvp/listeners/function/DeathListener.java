@@ -94,13 +94,6 @@ public class DeathListener implements Listener {
 
                             if (rand.nextInt(10) == 1) {
                                 if (TazPvP.perkManager.getButter(killer)){
-                                    if(killer.getHealth() <= 16) {
-                                        double health = killer.getHealth() + 4;
-                                        killer.setMaxHealth(health);
-                                        killer.setHealth(p.getHealth() + 4);
-                                    } else {
-                                        killer.setHealth(20);
-                                    }
                                     killer.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 20*60, 0));
                                     killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20*5, 0));
                                     //killer.sendMessage(ChatColor.GRAY + "Butter Perk activated!");
