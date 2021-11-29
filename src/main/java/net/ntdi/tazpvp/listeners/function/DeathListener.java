@@ -95,6 +95,8 @@ public class DeathListener implements Listener {
                             if (rand.nextInt(10) == 1) {
                                 if (TazPvP.perkManager.getButter(killer)){
                                     if(killer.getHealth() <= 16) {
+                                        double health = killer.getHealth() + 4;
+                                        killer.setMaxHealth(health);
                                         killer.setHealth(p.getHealth() + 4);
                                     } else {
                                         killer.setHealth(20);
