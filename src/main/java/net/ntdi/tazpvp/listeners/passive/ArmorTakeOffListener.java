@@ -16,6 +16,8 @@ public class ArmorTakeOffListener implements Listener {
                     || event.getCurrentItem().getType() == Material.DIAMOND_BOOTS || event.getCurrentItem().getType() == Material.DIAMOND_CHESTPLATE || event.getCurrentItem().getType() == Material.DIAMOND_HELMET || event.getCurrentItem().getType() == Material.DIAMOND_LEGGINGS
                     || event.getCurrentItem().getType() == Material.GOLD_BOOTS || event.getCurrentItem().getType() == Material.GOLD_CHESTPLATE || event.getCurrentItem().getType() == Material.GOLD_HELMET || event.getCurrentItem().getType() == Material.GOLD_LEGGINGS) {
                 event.setCancelled(true);
+            } else {
+                return;
             }
         }
     }

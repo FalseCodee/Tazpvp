@@ -190,9 +190,9 @@ public class BanCommand implements CommandExecutor {
                         }
                     }
                 }
-            } else if(banned != null) {
-                player.sendMessage(ChatColor.RED + "You cant ban this person!");
-            }
+            } //else if(banned != null) {
+                //player.sendMessage(ChatColor.RED + "You cant ban this person!");
+           // }
         }
 
 
