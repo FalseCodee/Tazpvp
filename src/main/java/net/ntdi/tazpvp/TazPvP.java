@@ -55,6 +55,7 @@ public final class TazPvP extends JavaPlugin {
     public static AchievementsManager achievementsManager;
     public static PerkManager perkManager;
     public static ZombieLogic zombieLogic;
+    public static ArmorManager armorManager;
 
     public static Permission permissions;
     public static Chat chat;
@@ -120,6 +121,7 @@ public final class TazPvP extends JavaPlugin {
         staffManager = new StaffManager();
         achievementsManager = new AchievementsManager();
         perkManager = new PerkManager();
+        armorManager = new ArmorManager();
         ItemManager.init();
 
 
@@ -214,11 +216,14 @@ public final class TazPvP extends JavaPlugin {
         staffManager.saveStaffFile();
         achievementsManager.saveAchievements();
         perkManager.saveStats();
+
         TazPvP.VoteOn = false;
         TazPvP.votedOut = null;
         TazPvP.voteYes.clear();
         TazPvP.voteNo.clear();
         TazPvP.renamingSword.clear();
+
+
         try {
             ArmorManager.saveinv();
         } catch (IOException e) {
