@@ -38,6 +38,9 @@ public class DeathListener implements Listener {
 //        }
 
                         p.spigot().respawn();
+
+
+
                         new BukkitRunnable() {
                             @Override
                             public void run() {
