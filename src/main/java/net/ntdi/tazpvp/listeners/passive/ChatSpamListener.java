@@ -2,6 +2,7 @@ package net.ntdi.tazpvp.listeners.passive;
 
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.utils.ChatUtils;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -81,10 +82,42 @@ public class ChatSpamListener implements Listener {
             return;
         }
 
-        if (hasIllegalWord(e.getMessage())) {
-            p.sendMessage("Bad Word");
-            e.setCancelled(true);
-            return;
+//        if (hasIllegalWord(e.getMessage())) {
+//            p.sendMessage("Bad Word");
+//            e.setCancelled(true);
+//            return;
+//        }
+
+        if (!e.getPlayer().hasPermission("staff.chatbypass")) {
+            String message = e.getMessage();
+            message = message.replace("shit", "####");
+            message = message.replace("porn", "####");
+            message = message.replace("whore", "#####");
+            message = message.replace("dick", "####");
+            message = message.replace("dildo", "#####");
+            message = message.replace("fag", "###");
+            message = message.replace("cock", "####");
+            message = message.replace("retar", "####");
+            message = message.replace("pussy", "#####");
+            message = message.replace("cunt", "####");
+            message = message.replace("bitc", "####");
+            message = message.replace("fuck", "####");
+            message = message.replace("nigg", "####");
+            message = message.replace("fuk", "###");
+            message = message.replace("fuc", "###");
+            message = message.replace("slut", "####");
+            e.setMessage(message);
+        }
+        if (!e.getPlayer().hasPermission("staff.chatbypass")) {
+            String message = e.getMessage();
+            message = message.replace(".", " ");
+            e.setMessage(message);
+        }
+        if (!e.getPlayer().hasPermission("staff.chatbypass")) {
+            String message = e.getMessage();
+            if (message.contains("how")){
+                p.sendMessage(ChatColor.DARK_GRAY + "( " + ChatColor.RED + "!" + ChatColor.DARK_GRAY + " ) " + ChatColor.GRAY + "Learn how the server works better by typing /Help.");
+            }
         }
 
 

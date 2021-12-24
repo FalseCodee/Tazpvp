@@ -327,6 +327,7 @@ public final class TazPvP extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new BowListener(), this);
         getServer().getPluginManager().registerEvents(new RespawnListener(), this);
         getServer().getPluginManager().registerEvents(new CraftListener(), this);
+        getServer().getPluginManager().registerEvents(new ExplosionListener(), this);
     }
 
     public void initConfig(){
