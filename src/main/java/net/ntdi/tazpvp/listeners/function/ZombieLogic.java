@@ -36,7 +36,10 @@ public class ZombieLogic implements Listener {
         if (event.getEntity() instanceof Zombie && event.getEntity().getName().equals(ChatColor.RED + "" + "Ntdi's Henchmen")){
 
             Random rand = new Random();
-            TazPvP.statsManager.addExp(event.getEntity().getKiller(), 3);
+            if (event.getEntity().getKiller() != null){
+                TazPvP.statsManager.addExp(event.getEntity().getKiller(), 3);
+            }
+
             new BukkitRunnable(){
                 @Override
                 public void run() {
@@ -79,7 +82,9 @@ public class ZombieLogic implements Listener {
         if (event.getEntity() instanceof Skeleton && event.getEntity().getName().equals(ChatColor.BLUE + "" + "Rownox's Archers")){
 
             Random rand = new Random();
-            TazPvP.statsManager.addExp(event.getEntity().getKiller(), 5);
+            if (event.getEntity().getKiller() != null){
+                TazPvP.statsManager.addExp(event.getEntity().getKiller(), 5);
+            }
             new BukkitRunnable(){
                 @Override
                 public void run() {
@@ -120,7 +125,9 @@ public class ZombieLogic implements Listener {
         if (event.getEntity() instanceof Skeleton && event.getEntity().getName().equals(ChatColor.AQUA + "" + "Rownox's Super Archers")){
 
             Random rand = new Random();
-            TazPvP.statsManager.addExp(event.getEntity().getKiller(), 6);
+            if (event.getEntity().getKiller() != null){
+                TazPvP.statsManager.addExp(event.getEntity().getKiller(), 6);
+            }
             new BukkitRunnable(){
                 @Override
                 public void run() {
@@ -158,7 +165,9 @@ public class ZombieLogic implements Listener {
         if (event.getEntity() instanceof Zombie && event.getEntity().getName().equals(ChatColor.GREEN + "" + "Falsecode's Newborn Son")){
 
             Random rand = new Random();
-            TazPvP.statsManager.addExp(event.getEntity().getKiller(), 15);
+            if (event.getEntity().getKiller() != null){
+                TazPvP.statsManager.addExp(event.getEntity().getKiller(), 15);
+            }
             new BukkitRunnable(){
                 @Override
                 public void run() {

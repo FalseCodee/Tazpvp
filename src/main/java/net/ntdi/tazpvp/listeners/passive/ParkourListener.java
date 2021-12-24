@@ -56,27 +56,27 @@ public class ParkourListener implements Listener {
         }
     }*/
 
-    @EventHandler
-    public void onPoopy(PlayerMoveEvent event){
-        if (event.getPlayer().getWorld().getName().equals("parkour") && event.getPlayer().getGameMode() == GameMode.SURVIVAL){
-            if (event.getPlayer().getLocation().getY() <= 26){
-                Player p = event.getPlayer();
-                    p.teleport(new Location(p.getWorld(), 0.5, 30, 1, -179, 0));
-/*                if (TazPvP.statsManager.getCheckpoints(p) == 0){
-                    p.teleport(new Location(p.getWorld(), 0.5, 30, 1, -179, 0));
-                }
-                else if (TazPvP.statsManager.getCheckpoints(p) == 1){
-                    p.teleport(new Location(p.getWorld(), 0.5, 30, -39.5, -179, 0));
-                } else if (TazPvP.statsManager.getCheckpoints(p) == 2){
-                    p.teleport(new Location(p.getWorld(), 0.5, 30, -66.5, -179, 0));
-                } else if (TazPvP.statsManager.getCheckpoints(p) == 3){
-                    p.teleport(new Location(p.getWorld(), 0.5, 30, -92.5, -179, 0));
-                } else if (TazPvP.statsManager.getCheckpoints(p) == 4){
-                    p.teleport(new Location(p.getWorld(), 0.5, 30, -123.5, -179, 0));
-                } else if (TazPvP.statsManager.getCheckpoints(p) == 5){
-                    p.teleport(new Location(p.getWorld(), 0.5, 30, -146.5, -179, 0));
-                }*/
-            }
-        }
-    }
+//    @EventHandler
+//    public void onPoopy(PlayerMoveEvent event){
+//        if (event.getPlayer().getWorld().getName().equals("parkour") && event.getPlayer().getGameMode() == GameMode.SURVIVAL){
+//            if (event.getPlayer().getLocation().getY() <= 26){
+//                Player p = event.getPlayer();
+//                    p.teleport(new Location(p.getWorld(), 0.5, 30, 1, -179, 0));
+//                  if (TazPvP.statsManager.getCheckpoints(p) == 0){
+//                    p.teleport(new Location(p.getWorld(), 0.5, 30, 1, -179, 0));
+//                }
+//                else if (TazPvP.statsManager.getCheckpoints(p) == 1){
+//                    p.teleport(new Location(p.getWorld(), 0.5, 30, -39.5, -179, 0));
+//                } else if (TazPvP.statsManager.getCheckpoints(p) == 2){
+//                    p.teleport(new Location(p.getWorld(), 0.5, 30, -66.5, -179, 0));
+//                } else if (TazPvP.statsManager.getCheckpoints(p) == 3){
+//                    p.teleport(new Location(p.getWorld(), 0.5, 30, -92.5, -179, 0));
+//                } else if (TazPvP.statsManager.getCheckpoints(p) == 4){
+//                    p.teleport(new Location(p.getWorld(), 0.5, 30, -123.5, -179, 0));
+//                } else if (TazPvP.statsManager.getCheckpoints(p) == 5){
+//                    p.teleport(new Location(p.getWorld(), 0.5, 30, -146.5, -179, 0));
+//                }
+//            }
+//        }
+//    }
 }
