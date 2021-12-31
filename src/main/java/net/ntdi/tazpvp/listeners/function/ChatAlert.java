@@ -9,9 +9,15 @@ public class ChatAlert {
         new BukkitRunnable() {
             @Override
             public void run() {
-                Bukkit.broadcastMessage("This will run every second!");
+                Bukkit.broadcastMessage("ALERT Join our community using /discord!");
             }
-        }.runTaskTimer(plugin, 20, 20);
+        }.runTaskTimer(plugin, 7200, 7200);
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Bukkit.broadcastMessage("ALERT Check out our great credit deals with /buy!");
+            }
+        }.runTaskTimer(plugin, 8200, 8200);
     }
 }
 
