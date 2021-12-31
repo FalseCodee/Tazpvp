@@ -1,6 +1,7 @@
 package net.ntdi.tazpvp.listeners.function;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -9,15 +10,19 @@ public class ChatAlert {
         new BukkitRunnable() {
             @Override
             public void run() {
-                Bukkit.broadcastMessage("ALERT Join our community using /discord!");
+                Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+                Bukkit.broadcastMessage(ChatColor.RED + "ALERT " + ChatColor.GRAY +  "Join our community by using " + ChatColor.DARK_AQUA + "/discord");
+                Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             }
-        }.runTaskTimer(plugin, 7200, 7200);
+        }.runTaskTimer(plugin, 1300, 5300);
         new BukkitRunnable() {
             @Override
             public void run() {
-                Bukkit.broadcastMessage("ALERT Check out our great credit deals with /buy!");
+                Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+                Bukkit.broadcastMessage(ChatColor.RED + "ALERT " + ChatColor.GRAY +  "Check out our great credit deals by using " + ChatColor.DARK_AQUA + "/buy");
+                Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             }
-        }.runTaskTimer(plugin, 8200, 8200);
+        }.runTaskTimer(plugin, 2000, 6000);
     }
 }
 
