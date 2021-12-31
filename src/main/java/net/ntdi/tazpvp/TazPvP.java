@@ -165,6 +165,8 @@ public final class TazPvP extends JavaPlugin {
         blocks.add(Material.GOLD_ORE);
         blocks.add(Material.DIAMOND_ORE);
         blocks.add(Material.EMERALD_ORE);
+
+        new Timer().Text(this);
     }
 
     public void load() {
