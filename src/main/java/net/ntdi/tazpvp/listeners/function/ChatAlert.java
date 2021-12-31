@@ -11,18 +11,26 @@ public class ChatAlert {
             @Override
             public void run() {
                 Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-                Bukkit.broadcastMessage(ChatColor.RED + "ALERT " + ChatColor.GRAY +  "Join our community by using " + ChatColor.DARK_AQUA + "/discord");
+                Bukkit.broadcastMessage(ChatColor.RED + "" + ChatColor.BOLD + "ALERT " + ChatColor.GRAY +  "You can join our community by using " + ChatColor.DARK_AQUA + "/discord");
                 Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             }
-        }.runTaskTimer(plugin, 1300, 5300);
+        }.runTaskTimer(plugin, 6000, 12000);
         new BukkitRunnable() {
             @Override
             public void run() {
                 Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-                Bukkit.broadcastMessage(ChatColor.RED + "ALERT " + ChatColor.GRAY +  "Check out our great credit deals by using " + ChatColor.DARK_AQUA + "/buy");
+                Bukkit.broadcastMessage(ChatColor.RED + "" + ChatColor.BOLD + "ALERT " + ChatColor.GRAY +  "Check out our great credit deals by using " + ChatColor.DARK_AQUA + "/buy");
                 Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             }
-        }.runTaskTimer(plugin, 2000, 6000);
+        }.runTaskTimer(plugin, 12000, 12000);
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+                Bukkit.broadcastMessage(ChatColor.RED + "" + ChatColor.BOLD + "ALERT " + ChatColor.GRAY +  "Want to apply for a staff position? Use " + ChatColor.DARK_AQUA + "/apply");
+                Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+            }
+        }.runTaskTimer(plugin, 18000, 12000);
     }
 }
 
