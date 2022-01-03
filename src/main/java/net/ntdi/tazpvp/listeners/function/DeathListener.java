@@ -9,6 +9,9 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -26,7 +29,9 @@ public class DeathListener implements Listener {
     public void EntityDamageEvent(EntityDamageEvent event) {
         if (event.getEntity() instanceof Player) {
             Player p = (Player) event.getEntity();
+
             if (p.getHealth()-event.getFinalDamage() <= 0) {
+                Location deathLoc = p.getLocation();
                 event.setCancelled(true);
 
                 p.setGameMode(GameMode.SPECTATOR);
@@ -34,6 +39,7 @@ public class DeathListener implements Listener {
                 if (event instanceof EntityDamageByEntityEvent) {
                     deathFunction(p, (Player) ((EntityDamageByEntityEvent) event).getDamager());
                 }
+
                 new BukkitRunnable() {
                     @Override
                     public void run() {
@@ -41,6 +47,7 @@ public class DeathListener implements Listener {
                         p.setGameMode(GameMode.SURVIVAL);
                         p.setHealth(20);
                         p.setFoodLevel(20);
+                        dropInv(p, deathLoc);
                         p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
                     }
                 }.runTaskLater(TazPvP.getInstance(), 60);
@@ -136,6 +143,68 @@ public class DeathListener implements Listener {
                 }
             }
         }
+    }
+    //clear inv cuz why not
+    public void dropInv(Player player, Location deathLoc){
+
+        for (ItemStack itemStack : player.getInventory().getArmorContents()) {
+            if (itemStack.getType() != Material.LEATHER_CHESTPLATE || itemStack.getType() != Material.LEATHER_HELMET) {
+                player.getWorld().dropItemNaturally(deathLoc, itemStack);
+                player.getInventory().setLeggings(new ItemStack(Material.AIR));
+                player.getInventory().setBoots(new ItemStack(Material.AIR));
+            }
+        }
+
+        for (ItemStack itemStack : player.getInventory().getContents()) {
+            player.getWorld().dropItemNaturally(deathLoc, itemStack);
+            player.getInventory().removeItem(itemStack);
+        }
+
+        ItemStack armor1 = new ItemStack(Material.LEATHER_BOOTS);
+        ItemStack armor4 = new ItemStack(Material.LEATHER_LEGGINGS);
+        ItemStack sword = new ItemStack(Material.WOOD_SWORD);
+        ItemStack pickaxe = new ItemStack(Material.WOOD_PICKAXE);
+        ItemStack fishingrod = new ItemStack(Material.FISHING_ROD);
+        ItemStack bow = new ItemStack(Material.BOW);
+        ItemStack steak = new ItemStack(Material.COOKED_BEEF, 5);
+        ItemStack blocks = new ItemStack(Material.WOOD, 16);
+        ItemStack arrow = new ItemStack(Material.ARROW, 15);
+
+        ItemMeta meta1 = armor1.getItemMeta();
+        meta1.spigot().setUnbreakable(true);
+        armor1.setItemMeta(meta1);
+
+        ItemMeta meta4 = armor4.getItemMeta();
+        meta4.spigot().setUnbreakable(true);
+        armor4.setItemMeta(meta4);
+
+        ItemMeta swordMeta = sword.getItemMeta();
+        swordMeta.spigot().setUnbreakable(true);
+        sword.setItemMeta(swordMeta);
+
+        ItemMeta pickaxeMeta = sword.getItemMeta();
+        pickaxeMeta.spigot().setUnbreakable(true);
+        pickaxe.setItemMeta(pickaxeMeta);
+
+        ItemMeta fishingMeta = fishingrod.getItemMeta();
+        fishingMeta.spigot().setUnbreakable(true);
+        fishingrod.setItemMeta(fishingMeta);
+
+        ItemMeta bowMeta = bow.getItemMeta();
+        bowMeta.spigot().setUnbreakable(true);
+        bow.setItemMeta(bowMeta);
+
+
+        PlayerInventory inv = player.getInventory();
+        inv.setLeggings(armor4);
+        inv.setBoots(armor1);
+        inv.addItem(sword);
+        inv.addItem(fishingrod);
+        inv.addItem(bow);
+        inv.addItem(pickaxe);
+        inv.addItem(steak);
+        inv.addItem(blocks);
+        inv.setItem(9, arrow);
     }
 
     @EventHandler
