@@ -150,8 +150,8 @@ public class DeathListener implements Listener {
         for (ItemStack itemStack : player.getInventory().getArmorContents()) {
             if (itemStack.getType() != Material.LEATHER_CHESTPLATE || itemStack.getType() != Material.LEATHER_HELMET) {
                 player.getWorld().dropItemNaturally(deathLoc, itemStack);
-                player.getInventory().setLeggings(new ItemStack(Material.AIR));
-                player.getInventory().setBoots(new ItemStack(Material.AIR));
+//                player.getInventory().setLeggings(new ItemStack(Material.AIR));
+//                player.getInventory().setBoots(new ItemStack(Material.AIR));
             }
         }
 
