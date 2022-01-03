@@ -27,6 +27,11 @@ public class CommandCancelerListener implements Listener {
         if (!player.hasPermission("staff.commandbypass")) {
             if (event.getMessage().toLowerCase().startsWith("/minecraft")) {
                 event.setCancelled(true);
+                player.sendMessage(ChatColor.WHITE + "UR MOMMA");
+            }
+            else if (event.getMessage().toLowerCase().startsWith("/pl")) {
+                event.setCancelled(true);
+                player.sendMessage(ChatColor.WHITE + "Plugins (1): " + ChatColor.GREEN + "Tazpvp");
             }
         } //else if (player.hasPermission("staff.commandbypass")) {
 //            System.out.println(event.getPlayer().getName() + ": " + event.getMessage());
