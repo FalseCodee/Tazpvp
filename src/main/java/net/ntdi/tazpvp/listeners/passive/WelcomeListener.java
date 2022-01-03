@@ -33,6 +33,8 @@ public class WelcomeListener implements Listener {
             PlayerUtils.equipStarter(p);
         }
 
+        p.setGameMode(GameMode.SURVIVAL);
+
         World wrld = Bukkit.getWorld(TazPvP.configFile.getString("spawn.world"));
 
         Location loc = new Location(wrld, 0.5, 51, 0.5, 180, 0);
@@ -96,6 +98,7 @@ public class WelcomeListener implements Listener {
             TazPvP.statsManager.getTeam(p, sb).removeEntry(p.getName());
         }
         ArmorManager.restoreInventory(p);
+        p.setGameMode(GameMode.SURVIVAL);
 
         TazPvP.statsManager.scoreboards.remove(p.getUniqueId());
         event.setQuitMessage(ChatColor.GRAY + "[" + ChatColor.RED + "-" + ChatColor.GRAY + "] " + p.getName());
