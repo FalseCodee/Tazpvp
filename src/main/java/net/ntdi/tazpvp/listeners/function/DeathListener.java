@@ -29,16 +29,16 @@ public class DeathListener implements Listener {
             if (p.getHealth()-event.getFinalDamage() <= 0) {
                 event.setCancelled(true);
 
-                if (event instanceof EntityDamageByEntityEvent) {
-                    deathFunction(p, (Player) ((EntityDamageByEntityEvent) event).getDamager());
-                }
-
                 p.setGameMode(GameMode.SPECTATOR);
                 p.sendMessage(ChatColor.RED + "" + "You Died" + ChatColor.RED + "Respawn in 3 seconds.");
                 p.playSound(p.getLocation(), Sound.WOLF_WHINE, 1, 1);
+                if (event instanceof EntityDamageByEntityEvent) {
+                    deathFunction(p, (Player) ((EntityDamageByEntityEvent) event).getDamager());
+                }
                 new BukkitRunnable() {
                     @Override
                     public void run() {
+                        System.out.println("Respawning");
                         p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
                         p.setGameMode(GameMode.SURVIVAL);
                         p.setHealth(20);
