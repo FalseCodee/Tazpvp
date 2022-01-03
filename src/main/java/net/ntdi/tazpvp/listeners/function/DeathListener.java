@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -21,7 +22,28 @@ public class DeathListener implements Listener {
     private final Random rand = new Random();
     public static HashMap<Player, Player> revenge = new HashMap<>();
 
-
+    @EventHandler
+    public void EntityDamageEvent(EntityDamageEvent event) {
+        if (event.getEntity() instanceof Player) {
+            Player p = (Player) event.getEntity();
+            if (p.getHealth()-event.getFinalDamage() <= 0) {
+                event.setCancelled(true);
+                p.setGameMode(GameMode.SPECTATOR);
+                p.sendMessage(ChatColor.RED + "" + "You Died" + ChatColor.RED + "Respawn in 3 seconds.");
+                p.playSound(p.getLocation(), Sound.WOLF_WHINE, 1, 1);
+                new BukkitRunnable() {
+                    @Override
+                    public void run() {
+                        p.teleport(new Location(Bukkit.getWorld("world"), 0.5, 50, 0.5, 180, 0));
+                        p.setGameMode(GameMode.SURVIVAL);
+                        p.setHealth(20);
+                        p.setFoodLevel(20);
+                        p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
+                    }
+                }.runTaskLater(TazPvP.getInstance(), 60);
+            }
+        }
+    }
     @EventHandler
     public void onPlayerDeathEvent(PlayerDeathEvent event) {
         Player p = event.getEntity();
