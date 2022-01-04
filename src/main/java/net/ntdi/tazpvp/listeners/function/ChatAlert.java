@@ -22,7 +22,7 @@ public class ChatAlert {
                 Bukkit.broadcastMessage(ChatColor.RED + "" + ChatColor.BOLD + " ALERT " + ChatColor.GRAY +  "Check out our great deals by using " + ChatColor.DARK_AQUA + "/buy");
                 Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             }
-        }.runTaskTimer(plugin, 12000, 12000);
+        }.runTaskTimer(plugin, 16000, 12000);
         new BukkitRunnable() {
             @Override
             public void run() {
@@ -30,7 +30,7 @@ public class ChatAlert {
                 Bukkit.broadcastMessage(ChatColor.RED + "" + ChatColor.BOLD + " ALERT " + ChatColor.GRAY +  "Want to apply for a staff position? " + ChatColor.DARK_AQUA + "/apply");
                 Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             }
-        }.runTaskTimer(plugin, 18000, 12000);
+        }.runTaskTimer(plugin, 24000, 12000);
     }
 }
 
