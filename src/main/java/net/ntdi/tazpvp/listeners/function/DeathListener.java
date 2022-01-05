@@ -139,7 +139,7 @@ public class DeathListener implements Listener {
                             }
                             p.sendMessage(ChatColor.DARK_GRAY + "You were killed by " + ChatColor.GRAY + "" + killer.getName());
                             if (Bukkit.getOnlinePlayers().size() < 20){
-                                Bukkit.broadcastMessage(ChatColor.GRAY + killer.getName() + ChatColor.DARK_GRAY + " has killed" + p.getName() + ChatColor.GRAY);
+                                Bukkit.broadcastMessage(ChatColor.GRAY + killer.getName() + ChatColor.DARK_GRAY + " has killed " + ChatColor.GRAY + p.getName() );
                             }
                         }
                         TazPvP.statsManager.setStreak(p, 0);
