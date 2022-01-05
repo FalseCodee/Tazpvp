@@ -31,7 +31,6 @@ public class BlockBreakListener implements Listener {
             event.setCancelled(true);
             Block b = event.getBlock();
             Material mat = b.getType();
-            b.setType(Material.BEDROCK);
            if (TazPvP.blocks.contains(mat)) {
                 if (p.getItemInHand().hasItemMeta() && p.getItemInHand().getItemMeta().hasEnchant(Enchantment.SILK_TOUCH) && p.getItemInHand().getItemMeta().hasEnchant(Enchantment.LOOT_BONUS_BLOCKS)) {
                     if (mat == Material.COAL_ORE) {
@@ -82,6 +81,7 @@ public class BlockBreakListener implements Listener {
                 if (TazPvP.perkManager.getHaste(p)){
                     p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 15, 1, false));
                 }
+               b.setType(Material.BEDROCK);
            }
         }
     }
