@@ -1,6 +1,8 @@
 package net.ntdi.tazpvp.listeners.function;
 
 import net.ntdi.tazpvp.TazPvP;
+import org.bukkit.ChatColor;
+import org.bukkit.DyeColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -10,7 +12,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.material.Coal;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -23,8 +24,13 @@ public class BlockBreakListener implements Listener {
         Player p = event.getPlayer();
 
         if(p.getWorld().getName().equals("arena") && p.getGameMode() == GameMode.SURVIVAL) {
-            event.setCancelled(true);
-            return;
+            Block b = event.getBlock();
+            Material mat = b.getType();
+            if (mat != Material.WOOL) {
+
+            } else {
+                event.setCancelled(true);
+            }
         }
 
         if(p.getGameMode() == GameMode.SURVIVAL && p.getWorld().getName().equals("grind")) {
