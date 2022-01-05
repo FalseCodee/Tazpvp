@@ -1,5 +1,6 @@
 package net.ntdi.tazpvp.listeners.passive;
 
+import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -18,7 +19,7 @@ public class BowListener implements Listener {
                 long secondsLeft = ((cooldowns.get(p.getName())/1000)+cooldownTime) - (System.currentTimeMillis()/1000);
                 if(secondsLeft>0) {
                     event.setCancelled(true);
-                    p.sendMessage("Your bow is on cool-down "+ secondsLeft +" seconds!");
+                    p.sendMessage(ChatColor.RED + "Slow down! "+ secondsLeft +"s");
                     return;
                 }
             }
