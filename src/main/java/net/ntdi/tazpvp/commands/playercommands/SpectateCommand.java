@@ -27,7 +27,7 @@ public class SpectateCommand implements CommandExecutor {
                             TazPvP.Spectating.remove(player);
                             player.setGameMode(GameMode.SURVIVAL);
                             player.sendMessage(ChatColor.GOLD + "You have stopped spectating");
-                            player.teleport(new Location(Bukkit.getWorld("arena"), 0.5, 50, 0.5, 0, -180));
+                            player.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 0, -180));
                         }
                     }
                 }
