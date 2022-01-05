@@ -11,10 +11,15 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.metadata.FixedMetadataValue;
+import org.bukkit.metadata.MetadataValue;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
+
+import java.util.List;
 
 public class BlockBreakListener implements Listener {
 
@@ -26,8 +31,9 @@ public class BlockBreakListener implements Listener {
         if(p.getWorld().getName().equals("arena") && p.getGameMode() == GameMode.SURVIVAL) {
             Block b = event.getBlock();
             Material mat = b.getType();
-            if (mat != Material.WOOL) {
-
+            if (isPlayerPlaced(b)) {
+                event.setCancelled(false);
+                return;
             } else {
                 event.setCancelled(true);
             }
@@ -129,6 +135,23 @@ public class BlockBreakListener implements Listener {
                 b.setType(mat);
             }
         }.runTaskLater(TazPvP.getInstance(), dur);
+    }
+
+    @EventHandler
+    public void placeBlock(BlockPlaceEvent e){
+        if (e.getPlayer().getGameMode() == GameMode.SURVIVAL && e.getPlayer().getWorld().getName().equalsIgnoreCase("arena")){
+            Player p = e.getPlayer();
+            Block b = e.getBlock();
+            b.setMetadata("PlayerPlaced", new FixedMetadataValue(TazPvP.getInstance(), true));
+        }
+    }
+
+    public boolean isPlayerPlaced(Block b){
+        List<MetadataValue> metaDataValues = b.getMetadata("PlayerPlaced");
+        for (MetadataValue metaDataValue : metaDataValues) {
+            return metaDataValue.asBoolean();
+        }
+        return false;
     }
 }
 
