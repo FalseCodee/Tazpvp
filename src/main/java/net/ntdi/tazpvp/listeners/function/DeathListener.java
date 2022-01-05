@@ -40,6 +40,8 @@ public class DeathListener implements Listener {
                     deathFunction(p, ((EntityDamageByEntityEvent) event).getDamager());
                 }
 
+                p.getInventory().clear();
+
                 new BukkitRunnable() {
                     @Override
                     public void run() {
@@ -47,7 +49,7 @@ public class DeathListener implements Listener {
                         p.setGameMode(GameMode.SURVIVAL);
                         p.setHealth(20);
                         p.setFoodLevel(20);
-                        dropInv(p);
+                        rsInv(p);
                         p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
                     }
                 }.runTaskLater(TazPvP.getInstance(), 60);
@@ -148,12 +150,10 @@ public class DeathListener implements Listener {
         }
     }
     //clear inv cuz why not
-    public void dropInv(Player player){
-        for (ItemStack itemStack : player.getInventory().getContents()) {
-            player.getInventory().removeItem(itemStack);
-        }
-
+    public void rsInv(Player player){
         ItemStack armor1 = new ItemStack(Material.LEATHER_BOOTS);
+        ItemStack armor2 = new ItemStack(Material.LEATHER_HELMET);
+        ItemStack armor3 = new ItemStack(Material.LEATHER_CHESTPLATE);
         ItemStack armor4 = new ItemStack(Material.LEATHER_LEGGINGS);
         ItemStack sword = new ItemStack(Material.WOOD_SWORD);
         ItemStack pickaxe = new ItemStack(Material.WOOD_PICKAXE);
@@ -166,6 +166,14 @@ public class DeathListener implements Listener {
         ItemMeta meta1 = armor1.getItemMeta();
         meta1.spigot().setUnbreakable(true);
         armor1.setItemMeta(meta1);
+
+        ItemMeta meta2 = armor2.getItemMeta();
+        meta2.spigot().setUnbreakable(true);
+        armor2.setItemMeta(meta2);
+
+        ItemMeta meta3 = armor3.getItemMeta();
+        meta3.spigot().setUnbreakable(true);
+        armor3.setItemMeta(meta3);
 
         ItemMeta meta4 = armor4.getItemMeta();
         meta4.spigot().setUnbreakable(true);
@@ -189,15 +197,22 @@ public class DeathListener implements Listener {
 
 
         PlayerInventory inv = player.getInventory();
-        inv.setLeggings(armor4);
-        inv.setBoots(armor1);
-        inv.addItem(sword);
-        inv.addItem(fishingrod);
-        inv.addItem(bow);
-        inv.addItem(pickaxe);
-        inv.addItem(steak);
-        inv.addItem(blocks);
-        inv.setItem(9, arrow);
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                inv.setLeggings(armor4);
+                inv.setChestplate(armor3);
+                inv.setHelmet(armor2);
+                inv.setBoots(armor1);
+                inv.addItem(sword);
+                inv.addItem(fishingrod);
+                inv.addItem(bow);
+                inv.addItem(pickaxe);
+                inv.addItem(steak);
+                inv.addItem(blocks);
+                inv.setItem(9, arrow);
+            }
+        }.runTaskLater(TazPvP.getInstance(), 4);
     }
 
     @EventHandler
