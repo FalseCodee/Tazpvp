@@ -147,6 +147,8 @@ public final class TazPvP extends JavaPlugin {
         // Event Register
         registerListeners();
 
+        getServer().getScheduler().scheduleAsyncRepeatingTask(this, combatLog::tick, 20L, 20L);
+
 
         load();
         try {
