@@ -17,7 +17,7 @@ public class SpectateCommand implements CommandExecutor {
             Player player = (Player) sender;
             if (args.length == 1) {
                 if (args[0].equalsIgnoreCase("map")) {
-                    if (player.hasPermission("tazpvp.spectate")) {
+                    if (player.hasPermission("rank.spectate")) {
                         if (player.getGameMode() != GameMode.SPECTATOR) {
                             player.setGameMode(GameMode.SPECTATOR);
                             player.sendMessage(ChatColor.GOLD + "You are now spectating the map. Type the command to go back.");
