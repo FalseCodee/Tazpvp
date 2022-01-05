@@ -147,8 +147,8 @@ public class BlockBreakListener implements Listener {
            }
         }
     }
-    @EventHandler
-    public void respawnOre(Material mat, Long dur, Itemstack b){
+
+    public void respawnOre(Material mat, Long dur, ItemStack b){
 
     }
 }
