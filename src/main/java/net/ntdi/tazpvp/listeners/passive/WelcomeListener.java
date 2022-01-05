@@ -34,6 +34,7 @@ public class WelcomeListener implements Listener {
         }
 
         p.setGameMode(GameMode.SURVIVAL);
+        p.setMaxHealth(20);
 
         World wrld = Bukkit.getWorld(TazPvP.configFile.getString("spawn.world"));
 
@@ -99,6 +100,7 @@ public class WelcomeListener implements Listener {
         }
         ArmorManager.restoreInventory(p);
         p.setGameMode(GameMode.SURVIVAL);
+        p.setMaxHealth(20);
 
         TazPvP.statsManager.scoreboards.remove(p.getUniqueId());
         event.setQuitMessage(ChatColor.GRAY + "[" + ChatColor.RED + "-" + ChatColor.GRAY + "] " + p.getName());

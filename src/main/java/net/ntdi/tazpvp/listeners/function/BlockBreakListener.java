@@ -81,11 +81,11 @@ public class BlockBreakListener implements Listener {
                 if (TazPvP.perkManager.getHaste(p)){
                     p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 15, 1, false));
                 }
-               b.setType(Material.BEDROCK);
            }
         }
     }
     public void respawnOre(Material mat, Long dur, Block b){
+        b.setType(Material.BEDROCK);
         new BukkitRunnable() {
             @Override
             public void run() {
