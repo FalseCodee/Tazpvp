@@ -138,9 +138,9 @@ public class DeathListener implements Listener {
 
                             }
                             p.sendMessage(ChatColor.DARK_GRAY + "You were killed by " + ChatColor.GRAY + "" + killer.getName());
-//                if (Bukkit.getOnlinePlayers().size() < 10){
-//                    Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "" + event.getEntity().getName() + " was killed by " + event.getEntity().getKiller().getName());
-//                }
+                            if (Bukkit.getOnlinePlayers().size() < 20){
+                                Bukkit.broadcastMessage(ChatColor.GRAY + killer.getName() + ChatColor.DARK_GRAY + " has killed" + p.getName() + ChatColor.GRAY);
+                            }
                         }
                         TazPvP.statsManager.setStreak(p, 0);
                         TazPvP.statsManager.addDeaths(p, 1);
@@ -322,9 +322,10 @@ public class DeathListener implements Listener {
 
                         }
                         p.sendMessage(ChatColor.DARK_GRAY + "You were killed by " + ChatColor.GRAY + "" + killer.getName());
-//                if (Bukkit.getOnlinePlayers().size() < 10){
-//                    Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "" + event.getEntity().getName() + " was killed by " + event.getEntity().getKiller().getName());
-//                }
+
+                        if (Bukkit.getOnlinePlayers().size() < 20) {
+                            Bukkit.broadcastMessage(ChatColor.GRAY + killer.getName() + ChatColor.DARK_GRAY + " has killed " + ChatColor.GRAY + p.getName());
+                        }
                     }
                     TazPvP.statsManager.setStreak(p, 0);
                     TazPvP.statsManager.addDeaths(p, 1);
