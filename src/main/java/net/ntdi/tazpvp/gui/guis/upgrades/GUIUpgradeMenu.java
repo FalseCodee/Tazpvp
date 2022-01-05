@@ -85,6 +85,14 @@ public class GUIUpgradeMenu extends GUI {
                                 meta.spigot().setUnbreakable(true);
                                 item.setItemMeta(meta);
                                 player.getInventory().addItem(item);
+                            } else if (finalTarget.getType() == Material.IRON_SWORD) {
+                                player.getInventory().remove(finalTarget);
+                                TazPvP.statsManager.addPoints(player, -type.reforge);
+                                ItemStack item = new ItemStack(Material.DIAMOND_SWORD);
+                                ItemMeta meta = item.getItemMeta();
+                                meta.spigot().setUnbreakable(true);
+                                item.setItemMeta(meta);
+                                player.getInventory().addItem(item);
                             } else {
                                 player.sendMessage(ChatColor.RED + "You already have the max level!");
                                 return;
@@ -124,18 +132,6 @@ public class GUIUpgradeMenu extends GUI {
                                 player.getInventory().setLeggings(leggings);
                                 player.getInventory().setBoots(boots);
                             } else if (finalTarget.getType() == Material.CHAINMAIL_BOOTS) {
-                                TazPvP.statsManager.addPoints(player, -type.reforge);
-                                ItemStack leggings = new ItemStack(Material.GOLD_LEGGINGS);
-                                ItemMeta meta = leggings.getItemMeta();
-                                meta.spigot().setUnbreakable(true);
-                                leggings.setItemMeta(meta);
-                                ItemStack boots = new ItemStack(Material.GOLD_BOOTS);
-                                ItemMeta meta1 = boots.getItemMeta();
-                                meta1.spigot().setUnbreakable(true);
-                                boots.setItemMeta(meta1);
-                                player.getInventory().setLeggings(leggings);
-                                player.getInventory().setBoots(boots);
-                            } else if (finalTarget.getType() == Material.GOLD_BOOTS) {
                                 TazPvP.statsManager.addPoints(player, -type.reforge);
                                 ItemStack leggings = new ItemStack(Material.IRON_LEGGINGS);
                                 ItemMeta meta = leggings.getItemMeta();
