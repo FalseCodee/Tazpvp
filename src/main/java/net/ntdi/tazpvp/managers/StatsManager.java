@@ -2,7 +2,9 @@ package net.ntdi.tazpvp.managers;
 
 import net.ntdi.tazpvp.TazPvP;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.Sound;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -107,6 +109,27 @@ public class StatsManager {
     public void setDeaths(OfflinePlayer player, int deaths) {
         statsFile.set(player.getUniqueId().toString()+".deaths", deaths);
         TazPvP.getInstance().initScoreboard((Player) player);
+    }
+    public void checkLevelUp(OfflinePlayer player){
+        if (TazPvP.statsManager.getExp(player) >= TazPvP.statsManager.getExpLeft(player)){
+            TazPvP.statsManager.setLevel(player, TazPvP.statsManager.getLevel(player)+1);
+            TazPvP.statsManager.addPoints(player, 1);
+            TazPvP.statsManager.addMoney(player, 60);
+            TazPvP.statsManager.setExpLeft(player, TazPvP.statsManager.getExpLeft(player)*1.05);
+            TazPvP.statsManager.setExp(player, 0);
+            if (player.isOnline()){
+                Player p = (Player) player;
+                p.sendMessage(ChatColor.DARK_AQUA + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+                p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "  LEVEL UP " + ChatColor.DARK_AQUA + "Combat Lvl. " + ChatColor.AQUA + TazPvP.statsManager.getLevel(player));
+                p.sendMessage("");
+                p.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "  REWARDS");
+                p.sendMessage(ChatColor.DARK_GRAY + "  +" + ChatColor.BLUE + "1 Point");
+                p.sendMessage(ChatColor.DARK_GRAY + "  +" + ChatColor.GOLD + "60 Coins");
+                p.sendMessage(ChatColor.DARK_AQUA + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+                p.setLevel(TazPvP.statsManager.getLevel(player));
+                p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1 );
+            }
+        }
     }
     public void addDeaths(OfflinePlayer player, int deaths) {
         setDeaths(player, deaths+getDeaths(player));

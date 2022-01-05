@@ -35,6 +35,9 @@ public class WelcomeListener implements Listener {
 
         p.setGameMode(GameMode.SURVIVAL);
         p.setMaxHealth(20);
+        if (p.getLevel() != TazPvP.statsManager.getLevel(p)){
+            p.setLevel(TazPvP.statsManager.getLevel(p));
+        }
 
         World wrld = Bukkit.getWorld(TazPvP.configFile.getString("spawn.world"));
 
