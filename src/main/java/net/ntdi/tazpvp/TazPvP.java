@@ -88,6 +88,7 @@ public final class TazPvP extends JavaPlugin {
     public static final ArrayList<Player> MythicalGiftRank = new ArrayList<>();
     public static final ArrayList<Player> RefundItem = new ArrayList<>();
     public static final ArrayList<Player> FallDamageImmune = new ArrayList<>();
+    public static final ArrayList<Player> Spectating = new ArrayList<>();
 
     // public static HashMap<UUID, Integer> banTime = new HashMap<>();
 
@@ -296,6 +297,7 @@ public final class TazPvP extends JavaPlugin {
         getCommand("saveinv").setExecutor(new SaveinvCommand());
         getCommand("loadinv").setExecutor(new LoadinvCommand());
         getCommand("ac").setExecutor(new ACCommand());
+        getCommand("spectate").setExecutor(new SpectateCommand());
     }
 
     public void registerListeners() {

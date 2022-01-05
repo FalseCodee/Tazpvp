@@ -264,3 +264,6 @@ commands:
   ac:
     permission: "staff.ban"
     usage: "/ac <player>"
+  spectate:
+    permission: tazpvp.spectate
+    usage: "/spectate <map>"

@@ -105,6 +105,10 @@ public class WelcomeListener implements Listener {
         p.setGameMode(GameMode.SURVIVAL);
         p.setMaxHealth(20);
 
+        if(TazPvP.Spectating.contains(p)){
+            TazPvP.Spectating.remove(p);
+        }
+
         TazPvP.statsManager.scoreboards.remove(p.getUniqueId());
         event.setQuitMessage(ChatColor.GRAY + "[" + ChatColor.RED + "-" + ChatColor.GRAY + "] " + p.getName());
         if(BanCommand.bannedRunnables.containsKey(p.getUniqueId())) {
@@ -127,6 +131,11 @@ public class WelcomeListener implements Listener {
             if (TazPvP.invunerable.contains(p)) {
                 PlayerUtils.hidePlayer(p);
                 p.sendMessage(ChatColor.RED + "Changed world, adding invunerability due to being vanished");
+            }
+
+            if(TazPvP.Spectating.contains(p)){
+                p.teleport(new Location(event.getFrom(), 0.5, 30, 0.5));
+                p.sendMessage(ChatColor.RED + "You cannot teleport while spectating.");
             }
 
             TazPvP.FallDamageImmune.add(p);
