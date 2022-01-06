@@ -15,7 +15,7 @@ public enum EnchantInfo {
     LOTS("Luck of the Sea", "Increases fish rarity.", 2, 3, Enchantment.LUCK),
     LOOTING("Looting", "Instantly put fish in inventory.", 6, 1, Enchantment.LOOT_BONUS_MOBS),
 
-    POWER("Power", "Powerful arrows.", 69420666, 1, Enchantment.ARROW_DAMAGE),
+    POWER("Power", "Powerful arrows.", 1000, 1, Enchantment.ARROW_DAMAGE),
     PUNCH("Punch", "More knockback.", 4, 1, Enchantment.ARROW_KNOCKBACK),
     INFINITY("Infinity", "Infinite arrows.", 12, 1, Enchantment.ARROW_INFINITE),
 
