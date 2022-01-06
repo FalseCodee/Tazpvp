@@ -40,10 +40,10 @@ public class GUIUpgradeMenu extends GUI {
                                         + ChatColor.GOLD + "Max lvl: " + ChatColor.GRAY + (enchantment.maxLevel + ((TazPvP.statsManager.getRebirths(player) > 0) ? 1 : 0))),
                         event -> {
                             event.setCancelled(true);
-                            if(TazPvP.statsManager.getPoints(player) >= enchantment.cost) {
+                            if(TazPvP.statsManager.getMoney(player) >= enchantment.cost) {
                                 ItemStack finalTarget = updateTarget();
                                 if(finalTarget.getEnchantmentLevel(enchantment.ench) < enchantment.maxLevel + ((TazPvP.statsManager.getRebirths(player) > 0) ? 1 : 0)) {
-                                    TazPvP.statsManager.addPoints(player, -enchantment.cost);
+                                    TazPvP.statsManager.addMoney(player, -enchantment.cost);
                                     finalTarget.addUnsafeEnchantment(enchantment.ench, finalTarget.getEnchantmentLevel(enchantment.ench)+1);
                                     if(type == UpgradeTypes.ARMOR && enchantment != EnchantInfo.FEATHER_FALLING) {
                                         ItemStack leggings = player.getInventory().getLeggings();
@@ -55,7 +55,7 @@ public class GUIUpgradeMenu extends GUI {
                                     player.sendMessage(ChatColor.RED + "This upgrade is already MAX");
                                 }
                             } else {
-                                player.sendMessage(ChatColor.RED + "Insufficient points.");
+                                player.sendMessage(ChatColor.RED + "Insufficient funds.");
                             }
                         });
                 slot += 2;
@@ -66,12 +66,12 @@ public class GUIUpgradeMenu extends GUI {
                                     + ChatColor.GOLD + "COST: " + ChatColor.GRAY + type.reforge + "\n"
                                     + ChatColor.RED + "WARNING: RESETS ENCHANTMENTS"),
                     event -> {
-                    if(TazPvP.statsManager.getPoints(player) >= type.reforge){
+                    if(TazPvP.statsManager.getMoney(player) >= type.reforge){
                         ItemStack finalTarget = updateTarget();
                         if(type == UpgradeTypes.SWORD) {
                             if(finalTarget.getType() == Material.WOOD_SWORD) {
                                 player.getInventory().remove(finalTarget);
-                                TazPvP.statsManager.addPoints(player, -type.reforge);
+                                TazPvP.statsManager.addMoney(player, -type.reforge);
                                 ItemStack item = new ItemStack(Material.STONE_SWORD);
                                 ItemMeta meta = item.getItemMeta();
                                 meta.spigot().setUnbreakable(true);
@@ -79,7 +79,7 @@ public class GUIUpgradeMenu extends GUI {
                                 player.getInventory().addItem(item);
                             } else if (finalTarget.getType() == Material.STONE_SWORD) {
                                 player.getInventory().remove(finalTarget);
-                                TazPvP.statsManager.addPoints(player, -type.reforge);
+                                TazPvP.statsManager.addMoney(player, -type.reforge);
                                 ItemStack item = new ItemStack(Material.IRON_SWORD);
                                 ItemMeta meta = item.getItemMeta();
                                 meta.spigot().setUnbreakable(true);
@@ -87,7 +87,7 @@ public class GUIUpgradeMenu extends GUI {
                                 player.getInventory().addItem(item);
                             } else if (finalTarget.getType() == Material.IRON_SWORD) {
                                 player.getInventory().remove(finalTarget);
-                                TazPvP.statsManager.addPoints(player, -type.reforge);
+                                TazPvP.statsManager.addMoney(player, -type.reforge);
                                 ItemStack item = new ItemStack(Material.DIAMOND_SWORD);
                                 ItemMeta meta = item.getItemMeta();
                                 meta.spigot().setUnbreakable(true);
@@ -100,7 +100,7 @@ public class GUIUpgradeMenu extends GUI {
                         } else if (type == UpgradeTypes.PICKAXE) {
                             if(finalTarget.getType() == Material.WOOD_PICKAXE) {
                                 player.getInventory().remove(finalTarget);
-                                TazPvP.statsManager.addPoints(player, -type.reforge);
+                                TazPvP.statsManager.addMoney(player, -type.reforge);
                                 ItemStack item = new ItemStack(Material.STONE_PICKAXE);
                                 ItemMeta meta = item.getItemMeta();
                                 meta.spigot().setUnbreakable(true);
@@ -108,7 +108,7 @@ public class GUIUpgradeMenu extends GUI {
                                 player.getInventory().addItem(item);
                             } else if (finalTarget.getType() == Material.STONE_PICKAXE) {
                                 player.getInventory().remove(finalTarget);
-                                TazPvP.statsManager.addPoints(player, -type.reforge);
+                                TazPvP.statsManager.addMoney(player, -type.reforge);
                                 ItemStack item = new ItemStack(Material.IRON_PICKAXE);
                                 ItemMeta meta = item.getItemMeta();
                                 meta.spigot().setUnbreakable(true);
@@ -120,7 +120,7 @@ public class GUIUpgradeMenu extends GUI {
                             }
                         } else {
                             if(finalTarget.getType() == Material.LEATHER_BOOTS) {
-                                TazPvP.statsManager.addPoints(player, -type.reforge);
+                                TazPvP.statsManager.addMoney(player, -type.reforge);
                                 ItemStack leggings = new ItemStack(Material.CHAINMAIL_LEGGINGS);
                                 ItemMeta meta = leggings.getItemMeta();
                                 meta.spigot().setUnbreakable(true);
@@ -132,7 +132,7 @@ public class GUIUpgradeMenu extends GUI {
                                 player.getInventory().setLeggings(leggings);
                                 player.getInventory().setBoots(boots);
                             } else if (finalTarget.getType() == Material.CHAINMAIL_BOOTS) {
-                                TazPvP.statsManager.addPoints(player, -type.reforge);
+                                TazPvP.statsManager.addMoney(player, -type.reforge);
                                 ItemStack leggings = new ItemStack(Material.IRON_LEGGINGS);
                                 ItemMeta meta = leggings.getItemMeta();
                                 meta.spigot().setUnbreakable(true);
@@ -144,7 +144,7 @@ public class GUIUpgradeMenu extends GUI {
                                 player.getInventory().setLeggings(leggings);
                                 player.getInventory().setBoots(boots);
                             } else if (finalTarget.getType() == Material.IRON_BOOTS) {
-                                TazPvP.statsManager.addPoints(player, -type.reforge);
+                                TazPvP.statsManager.addMoney(player, -type.reforge);
                                 ItemStack leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
                                 ItemMeta meta = leggings.getItemMeta();
                                 meta.spigot().setUnbreakable(true);
@@ -162,7 +162,7 @@ public class GUIUpgradeMenu extends GUI {
                         }
                         player.sendMessage(ChatColor.BLUE + "Reforged your " + type.name);
                     } else {
-                        player.sendMessage(ChatColor.RED + "Insufficient points.");
+                        player.sendMessage(ChatColor.RED + "Insufficient funds.");
                     }
                     });
             }
