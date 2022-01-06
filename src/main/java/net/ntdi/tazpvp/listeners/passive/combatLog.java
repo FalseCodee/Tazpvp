@@ -12,7 +12,7 @@ import java.util.Iterator;
 public class combatLog implements Listener {
 
     public static HashMap<Player, Integer> combatLog = new HashMap<Player, Integer>();
-    Integer dur = 10;
+    Integer dur = 15;
 
     @EventHandler
     public void onDamage(EntityDamageByEntityEvent e) {
