@@ -2,6 +2,7 @@ package net.ntdi.tazpvp.listeners.function;
 
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.commands.functions.BountyCommand;
+import net.ntdi.tazpvp.listeners.passive.combatLog;
 import org.bukkit.*;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -52,6 +53,8 @@ public class DeathListener implements Listener {
                         p.setFoodLevel(20);
                         rsInv(p);
                         p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
+                        combatLog.combatLog.remove(p);
+                        p.sendMessage(ChatColor.RED + "You are no longer in combat.");
                     }
                 }.runTaskLater(TazPvP.getInstance(), 60);
             }
@@ -144,7 +147,7 @@ public class DeathListener implements Listener {
                                             killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 5 Experience");
                                         }
                                     } else {
-                                        d.sendMessage(ChatColor.GRAY + killer.getName() + ChatColor.DARK_GRAY + " has killed " + ChatColor.GRAY + p.getName());
+                                        d.sendMessage(ChatColor.GRAY + killer.getName() + ChatColor.DARK_GRAY + " killed " + ChatColor.GRAY + p.getName());
                                     }
                                 }
                             } else {
