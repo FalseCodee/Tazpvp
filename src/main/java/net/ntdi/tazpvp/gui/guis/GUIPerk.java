@@ -27,8 +27,8 @@ public class GUIPerk extends GUI {
             switch (runnable){
                 case 1:
                     if (!TazPvP.perkManager.getSaveBlocks(p)){
-                        if (TazPvP.statsManager.getMoney(p) >= 350){
-                            TazPvP.statsManager.addMoney(p, -350);
+                        if (TazPvP.statsManager.getPoints(p) >= 4){
+                            TazPvP.statsManager.addPoints(p, -4);
                             TazPvP.perkManager.setSaveBlocks(p, true);
                             p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
@@ -40,8 +40,8 @@ public class GUIPerk extends GUI {
                     break;
                 case 2:
                     if (!TazPvP.perkManager.getButter(p)){
-                        if (TazPvP.statsManager.getMoney(p) >= 400){
-                            TazPvP.statsManager.addMoney(p, -400);
+                        if (TazPvP.statsManager.getPoints(p) >= 6){
+                            TazPvP.statsManager.addPoints(p, -6);
                             TazPvP.perkManager.setButter(p, true);
                             p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
@@ -53,8 +53,8 @@ public class GUIPerk extends GUI {
                     break;
                 case 3:
                     if (!TazPvP.perkManager.getAgility(p)){
-                        if (TazPvP.statsManager.getMoney(p) >= 200){
-                            TazPvP.statsManager.addMoney(p, -200);
+                        if (TazPvP.statsManager.getPoints(p) >= 5){
+                            TazPvP.statsManager.addPoints(p, -5);
                             TazPvP.perkManager.setAgility(p, true);
                             p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
@@ -66,8 +66,8 @@ public class GUIPerk extends GUI {
                     break;
                 case 4:
                     if (!TazPvP.perkManager.getExtinguish(p)){
-                        if (TazPvP.statsManager.getMoney(p) >= 150){
-                            TazPvP.statsManager.addMoney(p, -150);
+                        if (TazPvP.statsManager.getPoints(p) >= 3){
+                            TazPvP.statsManager.addPoints(p, -3);
                             TazPvP.perkManager.setExtinguish(p, true);
                             p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
@@ -79,8 +79,8 @@ public class GUIPerk extends GUI {
                     break;
                 case 5:
                     if (!TazPvP.perkManager.getFallDamage(p)){
-                        if (TazPvP.statsManager.getMoney(p) >= 500){
-                            TazPvP.statsManager.addMoney(p, -500);
+                        if (TazPvP.statsManager.getPoints(p) >= 5){
+                            TazPvP.statsManager.addPoints(p, -5);
                             TazPvP.perkManager.setFallDamage(p, true);
                             p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
@@ -92,8 +92,8 @@ public class GUIPerk extends GUI {
                     break;
                 case 6:
                     if (!TazPvP.perkManager.getHunger(p)){
-                        if (TazPvP.statsManager.getMoney(p) >= 300){
-                            TazPvP.statsManager.addMoney(p, -300);
+                        if (TazPvP.statsManager.getPoints(p) >= 3){
+                            TazPvP.statsManager.addPoints(p, -3);
                             TazPvP.perkManager.setHunger(p, true);
                             p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
@@ -105,8 +105,8 @@ public class GUIPerk extends GUI {
                     break;
                 case 7:
                     if (!TazPvP.perkManager.getHaste(p)){
-                        if (TazPvP.statsManager.getMoney(p) >= 50){
-                            TazPvP.statsManager.addMoney(p, -50);
+                        if (TazPvP.statsManager.getPoints(p) >= 1){
+                            TazPvP.statsManager.addPoints(p, -1);
                             TazPvP.perkManager.setHaste(p, true);
                             p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
@@ -118,8 +118,8 @@ public class GUIPerk extends GUI {
                     break;
 //                case 8:
 //                    if (!TazPvP.perkManager.getRobbery(p)){
-//                        if (TazPvP.statsManager.getMoney(p) >= 500){
-//                            TazPvP.statsManager.addMoney(p, -500);
+//                        if (TazPvP.statsManager.getPoints(p) >= 500){
+//                            TazPvP.statsManager.addPoints(p, -500);
 //                            TazPvP.perkManager.setRobbery(p, true);
 //                            p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
 //                        }else{
@@ -131,8 +131,8 @@ public class GUIPerk extends GUI {
 //                    break;
                 case 9:
                     if (!TazPvP.perkManager.getStrength(p)){
-                        if (TazPvP.statsManager.getMoney(p) >= 1000){
-                            TazPvP.statsManager.addMoney(p, -1000);
+                        if (TazPvP.statsManager.getPoints(p) >= 10){
+                            TazPvP.statsManager.addPoints(p, -10);
                             TazPvP.perkManager.setStrength(p, true);
                             p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
@@ -144,8 +144,8 @@ public class GUIPerk extends GUI {
                     break;
                 case 10:
                     if (!TazPvP.perkManager.getArrow(p)){
-                        if (TazPvP.statsManager.getMoney(p) >= 250){
-                            TazPvP.statsManager.addMoney(p, -250);
+                        if (TazPvP.statsManager.getPoints(p) >= 3){
+                            TazPvP.statsManager.addPoints(p, -3);
                             TazPvP.perkManager.setArrow(p, true);
                             p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
@@ -171,15 +171,15 @@ public class GUIPerk extends GUI {
         pickaxeMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         pickaxe.setItemMeta(pickaxeMeta);
 
-        addShopItem(10, new ItemStack(Material.WOOD, 1), 1, ChatColor.DARK_AQUA + "Builder I", ChatColor.GRAY + "Chance to not consume placed blocks.\n" + ChatColor.YELLOW + "$350");
-        addShopItem(11, new ItemStack(Material.GOLD_INGOT, 1), 2, ChatColor.DARK_AQUA + "Health I", ChatColor.GRAY + "Chance to gain absorption hearts on kill.\n" + ChatColor.YELLOW + "$400");
-        addShopItem(12, new ItemStack(Material.EYE_OF_ENDER, 1), 3, ChatColor.DARK_AQUA + "Agility I", ChatColor.GRAY + "Chance to get speed on kill.\n" + ChatColor.YELLOW + "$200");
-        //addShopItem(13, new ItemStack(Material.RED_ROSE, 1), 4, ChatColor.DARK_AQUA + "Firefighter I", ChatColor.GRAY + "Instantly extinguish yourself when on fire.\n" + ChatColor.YELLOW + "$150");
-        addShopItem(14, new ItemStack(Material.FEATHER, 1), 5, ChatColor.DARK_AQUA + "Super I", ChatColor.GRAY + "Reduce fall damage.\n" + ChatColor.YELLOW + "$500");
-        addShopItem(15, new ItemStack(Material.COOKED_BEEF, 1), 6, ChatColor.DARK_AQUA + "Not Hobo I", ChatColor.GRAY + "Chance to gain hunger bars on kill.\n" + ChatColor.YELLOW + "$300");
-        //addShopItem(16, pickaxe, 7, ChatColor.DARK_AQUA + "Miner I", ChatColor.GRAY + "Chance to gain haste when mining.\n" + ChatColor.YELLOW + "$50");
-        addShopItem(13, new ItemStack(Material.POTION, 1), 9, ChatColor.DARK_AQUA + "Buff I", ChatColor.GRAY + "Chance to gain strength after kill.\n" + ChatColor.YELLOW + "$1000");
-        addShopItem(16, new ItemStack(Material.ARROW, 1), 9, ChatColor.DARK_AQUA + "Archer I", ChatColor.GRAY + "Chance to get your arrow back.\n" + ChatColor.YELLOW + "$250");
+        addShopItem(10, new ItemStack(Material.WOOD, 1), 1, ChatColor.WHITE + "Builder I", ChatColor.BLUE + "Chance to not consume placed blocks.\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "4 Points");
+        addShopItem(11, new ItemStack(Material.GOLD_INGOT, 1), 2, ChatColor.WHITE + "Health I", ChatColor.BLUE + "Chance to gain absorption hearts on kill.\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "6 Points");
+        addShopItem(12, new ItemStack(Material.EYE_OF_ENDER, 1), 3, ChatColor.WHITE + "Agility I", ChatColor.BLUE + "Chance to get speed on kill.\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "5 Points");
+        //addShopItem(13, new ItemStack(Material.RED_ROSE, 1), 4, ChatColor.WHITE + "Firefighter I", ChatColor.BLUE + "Instantly extinguish yourself when on fire.\n" + ChatColor.YELLOW + "$150");
+        addShopItem(14, new ItemStack(Material.FEATHER, 1), 5, ChatColor.WHITE + "Super I", ChatColor.BLUE + "Reduce fall damage.\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "5 Points");
+        addShopItem(15, new ItemStack(Material.COOKED_BEEF, 1), 6, ChatColor.WHITE + "Not Hobo I", ChatColor.BLUE + "Chance to gain hunger bars on kill.\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "3 Points");
+        //addShopItem(16, pickaxe, 7, ChatColor.WHITE + "Miner I", ChatColor.BLUE + "Chance to gain haste when mining.\n" + ChatColor.YELLOW + "$50");
+        addShopItem(13, new ItemStack(Material.POTION, 1), 9, ChatColor.WHITE + "Buff I", ChatColor.BLUE + "Chance to gain strength after kill.\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "10 Points");
+        addShopItem(16, new ItemStack(Material.ARROW, 1), 9, ChatColor.WHITE + "Archer I", ChatColor.BLUE + "Chance to get your arrow back.\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "3 Points");
 
         update();
     }

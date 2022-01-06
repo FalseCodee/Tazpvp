@@ -12,7 +12,7 @@ import java.util.Iterator;
 public class combatLog implements Listener {
 
     public static HashMap<Player, Integer> combatLog = new HashMap<Player, Integer>();
-    Integer dur = 10;
+    Integer dur = 15;
 
     @EventHandler
     public void onDamage(EntityDamageByEntityEvent e) {
@@ -35,7 +35,7 @@ public class combatLog implements Listener {
                     combatLog.replace(p, combatLog.get(p) - 1);
                 } else {
                     combatLog.remove(p);
-                    p.sendMessage(ChatColor.GREEN + "You have been removed from combat log.");
+                    p.sendMessage(ChatColor.RED + "You are no longer in combat.");
                 }
             }
         }

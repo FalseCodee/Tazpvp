@@ -39,10 +39,14 @@ public class EntityDamageByEntityListener implements Listener {
             Player p = (Player) event.getDamager();
             Player victim = (Player) event.getEntity();
 
+            if (!combatLog.combatLog.containsKey(p)) {
+                p.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + victim.getName());
+            }
+            if (!combatLog.combatLog.containsKey(victim)) {
+                victim.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + p.getName());
+            }
             combatLog.combatLog.put(victim, 10);
             combatLog.combatLog.put(p, 10);
-            p.sendMessage(ChatColor.GREEN + "You have been added from combat log.");
-            victim.sendMessage(ChatColor.GREEN + "You have been added from combat log.");
 
             if(((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.WOOD_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.STONE_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.IRON_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.GOLD_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.DIAMOND_SWORD)){
                 TazPvP.statsManager.addExp((OfflinePlayer) event.getDamager(), 1);
