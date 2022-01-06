@@ -13,7 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class GUIMainScreen extends GUI {
     public GUIMainScreen(Player player) {
-        super(player, 35, ChatColor.BLUE + "" + ChatColor.BOLD + "UPGRADE");
+        super(player, 27, ChatColor.BLUE + "" + ChatColor.BOLD + "UPGRADE");
         init();
         player.openInventory(inventory);
     }
@@ -32,22 +32,22 @@ public class GUIMainScreen extends GUI {
         ItemStack bow = createItem(Material.BOW, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "BOW", ChatColor.GRAY + "Click to see upgrades.");
         ItemStack armor = createItem(Material.LEATHER_CHESTPLATE, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "ARMOR", ChatColor.GRAY + "Click to see upgrades.");
         ItemStack eye = createItem(Material.EYE_OF_ENDER, 1, ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "REBIRTH", ChatColor.DARK_PURPLE + "≻ +1 Enchant Level\n" + ChatColor.DARK_PURPLE + "≻ +3 Exp Per Kill\n" + ChatColor.DARK_PURPLE + "≻ Strength on kill\n" + ChatColor.DARK_PURPLE + "≻ Speed on kill\n" + ChatColor.DARK_PURPLE + "≻ +1 Permanent health\n" + ChatColor.RED + "Level " + ChatColor.WHITE + "100");
-        ItemStack firecharge = createItem(Material.FIREBALL, 1, ChatColor.GOLD + "PERKS", ChatColor.GRAY + "Click to see available perks");
+        ItemStack firecharge = createItem(Material.FIREBALL, 1, ChatColor.GOLD + "" + ChatColor.BOLD + "PERKS", ChatColor.GRAY + "Click to see perks");
         for(int i = 0; i < inventory.getSize(); i++) {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), "");
         }
 
         //initialize the buttons
-        setButtons(19, sword,
+        setButtons(10, sword,
         event -> switchScreen(new GUIUpgradeMenu(player, UpgradeTypes.SWORD)));
 
-        setButtons(21,pickaxe, event -> switchScreen(new GUIUpgradeMenu(player, UpgradeTypes.PICKAXE)));
+        setButtons(11,pickaxe, event -> switchScreen(new GUIUpgradeMenu(player, UpgradeTypes.PICKAXE)));
 
-        setButtons(23,bow, event -> switchScreen(new GUIUpgradeMenu(player, UpgradeTypes.BOW)));
+        setButtons(12,bow, event -> switchScreen(new GUIUpgradeMenu(player, UpgradeTypes.BOW)));
 
-        setButtons(25,armor, event -> switchScreen(new GUIUpgradeMenu(player, UpgradeTypes.ARMOR)));
+        setButtons(13,armor, event -> switchScreen(new GUIUpgradeMenu(player, UpgradeTypes.ARMOR)));
 
-        setButtons(32,eye, event -> {
+        setButtons(16,eye, event -> {
             if(TazPvP.statsManager.getLevel(player) >= 100){
                 Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
                 Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + player.getName() + ChatColor.DARK_PURPLE + " was reborn stronger.");
@@ -68,7 +68,7 @@ public class GUIMainScreen extends GUI {
             }
         });
 
-        setButtons(30,firecharge, event -> switchScreen(new GUIPerk(player)));
+        setButtons(15,firecharge, event -> switchScreen(new GUIPerk(player)));
 
         update();
     }
