@@ -43,8 +43,6 @@ public class GUIMainScreen extends GUI {
 
         setButtons(21,pickaxe, event -> switchScreen(new GUIUpgradeMenu(player, UpgradeTypes.PICKAXE)));
 
-        setButtons(22,rod, event -> switchScreen(new GUIUpgradeMenu(player, UpgradeTypes.ROD)));
-
         setButtons(23,bow, event -> switchScreen(new GUIUpgradeMenu(player, UpgradeTypes.BOW)));
 
         setButtons(24,armor, event -> switchScreen(new GUIUpgradeMenu(player, UpgradeTypes.ARMOR)));
@@ -70,7 +68,7 @@ public class GUIMainScreen extends GUI {
             }
         });
 
-        setButtons(13,emerald, event -> switchScreen(new GUIPerk(player)));
+        setButtons(22,emerald, event -> switchScreen(new GUIPerk(player)));
 
         update();
     }
