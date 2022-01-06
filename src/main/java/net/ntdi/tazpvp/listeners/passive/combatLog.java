@@ -11,7 +11,7 @@ import java.util.Iterator;
 public class combatLog implements Listener {
 
     public static HashMap<Player, Long> combatLog = new HashMap<Player, Long>();
-    Long dur = 15L;
+    Long dur = 10L;
 
     @EventHandler
     public void onDamage(org.bukkit.event.entity.EntityDamageByEntityEvent e) {

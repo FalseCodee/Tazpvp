@@ -19,7 +19,7 @@ public class BowListener implements Listener {
                 long secondsLeft = ((cooldowns.get(p.getName())/1000)+cooldownTime) - (System.currentTimeMillis()/1000);
                 if(secondsLeft>0) {
                     event.setCancelled(true);
-                    p.sendMessage(ChatColor.RED + "Slow down! "+ secondsLeft +"s");
+                    p.sendMessage(ChatColor.RED + "Slow down! "+ ChatColor.WHITE + secondsLeft +"s");
                     return;
                 }
             }
