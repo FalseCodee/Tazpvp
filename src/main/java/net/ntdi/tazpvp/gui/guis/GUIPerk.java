@@ -27,8 +27,8 @@ public class GUIPerk extends GUI {
             switch (runnable){
                 case 1:
                     if (!TazPvP.perkManager.getSaveBlocks(p)){
-                        if (TazPvP.statsManager.getMoney(p) >= 350){
-                            TazPvP.statsManager.addMoney(p, -350);
+                        if (TazPvP.statsManager.getPoints(p) >= 350){
+                            TazPvP.statsManager.addPoints(p, -350);
                             TazPvP.perkManager.setSaveBlocks(p, true);
                             p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
@@ -40,8 +40,8 @@ public class GUIPerk extends GUI {
                     break;
                 case 2:
                     if (!TazPvP.perkManager.getButter(p)){
-                        if (TazPvP.statsManager.getMoney(p) >= 400){
-                            TazPvP.statsManager.addMoney(p, -400);
+                        if (TazPvP.statsManager.getPoints(p) >= 400){
+                            TazPvP.statsManager.addPoints(p, -400);
                             TazPvP.perkManager.setButter(p, true);
                             p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
@@ -53,8 +53,8 @@ public class GUIPerk extends GUI {
                     break;
                 case 3:
                     if (!TazPvP.perkManager.getAgility(p)){
-                        if (TazPvP.statsManager.getMoney(p) >= 200){
-                            TazPvP.statsManager.addMoney(p, -200);
+                        if (TazPvP.statsManager.getPoints(p) >= 200){
+                            TazPvP.statsManager.addPoints(p, -200);
                             TazPvP.perkManager.setAgility(p, true);
                             p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
@@ -66,8 +66,8 @@ public class GUIPerk extends GUI {
                     break;
                 case 4:
                     if (!TazPvP.perkManager.getExtinguish(p)){
-                        if (TazPvP.statsManager.getMoney(p) >= 150){
-                            TazPvP.statsManager.addMoney(p, -150);
+                        if (TazPvP.statsManager.getPoints(p) >= 150){
+                            TazPvP.statsManager.addPoints(p, -150);
                             TazPvP.perkManager.setExtinguish(p, true);
                             p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
@@ -79,8 +79,8 @@ public class GUIPerk extends GUI {
                     break;
                 case 5:
                     if (!TazPvP.perkManager.getFallDamage(p)){
-                        if (TazPvP.statsManager.getMoney(p) >= 500){
-                            TazPvP.statsManager.addMoney(p, -500);
+                        if (TazPvP.statsManager.getPoints(p) >= 500){
+                            TazPvP.statsManager.addPoints(p, -500);
                             TazPvP.perkManager.setFallDamage(p, true);
                             p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
@@ -92,8 +92,8 @@ public class GUIPerk extends GUI {
                     break;
                 case 6:
                     if (!TazPvP.perkManager.getHunger(p)){
-                        if (TazPvP.statsManager.getMoney(p) >= 300){
-                            TazPvP.statsManager.addMoney(p, -300);
+                        if (TazPvP.statsManager.getPoints(p) >= 300){
+                            TazPvP.statsManager.addPoints(p, -300);
                             TazPvP.perkManager.setHunger(p, true);
                             p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
@@ -105,8 +105,8 @@ public class GUIPerk extends GUI {
                     break;
                 case 7:
                     if (!TazPvP.perkManager.getHaste(p)){
-                        if (TazPvP.statsManager.getMoney(p) >= 50){
-                            TazPvP.statsManager.addMoney(p, -50);
+                        if (TazPvP.statsManager.getPoints(p) >= 50){
+                            TazPvP.statsManager.addPoints(p, -50);
                             TazPvP.perkManager.setHaste(p, true);
                             p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
@@ -118,8 +118,8 @@ public class GUIPerk extends GUI {
                     break;
 //                case 8:
 //                    if (!TazPvP.perkManager.getRobbery(p)){
-//                        if (TazPvP.statsManager.getMoney(p) >= 500){
-//                            TazPvP.statsManager.addMoney(p, -500);
+//                        if (TazPvP.statsManager.getPoints(p) >= 500){
+//                            TazPvP.statsManager.addPoints(p, -500);
 //                            TazPvP.perkManager.setRobbery(p, true);
 //                            p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
 //                        }else{
@@ -131,8 +131,8 @@ public class GUIPerk extends GUI {
 //                    break;
                 case 9:
                     if (!TazPvP.perkManager.getStrength(p)){
-                        if (TazPvP.statsManager.getMoney(p) >= 1000){
-                            TazPvP.statsManager.addMoney(p, -1000);
+                        if (TazPvP.statsManager.getPoints(p) >= 1000){
+                            TazPvP.statsManager.addPoints(p, -1000);
                             TazPvP.perkManager.setStrength(p, true);
                             p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
@@ -144,8 +144,8 @@ public class GUIPerk extends GUI {
                     break;
                 case 10:
                     if (!TazPvP.perkManager.getArrow(p)){
-                        if (TazPvP.statsManager.getMoney(p) >= 250){
-                            TazPvP.statsManager.addMoney(p, -250);
+                        if (TazPvP.statsManager.getPoints(p) >= 250){
+                            TazPvP.statsManager.addPoints(p, -250);
                             TazPvP.perkManager.setArrow(p, true);
                             p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
