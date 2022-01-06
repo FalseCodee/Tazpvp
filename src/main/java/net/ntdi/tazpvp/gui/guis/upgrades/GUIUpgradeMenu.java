@@ -36,7 +36,7 @@ public class GUIUpgradeMenu extends GUI {
             for(EnchantInfo enchantment : type.enchantments) {
                 setButtons(slot, createItem(button, ChatColor.WHITE + enchantment.name +ChatColor.BLUE +" +1",
                                 ChatColor.BLUE + enchantment.description+"\n"
-                                        + ChatColor.GOLD + "COST: " + ChatColor.GRAY + "$" + enchantment.cost + "\n"
+                                        + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "$" + enchantment.cost + "\n"
                                         + ChatColor.GOLD + "Max lvl: " + ChatColor.GRAY + (enchantment.maxLevel + ((TazPvP.statsManager.getRebirths(player) > 0) ? 1 : 0))),
                         event -> {
                             event.setCancelled(true);
@@ -63,7 +63,7 @@ public class GUIUpgradeMenu extends GUI {
             if(type == UpgradeTypes.SWORD || type == UpgradeTypes.PICKAXE || type == UpgradeTypes.ARMOR) {
             setButtons(slot, createItem(anvil, ChatColor.GREEN + "Reforge " + type.name,
                             ChatColor.BLUE + "Upgrade " +type.name + " material"+"\n"
-                                    + ChatColor.GOLD + "COST: " + ChatColor.GRAY + "$" + type.reforge + "\n"
+                                    + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "$" + type.reforge + "\n"
                                     + ChatColor.RED + "WARNING: RESETS ENCHANTMENTS"),
                     event -> {
                     if(TazPvP.statsManager.getMoney(player) >= type.reforge){

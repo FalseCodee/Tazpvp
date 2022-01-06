@@ -171,15 +171,15 @@ public class GUIPerk extends GUI {
         pickaxeMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         pickaxe.setItemMeta(pickaxeMeta);
 
-        addShopItem(10, new ItemStack(Material.WOOD, 1), 1, ChatColor.DARK_AQUA + "Builder I", ChatColor.GRAY + "Chance to not consume placed blocks.\n" + ChatColor.YELLOW + "4 Points");
-        addShopItem(11, new ItemStack(Material.GOLD_INGOT, 1), 2, ChatColor.DARK_AQUA + "Health I", ChatColor.GRAY + "Chance to gain absorption hearts on kill.\n" + ChatColor.YELLOW + "6 Points");
-        addShopItem(12, new ItemStack(Material.EYE_OF_ENDER, 1), 3, ChatColor.DARK_AQUA + "Agility I", ChatColor.GRAY + "Chance to get speed on kill.\n" + ChatColor.YELLOW + "5 Points");
-        //addShopItem(13, new ItemStack(Material.RED_ROSE, 1), 4, ChatColor.DARK_AQUA + "Firefighter I", ChatColor.GRAY + "Instantly extinguish yourself when on fire.\n" + ChatColor.YELLOW + "$150");
-        addShopItem(14, new ItemStack(Material.FEATHER, 1), 5, ChatColor.DARK_AQUA + "Super I", ChatColor.GRAY + "Reduce fall damage.\n" + ChatColor.YELLOW + "5 Points");
-        addShopItem(15, new ItemStack(Material.COOKED_BEEF, 1), 6, ChatColor.DARK_AQUA + "Not Hobo I", ChatColor.GRAY + "Chance to gain hunger bars on kill.\n" + ChatColor.YELLOW + "3 Points");
-        //addShopItem(16, pickaxe, 7, ChatColor.DARK_AQUA + "Miner I", ChatColor.GRAY + "Chance to gain haste when mining.\n" + ChatColor.YELLOW + "$50");
-        addShopItem(13, new ItemStack(Material.POTION, 1), 9, ChatColor.DARK_AQUA + "Buff I", ChatColor.GRAY + "Chance to gain strength after kill.\n" + ChatColor.YELLOW + "10 Points");
-        addShopItem(16, new ItemStack(Material.ARROW, 1), 9, ChatColor.DARK_AQUA + "Archer I", ChatColor.GRAY + "Chance to get your arrow back.\n" + ChatColor.YELLOW + "3 Points");
+        addShopItem(10, new ItemStack(Material.WOOD, 1), 1, ChatColor.WHITE + "Builder I", ChatColor.BLUE + "Chance to not consume placed blocks.\n" + ChatColor.GOLD + "Cost:" + ChatColor.GRAY + "4 Points");
+        addShopItem(11, new ItemStack(Material.GOLD_INGOT, 1), 2, ChatColor.WHITE + "Health I", ChatColor.BLUE + "Chance to gain absorption hearts on kill.\n" + ChatColor.GOLD + "Cost:" + ChatColor.GRAY + "6 Points");
+        addShopItem(12, new ItemStack(Material.EYE_OF_ENDER, 1), 3, ChatColor.WHITE + "Agility I", ChatColor.BLUE + "Chance to get speed on kill.\n" + ChatColor.GOLD + "Cost:" + ChatColor.GRAY + "5 Points");
+        //addShopItem(13, new ItemStack(Material.RED_ROSE, 1), 4, ChatColor.WHITE + "Firefighter I", ChatColor.BLUE + "Instantly extinguish yourself when on fire.\n" + ChatColor.YELLOW + "$150");
+        addShopItem(14, new ItemStack(Material.FEATHER, 1), 5, ChatColor.WHITE + "Super I", ChatColor.BLUE + "Reduce fall damage.\n" + ChatColor.GOLD + "Cost:" + ChatColor.GRAY + "5 Points");
+        addShopItem(15, new ItemStack(Material.COOKED_BEEF, 1), 6, ChatColor.WHITE + "Not Hobo I", ChatColor.BLUE + "Chance to gain hunger bars on kill.\n" + ChatColor.GOLD + "Cost:" + ChatColor.GRAY + "3 Points");
+        //addShopItem(16, pickaxe, 7, ChatColor.WHITE + "Miner I", ChatColor.BLUE + "Chance to gain haste when mining.\n" + ChatColor.YELLOW + "$50");
+        addShopItem(13, new ItemStack(Material.POTION, 1), 9, ChatColor.WHITE + "Buff I", ChatColor.BLUE + "Chance to gain strength after kill.\n" + ChatColor.GOLD + "Cost:" + ChatColor.GRAY + "10 Points");
+        addShopItem(16, new ItemStack(Material.ARROW, 1), 9, ChatColor.WHITE + "Archer I", ChatColor.BLUE + "Chance to get your arrow back.\n" + ChatColor.GOLD + "Cost:" + ChatColor.GRAY + "3 Points");
 
         update();
     }
