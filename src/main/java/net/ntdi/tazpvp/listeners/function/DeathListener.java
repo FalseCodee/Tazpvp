@@ -19,6 +19,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.Random;
 
 public class DeathListener implements Listener {
@@ -94,7 +95,6 @@ public class DeathListener implements Listener {
                                 TazPvP.statsManager.addExp(killer, 8);
                                 killer.playSound(killer.getLocation(), Sound.ORB_PICKUP, 1, 1 );
                                 p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1 );
-                                killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 8 Experience");
                                 killer.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 40, 0, true, false));
                                 killer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 40, 0, true, false));
                                 killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 92, 2, true, false));
@@ -102,9 +102,7 @@ public class DeathListener implements Listener {
                                 TazPvP.statsManager.addExp(killer, 5);
                                 killer.playSound(killer.getLocation(), Sound.ORB_PICKUP, 1, 1 );
                                 p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1 );
-                                killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 5 Experience");
                                 killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 92, 2, true, false));
-
                                 if (rand.nextInt(10) == 1) {
                                     if (TazPvP.perkManager.getButter(killer)){
                                         killer.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 20*60, 0));
@@ -137,8 +135,18 @@ public class DeathListener implements Listener {
                                 }
 
                             }
-                            if (Bukkit.getOnlinePlayers().size() < 20){
-                                Bukkit.broadcastMessage(ChatColor.GRAY + killer.getName() + ChatColor.DARK_GRAY + " has killed " + ChatColor.GRAY + p.getName() );
+                            if (Bukkit.getOnlinePlayers().size() < 20) {
+                                for (Player d : Bukkit.getOnlinePlayers()) {
+                                    if (Objects.equals(d.getName(), killer.getName())) {
+                                        if (TazPvP.statsManager.getRebirths(killer) > 0) {
+                                            killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 8 Experience");
+                                        } else {
+                                            killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 5 Experience");
+                                        }
+                                    } else {
+                                        d.sendMessage(ChatColor.GRAY + killer.getName() + ChatColor.DARK_GRAY + " has killed " + ChatColor.GRAY + p.getName());
+                                    }
+                                }
                             } else {
                                 p.sendMessage(ChatColor.DARK_GRAY + "You were killed by " + ChatColor.GRAY + "" + killer.getName());
                             }
@@ -226,14 +234,13 @@ public class DeathListener implements Listener {
                 if (killer != p) {
                     TazPvP.achievementsManager.onDeath(p);
                     Location loc = p.getLocation();
-                    if(killer != null){
+                    if(killer != null) {
                         TazPvP.achievementsManager.onKill(killer);
 //        if(!p.getLocation().getWorld().getName().equals(TazPvP.configFile.getString("arena.name"))){
 //            return;
 //        }
 
                         //p.spigot().respawn();
-
 
 
 //                        new BukkitRunnable() {
@@ -258,8 +265,8 @@ public class DeathListener implements Listener {
 
 //        p.teleport(loc);
 
-                        if (killer.getMaxHealth() != 26){
-                            killer.setMaxHealth(killer.getMaxHealth()+2);
+                        if (killer.getMaxHealth() != 26) {
+                            killer.setMaxHealth(killer.getMaxHealth() + 2);
                         }
                         p.setMaxHealth(20);
 
@@ -277,59 +284,53 @@ public class DeathListener implements Listener {
 
                         if (TazPvP.statsManager.getRebirths(killer) > 0) {
                             TazPvP.statsManager.addExp(killer, 8);
-                            killer.playSound(killer.getLocation(), Sound.ORB_PICKUP, 1, 1 );
-                            p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1 );
+                            killer.playSound(killer.getLocation(), Sound.ORB_PICKUP, 1, 1);
+                            p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
                             killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 8 Experience");
                             killer.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 40, 0, true, false));
                             killer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 40, 0, true, false));
                             killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 92, 2, true, false));
                         } else {
                             TazPvP.statsManager.addExp(killer, 5);
-                            killer.playSound(killer.getLocation(), Sound.ORB_PICKUP, 1, 1 );
-                            p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1 );
+                            killer.playSound(killer.getLocation(), Sound.ORB_PICKUP, 1, 1);
+                            p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
                             killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 5 Experience");
                             killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 92, 2, true, false));
 
                             if (rand.nextInt(10) == 1) {
-                                if (TazPvP.perkManager.getButter(killer)){
-                                    killer.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 20*60, 0));
-                                    killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20*5, 0));
+                                if (TazPvP.perkManager.getButter(killer)) {
+                                    killer.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 20 * 60, 0));
+                                    killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20 * 5, 0));
                                     //killer.sendMessage(ChatColor.GRAY + "Butter Perk activated!");
                                 }
                             }
                             if (rand.nextInt(10) == 2) {
-                                if (TazPvP.perkManager.getAgility(killer)){
-                                    killer.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 20*5, 0));
+                                if (TazPvP.perkManager.getAgility(killer)) {
+                                    killer.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 20 * 5, 0));
                                     //killer.sendMessage(ChatColor.GRAY + "Agility Perk activated!");
                                 }
                             }
                             if (rand.nextInt(10) == 3) {
-                                if (TazPvP.perkManager.getExtinguish(killer)){
+                                if (TazPvP.perkManager.getExtinguish(killer)) {
                                     killer.setFireTicks(0);
                                     //killer.sendMessage(ChatColor.GRAY + "Extinguish Perk activated!");
                                 }
                             }
                             if (rand.nextInt(10) == 4) {
-                                if (TazPvP.perkManager.getHunger(killer)){
+                                if (TazPvP.perkManager.getHunger(killer)) {
                                     killer.setFoodLevel(20);
                                     //killer.sendMessage(ChatColor.GRAY + "Hunger Perk activated!");
                                 }
                             }
-                            if(rand.nextInt(10) == 5){
-                                if (TazPvP.perkManager.getStrength(killer)){
+                            if (rand.nextInt(10) == 5) {
+                                if (TazPvP.perkManager.getStrength(killer)) {
                                     //killer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 40, 1, true, false));
                                 }
                             }
 
                         }
-
-
-                        if (Bukkit.getOnlinePlayers().size() < 20) {
-                            Bukkit.broadcastMessage(ChatColor.GRAY + killer.getName() + ChatColor.DARK_GRAY + " has killed " + ChatColor.GRAY + p.getName());
-                        } else {
-                            p.sendMessage(ChatColor.DARK_GRAY + "You were killed by " + ChatColor.GRAY + "" + killer.getName());
-                        }
                     }
+                            //Bukkit.broadcastMessage(ChatColor.GRAY + killer.getName() + ChatColor.DARK_GRAY + " has killed " + ChatColor.GRAY + p.getName());
                     TazPvP.statsManager.setStreak(p, 0);
                     TazPvP.statsManager.addDeaths(p, 1);
                     //loc.getWorld().playEffect(loc, Effect.LARGE_SMOKE, Material.REDSTONE_BLOCK);
