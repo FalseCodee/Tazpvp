@@ -147,7 +147,14 @@ public final class TazPvP extends JavaPlugin {
         // Event Register
         registerListeners();
 
-        getServer().getScheduler().scheduleAsyncRepeatingTask(this, combatLog::tick, 20L, 20L);
+        getServer().getScheduler().scheduleSyncRepeatingTask(this, combatLog::tick, 20L, 20L);
+
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                combatLog.tick();
+            }
+        }.runTaskTimerAsynchronously(this, 20L, 20L);
 
 
         load();

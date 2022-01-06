@@ -18,13 +18,10 @@ public class combatLog implements Listener {
         if (e.getDamager() instanceof Player && e.getEntity() instanceof Player) {
             Player p = (Player) e.getDamager();
             Player killer = (Player) e.getEntity();
-            if (!combatLog.containsKey(p) && combatLog.containsKey(killer)) {
-                combatLog.put(p, dur);
-                combatLog.put(killer, dur);
-            } else {
-                combatLog.replace(p, dur);
-                combatLog.replace(killer, dur);
-            }
+            combatLog.put(p, dur);
+            combatLog.put(killer, dur);
+            p.sendMessage(ChatColor.GREEN + "You have been added from combat log.");
+            killer.sendMessage(ChatColor.GREEN + "You have been added from combat log.");
         }
     }
 
