@@ -75,7 +75,7 @@ public class GUIShop extends GUI {
         addShopItem(19, new ItemStack(Material.FEATHER, 1), 150, ChatColor.WHITE + "Lethal Injection", ChatColor.BLUE + "Yikes\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "$150");
         addShopItem(20, new ItemStack(Material.COOKIE, 5), 10, ChatColor.WHITE + "Cookie", ChatColor.BLUE + "Yummy\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "$10");
         addShopItem(21, new ItemStack(Material.BREAD, 5), 10, ChatColor.WHITE + "Bread", ChatColor.BLUE + "Hot n' Fresh\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "$10");
-        addShopItem(22, new ItemStack(Material.BAKED_POTATO, 5), 10, ChatColor.WHITE + "Baked Potato", ChatColor.BLUE + "What's that smell?\n" + ChatColor.BLUE + "Cost: " + ChatColor.GRAY + "$10");
+        addShopItem(22, new ItemStack(Material.BAKED_POTATO, 5), 10, ChatColor.WHITE + "Baked Potato", ChatColor.BLUE + "What's that smell?\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "$10");
         addShopItem(23, new ItemStack(Material.COOKED_BEEF, 5), 15, ChatColor.WHITE + "Steak", ChatColor.BLUE + "Arbies\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "$15");
         addShopItem(24, new ItemStack(Material.GOLDEN_CARROT, 1), 15, ChatColor.WHITE + "Gold Carrot", ChatColor.BLUE + "Healthy Choice\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "$15");
         addShopItem(25, new ItemStack(Material.GOLDEN_APPLE, 1), 250, ChatColor.WHITE + "Gold Apple", ChatColor.BLUE + "Not Steroids\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "$225");
