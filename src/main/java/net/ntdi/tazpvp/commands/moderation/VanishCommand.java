@@ -35,7 +35,7 @@ public class VanishCommand implements CommandExecutor, Listener {
                 } else {
                     vanishList.add(player);
                     PlayerUtils.hidePlayer(player);
-                    player.sendMessage(ChatColor.RED + "You have entered vanish mode.");
+                    player.sendMessage(ChatColor.GREEN + "You are now vanished.");
                     Bukkit.broadcastMessage(ChatColor.GRAY + "[" + ChatColor.RED + "-" + ChatColor.GRAY + "] " + player.getName());
                     TazPvP.invunerable.add(player);
                 }
@@ -43,7 +43,7 @@ public class VanishCommand implements CommandExecutor, Listener {
                 player.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
                 vanishList.remove(player);
                 PlayerUtils.showPlayer(player);
-                player.sendMessage(ChatColor.RED + "You are no longer in vanish mode.");
+                player.sendMessage(ChatColor.RED + "You are no longer vanished.");
                 Bukkit.broadcastMessage(ChatColor.GRAY + "[" + ChatColor.GREEN + "+" + ChatColor.GRAY + "] " + player.getName());
                 TazPvP.invunerable.remove(player);
 
