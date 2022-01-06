@@ -1,6 +1,7 @@
 package net.ntdi.tazpvp.listeners.function;
 
 import net.ntdi.tazpvp.TazPvP;
+import net.ntdi.tazpvp.listeners.passive.combatLog;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
@@ -38,7 +39,10 @@ public class EntityDamageByEntityListener implements Listener {
             Player p = (Player) event.getDamager();
             Player victim = (Player) event.getEntity();
 
-
+            combatLog.combatLog.put(victim, 10);
+            combatLog.combatLog.put(p, 10);
+            p.sendMessage(ChatColor.GREEN + "You have been added from combat log.");
+            victim.sendMessage(ChatColor.GREEN + "You have been added from combat log.");
 
             if(((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.WOOD_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.STONE_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.IRON_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.GOLD_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.DIAMOND_SWORD)){
                 TazPvP.statsManager.addExp((OfflinePlayer) event.getDamager(), 1);
