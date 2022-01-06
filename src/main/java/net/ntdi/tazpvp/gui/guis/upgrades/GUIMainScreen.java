@@ -13,7 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class GUIMainScreen extends GUI {
     public GUIMainScreen(Player player) {
-        super(player, 45, ChatColor.BLUE + "" + ChatColor.BOLD + "UPGRADE");
+        super(player, 35, ChatColor.BLUE + "" + ChatColor.BOLD + "UPGRADE");
         init();
         player.openInventory(inventory);
     }
@@ -47,7 +47,7 @@ public class GUIMainScreen extends GUI {
 
         setButtons(25,armor, event -> switchScreen(new GUIUpgradeMenu(player, UpgradeTypes.ARMOR)));
 
-        setButtons(31,eye, event -> {
+        setButtons(32,eye, event -> {
             if(TazPvP.statsManager.getLevel(player) >= 100){
                 Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
                 Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + player.getName() + ChatColor.DARK_PURPLE + " was reborn stronger.");
@@ -68,7 +68,7 @@ public class GUIMainScreen extends GUI {
             }
         });
 
-        setButtons(13,firecharge, event -> switchScreen(new GUIPerk(player)));
+        setButtons(30,firecharge, event -> switchScreen(new GUIPerk(player)));
 
         update();
     }
