@@ -21,6 +21,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
 
 import java.util.HashMap;
+import java.util.Objects;
 import java.util.Random;
 
 public class DeathListener implements Listener {
@@ -107,7 +108,6 @@ public class DeathListener implements Listener {
                                 TazPvP.statsManager.addExp(killer, 8);
                                 killer.playSound(killer.getLocation(), Sound.ORB_PICKUP, 1, 1 );
                                 p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1 );
-                                killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 8 Experience");
                                 killer.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 40, 0, true, false));
                                 killer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 40, 0, true, false));
                                 killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 92, 2, true, false));
@@ -115,7 +115,6 @@ public class DeathListener implements Listener {
                                 TazPvP.statsManager.addExp(killer, 5);
                                 killer.playSound(killer.getLocation(), Sound.ORB_PICKUP, 1, 1 );
                                 p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1 );
-                                killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 5 Experience");
                                 killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 92, 2, true, false));
 
                                 if (rand.nextInt(10) == 1) {
@@ -150,9 +149,20 @@ public class DeathListener implements Listener {
                                 }
 
                             }
-                            p.sendMessage(ChatColor.DARK_GRAY + "You were killed by " + ChatColor.GRAY + "" + killer.getName());
-                            if (Bukkit.getOnlinePlayers().size() < 20){
-                                Bukkit.broadcastMessage(ChatColor.GRAY + killer.getName() + ChatColor.DARK_GRAY + " has killed " + ChatColor.GRAY + p.getName() );
+                            if (Bukkit.getOnlinePlayers().size() < 20) {
+                                for (Player d : Bukkit.getOnlinePlayers()) {
+                                    if (Objects.equals(d.getName(), killer.getName())) {
+                                        if (TazPvP.statsManager.getRebirths(killer) > 0) {
+                                            killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 8 Experience");
+                                        } else {
+                                            killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 5 Experience");
+                                        }
+                                    } else {
+                                        d.sendMessage(ChatColor.GRAY + killer.getName() + ChatColor.DARK_GRAY + " has killed " + ChatColor.GRAY + p.getName());
+                                    }
+                                }
+                            } else {
+                                p.sendMessage(ChatColor.DARK_GRAY + "You were killed by " + ChatColor.GRAY + "" + killer.getName());
                             }
                         }
                         TazPvP.statsManager.setStreak(p, 0);
@@ -213,7 +223,6 @@ public class DeathListener implements Listener {
                                 TazPvP.statsManager.addExp(killer, 8);
                                 killer.playSound(killer.getLocation(), Sound.ORB_PICKUP, 1, 1 );
                                 p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1 );
-                                killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 8 Experience");
                                 killer.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 40, 0, true, false));
                                 killer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 40, 0, true, false));
                                 killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 92, 2, true, false));
@@ -221,7 +230,6 @@ public class DeathListener implements Listener {
                                 TazPvP.statsManager.addExp(killer, 5);
                                 killer.playSound(killer.getLocation(), Sound.ORB_PICKUP, 1, 1 );
                                 p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1 );
-                                killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 5 Experience");
                                 killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 92, 2, true, false));
 
                                 if (TazPvP.perkManager.getButter(killer)){
@@ -246,7 +254,6 @@ public class DeathListener implements Listener {
                                 }
 
                             }
-                            p.sendMessage(ChatColor.DARK_GRAY + "You were killed by " + ChatColor.GRAY + "" + killer.getName());
                             if (Bukkit.getOnlinePlayers().size() < 20){
                                 Bukkit.broadcastMessage(ChatColor.GRAY + killer.getName() + ChatColor.DARK_GRAY + " has killed " + ChatColor.GRAY + p.getName() );
                             }
