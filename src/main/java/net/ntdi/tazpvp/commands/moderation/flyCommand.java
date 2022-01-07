@@ -17,10 +17,10 @@ public class flyCommand implements CommandExecutor {
             if (args.length == 0) {
                 if(p.getAllowFlight() == true) {
                     p.setAllowFlight(false);
-                    p.sendMessage(ChatColor.GOLD + "Flying " + ChatColor.RED + "Disabled");
+                    p.sendMessage(ChatColor.GOLD + "Flying: " + ChatColor.RED + "disabled");
                 } else {
                     p.setAllowFlight(true);
-                    p.sendMessage(ChatColor.GOLD + "Flying " + ChatColor.RED + "Enabled");
+                    p.sendMessage(ChatColor.GOLD + "Flying: " + ChatColor.RED + "enabled");
                 }
             } else {
                 return false;
