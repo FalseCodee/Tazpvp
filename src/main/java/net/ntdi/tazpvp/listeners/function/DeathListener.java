@@ -166,8 +166,14 @@ public class DeathListener implements Listener {
                                 killer.sendMessage(ChatColor.YELLOW + "You have claimed " + p.getDisplayName() + "'s bounty for " + ChatColor.WHITE + "$" + BountyCommand.bounties.get(p.getUniqueId()));
                                 BountyCommand.bounties.remove(p.getUniqueId());
                             }
-                            if (killer.getMaxHealth() != 26){
-                                killer.setMaxHealth(killer.getMaxHealth()+2);
+                            if (TazPvP.perkManager.getFat(killer)){
+                                if (killer.getMaxHealth() != 28){
+                                    killer.setMaxHealth(killer.getMaxHealth()+2);
+                                }
+                            } else {
+                                if (killer.getMaxHealth() != 26){
+                                    killer.setMaxHealth(killer.getMaxHealth()+2);
+                                }
                             }
                             p.setMaxHealth(20);
 
