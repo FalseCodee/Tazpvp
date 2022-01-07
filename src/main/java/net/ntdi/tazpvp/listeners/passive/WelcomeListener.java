@@ -5,6 +5,7 @@ import net.ntdi.tazpvp.commands.moderation.BanCommand;
 import net.ntdi.tazpvp.managers.ArmorManager;
 import net.ntdi.tazpvp.utils.PlayerUtils;
 import org.bukkit.*;
+import org.bukkit.block.Block;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -12,8 +13,11 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.metadata.MetadataValue;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.Scoreboard;
+
+import java.util.List;
 
 public class WelcomeListener implements Listener {
 
@@ -95,6 +99,15 @@ public class WelcomeListener implements Listener {
         } */
         p.spigot().setCollidesWithEntities(true);
     }
+
+    public String getCombatee(Player p){
+        List<MetadataValue> metaDataValues = p.getMetadata("combat");
+        for (MetadataValue metaDataValue : metaDataValues) {
+            return metaDataValue.asString();
+        }
+        return "";
+    }
+
     @EventHandler
     public void onPlayerQuit(PlayerQuitEvent event){
         Player p = event.getPlayer();
@@ -107,6 +120,21 @@ public class WelcomeListener implements Listener {
 
         if(TazPvP.Spectating.contains(p)){
             TazPvP.Spectating.remove(p);
+        }
+
+        if(combatLog.combatLog.containsKey(p)){
+            Player killer = Bukkit.getPlayer(getCombatee(p));
+            if (killer.isOnline()){
+                killer.sendMessage(ChatColor.RED + p.getName() + ChatColor.DARK_RED + " has logged out during combat."  + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 8 Experience");
+                TazPvP.statsManager.addMoney(killer, 7);
+                TazPvP.statsManager.addExp(killer, 8);
+            } else {
+                TazPvP.statsManager.addMoney(killer, 7);
+                TazPvP.statsManager.addExp(killer, 8);
+            }
+            if (TazPvP.statsManager.getMoney(p) > 25) {
+                TazPvP.statsManager.addMoney(p, -25);
+            }
         }
 
         TazPvP.statsManager.scoreboards.remove(p.getUniqueId());

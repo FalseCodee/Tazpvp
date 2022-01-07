@@ -10,6 +10,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.Random;
@@ -47,6 +48,8 @@ public class EntityDamageByEntityListener implements Listener {
             }
             combatLog.combatLog.put(victim, 10);
             combatLog.combatLog.put(p, 10);
+
+            victim.setMetadata("combat", new FixedMetadataValue(TazPvP.getInstance(), p.getName()));
 
             if(((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.WOOD_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.STONE_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.IRON_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.GOLD_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.DIAMOND_SWORD)){
                 TazPvP.statsManager.addExp((OfflinePlayer) event.getDamager(), 1);
