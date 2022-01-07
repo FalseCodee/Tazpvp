@@ -6,6 +6,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.Sound;
+import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -98,6 +99,21 @@ public class EntityDamageByEntityListener implements Listener {
 //                    }
 //                }
             //}
+        } else if (event.getEntity() instanceof Player && event.getDamager() instanceof Arrow){
+            Player victim = (Player) event.getEntity();
+            Arrow a = (Arrow) event.getDamager();
+            Player shooter = (Player) a.getShooter();
+
+            if (!combatLog.combatLog.containsKey(victim)) {
+                victim.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + victim.getName());
+            }
+            if (!combatLog.combatLog.containsKey(shooter)) {
+                shooter.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + shooter.getName());
+            }
+            combatLog.combatLog.put(victim, 10);
+            combatLog.combatLog.put(shooter, 10);
+
+
         }
     }
 }

@@ -1,11 +1,14 @@
 package net.ntdi.tazpvp.listeners.passive;
 
 import net.ntdi.tazpvp.TazPvP;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.metadata.MetadataValue;
 
+import java.util.List;
 import java.util.Random;
 
 public class FallDamageListener implements Listener {
@@ -18,7 +21,7 @@ public class FallDamageListener implements Listener {
         if (event.getEntity() instanceof Player && event.getEntity().getWorld().getName().equals("arena")){
             Player p = (Player) event.getEntity();
             if (event.getCause() == EntityDamageEvent.DamageCause.FALL) {
-                if (TazPvP.FallDamageImmune.contains(p)) {
+                if (!isFallDamage(p)) {
                     event.setCancelled(true);
                 } else {
                     if (TazPvP.perkManager.getFallDamage(p)){
@@ -32,5 +35,13 @@ public class FallDamageListener implements Listener {
                 }
             }
         }
+    }
+
+    public boolean isFallDamage(Player p){
+        List<MetadataValue> metaDataValues = p.getMetadata("fallDamage");
+        for (MetadataValue metaDataValue : metaDataValues) {
+            return metaDataValue.asBoolean();
+        }
+        return true;
     }
 }

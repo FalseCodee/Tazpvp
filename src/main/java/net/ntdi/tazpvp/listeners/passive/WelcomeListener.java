@@ -13,6 +13,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.metadata.MetadataValue;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.Scoreboard;
@@ -166,7 +167,7 @@ public class WelcomeListener implements Listener {
                 p.sendMessage(ChatColor.RED + "You cannot teleport while spectating.");
             }
 
-            TazPvP.FallDamageImmune.add(p);
+            p.setMetadata("fallDamage", new FixedMetadataValue(TazPvP.getInstance(), false));
 
 
             int min = 1;
@@ -197,9 +198,19 @@ public class WelcomeListener implements Listener {
             new BukkitRunnable() {
                 @Override
                 public void run() {
-                    TazPvP.FallDamageImmune.remove(p);
+                    p.setMetadata("fallDamage", new FixedMetadataValue(TazPvP.getInstance(), true));
                 }
             }.runTaskLater(TazPvP.getInstance(), 20 * 20);
         }
+    }
+
+
+
+    public boolean isFallDamageImmune(Block b){
+        List<MetadataValue> metaDataValues = b.getMetadata("fallDamage");
+        for (MetadataValue metaDataValue : metaDataValues) {
+            return metaDataValue.asBoolean();
+        }
+        return false;
     }
 }
