@@ -28,7 +28,7 @@ public class SpawnCommand implements Listener, CommandExecutor {
             if (p.hasPermission("staff.spawn")) {
                 p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
             } else {
-                p.sendMessage(ChatColor.DARK_AQUA + "You will be teleported to spawn in " + ChatColor.AQUA + " 5 seconds. " + ChatColor.DARK_AQUA + "Do not move." );
+                p.sendMessage(ChatColor.DARK_AQUA + "You will be teleported to spawn in " + ChatColor.AQUA + "5 seconds. " + ChatColor.DARK_AQUA + "Do not move." );
                 p.setMetadata("spawnering", new FixedMetadataValue(TazPvP.getInstance(), true));
                 new BukkitRunnable() {
                     @Override
