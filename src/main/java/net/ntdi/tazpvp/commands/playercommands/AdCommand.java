@@ -1,8 +1,5 @@
 package net.ntdi.tazpvp.commands.playercommands;
 
-import javafx.scene.text.Text;
-import me.clip.placeholderapi.libs.kyori.adventure.text.ComponentBuilder;
-import me.clip.placeholderapi.libs.kyori.adventure.text.event.HoverEvent;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.ChatColor;
