@@ -34,13 +34,14 @@ public class DeathListener implements Listener {
 
             if (p.getHealth()-event.getFinalDamage() <= 0) {
                 event.setCancelled(true);
+                Location deadLoc = p.getLocation();
 
                 p.setGameMode(GameMode.SPECTATOR);
                 p.playSound(p.getLocation(), Sound.WOLF_WHINE, 1, 1);
                 if (event instanceof EntityDamageByEntityEvent) {
                     deathFunction(p, ((EntityDamageByEntityEvent) event).getDamager());
                 }
-
+                dropInv(p, deadLoc);
                 p.getInventory().clear();
 
                 new BukkitRunnable() {
@@ -229,6 +230,19 @@ public class DeathListener implements Listener {
                         //loc.getWorld().playEffect(loc, Effect.LARGE_SMOKE, Material.REDSTONE_BLOCK);
                     }
                 }
+            }
+        }
+    }
+
+    public void dropInv(Player p, Location loc) {
+        for (ItemStack item : p.getInventory().getContents()) {
+            if (item != null) {
+                p.getWorld().dropItemNaturally(loc, item);
+            }
+        }
+        for (ItemStack item : p.getInventory().getArmorContents()) {
+            if (item != null) {
+                p.getWorld().dropItemNaturally(loc, item);
             }
         }
     }
