@@ -165,35 +165,35 @@ public class DeathListener implements Listener {
         ItemStack arrow = new ItemStack(Material.ARROW, 15);
 
         ItemMeta meta1 = armor1.getItemMeta();
-        meta1.spigot().setUnbreakable(true);
+        meta1.spigot().setUnbreakable(false);
         armor1.setItemMeta(meta1);
 
         ItemMeta meta2 = armor2.getItemMeta();
-        meta2.spigot().setUnbreakable(true);
+        meta2.spigot().setUnbreakable(false);
         armor2.setItemMeta(meta2);
 
         ItemMeta meta3 = armor3.getItemMeta();
-        meta3.spigot().setUnbreakable(true);
+        meta3.spigot().setUnbreakable(false);
         armor3.setItemMeta(meta3);
 
         ItemMeta meta4 = armor4.getItemMeta();
-        meta4.spigot().setUnbreakable(true);
+        meta4.spigot().setUnbreakable(false);
         armor4.setItemMeta(meta4);
 
         ItemMeta swordMeta = sword.getItemMeta();
-        swordMeta.spigot().setUnbreakable(true);
+        swordMeta.spigot().setUnbreakable(false);
         sword.setItemMeta(swordMeta);
 
         ItemMeta pickaxeMeta = sword.getItemMeta();
-        pickaxeMeta.spigot().setUnbreakable(true);
+        pickaxeMeta.spigot().setUnbreakable(false);
         pickaxe.setItemMeta(pickaxeMeta);
 
         ItemMeta fishingMeta = fishingrod.getItemMeta();
-        fishingMeta.spigot().setUnbreakable(true);
+        fishingMeta.spigot().setUnbreakable(false);
         fishingrod.setItemMeta(fishingMeta);
 
         ItemMeta bowMeta = bow.getItemMeta();
-        bowMeta.spigot().setUnbreakable(true);
+        bowMeta.spigot().setUnbreakable(false);
         bow.setItemMeta(bowMeta);
 
 
