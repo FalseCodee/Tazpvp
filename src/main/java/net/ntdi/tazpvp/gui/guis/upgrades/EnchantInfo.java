@@ -19,8 +19,8 @@ public enum EnchantInfo {
     PUNCH("Punch", "More knockback.", 200, 1, Enchantment.ARROW_KNOCKBACK),
     INFINITY("Infinity", "Infinite arrows.", 550, 1, Enchantment.ARROW_INFINITE),
 
-    PROTECTION("Protection", "Decreases damage taken.", 4, 1, Enchantment.PROTECTION_ENVIRONMENTAL),
-    FEATHER_FALLING("Feather Falling", "Decreases fall damage.", 4, 3, Enchantment.PROTECTION_FALL);
+    PROTECTION("Protection", "Decreases damage taken.", 300, 1, Enchantment.PROTECTION_ENVIRONMENTAL),
+    FEATHER_FALLING("Feather Falling", "Decreases fall damage.", 40, 3, Enchantment.PROTECTION_FALL);
 
     public final String name;
     public final String description;
