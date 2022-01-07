@@ -197,35 +197,25 @@ public class DeathListener implements Listener {
                                 killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 5 Experience");
                                 killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 92, 2, true, false));
 
-                                if (rand.nextInt(10) == 1) {
-                                    if (TazPvP.perkManager.getButter(killer)){
-                                        killer.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 20*60, 0));
-                                        killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20*5, 0));
-                                        //killer.sendMessage(ChatColor.GRAY + "Butter Perk activated!");
-                                    }
+                                if (TazPvP.perkManager.getButter(killer)){
+                                    killer.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 20*30, 0));
+                                    killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20*3, 0));
+                                    //killer.sendMessage(ChatColor.GRAY + "Butter Perk activated!");
                                 }
-                                if (rand.nextInt(10) == 2) {
-                                    if (TazPvP.perkManager.getAgility(killer)){
-                                        killer.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 20*5, 0));
-                                        //killer.sendMessage(ChatColor.GRAY + "Agility Perk activated!");
-                                    }
+                                if (TazPvP.perkManager.getAgility(killer)){
+                                    killer.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 20*3, 0));
+                                    //killer.sendMessage(ChatColor.GRAY + "Agility Perk activated!");
                                 }
-                                if (rand.nextInt(10) == 3) {
-                                    if (TazPvP.perkManager.getExtinguish(killer)){
-                                        killer.setFireTicks(0);
-                                        //killer.sendMessage(ChatColor.GRAY + "Extinguish Perk activated!");
-                                    }
+                                if (TazPvP.perkManager.getExtinguish(killer)){
+                                    killer.setFireTicks(0);
+                                    //killer.sendMessage(ChatColor.GRAY + "Extinguish Perk activated!");
                                 }
-                                if (rand.nextInt(10) == 4) {
-                                    if (TazPvP.perkManager.getHunger(killer)){
-                                        killer.setFoodLevel(20);
-                                        //killer.sendMessage(ChatColor.GRAY + "Hunger Perk activated!");
-                                    }
+                                if (TazPvP.perkManager.getHunger(killer)){
+                                    killer.setFoodLevel(20);
+                                    //killer.sendMessage(ChatColor.GRAY + "Hunger Perk activated!");
                                 }
-                                if(rand.nextInt(10) == 5){
-                                    if (TazPvP.perkManager.getStrength(killer)){
-                                        //killer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 40, 1, true, false));
-                                    }
+                                if (TazPvP.perkManager.getStrength(killer)){
+                                    killer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 7, 1, true, false));
                                 }
 
                             }
@@ -290,22 +280,17 @@ public class DeathListener implements Listener {
 
 
         PlayerInventory inv = player.getInventory();
-        new BukkitRunnable() {
-            @Override
-            public void run() {
-                inv.setLeggings(armor4);
-                inv.setChestplate(armor3);
-                inv.setHelmet(armor2);
-                inv.setBoots(armor1);
-                inv.addItem(sword);
-                inv.addItem(fishingrod);
-                inv.addItem(bow);
-                inv.addItem(pickaxe);
-                inv.addItem(steak);
-                inv.addItem(blocks);
-                inv.setItem(9, arrow);
-            }
-        }.runTaskLater(TazPvP.getInstance(), 4);
+        inv.setLeggings(armor4);
+        inv.setChestplate(armor3);
+        inv.setHelmet(armor2);
+        inv.setBoots(armor1);
+        inv.addItem(sword);
+        inv.addItem(fishingrod);
+        inv.addItem(bow);
+        inv.addItem(pickaxe);
+        inv.addItem(steak);
+        inv.addItem(blocks);
+        inv.setItem(9, arrow);
     }
 
     @EventHandler
