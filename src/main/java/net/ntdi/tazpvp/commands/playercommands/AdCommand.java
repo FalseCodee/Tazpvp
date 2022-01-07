@@ -22,7 +22,7 @@ public class AdCommand implements CommandExecutor {
 
         if (commandSender instanceof Player) {
             Player p = (Player) commandSender;
-            TextComponent copy = new TextComponent(ChatColor.YELLOW + "\nClick " + ChatColor.GOLD + "here" + ChatColor.YELLOW + " to copy the ad for this server!\n");
+            TextComponent copy = new TextComponent("\n" + ChatColor.YELLOW + "  Click " + ChatColor.GOLD + "" + ChatColor.BOLD + "Here" + ChatColor.YELLOW + " to copy the advertisement for this server.\n");
             copy.setClickEvent(new net.md_5.bungee.api.chat.ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, ad));
             p.spigot().sendMessage(copy);
         }
