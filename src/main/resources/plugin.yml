@@ -292,3 +292,11 @@ commands:
   fly:
     permission: tazpvp.staff.fly
     usage: "/fly"
+  nick:
+    permission: tazpvp.nick
+    usage: "/nick <nick> | /nick <user> <nick>"
+    description: "nick yourself or someone else"
+    aliases:
+      - n
+      - nickname
+      - nk
