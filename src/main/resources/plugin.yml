@@ -270,3 +270,6 @@ commands:
   spectate:
     permission: tazpvp.spectate
     usage: "/spectate <map>"
+  initperks:
+    permission: op
+    usage: "/initperks"

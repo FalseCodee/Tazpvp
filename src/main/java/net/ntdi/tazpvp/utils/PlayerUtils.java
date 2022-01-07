@@ -37,6 +37,7 @@ public class PlayerUtils {
         player.getInventory().clear();
 
         TazPvP.statsManager.initPlayer(player);
+        TazPvP.perkManager.initPlayer(player);
 
         ItemStack armor1 = new ItemStack(Material.LEATHER_BOOTS);
         ItemStack armor2 = new ItemStack(Material.LEATHER_HELMET);

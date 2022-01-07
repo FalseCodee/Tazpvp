@@ -13,7 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 public class GUIPerk extends GUI {
     public GUIPerk(Player player) {
-        super(player, 27, "BUY PERKS");
+        super(player, 36, "BUY PERKS");
         setItems();
         player.openInventory(inventory);
     }
@@ -155,6 +155,19 @@ public class GUIPerk extends GUI {
                         p.sendMessage(ChatColor.RED + "You already own this perk!");
                     }
                     break;
+                case 11:
+                    if (!TazPvP.perkManager.getFat(p)){
+                        if (TazPvP.statsManager.getPoints(p) >= 5){
+                            TazPvP.statsManager.addPoints(p, -5);
+                            TazPvP.perkManager.setFat(p, true);
+                            p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
+                        }else{
+                            p.sendMessage(ChatColor.RED + "Not enough money!");
+                        }
+                    }else{
+                        p.sendMessage(ChatColor.RED + "You already own this perk!");
+                    }
+                    break;
             }
         });
     }
@@ -179,7 +192,9 @@ public class GUIPerk extends GUI {
         addShopItem(15, new ItemStack(Material.COOKED_BEEF, 1), 6, ChatColor.WHITE + "Not Hobo I", ChatColor.BLUE + "Chance to gain hunger bars on kill.\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "3 Points");
         //addShopItem(16, pickaxe, 7, ChatColor.WHITE + "Miner I", ChatColor.BLUE + "Chance to gain haste when mining.\n" + ChatColor.YELLOW + "$50");
         addShopItem(13, new ItemStack(Material.POTION, 1), 9, ChatColor.WHITE + "Buff I", ChatColor.BLUE + "Chance to gain strength after kill.\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "10 Points");
-        addShopItem(16, new ItemStack(Material.ARROW, 1), 9, ChatColor.WHITE + "Archer I", ChatColor.BLUE + "Chance to get your arrow back.\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "3 Points");
+        addShopItem(16, new ItemStack(Material.ARROW, 1), 10, ChatColor.WHITE + "Archer I", ChatColor.BLUE + "Chance to get your arrow back.\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "3 Points");
+        addShopItem(19, new ItemStack(Material.APPLE, 1), 11, ChatColor.WHITE + "Fat I", ChatColor.BLUE + "Increase the limit of added hearts on kill.\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "5 Points");
+
 
         update();
     }

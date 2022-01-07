@@ -2,6 +2,7 @@ package net.ntdi.tazpvp.listeners.passive;
 
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.commands.moderation.BanCommand;
+import net.ntdi.tazpvp.listeners.function.DeathListener;
 import net.ntdi.tazpvp.managers.ArmorManager;
 import net.ntdi.tazpvp.utils.PlayerUtils;
 import org.bukkit.*;
@@ -136,6 +137,7 @@ public class WelcomeListener implements Listener {
             if (TazPvP.statsManager.getMoney(p) > 25) {
                 TazPvP.statsManager.addMoney(p, -25);
             }
+            new DeathListener().rsInv(p);
         }
 
         TazPvP.statsManager.scoreboards.remove(p.getUniqueId());

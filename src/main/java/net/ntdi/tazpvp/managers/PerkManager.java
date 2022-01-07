@@ -43,6 +43,7 @@ public class PerkManager {
         perksFile.set(uuid+".robbery", false);
         perksFile.set(uuid+".strength", false);
         perksFile.set(uuid+".arrow", false);
+        perksFile.set(uuid+".fat", false);
     }
 
     // TODO add more perks
@@ -106,6 +107,12 @@ public class PerkManager {
     }
     public void setArrow(OfflinePlayer player, Boolean bool) {
         perksFile.set(player.getUniqueId().toString()+".arrow", bool);
+    }
+    public boolean getFat(OfflinePlayer player) {
+        return perksFile.getBoolean(player.getUniqueId().toString()+".arrow");
+    }
+    public void setFat(OfflinePlayer player, Boolean bool) {
+        perksFile.set(player.getUniqueId().toString()+".fat", bool);
     }
 
 

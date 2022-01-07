@@ -306,6 +306,7 @@ public final class TazPvP extends JavaPlugin {
         getCommand("loadinv").setExecutor(new LoadinvCommand());
         getCommand("ac").setExecutor(new ACCommand());
         getCommand("spectate").setExecutor(new SpectateCommand());
+        getCommand("initperks").setExecutor(new initperks());
         getCommand("gmc").setExecutor(new gmcCommand());
         getCommand("gms").setExecutor(new gmcCommand());
         getCommand("gmsp").setExecutor(new gmcCommand());
