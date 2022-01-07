@@ -311,6 +311,7 @@ public final class TazPvP extends JavaPlugin {
         getCommand("gms").setExecutor(new gmcCommand());
         getCommand("gmsp").setExecutor(new gmcCommand());
         getCommand("fly").setExecutor(new flyCommand());
+        getCommand("ad").setExecutor(new AdCommand());
     }
 
     public void registerListeners() {

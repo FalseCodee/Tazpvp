@@ -273,3 +273,10 @@ commands:
   initperks:
     permission: op
     usage: "/initperks"
+  ad:
+    usage: "/ad"
+    description: "get the current advertisement"
+    aliases:
+      - advertisement
+      - advert
+      - advertise
