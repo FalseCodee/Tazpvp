@@ -15,7 +15,7 @@ public class gmcCommand implements CommandExecutor {
         }
         if (p.hasPermission("tazpvp.staff.gm")) {
             p.setGameMode(GameMode.CREATIVE);
-            p.sendMessage(ChatColor.GOLD + "Gamemode: " + ChatColor.RED + "Creative");
+            p.sendMessage(ChatColor.GOLD + "Gamemode: " + ChatColor.RED + "creative");
         }
         return true;
     }

@@ -15,7 +15,7 @@ public class gmsCommand implements CommandExecutor {
         }
         if (p.hasPermission("tazpvp.staff.gm")) {
             p.setGameMode(GameMode.SURVIVAL);
-            p.sendMessage(ChatColor.GOLD + "Gamemode: " + ChatColor.RED + "Survival");
+            p.sendMessage(ChatColor.GOLD + "Gamemode: " + ChatColor.RED + "survival");
         }
         return true;
     }

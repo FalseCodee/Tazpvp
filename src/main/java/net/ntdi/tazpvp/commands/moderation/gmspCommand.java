@@ -15,7 +15,7 @@ public class gmspCommand implements CommandExecutor {
         }
         if (p.hasPermission("tazpvp.staff.gm")) {
             p.setGameMode(GameMode.SPECTATOR);
-            p.sendMessage(ChatColor.GOLD + "Gamemode: " + ChatColor.RED + "Spectator");
+            p.sendMessage(ChatColor.GOLD + "Gamemode: " + ChatColor.RED + "spectator");
         }
         return true;
     }
