@@ -38,7 +38,7 @@ public class SpawnCommand implements Listener, CommandExecutor {
                             p.setMetadata("spawnering", new FixedMetadataValue(TazPvP.getInstance(), false));
                         }
                     }
-                }.runTaskLaterAsynchronously(TazPvP.getInstance(), 5 * 20);
+                }.runTaskLater(TazPvP.getInstance(), 5 * 20);
             }
         }
         return true;
