@@ -29,8 +29,8 @@ public class GUIMainRankScreen extends GUI {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), "");
         }
         setButtons(11, rankItem, event -> switchScreen(new GUIRankStore(player)));
+        setButtons(12, cosmeticsItem, event -> switchScreen(new GUICosmetics(player)));
         setButtons(13, donateItem, event -> {
-            // TODO: make unban work :D
             if (TazPvP.punishmentManager.isBanned(player)) {
                 if (TazPvP.statsManager.getCredits(player) >= 100) {
                     TazPvP.statsManager.addCredits(player, -100);
@@ -45,7 +45,11 @@ public class GUIMainRankScreen extends GUI {
             }
 
         });
-        setButtons(12, cosmeticsItem, event -> switchScreen(new GUICosmetics(player)));
+        setButtons(15, donateItem, event -> {
+            player.closeInventory();
+            player.performCommand("buy");
+        });
+
         update();
     }
 
