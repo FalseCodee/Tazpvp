@@ -54,6 +54,10 @@ public class DeathListener implements Listener {
                         p.setFoodLevel(20);
                         rsInv(p);
                         p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
+                        if (combatLog.combatLog.containsKey(p)) {
+                            combatLog.combatLog.remove(p);
+                            p.sendMessage(ChatColor.RED + "You are no longer in combat.");
+                        }
                     }
                 }.runTaskLater(TazPvP.getInstance(), 60);
             }
@@ -86,14 +90,6 @@ public class DeathListener implements Listener {
                                 }
                             }
 
-                            if (combatLog.combatLog.containsKey(p)) {
-                                combatLog.combatLog.remove(p);
-                                p.sendMessage(ChatColor.RED + "You are no longer in combat.");
-                            }
-                            if (combatLog.combatLog.containsKey(killer)) {
-                                combatLog.combatLog.remove(killer);
-                                killer.sendMessage(ChatColor.RED + "You are no longer in combat.");
-                            }
 
                             p.playSound(p.getLocation(), Sound.FIRE, 5, 1);
                             TazPvP.statsManager.addStreak(killer, 1);
