@@ -158,7 +158,7 @@ public class DeathListener implements Listener {
                                             killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 5 Experience");
                                         }
                                     } else {
-                                        d.sendMessage(ChatColor.GRAY + killer.getName() + ChatColor.DARK_GRAY + " has killed " + ChatColor.GRAY + p.getName());
+                                        d.sendMessage(ChatColor.GRAY + killer.getName() + ChatColor.DARK_GRAY + " killed " + ChatColor.GRAY + p.getName());
                                     }
                                 }
                             } else {
