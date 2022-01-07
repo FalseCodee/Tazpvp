@@ -236,6 +236,9 @@ commands:
   spawnzombie:
     permission: op
     permission-message: no
+  spawn:
+    permission: op
+    permission-message: no
   help2:
     usage: "/help2"
     description: help2
