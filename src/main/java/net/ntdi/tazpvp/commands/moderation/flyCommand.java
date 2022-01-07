@@ -1,0 +1,31 @@
+package net.ntdi.tazpvp.commands.moderation;
+
+import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
+public class flyCommand implements CommandExecutor {
+    @Override
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+        Player p = (Player) sender;
+        if (sender instanceof Player) {
+            p = (Player) sender;
+        }
+        if(p.hasPermission("tazpvp.fly")) {
+            if (args.length == 0) {
+                if(p.getAllowFlight() == true) {
+                    p.setAllowFlight(false);
+                    p.sendMessage(ChatColor.GOLD + "Flying " + ChatColor.RED + "Disabled");
+                } else {
+                    p.setAllowFlight(true);
+                    p.sendMessage(ChatColor.GOLD + "Flying " + ChatColor.RED + "Enabled");
+                }
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+}
