@@ -7,15 +7,15 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-public class gmcCommand implements CommandExecutor {
+public class gmsCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
         Player p = (Player) sender;
         if (sender instanceof Player) {
             p = (Player) sender;
         }
         if (p.hasPermission("tazpvp.staff.gm")) {
-            p.setGameMode(GameMode.CREATIVE);
-            p.sendMessage(ChatColor.GOLD + "Gamemode: " + ChatColor.RED + "Creative");
+            p.setGameMode(GameMode.SURVIVAL);
+            p.sendMessage(ChatColor.GOLD + "Gamemode: " + ChatColor.RED + "Survival");
         }
         return true;
     }

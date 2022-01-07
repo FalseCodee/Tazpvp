@@ -260,7 +260,6 @@ public final class TazPvP extends JavaPlugin {
         getCommand("clearchat").setExecutor(new ClearChatCommand());
         getCommand("mutechat").setExecutor(new MuteChatCommand());
         getCommand("spawn").setExecutor(new SpawnCommand());
-//        getCommand("setspawn").setExecutor(new SetSpawnCommand());
         getCommand("points").setExecutor(new PointsCommand());
         getCommand("levels").setExecutor(new LevelCommand());
         getCommand("money").setExecutor(new MoneyCommand());
@@ -308,8 +307,8 @@ public final class TazPvP extends JavaPlugin {
         getCommand("spectate").setExecutor(new SpectateCommand());
         getCommand("initperks").setExecutor(new initperks());
         getCommand("gmc").setExecutor(new gmcCommand());
-        getCommand("gms").setExecutor(new gmcCommand());
-        getCommand("gmsp").setExecutor(new gmcCommand());
+        getCommand("gms").setExecutor(new gmsCommand());
+        getCommand("gmsp").setExecutor(new gmspCommand());
         getCommand("fly").setExecutor(new flyCommand());
     }
 

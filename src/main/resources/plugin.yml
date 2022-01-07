@@ -273,3 +273,15 @@ commands:
   initperks:
     permission: op
     usage: "/initperks"
+  gmc:
+    permission: tazpvp.staff.gm
+    usage: "/gmc"
+  gms:
+    permission: tazpvp.staff.gm
+    usage: "/gms"
+  gmsp:
+    permission: tazpvp.staff.gm
+    usage: "/gmsp"
+  fly:
+    permission: tazpvp.staff.fly
+    usage: "/fly"
