@@ -280,7 +280,6 @@ commands:
       - advertisement
       - advert
       - advertise
-
   gmc:
     permission: tazpvp.staff.gm
     usage: "/gmc"
