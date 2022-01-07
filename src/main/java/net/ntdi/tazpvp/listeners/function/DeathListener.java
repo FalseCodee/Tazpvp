@@ -252,8 +252,7 @@ public class DeathListener implements Listener {
         ItemStack pickaxe = new ItemStack(Material.WOOD_PICKAXE);
         ItemStack fishingrod = new ItemStack(Material.FISHING_ROD);
         ItemStack bow = new ItemStack(Material.BOW);
-        ItemStack steak = new ItemStack(Material.COOKED_BEEF, 5);
-        ItemStack blocks = new ItemStack(Material.WOOD, 16);
+        ItemStack steak = new ItemStack(Material.COOKED_BEEF, 3);
         ItemStack arrow = new ItemStack(Material.ARROW, 15);
 
         ItemMeta meta1 = armor1.getItemMeta();
@@ -302,7 +301,6 @@ public class DeathListener implements Listener {
                 inv.addItem(bow);
                 inv.addItem(pickaxe);
                 inv.addItem(steak);
-                inv.addItem(blocks);
                 inv.setItem(9, arrow);
             }
         }.runTaskLater(TazPvP.getInstance(), 4);
