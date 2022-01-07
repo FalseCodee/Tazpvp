@@ -22,9 +22,10 @@ public class GUIMainRankScreen extends GUI {
     }
     @SuppressWarnings("deprecation")
     public void init() {
-        ItemStack rankItem = createItem(Material.EYE_OF_ENDER, ChatColor.BLUE + "" + ChatColor.BOLD + "RANKS", ChatColor.GRAY + "Purchase ranks", true);
-        ItemStack donateItem = createItem(Material.BARRIER, ChatColor.BLUE + "" + ChatColor.BOLD + "UNBAN", ChatColor.GRAY + "Unban yourself\n" + ChatColor.RED + "100 Credits", true);
-        ItemStack cosmeticsItem = createItem(Material.YELLOW_FLOWER, ChatColor.BLUE + "" + ChatColor.BOLD + "COSMETICS", ChatColor.GRAY + "View cosmetics", true);
+        ItemStack rankItem = createItem(Material.HOPPER_MINECART, ChatColor.BLUE + "" + ChatColor.BOLD + "RANKS", ChatColor.GRAY + "Purchase ranks", false);
+        ItemStack cosmeticsItem = createItem(Material.POWERED_MINECART, ChatColor.BLUE + "" + ChatColor.BOLD + "COSMETICS", ChatColor.GRAY + "View cosmetics", false);
+        ItemStack donateItem = createItem(Material.EXPLOSIVE_MINECART, ChatColor.BLUE + "" + ChatColor.BOLD + "UNBAN", ChatColor.GRAY + "Unban yourself\n" + ChatColor.RED + "100 Credits", false);
+        ItemStack buy = createItem(Material.STORAGE_MINECART, ChatColor.BLUE + "" + ChatColor.BOLD + "BUY CREDITS", ChatColor.GRAY + "Server Store", false);
         for(int i = 0; i < inventory.getSize(); i++) {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), "");
         }
@@ -45,7 +46,7 @@ public class GUIMainRankScreen extends GUI {
             }
 
         });
-        setButtons(15, donateItem, event -> {
+        setButtons(15, buy, event -> {
             player.closeInventory();
             player.performCommand("buy");
         });
