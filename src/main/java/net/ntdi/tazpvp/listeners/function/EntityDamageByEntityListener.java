@@ -41,14 +41,17 @@ public class EntityDamageByEntityListener implements Listener {
             Player p = (Player) event.getDamager();
             Player victim = (Player) event.getEntity();
 
-            if (!combatLog.combatLog.containsKey(p)) {
-                p.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + victim.getName());
+            if (TazPvP.AllowBlocks) {
+                if (!combatLog.combatLog.containsKey(p)) {
+                    p.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + victim.getName());
+                }
+                if (!combatLog.combatLog.containsKey(victim)) {
+                    victim.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + p.getName());
+                }
+                combatLog.combatLog.put(victim, 10);
+                combatLog.combatLog.put(p, 10);
             }
-            if (!combatLog.combatLog.containsKey(victim)) {
-                victim.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + p.getName());
-            }
-            combatLog.combatLog.put(victim, 10);
-            combatLog.combatLog.put(p, 10);
+
 
             victim.setMetadata("combat", new FixedMetadataValue(TazPvP.getInstance(), p.getName()));
 
@@ -104,16 +107,16 @@ public class EntityDamageByEntityListener implements Listener {
             Arrow a = (Arrow) event.getDamager();
             Player shooter = (Player) a.getShooter();
 
-            if (!combatLog.combatLog.containsKey(victim)) {
-                victim.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + victim.getName());
+            if (TazPvP.AllowBlocks) {
+                if (!combatLog.combatLog.containsKey(victim)) {
+                    victim.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + victim.getName());
+                }
+                if (!combatLog.combatLog.containsKey(shooter)) {
+                    shooter.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + shooter.getName());
+                }
+                combatLog.combatLog.put(victim, 10);
+                combatLog.combatLog.put(shooter, 10);
             }
-            if (!combatLog.combatLog.containsKey(shooter)) {
-                shooter.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + shooter.getName());
-            }
-            combatLog.combatLog.put(victim, 10);
-            combatLog.combatLog.put(shooter, 10);
-
-
         }
     }
 }
