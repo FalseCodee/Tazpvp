@@ -1,5 +1,6 @@
 package net.ntdi.tazpvp.commands.playercommands;
 
+import javafx.scene.text.Text;
 import me.clip.placeholderapi.libs.kyori.adventure.text.ComponentBuilder;
 import me.clip.placeholderapi.libs.kyori.adventure.text.event.HoverEvent;
 import net.md_5.bungee.api.chat.ClickEvent;
@@ -9,6 +10,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+
+
 
 public class AdCommand implements CommandExecutor {
 
