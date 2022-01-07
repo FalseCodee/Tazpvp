@@ -127,7 +127,7 @@ public class WelcomeListener implements Listener {
         if(combatLog.combatLog.containsKey(p)){
             Player killer = Bukkit.getPlayer(getCombatee(p));
             if (killer.isOnline()){
-                killer.sendMessage(ChatColor.RED + p.getName() + ChatColor.DARK_RED + " has logged out during combat."  + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 8 Experience");
+                killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 5 Experience");
                 TazPvP.statsManager.addMoney(killer, 7);
                 TazPvP.statsManager.addExp(killer, 8);
             } else {
