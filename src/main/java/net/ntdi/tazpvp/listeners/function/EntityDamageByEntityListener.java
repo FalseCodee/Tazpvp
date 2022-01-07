@@ -109,10 +109,10 @@ public class EntityDamageByEntityListener implements Listener {
 
             if (TazPvP.AllowBlocks) {
                 if (!combatLog.combatLog.containsKey(victim)) {
-                    victim.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + victim.getName());
+                    victim.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + shooter.getName());
                 }
                 if (!combatLog.combatLog.containsKey(shooter)) {
-                    shooter.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + shooter.getName());
+                    shooter.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + victim.getName());
                 }
                 combatLog.combatLog.put(victim, 10);
                 combatLog.combatLog.put(shooter, 10);
