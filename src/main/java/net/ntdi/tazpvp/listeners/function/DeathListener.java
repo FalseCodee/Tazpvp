@@ -2,6 +2,7 @@ package net.ntdi.tazpvp.listeners.function;
 
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.commands.functions.BountyCommand;
+import net.ntdi.tazpvp.listeners.passive.combatLog;
 import org.bukkit.*;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Entity;
@@ -75,10 +76,24 @@ public class DeathListener implements Listener {
                                 killer.sendMessage(ChatColor.YELLOW + "You have claimed " + p.getDisplayName() + "'s bounty for " + ChatColor.WHITE + "$" + BountyCommand.bounties.get(p.getUniqueId()));
                                 BountyCommand.bounties.remove(p.getUniqueId());
                             }
-                            if (killer.getMaxHealth() != 26){
-                                killer.setMaxHealth(killer.getMaxHealth()+2);
+                            if (TazPvP.perkManager.getFat(killer)){
+                                if (killer.getMaxHealth() != 28){
+                                    killer.setMaxHealth(killer.getMaxHealth()+2);
+                                }
+                            } else {
+                                if (killer.getMaxHealth() != 26){
+                                    killer.setMaxHealth(killer.getMaxHealth()+2);
+                                }
                             }
-                            p.setMaxHealth(20);
+
+                            if (combatLog.combatLog.containsKey(p)) {
+                                combatLog.combatLog.remove(p);
+                                p.sendMessage(ChatColor.GREEN + "You have been removed from combat log.");
+                            }
+                            if (combatLog.combatLog.containsKey(killer)) {
+                                combatLog.combatLog.remove(killer);
+                                killer.sendMessage(ChatColor.GREEN + "You have been removed from combat log.");
+                            }
 
                             p.playSound(p.getLocation(), Sound.FIRE, 5, 1);
                             TazPvP.statsManager.addStreak(killer, 1);
@@ -166,6 +181,16 @@ public class DeathListener implements Listener {
                                 killer.sendMessage(ChatColor.YELLOW + "You have claimed " + p.getDisplayName() + "'s bounty for " + ChatColor.WHITE + "$" + BountyCommand.bounties.get(p.getUniqueId()));
                                 BountyCommand.bounties.remove(p.getUniqueId());
                             }
+
+                            if (combatLog.combatLog.containsKey(p)) {
+                                combatLog.combatLog.remove(p);
+                                p.sendMessage(ChatColor.GREEN + "You have been removed from combat log.");
+                            }
+                            if (combatLog.combatLog.containsKey(killer)) {
+                                combatLog.combatLog.remove(killer);
+                                killer.sendMessage(ChatColor.GREEN + "You have been removed from combat log.");
+                            }
+
                             if (TazPvP.perkManager.getFat(killer)){
                                 if (killer.getMaxHealth() != 28){
                                     killer.setMaxHealth(killer.getMaxHealth()+2);
@@ -175,7 +200,6 @@ public class DeathListener implements Listener {
                                     killer.setMaxHealth(killer.getMaxHealth()+2);
                                 }
                             }
-                            p.setMaxHealth(20);
 
                             p.playSound(p.getLocation(), Sound.FIRE, 5, 1);
                             TazPvP.statsManager.addStreak(killer, 1);
