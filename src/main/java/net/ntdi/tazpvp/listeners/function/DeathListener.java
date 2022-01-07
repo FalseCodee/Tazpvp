@@ -88,11 +88,11 @@ public class DeathListener implements Listener {
 
                             if (combatLog.combatLog.containsKey(p)) {
                                 combatLog.combatLog.remove(p);
-                                p.sendMessage(ChatColor.GREEN + "You have been removed from combat log.");
+                                p.sendMessage(ChatColor.RED + "You are no longer in combat.");
                             }
                             if (combatLog.combatLog.containsKey(killer)) {
                                 combatLog.combatLog.remove(killer);
-                                killer.sendMessage(ChatColor.GREEN + "You have been removed from combat log.");
+                                killer.sendMessage(ChatColor.RED + "You are no longer in combat.");
                             }
 
                             p.playSound(p.getLocation(), Sound.FIRE, 5, 1);
