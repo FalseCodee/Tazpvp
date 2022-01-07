@@ -107,15 +107,17 @@ public class EntityDamageByEntityListener implements Listener {
             Arrow a = (Arrow) event.getDamager();
             if (a.getShooter() instanceof Player){
                 Player shooter = (Player) a.getShooter();
-                if (TazPvP.AllowBlocks) {
-                    if (!combatLog.combatLog.containsKey(victim)) {
-                        victim.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + shooter.getName());
+                if (victim.getWorld().getName().equalsIgnoreCase("arena") || victim.getWorld().getName().equalsIgnoreCase("grind")){
+                    if (TazPvP.AllowBlocks) {
+                        if (!combatLog.combatLog.containsKey(victim)) {
+                            victim.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + shooter.getName());
+                        }
+                        if (!combatLog.combatLog.containsKey(shooter)) {
+                            shooter.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + victim.getName());
+                        }
+                        combatLog.combatLog.put(victim, 10);
+                        combatLog.combatLog.put(shooter, 10);
                     }
-                    if (!combatLog.combatLog.containsKey(shooter)) {
-                        shooter.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + victim.getName());
-                    }
-                    combatLog.combatLog.put(victim, 10);
-                    combatLog.combatLog.put(shooter, 10);
                 }
             }
         }

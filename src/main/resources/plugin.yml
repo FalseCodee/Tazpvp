@@ -237,8 +237,8 @@ commands:
     permission: op
     permission-message: no
   spawn:
-    permission: op
-    permission-message: no
+    usage: "/spawn"
+    description: "go to you at spawn"
   help2:
     usage: "/help2"
     description: help2
