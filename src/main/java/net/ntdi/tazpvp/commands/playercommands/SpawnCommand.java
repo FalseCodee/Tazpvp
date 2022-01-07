@@ -35,7 +35,7 @@ public class SpawnCommand implements Listener, CommandExecutor {
                     public void run() {
                         if (isSpawnering(p)) {
                             p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
-                            p.removeMetadata("spawnering", TazPvP.getInstance());
+                            p.setMetadata("spawnering", new FixedMetadataValue(TazPvP.getInstance(), false));
                         }
                     }
                 }.runTaskLaterAsynchronously(TazPvP.getInstance(), 5 * 20);
@@ -47,7 +47,7 @@ public class SpawnCommand implements Listener, CommandExecutor {
     @EventHandler
     public void NoMoveNo(PlayerMoveEvent e){
         if(isSpawnering(e.getPlayer())){
-            e.getPlayer().removeMetadata("spawnering", TazPvP.getInstance());
+            e.getPlayer().setMetadata("spawnering", new FixedMetadataValue(TazPvP.getInstance(), false));
             e.getPlayer().sendMessage(ChatColor.RED + "Teleportation cancelled, you moved.");
         }
     }
@@ -57,7 +57,7 @@ public class SpawnCommand implements Listener, CommandExecutor {
         if (e.getEntity() instanceof Player) {
             Player p = (Player) e.getEntity();
             if (isSpawnering(p)) {
-                p.removeMetadata("spawnering", TazPvP.getInstance());
+                p.setMetadata("spawnering", new FixedMetadataValue(TazPvP.getInstance(), false));
                 p.sendMessage(ChatColor.GREEN + "Detected Damage! Canceling teleportation!");
             }
         }
