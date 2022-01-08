@@ -134,10 +134,11 @@ public class WorldGuard implements Listener {
         if (event.getPlayer().getWorld().getName().equals("spawn")) {
             event.setCancelled(true);
         } else if (event.getPlayer().getWorld().getName().equals("arena")) {
-            if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
-                event.setCancelled(true);
+            if (event.getPlayer().getGameMode() == GameMode.SURVIVAL) {
+                if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+                    event.setCancelled(true);
+                }
             }
         }
-
     }
 }
