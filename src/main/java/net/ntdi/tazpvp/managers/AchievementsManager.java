@@ -45,7 +45,13 @@ public class AchievementsManager {
         achievements.add(new KillAchievement(1500, new Rewards[] {Rewards.MONEY}, new int[] {3000}));
 
         //kill streak achievement
-
+        achievements.add(new KillStreakAchievement(5, new Rewards[] {Rewards.MONEY}, new int[] {30}));
+        achievements.add(new KillStreakAchievement(10, new Rewards[] {Rewards.MONEY}, new int[] {60}));
+        achievements.add(new KillStreakAchievement(15, new Rewards[] {Rewards.MONEY}, new int[] {120}));
+        achievements.add(new KillStreakAchievement(25, new Rewards[] {Rewards.MONEY}, new int[] {350}));
+        achievements.add(new KillStreakAchievement(35, new Rewards[] {Rewards.MONEY}, new int[] {550}));
+        achievements.add(new KillStreakAchievement(45, new Rewards[] {Rewards.MONEY}, new int[] {800}));
+        achievements.add(new KillStreakAchievement(55, new Rewards[] {Rewards.MONEY}, new int[] {1100}));
 
         //revenge achivement
         // one heart achievement
