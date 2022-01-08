@@ -7,20 +7,22 @@ import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.inventory.ItemStack;
 
 public class GUIAchievement extends GUI {
 
     public GUIAchievement(Player player) {
-        super(player, 63, ChatColor.BLUE + "" + ChatColor.BOLD + "ACHIEVEMENTS");
-        init();
+        super(player, 45, ChatColor.BLUE + "" + ChatColor.BOLD + "ACHIEVEMENTS");
+        init(0);
         player.openInventory(inventory);
     }
 
-    public void init() {
+
+
+    public void init(int page) {
         int displacement = 10;
-        int i = 0;
-        for(Achievements ach : TazPvP.achievementsManager.achievements) {
+        for(int i = (page * 27); i < Math.min(27 + (page*27), TazPvP.achievementsManager.achievements.size()); i++) {
+            Achievements ach = TazPvP.achievementsManager.achievements.get(i);
+
             if(TazPvP.achievementsManager.playerCompletedAchievement(ach, player)) {
                 items[i+displacement] = createItem(Material.STORAGE_MINECART, 1, ChatColor.RED + ach.name,
                         ChatColor.WHITE + ach.description + "\n"
@@ -35,8 +37,15 @@ public class GUIAchievement extends GUI {
             if((i+1) % 7 == 0) {
                 displacement += 2;
             }
-            i++;
         }
+
+        setButtons(44, createItem(Material.ARROW,1, "&fNext Page"), event -> {
+            if((page + 1) * 27 < TazPvP.achievementsManager.achievements.size()) init(page + 1);
+        });
+
+        setButtons(36, createItem(Material.ARROW,1, "&fNext Page"), event -> {
+            if((page - 1) * 27 >= 0) init(page - 1);
+        });
         update();
     }
 
