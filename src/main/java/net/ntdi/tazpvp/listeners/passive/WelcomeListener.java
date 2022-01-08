@@ -90,14 +90,6 @@ public class WelcomeListener implements Listener {
             Bukkit.dispatchCommand(console, pexcmd);
         }
 
-        org.bukkit.scoreboard.ScoreboardManager sm = Bukkit.getScoreboardManager();
-        Scoreboard s = sm.getNewScoreboard();
-
-        Objective h = s.registerNewObjective("showhealth", Criterias.HEALTH);
-
-        h.setDisplaySlot(DisplaySlot.BELOW_NAME);
-        h.setDisplayName(ChatColor.RED + "❤");
-
         boolean hasPlayed = p.hasPlayedBefore();
 
         if (hasPlayed) {
