@@ -14,6 +14,7 @@ public class HealCommand implements CommandExecutor {
             Player player = (Player) commandSender;
             if (player.hasPermission("tazpvp.staff.heal")) {
                 player.setHealth(player.getMaxHealth());
+                player.setFoodLevel(20);
                 player.sendMessage("heeled");
             }
         }
