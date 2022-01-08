@@ -92,7 +92,6 @@ public class PlayerUtils {
         inv.addItem(sword);
         inv.addItem(fishingrod);
         inv.addItem(bow);
-        inv.addItem(pickaxe);
         inv.addItem(steak);
         inv.addItem(blocks);
         inv.setItem(9, arrow);
