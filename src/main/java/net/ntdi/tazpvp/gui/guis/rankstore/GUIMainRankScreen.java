@@ -33,17 +33,20 @@ public class GUIMainRankScreen extends GUI {
         setButtons(11, rankItem, event -> switchScreen(new GUIRankStore(player)));
         setButtons(12, cosmeticsItem, event -> switchScreen(new GUICosmetics(player)));
         setButtons(13, donateItem, event -> {
-            if (TazPvP.punishmentManager.isBanned(player)) {
-                if (TazPvP.statsManager.getCredits(player) >= 100) {
+            if (TazPvP.statsManager.getCredits(player) >= 100) {
+                if (TazPvP.punishmentManager.isBanned(player)) {
+
                     TazPvP.statsManager.addCredits(player, -100);
                     TazPvP.punishmentManager.removeBan(player);
                     player.sendMessage(ChatColor.GREEN + "You have been unbanned!");
                     ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
                     String pexcmd = "pex user " + player.getName() + " group remove banned";
                     Bukkit.dispatchCommand(console, pexcmd);
+                } else {
+                    player.sendMessage(ChatColor.RED + "You are not banned!");
                 }
             } else {
-                player.sendMessage(ChatColor.RED + "You are not banned!");
+                player.sendMessage(ChatColor.RED + "Insufficient Credits!");
             }
 
         });
