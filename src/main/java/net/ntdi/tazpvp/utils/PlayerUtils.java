@@ -47,9 +47,9 @@ public class PlayerUtils {
         ItemStack pickaxe = new ItemStack(Material.WOOD_PICKAXE);
         ItemStack fishingrod = new ItemStack(Material.FISHING_ROD);
         ItemStack bow = new ItemStack(Material.BOW);
-        ItemStack steak = new ItemStack(Material.COOKED_BEEF, 10);
-        ItemStack blocks = new ItemStack(Material.WOOD, 32);
-        ItemStack arrow = new ItemStack(Material.ARROW, 15);
+        ItemStack steak = new ItemStack(Material.COOKED_BEEF, 8);
+        ItemStack blocks = new ItemStack(Material.WOOD, 16);
+        ItemStack arrow = new ItemStack(Material.ARROW, 10);
 
         ItemMeta meta1 = armor1.getItemMeta();
         meta1.spigot().setUnbreakable(false);
