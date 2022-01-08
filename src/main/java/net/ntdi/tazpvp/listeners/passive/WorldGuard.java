@@ -128,4 +128,11 @@ public class WorldGuard implements Listener {
             event.setCancelled(true);
         }
     }
+
+    @EventHandler
+    public void interact(PlayerInteractEvent event) {
+        if (event.getPlayer().getWorld().getName().equals("spawn")) {
+            event.setCancelled(true);
+        }
+    }
 }
