@@ -12,6 +12,7 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public class GUIMainRankScreen extends GUI {
 
@@ -48,7 +49,13 @@ public class GUIMainRankScreen extends GUI {
         });
         setButtons(15, buy, event -> {
             player.closeInventory();
-            player.performCommand("buy");
+            player.chat("/buy");
+//            new BukkitRunnable() {
+//                @Override
+//                public void run() {
+//                    player.chat("/buy");
+//                }
+//            }.runTaskLater(TazPvP.getInstance(), 5L);
         });
 
         update();
