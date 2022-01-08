@@ -90,6 +90,7 @@ public class DeathListener implements Listener {
                                     killer.setMaxHealth(killer.getMaxHealth()+2);
                                 }
                             }
+                            p.setMaxHealth(20);
 
 
                             p.playSound(p.getLocation(), Sound.FIRE, 5, 1);
