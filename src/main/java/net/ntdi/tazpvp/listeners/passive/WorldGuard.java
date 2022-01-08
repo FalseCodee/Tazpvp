@@ -64,7 +64,7 @@ public class WorldGuard implements Listener {
     @EventHandler
     public void mobSpawn(EntitySpawnEvent event) {
         if (event.getEntity().getWorld().getName().equals("arena")) {
-            if (event.getEntity().getType() != EntityType.ARROW || event.getEntity().getType() != EntityType.SQUID || event.getEntity().getType() != EntityType.DROPPED_ITEM) {
+            if (event.getEntity().getType() != EntityType.ARROW && event.getEntity().getType() != EntityType.SQUID && event.getEntity().getType() != EntityType.SNOWBALL && event.getEntity().getType() != EntityType.DROPPED_ITEM && event.getEntity().getType() != EntityType.DROPPED_ITEM) {
                 event.setCancelled(true);
             }
         } else if (event.getEntity().getWorld().getName().equals("spawn")) {
