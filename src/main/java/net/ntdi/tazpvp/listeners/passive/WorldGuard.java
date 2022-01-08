@@ -58,9 +58,7 @@ public class WorldGuard implements Listener {
     //leaf-decay
     @EventHandler
     public void leafDecay(LeavesDecayEvent event) {
-        if (event.getBlock().getWorld().getName().equals("arena")) {
-            event.setCancelled(true);
-        }
+        event.setCancelled(true);
     }
 
     //weather-lock
