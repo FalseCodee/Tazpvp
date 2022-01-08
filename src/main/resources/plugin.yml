@@ -300,3 +300,7 @@ commands:
       - n
       - nickname
       - nk
+  heal:
+    permission: tazpvp.staff.heal
+    usage: "/heal"
+    description: hael yourself

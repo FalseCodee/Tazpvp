@@ -11,5 +11,7 @@ public class RespawnListener implements Listener {
     @EventHandler
     public void onRespawn(PlayerRespawnEvent event) {
         event.setRespawnLocation(new Location(Bukkit.getWorld("spawn"), 0.5, 40, 0.5, 180, 0));
+        event.getPlayer().setHealth(20);
+        event.getPlayer().setMaxHealth(20);
     }
 }
