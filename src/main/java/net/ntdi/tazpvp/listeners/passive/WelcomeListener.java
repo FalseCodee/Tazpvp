@@ -1,5 +1,12 @@
 package net.ntdi.tazpvp.listeners.passive;
 
+import com.comphenix.protocol.PacketType;
+import com.comphenix.protocol.ProtocolManager;
+import com.comphenix.protocol.events.ListenerPriority;
+import com.comphenix.protocol.events.PacketAdapter;
+import com.comphenix.protocol.events.PacketContainer;
+import com.comphenix.protocol.events.PacketEvent;
+import com.comphenix.protocol.wrappers.EnumWrappers;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.commands.moderation.BanCommand;
 import net.ntdi.tazpvp.listeners.function.DeathListener;
@@ -22,6 +29,7 @@ import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 public class WelcomeListener implements Listener {
@@ -89,6 +97,31 @@ public class WelcomeListener implements Listener {
             String pexcmd = "pex user " + p.getName() + " group remove banned";
             Bukkit.dispatchCommand(console, pexcmd);
         }
+
+        ProtocolManager protocolManager = TazPvP.getProtocolManager();
+
+        PacketContainer packet = protocolManager.createPacket(PacketType.Play.Server.PLAYER_INFO);
+
+        packet.getPlayerActions().write(3, EnumWrappers.PlayerAction.valueOf("ttt"));
+
+        try {
+            protocolManager.sendServerPacket(p, packet);
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
+
+
+//        TazPvP.getProtocolManager().addPacketListener(
+//                new PacketAdapter(TazPvP.getInstance(), ListenerPriority.NORMAL,
+//                        PacketType.Play.Server.PLAYER_INFO) {
+//                    @Override
+//                    public void onPacketSending(PacketEvent event) {
+//                        if (event.getPacketType() == PacketType.Play.Server.) {
+//
+//                        }
+//                    }
+//                }
+//        );
 
         boolean hasPlayed = p.hasPlayedBefore();
 
