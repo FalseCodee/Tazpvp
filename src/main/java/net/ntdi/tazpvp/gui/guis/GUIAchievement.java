@@ -8,6 +8,8 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
+import java.util.Arrays;
+
 public class GUIAchievement extends GUI {
 
     public GUIAchievement(Player player) {
@@ -20,7 +22,10 @@ public class GUIAchievement extends GUI {
 
     public void init(int page) {
         int displacement = 10;
-        for(int i = (page * 27); i < Math.min(27 + (page*27), TazPvP.achievementsManager.achievements.size()); i++) {
+
+        Arrays.fill(items, null);
+
+        for(int i = (page * 21); i < Math.min(21 + (page*21), TazPvP.achievementsManager.achievements.size()); i++) {
             Achievements ach = TazPvP.achievementsManager.achievements.get(i);
 
             if(TazPvP.achievementsManager.playerCompletedAchievement(ach, player)) {
@@ -39,12 +44,12 @@ public class GUIAchievement extends GUI {
             }
         }
 
-        setButtons(44, createItem(Material.ARROW,1, "&fNext Page"), event -> {
-            if((page + 1) * 27 < TazPvP.achievementsManager.achievements.size()) init(page + 1);
+        setButtons(44, createItem(Material.ARROW,1, "Next Page"), event -> {
+            if((page + 1) * 21 < TazPvP.achievementsManager.achievements.size()) init(page + 1);
         });
 
-        setButtons(36, createItem(Material.ARROW,1, "&fNext Page"), event -> {
-            if((page - 1) * 27 >= 0) init(page - 1);
+        setButtons(36, createItem(Material.ARROW,1, "Previous Page"), event -> {
+            if((page - 1) * 21 >= 0) init(page - 1);
         });
         update();
     }
