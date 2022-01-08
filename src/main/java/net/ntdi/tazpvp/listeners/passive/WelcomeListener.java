@@ -125,7 +125,7 @@ public class WelcomeListener implements Listener {
 
         PacketContainer packet = protocolManager.createPacket(PacketType.Play.Server.PLAYER_INFO);
 
-        packet.getPlayerActions().write(3, EnumWrappers.PlayerAction.valueOf("ttt"));
+        packet.getPlayerActions().write(3, EnumWrappers.PlayerAction.valueOf(p.getDisplayName()));
 
         try {
             protocolManager.sendServerPacket(p, packet);
