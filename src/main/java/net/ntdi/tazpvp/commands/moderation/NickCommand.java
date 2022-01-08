@@ -6,7 +6,12 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.HashMap;
+
 public class NickCommand implements CommandExecutor {
+
+    public static final HashMap<Player, String> oldNames = new HashMap<Player, String>();
+
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
 
@@ -35,6 +40,9 @@ public class NickCommand implements CommandExecutor {
                             p.sendMessage(ChatColor.RED + "Your nickname is too long!");
                         }
                     }
+                } else if (strings.length == 0) {
+                    p.sendMessage("nick removd");
+                    p.setDisplayName(p.getName());
                 }
             }
         }
