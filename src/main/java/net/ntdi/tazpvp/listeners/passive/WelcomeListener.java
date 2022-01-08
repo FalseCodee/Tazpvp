@@ -124,11 +124,20 @@ public class WelcomeListener implements Listener {
         ProtocolManager protocolManager = TazPvP.getProtocolManager();
 
         PacketContainer packet = protocolManager.createPacket(PacketType.Play.Server.PLAYER_INFO);
+        PacketContainer packet2 = protocolManager.createPacket(PacketType.Play.Server.ENTITY_DESTROY);
+        PacketContainer packet3 = protocolManager.createPacket(PacketType.Play.Server.NAMED_ENTITY_SPAWN);
+        PacketContainer packet4 = protocolManager.createPacket(PacketType.Play.Server.PLAYER_INFO);
 
-        packet.getPlayerActions().write(3, EnumWrappers.PlayerAction.valueOf(p.getDisplayName()));
+        packet.getPlayerInfoAction().write(4, EnumWrappers.PlayerInfoAction.REMOVE_PLAYER);
+        packet.getPlayerInfoAction().write(3, EnumWrappers.PlayerInfoAction.UPDATE_DISPLAY_NAME);
+        packet2.getPlayerInfoAction().write(0, EnumWrappers.PlayerInfoAction.REMOVE_PLAYER);
+        packet3.getPlayerInfoAction().write(0, EnumWrappers.PlayerInfoAction.ADD_PLAYER);
+
 
         try {
             protocolManager.sendServerPacket(p, packet);
+            protocolManager.sendServerPacket(p, packet2);
+            protocolManager.sendServerPacket(p, packet3);
         } catch (InvocationTargetException e) {
             e.printStackTrace();
         }
