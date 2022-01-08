@@ -17,6 +17,9 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.metadata.MetadataValue;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scoreboard.Criterias;
+import org.bukkit.scoreboard.DisplaySlot;
+import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
 
 import java.util.List;
@@ -67,6 +70,8 @@ public class WelcomeListener implements Listener {
             } else {
                 p.sendMessage(ChatColor.DARK_AQUA+ "You are currently hidden!");
             }
+
+
         if(TazPvP.punishmentManager.isMuted(p) &&
                 System.currentTimeMillis()-TazPvP.punishmentManager.getMuteTime(p) >= TazPvP.punishmentManager.getMuteDuration(p)){
             TazPvP.punishmentManager.removeMute(p);
@@ -84,6 +89,14 @@ public class WelcomeListener implements Listener {
             String pexcmd = "pex user " + p.getName() + " group remove banned";
             Bukkit.dispatchCommand(console, pexcmd);
         }
+
+        org.bukkit.scoreboard.ScoreboardManager sm = Bukkit.getScoreboardManager();
+        Scoreboard s = sm.getNewScoreboard();
+
+        Objective h = s.registerNewObjective("showhealth", Criterias.HEALTH);
+
+        h.setDisplaySlot(DisplaySlot.BELOW_NAME);
+        h.setDisplayName(ChatColor.RED + "❤");
 
         boolean hasPlayed = p.hasPlayedBefore();
 
