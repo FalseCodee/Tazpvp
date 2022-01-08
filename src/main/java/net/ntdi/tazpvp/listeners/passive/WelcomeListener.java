@@ -98,31 +98,6 @@ public class WelcomeListener implements Listener {
             Bukkit.dispatchCommand(console, pexcmd);
         }
 
-        ProtocolManager protocolManager = TazPvP.getProtocolManager();
-
-        PacketContainer packet = protocolManager.createPacket(PacketType.Play.Server.PLAYER_INFO);
-
-        packet.getPlayerActions().write(3, EnumWrappers.PlayerAction.valueOf("ttt"));
-
-        try {
-            protocolManager.sendServerPacket(p, packet);
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
-
-
-//        TazPvP.getProtocolManager().addPacketListener(
-//                new PacketAdapter(TazPvP.getInstance(), ListenerPriority.NORMAL,
-//                        PacketType.Play.Server.PLAYER_INFO) {
-//                    @Override
-//                    public void onPacketSending(PacketEvent event) {
-//                        if (event.getPacketType() == PacketType.Play.Server.) {
-//
-//                        }
-//                    }
-//                }
-//        );
-
         boolean hasPlayed = p.hasPlayedBefore();
 
         if (hasPlayed) {
@@ -145,6 +120,18 @@ public class WelcomeListener implements Listener {
             PlayerUtils.equipStarter(player);
         } */
         p.spigot().setCollidesWithEntities(true);
+
+        ProtocolManager protocolManager = TazPvP.getProtocolManager();
+
+        PacketContainer packet = protocolManager.createPacket(PacketType.Play.Server.PLAYER_INFO);
+
+        packet.getPlayerActions().write(3, EnumWrappers.PlayerAction.valueOf("ttt"));
+
+        try {
+            protocolManager.sendServerPacket(p, packet);
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        }
     }
 
     public String getCombatee(Player p){
