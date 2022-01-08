@@ -304,3 +304,6 @@ commands:
     permission: tazpvp.staff.heal
     usage: "/heal"
     description: hael yourself
+  tpall:
+    permission: tazpvp.staff.tpall
+    usage: "/tpall"
