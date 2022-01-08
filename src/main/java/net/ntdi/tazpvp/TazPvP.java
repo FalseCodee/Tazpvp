@@ -179,6 +179,10 @@ public final class TazPvP extends JavaPlugin {
         new ChatAlert().Text(this);
     }
 
+    public static ProtocolManager getProtocolManager() {
+        return protocolManager;
+    }
+
     public void load() {
         helpFile = new File(getDataFolder() + "/help.txt");
         ruleFile = new File(getDataFolder() + "/rules.txt");
