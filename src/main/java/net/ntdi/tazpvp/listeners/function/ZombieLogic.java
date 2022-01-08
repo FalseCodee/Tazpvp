@@ -50,7 +50,7 @@ public class ZombieLogic implements Listener {
     }
 
     public void spawnZombie(){
-        System.out.println("Spawn zombieLogic method called");
+        //System.out.println("Spawn zombieLogic method called");
         Location loc = new Location(world, xzomb, yzomb, zzomb);
         Zombie zom = (Zombie) world.spawnEntity(loc, EntityType.ZOMBIE);
         zom.getEquipment().setHelmet(new ItemStack(Material.LEATHER_HELMET));
