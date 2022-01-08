@@ -276,7 +276,9 @@ public class DeathListener implements Listener {
         }
         for (ItemStack item : p.getInventory().getArmorContents()) {
             if (item != null) {
-                p.getWorld().dropItemNaturally(loc, item);
+                if (item.getType() != Material.AIR) {
+                    p.getWorld().dropItemNaturally(loc, item);
+                }
             }
         }
     }
