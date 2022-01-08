@@ -49,7 +49,7 @@ public class WorldGuard implements Listener {
     @EventHandler
     public void use(PlayerInteractEvent event) {
         if (event.getPlayer().getWorld().getName().equals("arena") || event.getPlayer().getWorld().getName().equals("spawn") || event.getPlayer().getWorld().getName().equals("duel")) {
-            if (event.getPlayer().getGameMode() == GameMode.CREATIVE) {
+            if (event.getPlayer().getGameMode() != GameMode.CREATIVE) {
                 event.setCancelled(true);
             }
         }
