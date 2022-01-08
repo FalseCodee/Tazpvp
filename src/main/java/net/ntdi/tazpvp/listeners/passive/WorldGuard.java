@@ -122,4 +122,12 @@ public class WorldGuard implements Listener {
             }
         }
     }
+
+    @EventHandler
+    public void deniedRights(BlockPhysicsEvent event) {
+        Block block = event.getBlock();
+        if (block.getType() == Material.TORCH) {
+            event.setCancelled(true);
+        }
+    }
 }
