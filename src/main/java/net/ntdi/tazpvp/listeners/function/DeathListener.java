@@ -217,7 +217,7 @@ public class DeathListener implements Listener {
                             if ((TazPvP.statsManager.getStreak(killer) % 5) == 0) {
                                 Bukkit.broadcastMessage(ChatColor.GOLD + killer.getDisplayName() + ChatColor.YELLOW + " has a kill streak of " + ChatColor.GOLD + TazPvP.statsManager.getStreak(killer));
                                 TazPvP.statsManager.addMoney(killer, 25);
-                                killer.sendMessage(ChatColor.GOLD + "+ $" + 25);
+                                killer.sendMessage(ChatColor.GRAY + "Reward: " + ChatColor.GOLD + "$" + 25);
                             }
 
 
