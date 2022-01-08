@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 public class KillStreakAchievement extends Achievements {
 
     public KillStreakAchievement(int count, Rewards[] reward, int[] amount) {
-        super("Kill Streak", "get a kill streak", Requirement.KILLS, count, "KillStreak"+count, reward, amount);
+        super("Kill Streak " + count, "Get a kill streak of " + count + ".", Requirement.KILLS, count, "KillStreak"+count, reward, amount);
     }
 
 
