@@ -292,9 +292,9 @@ public class DeathListener implements Listener {
         ItemStack pickaxe = new ItemStack(Material.WOOD_PICKAXE);
         ItemStack fishingrod = new ItemStack(Material.FISHING_ROD);
         ItemStack bow = new ItemStack(Material.BOW);
-        ItemStack steak = new ItemStack(Material.COOKED_BEEF, 5);
-        ItemStack blocks = new ItemStack(Material.WOOD, 16);
-        ItemStack arrow = new ItemStack(Material.ARROW, 15);
+        ItemStack steak = new ItemStack(Material.COOKED_BEEF, 3);
+        ItemStack blocks = new ItemStack(Material.WOOD, 8);
+        ItemStack arrow = new ItemStack(Material.ARROW, 3);
 
         ItemMeta meta1 = armor1.getItemMeta();
         meta1.spigot().setUnbreakable(false);
