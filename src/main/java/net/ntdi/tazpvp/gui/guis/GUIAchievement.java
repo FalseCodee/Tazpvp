@@ -29,12 +29,12 @@ public class GUIAchievement extends GUI {
             Achievements ach = TazPvP.achievementsManager.achievements.get(i);
 
             if(TazPvP.achievementsManager.playerCompletedAchievement(ach, player)) {
-                items[i+displacement] = createItem(Material.STORAGE_MINECART, 1, ChatColor.RED + ach.name,
+                items[displacement] = createItem(Material.STORAGE_MINECART, 1, ChatColor.RED + ach.name,
                         ChatColor.WHITE + ach.description + "\n"
                                 + ChatColor.GRAY + "Reward: " + ach.getStringRewards()[0]
                                 + "\n" + ChatColor.GREEN + "Completed!\n");
             } else {
-                items[i+displacement] = createItem(Material.MINECART, 1, ChatColor.RED + ach.name,
+                items[displacement] = createItem(Material.MINECART, 1, ChatColor.RED + ach.name,
                         ChatColor.WHITE + ach.description + "\n"
                                 + ChatColor.GRAY + "Reward: " + ach.getStringRewards()[0]
                                 + "\n" + ChatColor.RED+"Incomplete!\n");
@@ -42,6 +42,7 @@ public class GUIAchievement extends GUI {
             if((i+1) % 7 == 0) {
                 displacement += 2;
             }
+            displacement++;
         }
 
         setButtons(44, createItem(Material.ARROW,1, "Next Page"), event -> {
