@@ -45,16 +45,6 @@ public class WorldGuard implements Listener {
         }
     }
 
-    // use and interact
-    @EventHandler
-    public void use(PlayerInteractEvent event) {
-        if (event.getPlayer().getWorld().getName().equals("arena") || event.getPlayer().getWorld().getName().equals("spawn") || event.getPlayer().getWorld().getName().equals("duel")) {
-            if (event.getPlayer().getGameMode() != GameMode.CREATIVE) {
-                event.setCancelled(true);
-            }
-        }
-    }
-
     //leaf-decay
     @EventHandler
     public void leafDecay(LeavesDecayEvent event) {
