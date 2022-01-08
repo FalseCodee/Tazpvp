@@ -110,17 +110,17 @@ public class DeathListener implements Listener {
                                 p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1 );
                                 killer.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 40, 0, true, false));
                                 killer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 40, 0, true, false));
-                                killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 92, 2, true, false));
+                                killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20*4, 2, true, false));
                             } else {
                                 TazPvP.statsManager.addExp(killer, 5);
                                 killer.playSound(killer.getLocation(), Sound.ORB_PICKUP, 1, 1 );
                                 p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1 );
-                                killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 92, 2, true, false));
+                                killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20*4, 2, true, false));
 
                                 if (rand.nextInt(10) == 1) {
                                     if (TazPvP.perkManager.getButter(killer)){
-                                        killer.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 20*60, 0));
-                                        killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20*5, 0));
+                                        killer.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 20*4, 0));
+                                        killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20*4, 0));
                                         //killer.sendMessage(ChatColor.GRAY + "Butter Perk activated!");
                                     }
                                 }
@@ -234,7 +234,7 @@ public class DeathListener implements Listener {
                                 killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 92, 2, true, false));
 
                                 if (TazPvP.perkManager.getButter(killer)){
-                                    killer.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 20*30, 0));
+                                    killer.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 20*4, 0));
                                     killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20*3, 0));
                                     //killer.sendMessage(ChatColor.GRAY + "Butter Perk activated!");
                                 }

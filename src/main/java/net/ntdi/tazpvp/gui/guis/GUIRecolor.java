@@ -168,18 +168,18 @@ public class GUIRecolor extends GUI {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), ChatColor.BLACK + "");
         }
 
-        addArmorItem(10, new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BROWN.getDyeData()), 1, ChatColor.DARK_AQUA + "RESET ARMOR COLOR", ChatColor.GRAY + "Reset's your armor color!");
-        addArmorItem(11, new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.RED.getData()), 2, ChatColor.DARK_AQUA + "SET COLOR TO RED", ChatColor.GRAY + "Color's your armor to RED\n" + ChatColor.AQUA + "5 CREDITS");
-        addArmorItem(12, new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.ORANGE.getData()), 3, ChatColor.DARK_AQUA + "SET COLOR TO ORANGE", ChatColor.GRAY + "Color's your armor to ORANGE\n" + ChatColor.AQUA + "5 CREDITS");
-        addArmorItem(13, new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.YELLOW.getData()), 4, ChatColor.DARK_AQUA + "SET COLOR TO YELLOW", ChatColor.GRAY + "Color's your armor to YELLOW\n" + ChatColor.AQUA + "5 CREDITS");
-        addArmorItem(14, new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.LIME.getData()), 5, ChatColor.DARK_AQUA + "SET COLOR TO LIME", ChatColor.GRAY + "Color's your armor to LIME\n" + ChatColor.AQUA + "5 CREDITS");
-        addArmorItem(15, new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.GREEN.getData()), 6, ChatColor.DARK_AQUA + "SET COLOR TO GREEN", ChatColor.GRAY + "Color's your armor to GREEN\n" + ChatColor.AQUA + "5 CREDITS");
-        addArmorItem(16, new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.LIGHT_BLUE.getData()), 7, ChatColor.DARK_AQUA + "SET COLOR TO LIGHT BLUE", ChatColor.GRAY + "Color's your armor to LIGHT BLUE\n" + ChatColor.AQUA + "5 CREDITS");
-        addArmorItem(20, new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLUE.getData()), 8, ChatColor.DARK_AQUA + "SET COLOR TO BLUE", ChatColor.GRAY + "Color's your armor to BLUE\n" + ChatColor.AQUA + "5 CREDITS");
-        addArmorItem(21, new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.PURPLE.getData()), 9, ChatColor.DARK_AQUA + "SET COLOR TO PURPLE", ChatColor.GRAY + "Color's your armor to PURPLE\n" + ChatColor.AQUA + "5 CREDITS");
-        addArmorItem(22, new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.PINK.getData()), 10, ChatColor.DARK_AQUA + "SET COLOR TO PINK", ChatColor.GRAY + "Color's your armor to PINK\n" + ChatColor.AQUA + "5 CREDITS");
-        addArmorItem(23, new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.WHITE.getData()), 11, ChatColor.DARK_AQUA + "SET COLOR TO WHITE", ChatColor.GRAY + "Color's your armor to WHITE\n" + ChatColor.AQUA + "5 CREDITS");
-        addArmorItem(24, new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), 12, ChatColor.DARK_AQUA + "SET COLOR TO BLACK", ChatColor.GRAY + "Color's your armor to BLACK\n" + ChatColor.AQUA + "5 CREDITS");
+        addArmorItem(10, new ItemStack(Material.STAINED_GLASS, 1, DyeColor.BROWN.getDyeData()), 1, ChatColor.DARK_AQUA + "RESET ARMOR COLOR", ChatColor.GRAY + "Reset's your armor color!");
+        addArmorItem(11, new ItemStack(Material.STAINED_GLASS, 1, DyeColor.RED.getData()), 2, ChatColor.DARK_AQUA + "SET COLOR TO RED", ChatColor.GRAY + "Color's your armor to RED\n" + ChatColor.AQUA + "5 CREDITS");
+        addArmorItem(12, new ItemStack(Material.STAINED_GLASS, 1, DyeColor.ORANGE.getData()), 3, ChatColor.DARK_AQUA + "SET COLOR TO ORANGE", ChatColor.GRAY + "Color's your armor to ORANGE\n" + ChatColor.AQUA + "5 CREDITS");
+        addArmorItem(13, new ItemStack(Material.STAINED_GLASS, 1, DyeColor.YELLOW.getData()), 4, ChatColor.DARK_AQUA + "SET COLOR TO YELLOW", ChatColor.GRAY + "Color's your armor to YELLOW\n" + ChatColor.AQUA + "5 CREDITS");
+        addArmorItem(14, new ItemStack(Material.STAINED_GLASS, 1, DyeColor.LIME.getData()), 5, ChatColor.DARK_AQUA + "SET COLOR TO LIME", ChatColor.GRAY + "Color's your armor to LIME\n" + ChatColor.AQUA + "5 CREDITS");
+        addArmorItem(15, new ItemStack(Material.STAINED_GLASS, 1, DyeColor.GREEN.getData()), 6, ChatColor.DARK_AQUA + "SET COLOR TO GREEN", ChatColor.GRAY + "Color's your armor to GREEN\n" + ChatColor.AQUA + "5 CREDITS");
+        addArmorItem(16, new ItemStack(Material.STAINED_GLASS, 1, DyeColor.LIGHT_BLUE.getData()), 7, ChatColor.DARK_AQUA + "SET COLOR TO LIGHT BLUE", ChatColor.GRAY + "Color's your armor to LIGHT BLUE\n" + ChatColor.AQUA + "5 CREDITS");
+        addArmorItem(20, new ItemStack(Material.STAINED_GLASS, 1, DyeColor.BLUE.getData()), 8, ChatColor.DARK_AQUA + "SET COLOR TO BLUE", ChatColor.GRAY + "Color's your armor to BLUE\n" + ChatColor.AQUA + "5 CREDITS");
+        addArmorItem(21, new ItemStack(Material.STAINED_GLASS, 1, DyeColor.PURPLE.getData()), 9, ChatColor.DARK_AQUA + "SET COLOR TO PURPLE", ChatColor.GRAY + "Color's your armor to PURPLE\n" + ChatColor.AQUA + "5 CREDITS");
+        addArmorItem(22, new ItemStack(Material.STAINED_GLASS, 1, DyeColor.PINK.getData()), 10, ChatColor.DARK_AQUA + "SET COLOR TO PINK", ChatColor.GRAY + "Color's your armor to PINK\n" + ChatColor.AQUA + "5 CREDITS");
+        addArmorItem(23, new ItemStack(Material.STAINED_GLASS, 1, DyeColor.WHITE.getData()), 11, ChatColor.DARK_AQUA + "SET COLOR TO WHITE", ChatColor.GRAY + "Color's your armor to WHITE\n" + ChatColor.AQUA + "5 CREDITS");
+        addArmorItem(24, new ItemStack(Material.STAINED_GLASS, 1, DyeColor.BLACK.getData()), 12, ChatColor.DARK_AQUA + "SET COLOR TO BLACK", ChatColor.GRAY + "Color's your armor to BLACK\n" + ChatColor.AQUA + "5 CREDITS");
         update();
     }
 

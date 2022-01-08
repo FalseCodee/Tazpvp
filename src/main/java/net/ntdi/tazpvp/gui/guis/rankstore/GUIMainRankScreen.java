@@ -12,6 +12,7 @@ import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public class GUIMainRankScreen extends GUI {
 
@@ -22,15 +23,16 @@ public class GUIMainRankScreen extends GUI {
     }
     @SuppressWarnings("deprecation")
     public void init() {
-        ItemStack rankItem = createItem(Material.EYE_OF_ENDER, ChatColor.BLUE + "" + ChatColor.BOLD + "RANKS", ChatColor.GRAY + "Purchase ranks", true);
-        ItemStack donateItem = createItem(Material.BARRIER, ChatColor.BLUE + "" + ChatColor.BOLD + "UNBAN", ChatColor.GRAY + "Unban yourself\n" + ChatColor.RED + "100 Credits", true);
-        ItemStack cosmeticsItem = createItem(Material.YELLOW_FLOWER, ChatColor.BLUE + "" + ChatColor.BOLD + "COSMETICS", ChatColor.GRAY + "View cosmetics", true);
+        ItemStack rankItem = createItem(Material.HOPPER_MINECART, ChatColor.BLUE + "" + ChatColor.BOLD + "RANKS", ChatColor.GRAY + "Purchase ranks", false);
+        ItemStack cosmeticsItem = createItem(Material.POWERED_MINECART, ChatColor.BLUE + "" + ChatColor.BOLD + "COSMETICS", ChatColor.GRAY + "View cosmetics", false);
+        ItemStack donateItem = createItem(Material.EXPLOSIVE_MINECART, ChatColor.BLUE + "" + ChatColor.BOLD + "UNBAN", ChatColor.GRAY + "Unban yourself\n" + ChatColor.RED + "100 Credits", false);
+        ItemStack buy = createItem(Material.STORAGE_MINECART, ChatColor.BLUE + "" + ChatColor.BOLD + "BUY CREDITS", ChatColor.GRAY + "Server Store", false);
         for(int i = 0; i < inventory.getSize(); i++) {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), "");
         }
         setButtons(11, rankItem, event -> switchScreen(new GUIRankStore(player)));
+        setButtons(12, cosmeticsItem, event -> switchScreen(new GUICosmetics(player)));
         setButtons(13, donateItem, event -> {
-            // TODO: make unban work :D
             if (TazPvP.punishmentManager.isBanned(player)) {
                 if (TazPvP.statsManager.getCredits(player) >= 100) {
                     TazPvP.statsManager.addCredits(player, -100);
@@ -45,7 +47,17 @@ public class GUIMainRankScreen extends GUI {
             }
 
         });
-        setButtons(12, cosmeticsItem, event -> switchScreen(new GUICosmetics(player)));
+        setButtons(15, buy, event -> {
+            player.closeInventory();
+            player.chat("/buy");
+//            new BukkitRunnable() {
+//                @Override
+//                public void run() {
+//                    player.chat("/buy");
+//                }
+//            }.runTaskLater(TazPvP.getInstance(), 5L);
+        });
+
         update();
     }
 

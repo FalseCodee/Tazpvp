@@ -35,7 +35,7 @@ public class GUICosmetics extends GUI {
                         p.sendMessage(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "RENAME " + ChatColor.DARK_PURPLE + "Please type your new sword name below.");
 
                     } else {
-                        TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! Click to purchase them!");
+                        TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! " + ChatColor.WHITE + "[CLICK HERE]");
                         nocred.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://taznet.tebex.io/"));
                         p.spigot().sendMessage(nocred);
                     }
@@ -53,7 +53,7 @@ public class GUICosmetics extends GUI {
                         if (TazPvP.statsManager.getCredits(p) >= 100) {
                             p.sendMessage(ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "PREFIX " + ChatColor.DARK_PURPLE + "Please type your new prefix out below.");
                         } else {
-                            TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! Click to purchase them!");
+                            TextComponent nocred = new TextComponent(ChatColor.RED + "Insufficient Credits! " + ChatColor.WHITE + "[CLICK HERE]");
                             nocred.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://taznet.tebex.io/"));
                             p.spigot().sendMessage(nocred);
                         }

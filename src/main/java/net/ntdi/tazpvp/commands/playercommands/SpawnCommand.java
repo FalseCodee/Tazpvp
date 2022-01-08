@@ -4,6 +4,7 @@ import net.ntdi.tazpvp.TazPvP;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -36,6 +37,8 @@ public class SpawnCommand implements Listener, CommandExecutor {
                         if (isSpawnering(p)) {
                             p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
                             p.setMetadata("spawnering", new FixedMetadataValue(TazPvP.getInstance(), false));
+                            p.sendMessage(ChatColor.DARK_AQUA + "Teleportation complete.");
+                            p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
                         }
                     }
                 }.runTaskLater(TazPvP.getInstance(), 5 * 20);
