@@ -64,7 +64,7 @@ public class AchievementsManager {
         achievements.add(new SlowPokeAchievement(1, new Rewards[] {Rewards.MONEY}, new int[] {50}));
 
         // takeover
-        achievements.add(new TakeOverAchievement(1, new Rewards[] {Rewards.POINTS}, new int[] {3}));
+//        achievements.add(new TakeOverAchievement(1, new Rewards[] {Rewards.POINTS}, new int[] {3}));
 
         // Smart Player
         achievements.add(new SmartPlayerAchievement(1, new Rewards[] {Rewards.MONEY}, new int[] {100}));
@@ -78,7 +78,7 @@ public class AchievementsManager {
         // 500 smacks
         achievements.add(new SmackAchievement(500, new Rewards[] {Rewards.MONEY}, new int[] {200}));
 
-        achievements.add(new SpeakToYourManagerAchievement(1, new Rewards[] {Rewards.POINTS}, new int[] {3}));
+//        achievements.add(new SpeakToYourManagerAchievement(1, new Rewards[] {Rewards.POINTS}, new int[] {3}));
 
     }
 
