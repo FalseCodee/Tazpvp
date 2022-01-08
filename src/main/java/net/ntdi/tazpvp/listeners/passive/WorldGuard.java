@@ -7,6 +7,7 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.*;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntitySpawnEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
@@ -117,6 +118,13 @@ public class WorldGuard implements Listener {
     public void deniedRights(BlockPhysicsEvent event) {
         Block block = event.getBlock();
         if (block.getType() == Material.TORCH) {
+            event.setCancelled(true);
+        }
+    }
+
+    @EventHandler
+    public void blockHit(EntityDamageByEntityEvent event) {
+        if (event.getEntity().getWorld().getName().equals("spawn")) {
             event.setCancelled(true);
         }
     }
