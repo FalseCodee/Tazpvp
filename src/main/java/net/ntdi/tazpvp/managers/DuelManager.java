@@ -2,12 +2,18 @@ package net.ntdi.tazpvp.managers;
 
 import net.milkbowl.vault.chat.Chat;
 import net.ntdi.tazpvp.TazPvP;
+import net.ntdi.tazpvp.items.Items;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.metadata.MetadataValue;
 
@@ -113,9 +119,38 @@ public class DuelManager {
 
     }
 
-    // rownox make kit here
     public void equipKit(Player player) {
+        ItemStack helmet = new ItemStack(Material.LEATHER_HELMET);
+        helmet.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
+        ItemStack chestplate = new ItemStack(Material.LEATHER_CHESTPLATE);
+        chestplate.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
+        ItemStack leggings = new ItemStack(Material.LEATHER_LEGGINGS);
+        leggings.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
+        ItemStack boots = new ItemStack(Material.DIAMOND_BOOTS);
+        boots.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
+        ItemStack sword = new ItemStack(Material.DIAMOND_SWORD);
+        sword.addEnchantment(Enchantment.DAMAGE_ALL, 3);
+        ItemStack fishingrod = new ItemStack(Material.FISHING_ROD);
+        ItemStack bow = new ItemStack(Material.BOW);
+        sword.addEnchantment(Enchantment.ARROW_DAMAGE, 1);
+        ItemStack gapple = new ItemStack(Material.GOLDEN_APPLE, 5);
+        ItemStack butter = new ItemStack(Material.GOLD_INGOT, 3);
+        ItemStack steak = new ItemStack(Material.COOKED_BEEF, 10);
+        ItemStack arrow = new ItemStack(Material.ARROW);
 
+
+        PlayerInventory inv = player.getInventory();
+        inv.setHelmet(helmet);
+        inv.setChestplate(chestplate);
+        inv.setLeggings(leggings);
+        inv.setBoots(boots);
+        inv.addItem(sword);
+        inv.addItem(fishingrod);
+        inv.addItem(bow);
+        inv.addItem(gapple);
+        inv.addItem(butter);
+        inv.addItem(steak);
+        inv.setItem(32, arrow);
     }
 
     public boolean isDueling(Player p){
