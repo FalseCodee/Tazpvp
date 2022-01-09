@@ -81,7 +81,17 @@ public class DeathListener implements Listener {
                                 killer.sendMessage(ChatColor.YELLOW + "You have claimed " + p.getDisplayName() + "'s bounty for " + ChatColor.WHITE + "$" + BountyCommand.bounties.get(p.getUniqueId()));
                                 BountyCommand.bounties.remove(p.getUniqueId());
                             }
-                            if (TazPvP.perkManager.getFat(killer)){
+                            boolean fat = TazPvP.perkManager.getFat(killer);
+                            boolean rebirthed = false;
+                            if (TazPvP.statsManager.getRebirths(killer) > 0) {
+                                rebirthed = true;
+                            }
+
+                            if (fat && rebirthed) {
+                                if (killer.getMaxHealth() != 30){
+                                    killer.setMaxHealth(killer.getMaxHealth()+2);
+                                }
+                            } else if (fat || rebirthed) {
                                 if (killer.getMaxHealth() != 28){
                                     killer.setMaxHealth(killer.getMaxHealth()+2);
                                 }
@@ -90,6 +100,7 @@ public class DeathListener implements Listener {
                                     killer.setMaxHealth(killer.getMaxHealth()+2);
                                 }
                             }
+
                             p.setMaxHealth(20);
 
 
@@ -198,7 +209,17 @@ public class DeathListener implements Listener {
                                 killer.sendMessage(ChatColor.GREEN + "You have been removed from combat log.");
                             }
 
-                            if (TazPvP.perkManager.getFat(killer)){
+                            boolean fat = TazPvP.perkManager.getFat(killer);
+                            boolean rebirthed = false;
+                            if (TazPvP.statsManager.getRebirths(killer) > 0) {
+                                rebirthed = true;
+                            }
+
+                            if (fat && rebirthed) {
+                                if (killer.getMaxHealth() != 30){
+                                    killer.setMaxHealth(killer.getMaxHealth()+2);
+                                }
+                            } else if (fat || rebirthed) {
                                 if (killer.getMaxHealth() != 28){
                                     killer.setMaxHealth(killer.getMaxHealth()+2);
                                 }
@@ -207,6 +228,7 @@ public class DeathListener implements Listener {
                                     killer.setMaxHealth(killer.getMaxHealth()+2);
                                 }
                             }
+
                             p.setMaxHealth(20);
 
                             p.playSound(p.getLocation(), Sound.FIRE, 5, 1);
