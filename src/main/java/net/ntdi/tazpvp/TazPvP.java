@@ -322,6 +322,7 @@ public final class TazPvP extends JavaPlugin {
         getCommand("spawn").setExecutor(new SpawnCommand());
         getCommand("heal").setExecutor(new HealCommand());
         getCommand("tpall").setExecutor(new TpAllCommand());
+        getCommand("duel").setExecutor(new DuelCommand());
     }
 
     public void registerListeners() {

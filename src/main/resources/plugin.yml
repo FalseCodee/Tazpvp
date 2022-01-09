@@ -307,3 +307,5 @@ commands:
   tpall:
     permission: tazpvp.staff.tpall
     usage: "/tpall"
+  duel:
+    usage: "/duel <user>"

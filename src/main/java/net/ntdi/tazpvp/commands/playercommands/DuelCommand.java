@@ -21,7 +21,7 @@ public class DuelCommand implements CommandExecutor {
             player = (Player) sender;
         }
 
-        Player duel = Bukkit.getPlayer(args[0]);
+        Player duel = (Player) Bukkit.getOnlinePlayers();
         return true;
     }
 }
