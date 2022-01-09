@@ -129,14 +129,38 @@ public class WorldGuard implements Listener {
         }
     }
 
+//    @EventHandler
+//    public void interact(PlayerInteractEvent event) {
+//        if (event.getPlayer().getWorld().getName().equals("spawn")) {
+//            event.setCancelled(true);
+//        } else if (event.getPlayer().getWorld().getName().equals("arena")) {
+//            if (event.getPlayer().getGameMode() == GameMode.SURVIVAL) {
+//                if (event.getAction() == Action.RIGHT_CLICK_BLOCK && event.getPlayer().getItemInHand().getType() != Material.WOOD && event.getPlayer().getItemInHand().getType() != Material.WOOL && event.getPlayer().getItemInHand().getType() != Material.COOKED_BEEF) {
+//                    event.setCancelled(true);
+//                }
+//            }
+//        }
+//    }
+
+
     @EventHandler
     public void interact(PlayerInteractEvent event) {
         if (event.getPlayer().getWorld().getName().equals("spawn")) {
-            event.setCancelled(true);
+            if (event.getPlayer().getGameMode() == GameMode.SURVIVAL) {
+                Material mat = event.getClickedBlock().getType();
+                if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+                    if (mat == Material.TRAP_DOOR || mat == Material.LEVER || mat == Material.SPRUCE_FENCE_GATE) {
+                        event.setCancelled(true);
+                    }
+                }
+            }
         } else if (event.getPlayer().getWorld().getName().equals("arena")) {
             if (event.getPlayer().getGameMode() == GameMode.SURVIVAL) {
-                if (event.getAction() == Action.RIGHT_CLICK_BLOCK && event.getPlayer().getItemInHand().getType() != Material.WOOD && event.getPlayer().getItemInHand().getType() != Material.WOOL && event.getPlayer().getItemInHand().getType() != Material.COOKED_BEEF) {
-                    event.setCancelled(true);
+                Material mat = event.getClickedBlock().getType();
+                if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+                    if (mat == Material.TRAP_DOOR || mat == Material.SPRUCE_DOOR || mat == Material.SPRUCE_FENCE_GATE) {
+                        event.setCancelled(true);
+                    }
                 }
             }
         }
