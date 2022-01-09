@@ -3,6 +3,7 @@ package net.ntdi.tazpvp.listeners.passive;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -64,7 +65,8 @@ public class WorldGuard implements Listener {
     @EventHandler
     public void mobSpawn(EntitySpawnEvent event) {
         if (event.getEntity().getWorld().getName().equals("arena")) {
-            if (event.getEntity().getType() != EntityType.ARROW && event.getEntity().getType() != EntityType.SQUID && event.getEntity().getType() != EntityType.SNOWBALL && event.getEntity().getType() != EntityType.DROPPED_ITEM && event.getEntity().getType() != EntityType.DROPPED_ITEM) {
+            EntityType mat = event.getEntity().getType();
+            if (event.getEntity().getType() != EntityType.ARROW && mat != EntityType.SQUID && mat != EntityType.SNOWBALL && mat != EntityType.DROPPED_ITEM) {
                 event.setCancelled(true);
             }
         } else if (event.getEntity().getWorld().getName().equals("spawn")) {
@@ -128,19 +130,6 @@ public class WorldGuard implements Listener {
             event.setCancelled(true);
         }
     }
-
-//    @EventHandler
-//    public void interact(PlayerInteractEvent event) {
-//        if (event.getPlayer().getWorld().getName().equals("spawn")) {
-//            event.setCancelled(true);
-//        } else if (event.getPlayer().getWorld().getName().equals("arena")) {
-//            if (event.getPlayer().getGameMode() == GameMode.SURVIVAL) {
-//                if (event.getAction() == Action.RIGHT_CLICK_BLOCK && event.getPlayer().getItemInHand().getType() != Material.WOOD && event.getPlayer().getItemInHand().getType() != Material.WOOL && event.getPlayer().getItemInHand().getType() != Material.COOKED_BEEF) {
-//                    event.setCancelled(true);
-//                }
-//            }
-//        }
-//    }
 
 
     @EventHandler
