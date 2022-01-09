@@ -74,6 +74,15 @@ public class DuelManager {
                 player1.setMetadata("opponent", new FixedMetadataValue(TazPvP.getInstance(), player2.getName()));
                 player2.setMetadata("opponent", new FixedMetadataValue(TazPvP.getInstance(), player1.getName()));
 
+                ArmorManager.storeAndClearInventory(player1);
+                ArmorManager.storeAndClearInventory(player2);
+                System.out.println("Stored inventory of " + player1.getName());
+                System.out.println("Stored inventory of " + player2.getName());
+
+                new DuelManager().equipKit(player1);
+                new DuelManager().equipKit(player2);
+
+
                 player1.teleport(map1one);
                 player2.teleport(map1two);
 
@@ -101,6 +110,10 @@ public class DuelManager {
 
     }
     public static void declineDuel(Player player1, Player player2) {
+
+    }
+
+    public void equipKit(Player player) {
 
     }
 

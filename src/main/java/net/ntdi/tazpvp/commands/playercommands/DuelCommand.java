@@ -21,7 +21,16 @@ public class DuelCommand implements CommandExecutor {
             player = (Player) sender;
         }
 
-        Player duel = (Player) Bukkit.getOnlinePlayers();
+        if(args.length == 1) {
+            Player target = Bukkit.getPlayer(args[0]);
+            if(target == null) {
+                sender.sendMessage(ChatColor.RED + "Player not found!");
+            } else if(target.getName().equals(player.getName())) {
+                sender.sendMessage(ChatColor.RED + "You can't duel yourself!");
+            } else if (target.isOnline() && !new DuelManager().isDueling(target)) {
+                // start duel
+            }
+        }
         return true;
     }
 }
