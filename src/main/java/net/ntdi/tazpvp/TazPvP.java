@@ -56,6 +56,7 @@ public final class TazPvP extends JavaPlugin {
     public static PerkManager perkManager;
     public static ZombieLogic zombieLogic;
     public static ArmorManager armorManager;
+    public static DuelManager duelManager;
 
     public static Permission permissions;
     public static Chat chat;
@@ -123,6 +124,7 @@ public final class TazPvP extends JavaPlugin {
         achievementsManager = new AchievementsManager();
         perkManager = new PerkManager();
         armorManager = new ArmorManager();
+        duelManager = new DuelManager();
         ItemManager.init();
 
 
@@ -147,6 +149,7 @@ public final class TazPvP extends JavaPlugin {
         // Event Register
         registerListeners();
 
+        DuelManager.initMaps();
         //getServer().getScheduler().scheduleSyncRepeatingTask(this, combatLog::tick, 20L, 20L);
 
         new BukkitRunnable() {
