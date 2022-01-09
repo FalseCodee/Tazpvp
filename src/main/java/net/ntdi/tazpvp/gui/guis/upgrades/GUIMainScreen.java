@@ -52,13 +52,10 @@ public class GUIMainScreen extends GUI {
                 Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
                 Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + player.getName() + ChatColor.DARK_PURPLE + " was reborn stronger.");
                 Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+                PlayerUtils.equipStarter(player);
                 TazPvP.statsManager.addRebirths(player, 1);
-                TazPvP.statsManager.setMoney(player,0);
-                TazPvP.statsManager.setPoints(player,0);
-                TazPvP.statsManager.setLevel(player,0);
                 player.giveExpLevels(-player.getLevel());
                 player.setExp(0);
-                PlayerUtils.equipStarter(player);
                 Bukkit.getScheduler().runTask(TazPvP.getInstance(), player::closeInventory);
                 for (Player pl : Bukkit.getOnlinePlayers()) {
                     pl.playSound(pl.getLocation(), Sound.WITHER_DEATH, 1, 1);
