@@ -17,7 +17,7 @@ public enum EnchantInfo {
 
     POWER("Power", "Powerful arrows.", 1300, 1, Enchantment.ARROW_DAMAGE),
     PUNCH("Punch", "More knockback.", 200, 1, Enchantment.ARROW_KNOCKBACK),
-    INFINITY("Infinity", "Infinite arrows.", 550, 1, Enchantment.ARROW_INFINITE),
+    UNBREAKING("Unbreaking", "Increases tool durability.", 90, 3, Enchantment.DURABILITY),
 
     PROTECTION("Protection", "Decreases damage taken.", 300, 1, Enchantment.PROTECTION_ENVIRONMENTAL),
     FEATHER_FALLING("Feather Falling", "Decreases fall damage.", 40, 3, Enchantment.PROTECTION_FALL);
