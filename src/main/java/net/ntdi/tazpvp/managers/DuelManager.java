@@ -138,6 +138,11 @@ public class DuelManager {
         ItemStack steak = new ItemStack(Material.COOKED_BEEF, 10);
         ItemStack arrow = new ItemStack(Material.ARROW);
 
+        ItemMeta butterMeta = butter.getItemMeta();
+        butterMeta.spigot().setUnbreakable(false);
+        butter.setItemMeta(butterMeta);
+        butterMeta.setDisplayName(ChatColor.WHITE + "Butter");
+
 
         PlayerInventory inv = player.getInventory();
         inv.setHelmet(helmet);
