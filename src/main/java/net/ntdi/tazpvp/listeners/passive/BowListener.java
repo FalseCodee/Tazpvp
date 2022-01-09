@@ -24,11 +24,10 @@ public class BowListener implements Listener {
                 long secondsLeft = ((cooldowns.get(p.getName()) / 1000) + cooldownTime) - (System.currentTimeMillis() / 1000);
                 if (secondsLeft > 0) {
                     event.setCancelled(true);
-                    p.sendMessage(ChatColor.RED + "Slow down! " + ChatColor.WHITE + secondsLeft + "s");
+                    p.sendMessage(ChatColor.RED + "Slow down! ");
                     return;
                 } else if (TazPvP.statsManager.getRebirths(p) > 0) {
                     inv.addItem(arrow);
-                    p.sendMessage("gh");
                 }
             }
             cooldowns.put(p.getName(), System.currentTimeMillis());
