@@ -136,8 +136,8 @@ public class WorldGuard implements Listener {
     public void interact(PlayerInteractEvent event) {
         if (event.getPlayer().getWorld().getName().equals("spawn")) {
             if (event.getPlayer().getGameMode() == GameMode.SURVIVAL) {
-                Material mat = event.getClickedBlock().getType();
                 if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+                    Material mat = event.getClickedBlock().getType();
                     if (mat == Material.TRAP_DOOR || mat == Material.LEVER || mat == Material.SPRUCE_FENCE_GATE) {
                         event.setCancelled(true);
                     }
