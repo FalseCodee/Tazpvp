@@ -145,9 +145,9 @@ public class WorldGuard implements Listener {
             }
         } else if (event.getPlayer().getWorld().getName().equals("arena")) {
             if (event.getPlayer().getGameMode() == GameMode.SURVIVAL) {
-                Material mat = event.getClickedBlock().getType();
                 if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
-                    if (mat == Material.TRAP_DOOR || mat == Material.SPRUCE_DOOR || mat == Material.SPRUCE_FENCE_GATE) {
+                    Material mat = event.getClickedBlock().getType();
+                    if (mat == Material.TRAP_DOOR || mat == Material.SPRUCE_DOOR || mat == Material.SPRUCE_FENCE_GATE) {                     
                         event.setCancelled(true);
                     }
                 }
