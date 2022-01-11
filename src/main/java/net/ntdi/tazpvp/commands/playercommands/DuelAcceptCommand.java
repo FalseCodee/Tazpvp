@@ -3,6 +3,7 @@ package net.ntdi.tazpvp.commands.playercommands;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.managers.DuelManager;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -25,6 +26,8 @@ public class DuelAcceptCommand implements CommandExecutor {
                         if (target.isOnline()) {
                             if (sender(player).equals(target.getName())) {
                                 player.setMetadata("sender", new FixedMetadataValue(TazPvP.getInstance(), ""));
+                                player.sendMessage(ChatColor.GREEN + "You have accepted the duel request from " + target.getName());
+                                target.sendMessage(ChatColor.GREEN + "The duel request has been accepted by " + player.getName());
                                 DuelManager.startDuel(player, target);
                             }
                         }
