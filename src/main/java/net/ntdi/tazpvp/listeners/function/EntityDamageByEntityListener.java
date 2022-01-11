@@ -23,7 +23,7 @@ public class EntityDamageByEntityListener implements Listener {
     @EventHandler
     public void entityDamageByEntity(EntityDamageByEntityEvent event) {
         if(event.getEntity() instanceof Player && event.getDamager() instanceof Player) {
-            if(!event.getDamager().getLocation().getWorld().getName().equals(TazPvP.configFile.getString("arena.name"))) {
+            if(!event.getDamager().getLocation().getWorld().getName().equals("arena")) {
                 return;
             }
 

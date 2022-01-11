@@ -3,10 +3,7 @@ package net.ntdi.tazpvp.managers;
 import net.milkbowl.vault.chat.Chat;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.items.Items;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Location;
-import org.bukkit.Material;
+import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Item;
@@ -16,6 +13,7 @@ import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.metadata.MetadataValue;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,18 +74,23 @@ public class DuelManager {
             if (mapName.equals("map1")) {
                 map1 = true;
                 removeMap("map1");
+                duelManager.duelLogic(player1, player2, "map1", map1one, map1two);
 
             } else if (mapName.equals("map2")) {
                 map2 = true;
                 removeMap("map2");
+                duelManager.duelLogic(player1, player2, "map2", map2one, map2two);
 
             } else if (mapName.equals("map3")) {
                 map3 = true;
                 removeMap("map3");
+                duelManager.duelLogic(player1, player2, "map3", map3one, map3two);
 
             } else if (mapName.equals("map4")) {
                 map4 = true;
                 removeMap("map4");
+                duelManager.duelLogic(player1, player2, "map4", map4one, map4two);
+
             }
         }
     }
@@ -119,18 +122,53 @@ public class DuelManager {
         duelManager.sendBoth(ChatColor.GREEN + "Fight!", player1, player2);
     }
 
-    public static void endDuel(Player player1, Player player2) {
+    public static void endDuel(Player looser, Player winner) {
+        // checks if the player is in a duel
+        looser.setMetadata("dueling", new FixedMetadataValue(TazPvP.getInstance(), false));
+        winner.setMetadata("dueling", new FixedMetadataValue(TazPvP.getInstance(), false));
+
+        winner.getInventory().clear();
+        looser.getInventory().clear();
+
+        new DuelManager().sendBoth(ChatColor.GREEN + winner.getName() + ChatColor.YELLOW + " won the duel!" + ChatColor.RED + looser.getName() + " has lost.", looser, winner);
+
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                new DuelManager().restorePlayer(looser);
+                new DuelManager().restorePlayer(winner);
+
+                addMap(new DuelManager().whatMap(winner));
+                new DuelManager().changeMapVar(new DuelManager().whatMap(winner), false);
+
+            }
+        }.runTaskLater(TazPvP.getInstance(), 20 * 5);
 
     }
-    public static void cancelDuel(Player player1, Player player2) {
 
+    public void changeMapVar(String map, Boolean type) {
+        if (map.equals("map1")) {
+            map1 = type;
+        } else if (map.equals("map2")) {
+            map2 = type;
+        } else if (map.equals("map3")) {
+            map3 = type;
+        } else if (map.equals("map4")) {
+            map4 = type;
+        }
     }
-    public static void acceptDuel(Player player1, Player player2) {
 
+    public void restorePlayer (Player p) {
+        p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
+        p.setGameMode(GameMode.SURVIVAL);
+        p.setHealth(20);
+        p.setFoodLevel(20);
+        ArmorManager.remArmor(p);
+        ArmorManager.restoreInventory(p);
+        System.out.println("reloaded inventory of " + p.getName() + System.currentTimeMillis());
+        p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
     }
-    public static void declineDuel(Player player1, Player player2) {
 
-    }
 
     public void equipKit(Player player) {
         ItemStack helmet = new ItemStack(Material.LEATHER_HELMET);
