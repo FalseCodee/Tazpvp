@@ -309,3 +309,5 @@ commands:
     usage: "/tpall"
   duel:
     usage: "/duel <user>"
+  duelaccept:
+    usage: "/duelaccept <user>"
