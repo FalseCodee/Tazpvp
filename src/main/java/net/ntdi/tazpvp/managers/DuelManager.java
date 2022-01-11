@@ -19,7 +19,9 @@ import org.bukkit.metadata.MetadataValue;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
+import java.lang.reflect.*;
 
 public class DuelManager {
 
@@ -60,6 +62,7 @@ public class DuelManager {
     }
 
     public static void startDuel(Player player1, Player player2) {
+        DuelManager duelManager = new DuelManager();
         // checks if there is a map
         if (availableMaps.isEmpty()) {
             player1.sendMessage(ChatColor.RED + "There are no maps available! Try again later.");
@@ -73,24 +76,6 @@ public class DuelManager {
             if (mapName.equals("map1")) {
                 map1 = true;
                 removeMap("map1");
-                player1.setMetadata("map", new FixedMetadataValue(TazPvP.getInstance(), "map1"));
-                player2.setMetadata("map", new FixedMetadataValue(TazPvP.getInstance(), "map1"));
-                player1.setMetadata("dueling", new FixedMetadataValue(TazPvP.getInstance(), true));
-                player2.setMetadata("dueling", new FixedMetadataValue(TazPvP.getInstance(), true));
-                player1.setMetadata("opponent", new FixedMetadataValue(TazPvP.getInstance(), player2.getName()));
-                player2.setMetadata("opponent", new FixedMetadataValue(TazPvP.getInstance(), player1.getName()));
-
-                ArmorManager.storeAndClearInventory(player1);
-                ArmorManager.storeAndClearInventory(player2);
-                System.out.println("Stored inventory of " + player1.getName());
-                System.out.println("Stored inventory of " + player2.getName());
-
-                new DuelManager().equipKit(player1);
-                new DuelManager().equipKit(player2);
-
-
-                player1.teleport(map1one);
-                player2.teleport(map1two);
 
             } else if (mapName.equals("map2")) {
                 map2 = true;
@@ -106,6 +91,34 @@ public class DuelManager {
             }
         }
     }
+
+    public void duelLogic(Player player1, Player player2, String map, Location spawn1, Location spawn2) {
+        DuelManager duelManager = new DuelManager();
+
+        player1.setMetadata("map", new FixedMetadataValue(TazPvP.getInstance(), map));
+        player2.setMetadata("map", new FixedMetadataValue(TazPvP.getInstance(), map));
+        player1.setMetadata("dueling", new FixedMetadataValue(TazPvP.getInstance(), true));
+        player2.setMetadata("dueling", new FixedMetadataValue(TazPvP.getInstance(), true));
+        player1.setMetadata("opponent", new FixedMetadataValue(TazPvP.getInstance(), player2.getName()));
+        player2.setMetadata("opponent", new FixedMetadataValue(TazPvP.getInstance(), player1.getName()));
+
+        ArmorManager.storeAndClearInventory(player1);
+        ArmorManager.storeAndClearInventory(player2);
+        System.out.println("Stored inventory of " + player1.getName() + System.currentTimeMillis());
+        System.out.println("Stored inventory of " + player2.getName() + System.currentTimeMillis());
+
+        new DuelManager().equipKit(player1);
+        new DuelManager().equipKit(player2);
+
+        player1.teleport(spawn1);
+        player2.teleport(spawn2);
+
+        player1.sendMessage(ChatColor.YELLOW + "Opponent: " + ChatColor.GREEN + player2.getName());
+        player2.sendMessage(ChatColor.YELLOW + "Opponent: " + ChatColor.GREEN + player1.getName());
+        duelManager.sendBoth(ChatColor.YELLOW + "Map: " + ChatColor.GREEN + map, player1, player2);
+        duelManager.sendBoth(ChatColor.GREEN + "Fight!", player1, player2);
+    }
+
     public static void endDuel(Player player1, Player player2) {
 
     }
@@ -180,5 +193,10 @@ public class DuelManager {
             return metaDataValue.asString();
         }
         return "";
+    }
+
+    public void sendBoth(String message, Player player1, Player player2) {
+        player1.sendMessage(message);
+        player2.sendMessage(message);
     }
 }
