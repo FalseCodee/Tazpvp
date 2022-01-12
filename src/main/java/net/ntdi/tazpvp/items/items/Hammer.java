@@ -1,20 +1,11 @@
 package net.ntdi.tazpvp.items.items;
 
-import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.items.ClickableItem;
 import net.ntdi.tazpvp.items.Items;
-import org.bukkit.ChatColor;
-import org.bukkit.Material;
-import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
-import org.bukkit.entity.Snowball;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.util.Vector;
-
-import java.util.HashMap;
-import java.util.UUID;
 
 public class Hammer extends ClickableItem {
     public Hammer() {

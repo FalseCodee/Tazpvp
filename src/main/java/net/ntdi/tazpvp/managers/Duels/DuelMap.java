@@ -4,10 +4,10 @@ package net.ntdi.tazpvp.managers.Duels;
 import org.bukkit.Location;
 
 public class DuelMap {
-    public Location player1Spawn;
-    public Location player2Spawn;
-    public boolean isActive;
-    public String identifier;
+    public final Location player1Spawn;
+    public final Location player2Spawn;
+    public final boolean isActive;
+    public final String identifier;
 
     public DuelMap(String identifier, Location loc1, Location loc2) {
         this.identifier = identifier;

@@ -1,6 +1,5 @@
 package net.ntdi.tazpvp.items.items;
 
-import net.ntdi.tazpvp.items.ClickableItem;
 import net.ntdi.tazpvp.items.ConsumableItem;
 import net.ntdi.tazpvp.items.Items;
 import org.bukkit.ChatColor;

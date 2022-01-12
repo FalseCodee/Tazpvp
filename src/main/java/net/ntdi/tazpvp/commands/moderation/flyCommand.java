@@ -9,13 +9,13 @@ import org.bukkit.entity.Player;
 public class flyCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        Player p = (Player) sender;
+        Player p = null;
         if (sender instanceof Player) {
             p = (Player) sender;
         }
-        if(p.hasPermission("tazpvp.staff.fly")) {
+        if(p != null && p.hasPermission("tazpvp.staff.fly")) {
             if (args.length == 0) {
-                if(p.getAllowFlight() == true) {
+                if(p.getAllowFlight()) {
                     p.setAllowFlight(false);
                     p.sendMessage(ChatColor.GOLD + "Flying: " + ChatColor.RED + "disabled");
                 } else {

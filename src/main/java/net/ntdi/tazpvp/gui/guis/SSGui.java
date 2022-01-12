@@ -1,15 +1,12 @@
 package net.ntdi.tazpvp.gui.guis;
 
-import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.gui.GUI;
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
-import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 
 public class SSGui extends GUI {
 
@@ -20,10 +17,7 @@ public class SSGui extends GUI {
 
     }
     public void addSSitem(int slot, ItemStack item, String name, String lore) {
-        setButtons(slot, createItem(item, name, lore), event -> {
-            event.setCancelled(true);
-
-        });
+        setButtons(slot, createItem(item, name, lore), event -> event.setCancelled(true));
     }
 
     ItemStack flower = new ItemStack(Material.RED_ROSE, 1, (short) 1);

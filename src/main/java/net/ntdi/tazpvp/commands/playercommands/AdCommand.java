@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 
 public class AdCommand implements CommandExecutor {
 
-    String ad = "/ad Tazpvp &f✗ &b1.8 PVP &f✗ &3Grind &f✗ &bKeepInv &f✗ &3Duel";
+    final String ad = "/ad Tazpvp &f✗ &b1.8 PVP &f✗ &3Grind &f✗ &bKeepInv &f✗ &3Duel";
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {

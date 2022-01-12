@@ -1,13 +1,9 @@
 package net.ntdi.tazpvp.managers.Duels;
 
-import net.milkbowl.vault.chat.Chat;
 import net.ntdi.tazpvp.TazPvP;
-import net.ntdi.tazpvp.items.Items;
 import net.ntdi.tazpvp.managers.ArmorManager;
 import org.bukkit.*;
-import org.bukkit.block.Block;
 import org.bukkit.enchantments.Enchantment;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
@@ -16,44 +12,46 @@ import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.metadata.MetadataValue;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-import java.lang.reflect.*;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class DuelManager {
 
-    public static Location map1one = new Location(Bukkit.getWorld("duel"), -24.5, 30, -200.5);
-    public static Location map1two = new Location(Bukkit.getWorld("duel"), 24.5, 30, 200.5);
+    public final ArrayList<DuelMap> totalMaps = new ArrayList<>();
+    public ArrayList<DuelMap> availableMaps = new ArrayList<>();
 
-    public static Location map2one = new Location(Bukkit.getWorld("duel"), -24.5, 30, -100.5);
-    public static Location map2two = new Location(Bukkit.getWorld("duel"), 24.5, 30, -100.5);
+    public DuelManager() {
+        availableMaps.add(new DuelMap("map1",
+                new Location(Bukkit.getWorld("duel"), -24.5, 30, -200.5),
+                new Location(Bukkit.getWorld("duel"), 24.5, 30, 200.5)));
+        availableMaps.add(new DuelMap("map2",
+                new Location(Bukkit.getWorld("duel"), -24.5, 30, -100.5),
+                new Location(Bukkit.getWorld("duel"), 24.5, 30, -100.5)));
+        availableMaps.add(new DuelMap("map3",
+                new Location(Bukkit.getWorld("duel"), -24.5, 30, 0.5),
+                new Location(Bukkit.getWorld("duel"), 24.5, 30, 0.5)));
+        availableMaps.add(new DuelMap("map4",
+                new Location(Bukkit.getWorld("duel"), -24.5, 30, 100.5),
+                new Location(Bukkit.getWorld("duel"), 24.5, 30, 100.5)));
 
-    public static Location map3one = new Location(Bukkit.getWorld("duel"), -24.5, 30, 0.5);
-    public static Location map3two = new Location(Bukkit.getWorld("duel"), 24.5, 30, 0.5);
+        Collections.copy(totalMaps, availableMaps);
+    }
 
-    public static Location map4one = new Location(Bukkit.getWorld("duel"), -24.5, 30, 100.5);
-    public static Location map4two = new Location(Bukkit.getWorld("duel"), 24.5, 30, 100.5);
-    // Create Array List
-    public static ArrayList<String> availableMaps = new ArrayList<String>();
-
-    public static void addMap(String map){
+    public void addMap(String map){
         // adds to arraylist
-        availableMaps.add(map);
+        availableMaps.add(totalMaps
+                .stream()
+                .filter(duelMap -> duelMap.identifier.equals(map))
+                .findFirst()
+                .orElse(null));
     }
 
-    public static void removeMap(String map){
+    public void removeMap(String map){
         // removes from arraylist
-        availableMaps.remove(map);
-    }
-
-    public static void initMaps(){
-        //Initializes all maps
-        availableMaps.add("map1");
-        availableMaps.add("map2");
-        availableMaps.add("map3");
-        availableMaps.add("map4");
+        availableMaps = (ArrayList<DuelMap>) availableMaps
+                .stream()
+                .filter(duelMap -> !duelMap.identifier.equals(map))
+                .collect(Collectors.toList());
     }
 
     public void startDuel(Player player1, Player player2) {
@@ -67,32 +65,17 @@ public class DuelManager {
             Random randomGenerator = new Random();
             // Generates new random number
             int index = randomGenerator.nextInt(availableMaps.size());
-            String mapName = availableMaps.get(index); //gets the map correlcated to the number
-            if (mapName.equals("map1")) {
-                removeMap("map1");
-                duelLogic(player1, player2, "map1", map1one, map1two);
-
-            } else if (mapName.equals("map2")) {
-                removeMap("map2");
-                duelLogic(player1, player2, "map2", map2one, map2two);
-
-            } else if (mapName.equals("map3")) {
-                removeMap("map3");
-                duelLogic(player1, player2, "map3", map3one, map3two);
-
-            } else if (mapName.equals("map4")) {
-                removeMap("map4");
-                duelLogic(player1, player2, "map4", map4one, map4two);
-
-            }
+            DuelMap map = availableMaps.get(index);
+            removeMap(map.identifier);
+            duelLogic(player1, player2, map);
         }
     }
 
-    public void duelLogic(Player player1, Player player2, String map, Location spawn1, Location spawn2) {
+    public void duelLogic(Player player1, Player player2, DuelMap map) {
 
 
-        player1.setMetadata("map", new FixedMetadataValue(TazPvP.getInstance(), map));
-        player2.setMetadata("map", new FixedMetadataValue(TazPvP.getInstance(), map));
+        player1.setMetadata("map", new FixedMetadataValue(TazPvP.getInstance(), map.identifier));
+        player2.setMetadata("map", new FixedMetadataValue(TazPvP.getInstance(), map.identifier));
         player1.setMetadata("dueling", new FixedMetadataValue(TazPvP.getInstance(), true));
         player2.setMetadata("dueling", new FixedMetadataValue(TazPvP.getInstance(), true));
         player1.setMetadata("opponent", new FixedMetadataValue(TazPvP.getInstance(), player2.getName()));
@@ -106,8 +89,8 @@ public class DuelManager {
         equipKit(player1);
         equipKit(player2);
 
-        player1.teleport(spawn1);
-        player2.teleport(spawn2);
+        player1.teleport(map.player1Spawn);
+        player2.teleport(map.player2Spawn);
 
         player1.sendMessage(ChatColor.YELLOW + "Opponent: " + ChatColor.GREEN + player2.getName());
         player2.sendMessage(ChatColor.YELLOW + "Opponent: " + ChatColor.GREEN + player1.getName());

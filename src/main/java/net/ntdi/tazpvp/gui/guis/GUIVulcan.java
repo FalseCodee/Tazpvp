@@ -10,7 +10,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class GUIVulcan extends GUI {
 
-    Player target;
+    final Player target;
 
     public GUIVulcan(Player player, Player ac) {
         super(player, 27, ChatColor.RED + "" + ChatColor.BOLD + "AC " + ac.getName() + "'s " + ChatColor.GOLD + "Vulcan");

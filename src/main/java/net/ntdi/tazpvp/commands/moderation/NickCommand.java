@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 public class NickCommand implements CommandExecutor {
 
-    public static final HashMap<Player, String> oldNames = new HashMap<Player, String>();
+    public static final HashMap<Player, String> oldNames = new HashMap<>();
 
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {

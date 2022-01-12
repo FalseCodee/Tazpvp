@@ -22,9 +22,9 @@ public class Fisherman {
             p.sendMessage(ChatColor.YELLOW + "[NPC] Miner:" + ChatColor.WHITE + " Here, take " + ChatColor.GOLD + "$" + amount * 0.5);
         } else if (Objects.equals(inhand, new ItemStack(Material.IRON_ORE, amount))) {
             p.getInventory().setItemInHand(new ItemStack(Material.AIR));
-            TazPvP.statsManager.addMoney(p, amount * 1);
+            TazPvP.statsManager.addMoney(p, amount);
             p.sendMessage(ChatColor.YELLOW + "[NPC] Miner:" + ChatColor.WHITE + " Thank you for your business!");
-            p.sendMessage(ChatColor.YELLOW + "[NPC] Miner:" + ChatColor.WHITE + " Here, take " + ChatColor.GOLD + "$" + amount * 1);
+            p.sendMessage(ChatColor.YELLOW + "[NPC] Miner:" + ChatColor.WHITE + " Here, take " + ChatColor.GOLD + "$" + amount);
         } else if (Objects.equals(inhand, new ItemStack(Material.GOLD_ORE, amount))) {
             p.getInventory().setItemInHand(new ItemStack(Material.AIR));
             TazPvP.statsManager.addMoney(p, amount * 3);

@@ -6,13 +6,11 @@ import org.bukkit.inventory.ItemStack;
 
 import java.io.*;
 import java.util.*;
-import java.util.HashMap;
-import java.util.Map;
 
 public class ArmorManager {
 
-    static Map<UUID, ItemStack[]> items = new HashMap<UUID, ItemStack[]>();
-    static Map<UUID, ItemStack[]> armor = new HashMap<UUID, ItemStack[]>();
+    static final Map<UUID, ItemStack[]> items = new HashMap<>();
+    static final Map<UUID, ItemStack[]> armor = new HashMap<>();
     final static String outputFilePath = TazPvP.getInstance().getDataFolder().getAbsolutePath() + "/inv.properties";
     final static String outputFilePath2 = TazPvP.getInstance().getDataFolder().getAbsolutePath() + "/inv.properties";
 

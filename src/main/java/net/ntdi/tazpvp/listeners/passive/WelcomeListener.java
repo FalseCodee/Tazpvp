@@ -155,9 +155,7 @@ public class WelcomeListener implements Listener {
             new DuelManager().endDuel(p, Bukkit.getPlayer(TazPvP.duelManager.getOpponent(p)));
         }
 
-        if(TazPvP.Spectating.contains(p)){
-            TazPvP.Spectating.remove(p);
-        }
+        TazPvP.Spectating.remove(p);
 
         if(combatLog.combatLog.containsKey(p)){
             Player killer = Bukkit.getPlayer(getCombatee(p));

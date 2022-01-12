@@ -86,10 +86,7 @@ public class DeathListener implements Listener {
                         BountyCommand.bounties.remove(p.getUniqueId());
                     }
                     boolean fat = TazPvP.perkManager.getFat(killer);
-                    boolean rebirthed = false;
-                    if (TazPvP.statsManager.getRebirths(killer) > 0) {
-                        rebirthed = true;
-                    }
+                    boolean rebirthed = TazPvP.statsManager.getRebirths(killer) > 0;
 
                     if (fat && rebirthed) {
                         if (killer.getMaxHealth() != 30){
@@ -211,10 +208,7 @@ public class DeathListener implements Listener {
                         }
 
                         boolean fat = TazPvP.perkManager.getFat(killer);
-                        boolean rebirthed = false;
-                        if (TazPvP.statsManager.getRebirths(killer) > 0) {
-                            rebirthed = true;
-                        }
+                        boolean rebirthed = TazPvP.statsManager.getRebirths(killer) > 0;
 
                         if (fat && rebirthed) {
                             if (killer.getMaxHealth() != 30){
@@ -370,13 +364,11 @@ public class DeathListener implements Listener {
         Player p = event.getEntity();
         Player killer = p.getKiller();
         if (killer != null) {
-            if (p != null) {
-                if (killer != p) {
-                   deathFunction(p, killer);
-                    TazPvP.statsManager.setStreak(p, 0);
-                    TazPvP.statsManager.addDeaths(p, 1);
-                    //loc.getWorld().playEffect(loc, Effect.LARGE_SMOKE, Material.REDSTONE_BLOCK);
-                }
+            if (killer != p) {
+               deathFunction(p, killer);
+                TazPvP.statsManager.setStreak(p, 0);
+                TazPvP.statsManager.addDeaths(p, 1);
+                //loc.getWorld().playEffect(loc, Effect.LARGE_SMOKE, Material.REDSTONE_BLOCK);
             }
         }
     }

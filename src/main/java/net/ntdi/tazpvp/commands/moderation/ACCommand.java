@@ -1,13 +1,11 @@
 package net.ntdi.tazpvp.commands.moderation;
 
-import net.ntdi.tazpvp.gui.GUI;
 import net.ntdi.tazpvp.gui.guis.GUIVulcan;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import net.ntdi.tazpvp.gui.GUIManager;
 
 public class ACCommand implements CommandExecutor {
     @Override

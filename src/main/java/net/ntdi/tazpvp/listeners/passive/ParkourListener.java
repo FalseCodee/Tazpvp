@@ -1,14 +1,6 @@
 package net.ntdi.tazpvp.listeners.passive;
 
-import net.ntdi.tazpvp.TazPvP;
-import org.bukkit.*;
-import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
-import org.bukkit.event.player.PlayerChangedWorldEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
 
 public class ParkourListener implements Listener {
 /*    @EventHandler

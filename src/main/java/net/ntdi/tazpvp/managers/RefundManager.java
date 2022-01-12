@@ -16,7 +16,6 @@ public class RefundManager implements Listener {
 
         if (item.getType() == Material.LEATHER_BOOTS || item.getType() == Material.LEATHER_LEGGINGS || item.getType() == Material.CHAINMAIL_BOOTS || item.getType() == Material.CHAINMAIL_LEGGINGS || item.getType() == Material.IRON_BOOTS || item.getType() == Material.IRON_LEGGINGS || item.getType() == Material.DIAMOND_BOOTS || item.getType() == Material.DIAMOND_LEGGINGS || item.getType() == Material.GOLD_BOOTS || item.getType() == Material.GOLD_LEGGINGS) {
             p.sendMessage(ChatColor.RED + "You cannot refund this item!");
-            return;
         } else {
             for(EnchantInfo enchantInfo : EnchantInfo.values()) {
                 if(item.getEnchantments().size() <= 0) {

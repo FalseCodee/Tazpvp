@@ -124,6 +124,11 @@ public final class TazPvP extends JavaPlugin {
         staffManager = new StaffManager();
         achievementsManager = new AchievementsManager();
         perkManager = new PerkManager();
+
+        /*
+        * No point instantiating this (or even having an instance at all)
+        * if all the methods are static. -false
+        * */
         armorManager = new ArmorManager();
         duelManager = new DuelManager();
         ItemManager.init();
@@ -150,7 +155,6 @@ public final class TazPvP extends JavaPlugin {
         // Event Register
         registerListeners();
 
-        DuelManager.initMaps();
         //getServer().getScheduler().scheduleSyncRepeatingTask(this, combatLog::tick, 20L, 20L);
 
         new BukkitRunnable() {

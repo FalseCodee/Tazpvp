@@ -14,9 +14,9 @@ import org.bukkit.inventory.PlayerInventory;
 import java.util.HashMap;
 
 public class BowListener implements Listener {
-    public HashMap<String, Long> cooldowns = new HashMap<String, Long>();
-    int cooldownTime = 3;
-    ItemStack arrow = new ItemStack(Material.ARROW, 1);
+    public final HashMap<String, Long> cooldowns = new HashMap<>();
+    final int cooldownTime = 3;
+    final ItemStack arrow = new ItemStack(Material.ARROW, 1);
     @EventHandler
     public void onPlayerInteract(PlayerInteractEvent event) {
         Player p = event.getPlayer();

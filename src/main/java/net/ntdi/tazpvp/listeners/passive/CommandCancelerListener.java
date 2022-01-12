@@ -1,17 +1,11 @@
 package net.ntdi.tazpvp.listeners.passive;
 
 import net.ntdi.tazpvp.TazPvP;
-import net.ntdi.tazpvp.utils.StringUtils;
-import net.ntdi.tazpvp.utils.https.PostHelper;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-
-import java.io.IOException;
 
 public class CommandCancelerListener implements Listener {
 
