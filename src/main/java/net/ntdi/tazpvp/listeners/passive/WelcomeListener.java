@@ -163,7 +163,7 @@ public class WelcomeListener implements Listener {
         p.setMaxHealth(20);
 
         if (TazPvP.duelManager.isDueling(p)){
-            DuelManager.endDuel(p, Bukkit.getPlayer(TazPvP.duelManager.getOpponent(p)));
+            new DuelManager().endDuel(p, Bukkit.getPlayer(TazPvP.duelManager.getOpponent(p)));
         }
 
         if(TazPvP.Spectating.contains(p)){

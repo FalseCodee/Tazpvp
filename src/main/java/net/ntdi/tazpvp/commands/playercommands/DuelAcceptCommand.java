@@ -28,7 +28,7 @@ public class DuelAcceptCommand implements CommandExecutor {
                                 player.setMetadata("sender", new FixedMetadataValue(TazPvP.getInstance(), ""));
                                 player.sendMessage(ChatColor.GREEN + "You have accepted the duel request from " + target.getName());
                                 target.sendMessage(ChatColor.GREEN + "The duel request has been accepted by " + player.getName());
-                                DuelManager.startDuel(player, target);
+                                new DuelManager().startDuel(player, target);
                             }
                         }
                     }

@@ -44,7 +44,7 @@ public class DeathListener implements Listener {
                 p.playSound(p.getLocation(), Sound.WOLF_WHINE, 1, 1);
                 if (event instanceof EntityDamageByEntityEvent) {
                     if (isDueling(p)) {
-                        DuelManager.endDuel(p, Bukkit.getPlayer(getCombatee(p)));
+                        new DuelManager().endDuel(p, Bukkit.getPlayer(getCombatee(p)));
                     } else {
                         deathFunction(p, ((EntityDamageByEntityEvent) event).getDamager());
                     }

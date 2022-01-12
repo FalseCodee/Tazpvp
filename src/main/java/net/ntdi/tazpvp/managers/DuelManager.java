@@ -59,7 +59,7 @@ public class DuelManager {
         availableMaps.add("map4");
     }
 
-    public static void startDuel(Player player1, Player player2) {
+    public void startDuel(Player player1, Player player2) {
         DuelManager duelManager = new DuelManager();
         // checks if there is a map
         if (availableMaps.isEmpty()) {
@@ -122,7 +122,7 @@ public class DuelManager {
         duelManager.sendBoth(ChatColor.GREEN + "Fight!", player1, player2);
     }
 
-    public static void endDuel(Player looser, Player winner) {
+    public void endDuel(Player looser, Player winner) {
         // checks if the player is in a duel
         looser.setMetadata("dueling", new FixedMetadataValue(TazPvP.getInstance(), false));
         winner.setMetadata("dueling", new FixedMetadataValue(TazPvP.getInstance(), false));
