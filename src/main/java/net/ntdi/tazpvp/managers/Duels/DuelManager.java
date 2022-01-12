@@ -1,8 +1,9 @@
-package net.ntdi.tazpvp.managers;
+package net.ntdi.tazpvp.managers.Duels;
 
 import net.milkbowl.vault.chat.Chat;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.items.Items;
+import net.ntdi.tazpvp.managers.ArmorManager;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.enchantments.Enchantment;
@@ -23,19 +24,15 @@ import java.lang.reflect.*;
 
 public class DuelManager {
 
-    public static boolean map1 = false;
     public static Location map1one = new Location(Bukkit.getWorld("duel"), -24.5, 30, -200.5);
     public static Location map1two = new Location(Bukkit.getWorld("duel"), 24.5, 30, 200.5);
 
-    public static boolean map2 = false;
     public static Location map2one = new Location(Bukkit.getWorld("duel"), -24.5, 30, -100.5);
     public static Location map2two = new Location(Bukkit.getWorld("duel"), 24.5, 30, -100.5);
 
-    public static boolean map3 = false;
     public static Location map3one = new Location(Bukkit.getWorld("duel"), -24.5, 30, 0.5);
     public static Location map3two = new Location(Bukkit.getWorld("duel"), 24.5, 30, 0.5);
 
-    public static boolean map4 = false;
     public static Location map4one = new Location(Bukkit.getWorld("duel"), -24.5, 30, 100.5);
     public static Location map4two = new Location(Bukkit.getWorld("duel"), 24.5, 30, 100.5);
     // Create Array List
@@ -60,43 +57,39 @@ public class DuelManager {
     }
 
     public void startDuel(Player player1, Player player2) {
-        DuelManager duelManager = new DuelManager();
+
         // checks if there is a map
         if (availableMaps.isEmpty()) {
             player1.sendMessage(ChatColor.RED + "There are no maps available! Try again later.");
             player2.sendMessage(ChatColor.RED + "There are no maps available! Try again later.");
-        // runs if there is availbe map
+        // runs if there is available map
         } else {
             Random randomGenerator = new Random();
             // Generates new random number
             int index = randomGenerator.nextInt(availableMaps.size());
             String mapName = availableMaps.get(index); //gets the map correlcated to the number
             if (mapName.equals("map1")) {
-                map1 = true;
                 removeMap("map1");
-                duelManager.duelLogic(player1, player2, "map1", map1one, map1two);
+                duelLogic(player1, player2, "map1", map1one, map1two);
 
             } else if (mapName.equals("map2")) {
-                map2 = true;
                 removeMap("map2");
-                duelManager.duelLogic(player1, player2, "map2", map2one, map2two);
+                duelLogic(player1, player2, "map2", map2one, map2two);
 
             } else if (mapName.equals("map3")) {
-                map3 = true;
                 removeMap("map3");
-                duelManager.duelLogic(player1, player2, "map3", map3one, map3two);
+                duelLogic(player1, player2, "map3", map3one, map3two);
 
             } else if (mapName.equals("map4")) {
-                map4 = true;
                 removeMap("map4");
-                duelManager.duelLogic(player1, player2, "map4", map4one, map4two);
+                duelLogic(player1, player2, "map4", map4one, map4two);
 
             }
         }
     }
 
     public void duelLogic(Player player1, Player player2, String map, Location spawn1, Location spawn2) {
-        DuelManager duelManager = new DuelManager();
+
 
         player1.setMetadata("map", new FixedMetadataValue(TazPvP.getInstance(), map));
         player2.setMetadata("map", new FixedMetadataValue(TazPvP.getInstance(), map));
@@ -110,16 +103,16 @@ public class DuelManager {
         System.out.println("Stored inventory of " + player1.getName() + System.currentTimeMillis());
         System.out.println("Stored inventory of " + player2.getName() + System.currentTimeMillis());
 
-        new DuelManager().equipKit(player1);
-        new DuelManager().equipKit(player2);
+        equipKit(player1);
+        equipKit(player2);
 
         player1.teleport(spawn1);
         player2.teleport(spawn2);
 
         player1.sendMessage(ChatColor.YELLOW + "Opponent: " + ChatColor.GREEN + player2.getName());
         player2.sendMessage(ChatColor.YELLOW + "Opponent: " + ChatColor.GREEN + player1.getName());
-        duelManager.sendBoth(ChatColor.YELLOW + "Map: " + ChatColor.GREEN + map, player1, player2);
-        duelManager.sendBoth(ChatColor.GREEN + "Fight!", player1, player2);
+        sendBoth(ChatColor.YELLOW + "Map: " + ChatColor.GREEN + map, player1, player2);
+        sendBoth(ChatColor.GREEN + "Fight!", player1, player2);
     }
 
     public void endDuel(Player looser, Player winner) {
@@ -130,32 +123,19 @@ public class DuelManager {
         winner.getInventory().clear();
         looser.getInventory().clear();
 
-        new DuelManager().sendBoth(ChatColor.GREEN + winner.getName() + ChatColor.YELLOW + " won the duel!" + ChatColor.RED + looser.getName() + " has lost.", looser, winner);
+        sendBoth(ChatColor.GREEN + winner.getName() + ChatColor.YELLOW + " won the duel!" + ChatColor.RED + looser.getName() + " has lost.", looser, winner);
 
         new BukkitRunnable() {
             @Override
             public void run() {
-                new DuelManager().restorePlayer(looser);
-                new DuelManager().restorePlayer(winner);
+                restorePlayer(looser);
+                restorePlayer(winner);
 
-                addMap(new DuelManager().whatMap(winner));
-                new DuelManager().changeMapVar(new DuelManager().whatMap(winner), false);
+                addMap(whatMap(winner));
 
             }
         }.runTaskLater(TazPvP.getInstance(), 20 * 5);
 
-    }
-
-    public void changeMapVar(String map, Boolean type) {
-        if (map.equals("map1")) {
-            map1 = type;
-        } else if (map.equals("map2")) {
-            map2 = type;
-        } else if (map.equals("map3")) {
-            map3 = type;
-        } else if (map.equals("map4")) {
-            map4 = type;
-        }
     }
 
     public void restorePlayer (Player p) {

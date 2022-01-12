@@ -1,17 +1,10 @@
 package net.ntdi.tazpvp.listeners.passive;
 
-import com.comphenix.protocol.PacketType;
-import com.comphenix.protocol.ProtocolManager;
-import com.comphenix.protocol.events.ListenerPriority;
-import com.comphenix.protocol.events.PacketAdapter;
-import com.comphenix.protocol.events.PacketContainer;
-import com.comphenix.protocol.events.PacketEvent;
-import com.comphenix.protocol.wrappers.EnumWrappers;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.commands.moderation.BanCommand;
 import net.ntdi.tazpvp.listeners.function.DeathListener;
 import net.ntdi.tazpvp.managers.ArmorManager;
-import net.ntdi.tazpvp.managers.DuelManager;
+import net.ntdi.tazpvp.managers.Duels.DuelManager;
 import net.ntdi.tazpvp.utils.PlayerUtils;
 import org.bukkit.*;
 import org.bukkit.block.Block;
@@ -25,12 +18,8 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.metadata.MetadataValue;
 import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.scoreboard.Criterias;
-import org.bukkit.scoreboard.DisplaySlot;
-import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 public class WelcomeListener implements Listener {

@@ -3,7 +3,7 @@ package net.ntdi.tazpvp.listeners.function;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.commands.functions.BountyCommand;
 import net.ntdi.tazpvp.listeners.passive.combatLog;
-import net.ntdi.tazpvp.managers.DuelManager;
+import net.ntdi.tazpvp.managers.Duels.DuelManager;
 import org.bukkit.*;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Entity;

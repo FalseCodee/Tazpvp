@@ -2,6 +2,7 @@ package net.ntdi.tazpvp;
 
 // import com.oracle.xmlns.internal.webservices.jaxws_databinding.SoapBindingUse;
 import net.ntdi.tazpvp.items.items.LevFeather;
+import net.ntdi.tazpvp.managers.Duels.DuelManager;
 import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
