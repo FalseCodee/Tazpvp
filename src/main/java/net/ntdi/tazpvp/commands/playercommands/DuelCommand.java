@@ -32,7 +32,7 @@ public class DuelCommand implements CommandExecutor {
                     // start duel
                     target.setMetadata("sender", new FixedMetadataValue(TazPvP.getInstance(), player.getName()));
                     TextComponent Accept = new TextComponent(ChatColor.GREEN + "ACCEPT");
-                    Accept.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/duelaccept " + target.getName()));
+                    Accept.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/duelaccept " + player.getName()));
                     player.sendMessage(ChatColor.AQUA + "You have challenged " + target.getName() + " to a duel!");
                     target.sendMessage(ChatColor.AQUA + player.getName() + " has challenged you to a duel!");
                     target.spigot().sendMessage(Accept);
