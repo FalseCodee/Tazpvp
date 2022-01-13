@@ -134,11 +134,11 @@ public class DuelManager {
 
 
     public void equipKit(Player player) {
-        ItemStack helmet = new ItemStack(Material.LEATHER_HELMET);
+        ItemStack helmet = new ItemStack(Material.DIAMOND_HELMET);
         helmet.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
-        ItemStack chestplate = new ItemStack(Material.LEATHER_CHESTPLATE);
+        ItemStack chestplate = new ItemStack(Material.DIAMOND_CHESTPLATE);
         chestplate.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
-        ItemStack leggings = new ItemStack(Material.LEATHER_LEGGINGS);
+        ItemStack leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
         leggings.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
         ItemStack boots = new ItemStack(Material.DIAMOND_BOOTS);
         boots.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
