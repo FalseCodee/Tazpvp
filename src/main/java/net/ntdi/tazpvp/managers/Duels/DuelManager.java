@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 public class DuelManager {
 
-    public final ArrayList<DuelMap> totalMaps = new ArrayList<>();
+    public ArrayList<DuelMap> totalMaps = new ArrayList<>();
     public ArrayList<DuelMap> availableMaps = new ArrayList<>();
 
     public DuelManager() {
