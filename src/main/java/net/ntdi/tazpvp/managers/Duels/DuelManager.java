@@ -22,17 +22,17 @@ public class DuelManager {
 
     public DuelManager() {
         availableMaps.add(new DuelMap("map1",
-                new Location(Bukkit.getWorld("duel"), -24.5, 30, -200.5),
-                new Location(Bukkit.getWorld("duel"), 24.5, 30, 200.5)));
+                new Location(Bukkit.getWorld("duel"), -24.5, 31, -200.5, -90, 0),
+                new Location(Bukkit.getWorld("duel"), 24.5, 31, -200.5, -90, 0)));
         availableMaps.add(new DuelMap("map2",
-                new Location(Bukkit.getWorld("duel"), -24.5, 30, -100.5),
-                new Location(Bukkit.getWorld("duel"), 24.5, 30, -100.5)));
+                new Location(Bukkit.getWorld("duel"), -24.5, 31, -100.5, -90, 0),
+                new Location(Bukkit.getWorld("duel"), 24.5, 31, -100.5, -90, 0)));
         availableMaps.add(new DuelMap("map3",
-                new Location(Bukkit.getWorld("duel"), -24.5, 30, 0.5),
-                new Location(Bukkit.getWorld("duel"), 24.5, 30, 0.5)));
+                new Location(Bukkit.getWorld("duel"), -24.5, 31, 0.5, -90, 0),
+                new Location(Bukkit.getWorld("duel"), 24.5, 31, 0.5, -90, 0)));
         availableMaps.add(new DuelMap("map4",
-                new Location(Bukkit.getWorld("duel"), -24.5, 30, 100.5),
-                new Location(Bukkit.getWorld("duel"), 24.5, 30, 100.5)));
+                new Location(Bukkit.getWorld("duel"), -24.5, 31, 100.5, -90, 0),
+                new Location(Bukkit.getWorld("duel"), 24.5, 31, 100.5, -90, 0)));
 
         totalMaps = new ArrayList<>(availableMaps);
     }
