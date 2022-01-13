@@ -146,7 +146,7 @@ public class DuelManager {
         sword.addEnchantment(Enchantment.DAMAGE_ALL, 3);
         ItemStack fishingrod = new ItemStack(Material.FISHING_ROD);
         ItemStack bow = new ItemStack(Material.BOW);
-        sword.addEnchantment(Enchantment.ARROW_DAMAGE, 1);
+        bow.addEnchantment(Enchantment.ARROW_DAMAGE, 1);
         ItemStack gapple = new ItemStack(Material.GOLDEN_APPLE, 5);
         ItemStack butter = new ItemStack(Material.GOLD_INGOT, 3);
         ItemStack steak = new ItemStack(Material.COOKED_BEEF, 10);
