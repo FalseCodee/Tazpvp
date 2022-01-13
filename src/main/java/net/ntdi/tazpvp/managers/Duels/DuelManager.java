@@ -34,7 +34,7 @@ public class DuelManager {
                 new Location(Bukkit.getWorld("duel"), -24.5, 30, 100.5),
                 new Location(Bukkit.getWorld("duel"), 24.5, 30, 100.5)));
 
-        Collections.copy(totalMaps, availableMaps);
+        totalMaps = new ArrayList<>(availableMaps);
     }
 
     public void addMap(String map){
