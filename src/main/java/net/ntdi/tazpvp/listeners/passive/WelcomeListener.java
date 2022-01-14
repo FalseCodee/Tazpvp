@@ -52,6 +52,9 @@ public class WelcomeListener implements Listener {
 
         p.teleport(loc);
 
+        p.setMetadata("canDamage", new FixedMetadataValue(TazPvP.getInstance(), true));
+        p.setMetadata("dueling", new FixedMetadataValue(TazPvP.getInstance(), false));
+
         for(Player player : Bukkit.getOnlinePlayers()) {
             TazPvP.sendTablistHeaderAndFooter(player, ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "TAZPVP\n" + ChatColor.DARK_GRAY +"                                        ",
                     ChatColor.DARK_GRAY +"                                        \n"
