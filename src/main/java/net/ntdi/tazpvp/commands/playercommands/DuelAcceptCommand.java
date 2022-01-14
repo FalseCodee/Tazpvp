@@ -28,9 +28,17 @@ public class DuelAcceptCommand implements CommandExecutor {
                                 player.sendMessage(ChatColor.GREEN + "You have accepted the duel request from " + target.getName());
                                 target.sendMessage(ChatColor.GREEN + "The duel request has been accepted by " + player.getName());
                                 TazPvP.duelManager.startDuel(player, target);
+                            } else {
+                                player.sendMessage(ChatColor.RED + "You have not sent a duel request to " + target.getName());
                             }
+                        } else {
+                            player.sendMessage(ChatColor.RED + "That player is not online!");
                         }
+                    } else {
+                        player.sendMessage(ChatColor.RED + "You cannot duel yourself!");
                     }
+                } else {
+                    player.sendMessage(ChatColor.RED + "Player not found");
                 }
             } else {
                 return false;

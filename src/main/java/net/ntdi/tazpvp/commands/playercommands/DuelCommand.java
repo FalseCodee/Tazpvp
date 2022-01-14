@@ -1,6 +1,7 @@
 package net.ntdi.tazpvp.commands.playercommands;
 
 import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.managers.Duels.DuelManager;
@@ -31,11 +32,18 @@ public class DuelCommand implements CommandExecutor {
                 } else if (target.isOnline() && !new DuelManager().isDueling(target) && !new DuelManager().isDueling(player)) {
                     // start duel
                     target.setMetadata("sender", new FixedMetadataValue(TazPvP.getInstance(), player.getName()));
-                    TextComponent Accept = new TextComponent(ChatColor.GREEN + "ACCEPT");
+                    TextComponent Accept = new TextComponent(ChatColor.GOLD + " ACCEPT");
                     Accept.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/duelaccept " + player.getName()));
+                    Accept.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponent[]{new TextComponent(ChatColor.GREEN + "Click to accept duel request")}));
                     player.sendMessage(ChatColor.AQUA + "You have challenged " + target.getName() + " to a duel!");
-                    target.sendMessage(ChatColor.AQUA + player.getName() + " has challenged you to a duel!");
+                    target.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+                    target.sendMessage("");
+                    target.sendMessage("  " + ChatColor.YELLOW + player.getName() + " has challenged you to a duel!");
+                    target.sendMessage("  " + ChatColor.DARK_GRAY + "" + ChatColor.ITALIC + "Click below to accept");
+                    target.sendMessage("");
                     target.spigot().sendMessage(Accept);
+                    target.sendMessage("");
+                    target.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
                 }
             } else {
                 sender.sendMessage(ChatColor.RED + "Usage: /duel <player>");
