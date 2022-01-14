@@ -131,6 +131,8 @@ public class DuelManager implements Listener {
         // checks if the player is in a duel
         looser.setMetadata("dueling", new FixedMetadataValue(TazPvP.getInstance(), false));
         winner.setMetadata("dueling", new FixedMetadataValue(TazPvP.getInstance(), false));
+        looser.setMetadata("canDamage", new FixedMetadataValue(TazPvP.getInstance(), true));
+        winner.setMetadata("canDamage", new FixedMetadataValue(TazPvP.getInstance(), true));
 
         winner.getInventory().clear();
         looser.getInventory().clear();

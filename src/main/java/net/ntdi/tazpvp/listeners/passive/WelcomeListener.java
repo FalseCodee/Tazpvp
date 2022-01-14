@@ -155,6 +155,9 @@ public class WelcomeListener implements Listener {
             new DuelManager().endDuel(p, Bukkit.getPlayer(TazPvP.duelManager.getOpponent(p)));
         }
 
+        p.setMetadata("canDamage", new FixedMetadataValue(TazPvP.getInstance(), true));
+        p.setMetadata("dueling", new FixedMetadataValue(TazPvP.getInstance(), false));
+
         TazPvP.Spectating.remove(p);
 
         if(combatLog.combatLog.containsKey(p)){
