@@ -24,8 +24,9 @@ import static net.ntdi.tazpvp.items.Items.BUTTER;
 
 public class DuelManager implements Listener {
 
-    public ArrayList<DuelMap> totalMaps = new ArrayList<>();
+    public ArrayList<DuelMap> totalMaps;
     public ArrayList<DuelMap> availableMaps = new ArrayList<>();
+    public ArrayList<Player> playersFighting = new ArrayList<>();
 
     public DuelManager() {
         availableMaps.add(new DuelMap("map1",
@@ -62,7 +63,8 @@ public class DuelManager implements Listener {
     }
 
     public void startDuel(Player player1, Player player2) {
-
+        playersFighting.add(player1);
+        playersFighting.add(player2);
         // checks if there is a map
         if (availableMaps.isEmpty()) {
             player1.sendMessage(ChatColor.RED + "There are no maps available! Try again later.");
@@ -128,6 +130,8 @@ public class DuelManager implements Listener {
     }
 
     public void endDuel(Player looser, Player winner) {
+        playersFighting.remove(looser);
+        playersFighting.remove(winner);
         // checks if the player is in a duel
         looser.setMetadata("dueling", new FixedMetadataValue(TazPvP.getInstance(), false));
         winner.setMetadata("dueling", new FixedMetadataValue(TazPvP.getInstance(), false));
