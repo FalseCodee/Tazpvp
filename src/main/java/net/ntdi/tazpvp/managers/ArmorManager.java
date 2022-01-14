@@ -73,10 +73,4 @@ public class ArmorManager {
         properties.store(new FileOutputStream(outputFilePath2), null);
 
     }
-
-//    public static void loadinv() throws IOException {
-//        Properties properties = new Properties();
-//        properties.load(new FileInputStream(outputFilePath));
-//        items.putAll(properties);
-//    }
 }
