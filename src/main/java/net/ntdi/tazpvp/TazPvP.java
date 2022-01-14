@@ -56,7 +56,6 @@ public final class TazPvP extends JavaPlugin {
     public static AchievementsManager achievementsManager;
     public static PerkManager perkManager;
     public static ZombieLogic zombieLogic;
-    public static ArmorManager armorManager;
     public static DuelManager duelManager;
 
     public static Permission permissions;
@@ -125,11 +124,6 @@ public final class TazPvP extends JavaPlugin {
         achievementsManager = new AchievementsManager();
         perkManager = new PerkManager();
 
-        /*
-        * No point instantiating this (or even having an instance at all)
-        * if all the methods are static. -false
-        * */
-        armorManager = new ArmorManager();
         duelManager = new DuelManager();
         ItemManager.init();
 
@@ -232,6 +226,13 @@ public final class TazPvP extends JavaPlugin {
         // Plugin shutdown logic
 
         System.out.println("Tazpvp LOGIC is now OFFLINE");
+
+        for (Player p : Bukkit.getOnlinePlayers()) {
+            if (duelManager.isDueling(p)) {
+                ArmorManager.setPlayerContents(p, false);
+                System.out.println("Player " + p.getName() + " has been given their stuff back due to server going brrr during their duel");
+            }
+        }
 
         this.saveConfig();
 
