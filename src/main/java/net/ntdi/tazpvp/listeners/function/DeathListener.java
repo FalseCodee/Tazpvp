@@ -44,9 +44,6 @@ public class DeathListener implements Listener {
                 p.setGameMode(GameMode.SPECTATOR);
                 p.playSound(p.getLocation(), Sound.WOLF_WHINE, 1, 1);
 
-                p.setMetadata("canDamage", new FixedMetadataValue(TazPvP.getInstance(), true));
-                p.setMetadata("dueling", new FixedMetadataValue(TazPvP.getInstance(), false));
-
                 if (event instanceof EntityDamageByEntityEvent) {
                     if (isDueling(p)) {
                         new DuelManager().endDuel(p, Bukkit.getPlayer(new DuelManager().getOpponent(p)));
