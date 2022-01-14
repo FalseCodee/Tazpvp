@@ -196,7 +196,6 @@ public class DuelManager implements Listener {
         inv.addItem(bow);
         inv.addItem(gapple);
         ItemManager.givePlayerItem(player, BUTTER, 3);
-        inv.addItem(steak);
         inv.setItem(9, arrow);
     }
 
