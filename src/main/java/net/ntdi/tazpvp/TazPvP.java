@@ -228,7 +228,7 @@ public final class TazPvP extends JavaPlugin {
         System.out.println("Tazpvp LOGIC is now OFFLINE");
 
         for (Player p : Bukkit.getOnlinePlayers()) {
-            if (duelManager.isDueling(p)) {
+            if (ArmorManager.getArmor().containsKey(p.getUniqueId())) {
                 ArmorManager.setPlayerContents(p, false);
                 System.out.println("Player " + p.getName() + " has been given their stuff back due to server going brrr during their duel");
             }

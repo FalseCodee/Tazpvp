@@ -4,12 +4,8 @@ import net.ntdi.tazpvp.TazPvP;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import java.io.*;
-import java.util.*;
 import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.io.BukkitObjectInputStream;
 import org.bukkit.util.io.BukkitObjectOutputStream;
 
@@ -34,17 +30,17 @@ public class ArmorManager {
     }
 
     public static void setPlayerContents(final Player player, final boolean remove) {
-        if(items.containsKey(player.getUniqueId())) {
-            player.getInventory().setContents(items.get(player.getUniqueId()));
-            player.getInventory().setArmorContents(armor.get(player.getUniqueId()));
+        if(getItems().containsKey(player.getUniqueId())) {
+            player.getInventory().setContents(getItems().get(player.getUniqueId()));
+            player.getInventory().setArmorContents(getArmor().get(player.getUniqueId()));
             Bukkit.getScheduler().runTaskLater(TazPvP.getInstance(), player::updateInventory, 1L);
             if(remove) removeUUID(player.getUniqueId());
         }
     }
 
     public static void storeAndClearInventory(Player player) {
-        items.put(player.getUniqueId(), player.getInventory().getContents());
-        armor.put(player.getUniqueId(), player.getInventory().getArmorContents());
+        getItems().put(player.getUniqueId(), player.getInventory().getContents());
+        getArmor().put(player.getUniqueId(), player.getInventory().getArmorContents());
 
         player.getInventory().clear();
 
@@ -52,8 +48,8 @@ public class ArmorManager {
     }
 
     public static void removeUUID(UUID uuid) {
-        items.remove(uuid);
-        armor.remove(uuid);
+        getItems().remove(uuid);
+        getArmor().remove(uuid);
     }
 
     public static String inventoryToString(Inventory inventory) {
@@ -121,4 +117,11 @@ public class ArmorManager {
     }
 
 
+    public static HashMap<UUID, ItemStack[]> getItems() {
+        return items;
+    }
+
+    public static HashMap<UUID, ItemStack[]> getArmor() {
+        return armor;
+    }
 }
