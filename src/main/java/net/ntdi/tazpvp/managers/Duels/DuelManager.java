@@ -200,7 +200,7 @@ public class DuelManager implements Listener {
     public void onFight(EntityDamageEvent event) {
         if (event.getEntity() instanceof Player) {
             Player player = (Player) event.getEntity();
-            if (!player.hasMetadata("canDamage")) {
+            if (!canDamage(player)) {
                 event.setCancelled(true);
             }
         }
