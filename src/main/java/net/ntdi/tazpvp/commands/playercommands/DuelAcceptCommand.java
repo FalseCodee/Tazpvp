@@ -23,13 +23,17 @@ public class DuelAcceptCommand implements CommandExecutor {
                 if (target != null) {
                     if (!target.getName().equals(player.getName())) {
                         if (target.isOnline()) {
-                            if (sender(player).equals(target.getName())) {
-                                player.setMetadata("sender", new FixedMetadataValue(TazPvP.getInstance(), ""));
-                                player.sendMessage(ChatColor.GREEN + "You have accepted the duel request from " + target.getName());
-                                target.sendMessage(ChatColor.GREEN + "The duel request has been accepted by " + player.getName());
-                                TazPvP.duelManager.startDuel(player, target);
+                            if (!TazPvP.punishmentManager.isBanned(player)) {
+                                if (sender(player).equals(target.getName())) {
+                                    player.setMetadata("sender", new FixedMetadataValue(TazPvP.getInstance(), ""));
+                                    player.sendMessage(ChatColor.GREEN + "You have accepted the duel request from " + target.getName());
+                                    target.sendMessage(ChatColor.GREEN + "The duel request has been accepted by " + player.getName());
+                                    TazPvP.duelManager.startDuel(player, target);
+                                } else {
+                                    player.sendMessage(ChatColor.RED + "You have not sent a duel request to " + target.getName());
+                                }
                             } else {
-                                player.sendMessage(ChatColor.RED + "You have not sent a duel request to " + target.getName());
+                                player.sendMessage(ChatColor.RED + "You cannot accept a duel while you are banned.");
                             }
                         } else {
                             player.sendMessage(ChatColor.RED + "That player is not online!");
