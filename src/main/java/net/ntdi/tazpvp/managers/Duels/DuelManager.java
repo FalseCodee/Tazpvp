@@ -7,6 +7,9 @@ import net.ntdi.tazpvp.managers.ArmorManager;
 import org.bukkit.*;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -19,7 +22,7 @@ import java.util.stream.Collectors;
 
 import static net.ntdi.tazpvp.items.Items.BUTTER;
 
-public class DuelManager {
+public class DuelManager implements Listener {
 
     public ArrayList<DuelMap> totalMaps = new ArrayList<>();
     public ArrayList<DuelMap> availableMaps = new ArrayList<>();
@@ -99,6 +102,26 @@ public class DuelManager {
         player1.sendMessage(ChatColor.YELLOW + "Opponent: " + ChatColor.GREEN + player2.getName());
         player2.sendMessage(ChatColor.YELLOW + "Opponent: " + ChatColor.GREEN + player1.getName());
         sendBoth(ChatColor.YELLOW + "Map: " + ChatColor.GREEN + map, player1, player2);
+
+        player1.setMetadata("canDamage", new FixedMetadataValue(TazPvP.getInstance(), false));
+        player2.setMetadata("canDamage", new FixedMetadataValue(TazPvP.getInstance(), false));
+
+        for (int i =5; i > 1; i--) {
+            int count = i;
+            new BukkitRunnable() {
+                @Override
+                public void run() {
+                    sendBoth(ChatColor.YELLOW + "Duel starts in " + ChatColor.GREEN + count, player1, player2);
+                }
+            }.runTaskLater(TazPvP.getInstance(), 20);
+        }
+
+        player1.setMetadata("canDamage", new FixedMetadataValue(TazPvP.getInstance(), true));
+        player2.setMetadata("canDamage", new FixedMetadataValue(TazPvP.getInstance(), true));
+
+        player1.teleport(map.player1Spawn);
+        player2.teleport(map.player2Spawn);
+
         sendBoth(ChatColor.GREEN + "Fight!", player1, player2);
     }
 
@@ -155,8 +178,6 @@ public class DuelManager {
         ItemStack steak = new ItemStack(Material.COOKED_BEEF, 10);
         ItemStack arrow = new ItemStack(Material.ARROW);
 
-
-
         PlayerInventory inv = player.getInventory();
         inv.setHelmet(helmet);
         inv.setChestplate(chestplate);
@@ -171,8 +192,26 @@ public class DuelManager {
         inv.setItem(32, arrow);
     }
 
+    @EventHandler
+    public void onFight(EntityDamageEvent event) {
+        if (event.getEntity() instanceof Player) {
+            Player player = (Player) event.getEntity();
+            if (!player.hasMetadata("canDamage")) {
+                event.setCancelled(true);
+            }
+        }
+    }
+
     public boolean isDueling(Player p){
         List<MetadataValue> metaDataValues = p.getMetadata("dueling");
+        for (MetadataValue metaDataValue : metaDataValues) {
+            return metaDataValue.asBoolean();
+        }
+        return false;
+    }
+
+    public boolean canDamage(Player p){
+        List<MetadataValue> metaDataValues = p.getMetadata("canDamage");
         for (MetadataValue metaDataValue : metaDataValues) {
             return metaDataValue.asBoolean();
         }
