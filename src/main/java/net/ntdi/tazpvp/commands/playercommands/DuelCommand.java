@@ -3,6 +3,7 @@ package net.ntdi.tazpvp.commands.playercommands;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
+import net.milkbowl.vault.chat.Chat;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.managers.Duels.DuelManager;
 import org.bukkit.Bukkit;
@@ -35,10 +36,16 @@ public class DuelCommand implements CommandExecutor {
                     TextComponent Accept = new TextComponent(ChatColor.GOLD + " ACCEPT");
                     Accept.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/duelaccept " + player.getName()));
                     Accept.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponent[]{new TextComponent(ChatColor.GREEN + "Click to accept duel request")}));
-                    player.sendMessage(ChatColor.AQUA + "You have challenged " + target.getName() + " to a duel!");
+
+                    player.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+                    player.sendMessage("");
+                    player.sendMessage(ChatColor.YELLOW + "You have challenged " + ChatColor.GOLD + target.getName() + ChatColor.YELLOW + " to a duel!");
+                    player.sendMessage("");
+                    player.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+
                     target.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
                     target.sendMessage("");
-                    target.sendMessage("  " + ChatColor.YELLOW + player.getName() + " has challenged you to a duel!");
+                    target.sendMessage("  " + ChatColor.GOLD + player.getName() + ChatColor.YELLOW + " has challenged you to a duel!");
                     target.sendMessage("  " + ChatColor.DARK_GRAY + "" + ChatColor.ITALIC + "Click below to accept");
                     target.sendMessage("");
                     target.spigot().sendMessage(Accept);
