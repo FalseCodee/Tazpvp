@@ -87,7 +87,7 @@ public class WorldGuard implements Listener {
     //feed
     @EventHandler
     public void feed(FoodLevelChangeEvent event) {
-        if (event.getEntity().getWorld().getName().equals("spawn") || event.getEntity().getWorld().getName().equals("duel")) {
+        if (event.getEntity().getWorld().getName().equals("spawn")) {
             event.setCancelled(true);
         }
     }
@@ -103,7 +103,7 @@ public class WorldGuard implements Listener {
     //build
     @EventHandler
     public void build(BlockPlaceEvent event) {
-        if (event.getPlayer().getWorld().getName().equals("spawn") || event.getPlayer().getWorld().getName().equals("grind")) {
+        if (event.getPlayer().getWorld().getName().equals("spawn") || event.getPlayer().getWorld().getName().equals("grind") || event.getPlayer().getWorld().getName().equals("duel")) {
             if (event.getPlayer().getGameMode() == GameMode.SURVIVAL) {
                 event.setCancelled(true);
             }
@@ -142,6 +142,15 @@ public class WorldGuard implements Listener {
                 if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
                     Material mat = event.getClickedBlock().getType();
                     if (mat == Material.TRAP_DOOR || mat == Material.SPRUCE_DOOR || mat == Material.SPRUCE_FENCE_GATE) {                     
+                        event.setCancelled(true);
+                    }
+                }
+            }
+        } else if (event.getPlayer().getWorld().getName().equals("duel")) {
+            if (event.getPlayer().getGameMode() == GameMode.SURVIVAL) {
+                if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
+                    Material mat = event.getClickedBlock().getType();
+                    if (mat == Material.LEVER) {
                         event.setCancelled(true);
                     }
                 }
