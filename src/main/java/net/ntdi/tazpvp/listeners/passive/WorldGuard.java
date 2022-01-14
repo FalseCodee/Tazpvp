@@ -20,15 +20,13 @@ public class WorldGuard implements Listener {
     // lava-fire
     @EventHandler
     public void lavaFire(BlockIgniteEvent event) {
-        if (event.getBlock().getWorld().getName().equals("arena")) {
-            event.setCancelled(true);
-        }
+        event.setCancelled(true);
     }
 
     // Water-flow Lava-flow dirt-to-grass
     @EventHandler
     public void waterFlow(BlockPhysicsEvent event) {
-        if (event.getBlock().getWorld().getName().equals("arena")) {
+        if (event.getBlock().getWorld().getName().equals("arena") || event.getBlock().getWorld().getName().equals("duel")) {
             Material mat = event.getBlock().getType();
             if (mat == Material.STATIONARY_WATER || mat == Material.WATER || mat == Material.STATIONARY_LAVA || mat == Material.LAVA || mat == Material.DIRT || mat == Material.GRASS) {
                 event.setCancelled(true);
@@ -37,7 +35,7 @@ public class WorldGuard implements Listener {
     }
     @EventHandler
     public void waterFromTo(BlockFromToEvent event) {
-        if (event.getBlock().getWorld().getName().equals("arena")) {
+        if (event.getBlock().getWorld().getName().equals("arena") || event.getBlock().getWorld().getName().equals("duel")) {
             Block block = event.getBlock();
             if (block.getType() == Material.STATIONARY_WATER || block.getType() == Material.WATER || block.getType() == Material.STATIONARY_LAVA || block.getType() == Material.LAVA || block.getType() == Material.DIRT || block.getType() == Material.GRASS) {
                 event.setCancelled(true);
@@ -77,17 +75,13 @@ public class WorldGuard implements Listener {
     //exp-drops
     @EventHandler
     public void expDrop(PlayerDeathEvent event) {
-        if (event.getEntity().getWorld().getName().equals("arena")) {
-            event.setDroppedExp(0);
-        }
+        event.setDroppedExp(0);
     }
 
     //vine-growth and fire-spread
     @EventHandler
     public void vineGrowth(BlockGrowEvent event) {
-        if (event.getBlock().getWorld().getName().equals("arena")) {
-            event.setCancelled(true);
-        }
+        event.setCancelled(true);
     }
 
     //feed
