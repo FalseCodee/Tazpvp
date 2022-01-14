@@ -16,6 +16,7 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.metadata.MetadataValue;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -42,6 +43,7 @@ public class DeathListener implements Listener {
 
                 p.setGameMode(GameMode.SPECTATOR);
                 p.playSound(p.getLocation(), Sound.WOLF_WHINE, 1, 1);
+
                 if (event instanceof EntityDamageByEntityEvent) {
                     if (isDueling(p)) {
                         new DuelManager().endDuel(p, Bukkit.getPlayer(new DuelManager().getOpponent(p)));
