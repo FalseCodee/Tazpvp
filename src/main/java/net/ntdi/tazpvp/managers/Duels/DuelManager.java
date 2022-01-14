@@ -180,7 +180,7 @@ public class DuelManager implements Listener {
         bow.addEnchantment(Enchantment.ARROW_DAMAGE, 1);
         ItemStack gapple = new ItemStack(Material.GOLDEN_APPLE, 5);
         ItemStack steak = new ItemStack(Material.COOKED_BEEF, 10);
-        ItemStack arrow = new ItemStack(Material.ARROW);
+        ItemStack arrow = new ItemStack(Material.ARROW, 32);
 
         PlayerInventory inv = player.getInventory();
         inv.setHelmet(helmet);
@@ -193,7 +193,7 @@ public class DuelManager implements Listener {
         inv.addItem(gapple);
         ItemManager.givePlayerItem(player, BUTTER, 3);
         inv.addItem(steak);
-        inv.setItem(32, arrow);
+        inv.setItem(9, arrow);
     }
 
     @EventHandler
