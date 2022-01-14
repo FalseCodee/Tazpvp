@@ -1,6 +1,8 @@
 package net.ntdi.tazpvp.managers.Duels;
 
 import net.ntdi.tazpvp.TazPvP;
+import net.ntdi.tazpvp.items.ItemManager;
+import net.ntdi.tazpvp.items.items.Butter;
 import net.ntdi.tazpvp.managers.ArmorManager;
 import org.bukkit.*;
 import org.bukkit.enchantments.Enchantment;
@@ -14,6 +16,8 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.*;
 import java.util.stream.Collectors;
+
+import static net.ntdi.tazpvp.items.Items.BUTTER;
 
 public class DuelManager {
 
@@ -148,14 +152,9 @@ public class DuelManager {
         ItemStack bow = new ItemStack(Material.BOW);
         bow.addEnchantment(Enchantment.ARROW_DAMAGE, 1);
         ItemStack gapple = new ItemStack(Material.GOLDEN_APPLE, 5);
-        ItemStack butter = new ItemStack(Material.GOLD_INGOT, 3);
         ItemStack steak = new ItemStack(Material.COOKED_BEEF, 10);
         ItemStack arrow = new ItemStack(Material.ARROW);
 
-        ItemMeta butterMeta = butter.getItemMeta();
-        butterMeta.spigot().setUnbreakable(false);
-        butter.setItemMeta(butterMeta);
-        butterMeta.setDisplayName(ChatColor.WHITE + "Butter");
 
 
         PlayerInventory inv = player.getInventory();
@@ -167,7 +166,7 @@ public class DuelManager {
         inv.addItem(fishingrod);
         inv.addItem(bow);
         inv.addItem(gapple);
-        inv.addItem(butter);
+        ItemManager.givePlayerItem(player, BUTTER, 3);
         inv.addItem(steak);
         inv.setItem(32, arrow);
     }
