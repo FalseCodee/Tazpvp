@@ -69,6 +69,8 @@ public class WorldGuard implements Listener {
             }
         } else if (event.getEntity().getWorld().getName().equals("spawn")) {
             event.setCancelled(true);
+        } else if (event.getEntity().getWorld().getName().equals("duel")) {
+            event.setCancelled(true);
         }
     }
 
