@@ -33,7 +33,7 @@ public class ArmorManager {
         if(getItems().containsKey(player.getUniqueId())) {
             player.getInventory().setContents(getItems().get(player.getUniqueId()));
             player.getInventory().setArmorContents(getArmor().get(player.getUniqueId()));
-            Bukkit.getScheduler().runTaskLater(TazPvP.getInstance(), player::updateInventory, 1L);
+            //Bukkit.getScheduler().runTaskLater(TazPvP.getInstance(), player::updateInventory, 1L);
             if(remove) removeUUID(player.getUniqueId());
         }
     }
