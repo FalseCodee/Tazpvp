@@ -106,23 +106,25 @@ public class DuelManager implements Listener {
         player1.setMetadata("canDamage", new FixedMetadataValue(TazPvP.getInstance(), false));
         player2.setMetadata("canDamage", new FixedMetadataValue(TazPvP.getInstance(), false));
 
-        for (int i =5; i > 1; i--) {
-            int count = i;
-            new BukkitRunnable() {
-                @Override
-                public void run() {
-                    sendBoth(ChatColor.YELLOW + "Duel starts in " + ChatColor.GREEN + count, player1, player2);
+        final int[] count = {5};
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                if (count[0] <= 0) {
+                    player1.setMetadata("canDamage", new FixedMetadataValue(TazPvP.getInstance(), true));
+                    player2.setMetadata("canDamage", new FixedMetadataValue(TazPvP.getInstance(), true));
+                    player1.teleport(map.player1Spawn);
+                    player2.teleport(map.player2Spawn);
+                    sendBoth(ChatColor.GREEN + "Fight!", player1, player2);
+
+                    cancel();
+                } else {
+                    sendBoth(ChatColor.YELLOW + "Duel starts in " + ChatColor.GREEN + count[0], player1, player2);
+
+                    count[0]--;
                 }
-            }.runTaskLater(TazPvP.getInstance(), 20);
-        }
-
-        player1.setMetadata("canDamage", new FixedMetadataValue(TazPvP.getInstance(), true));
-        player2.setMetadata("canDamage", new FixedMetadataValue(TazPvP.getInstance(), true));
-
-        player1.teleport(map.player1Spawn);
-        player2.teleport(map.player2Spawn);
-
-        sendBoth(ChatColor.GREEN + "Fight!", player1, player2);
+            }
+        }.runTaskTimer(TazPvP.getInstance(), 0, 20);
     }
 
     public void endDuel(Player looser, Player winner) {
