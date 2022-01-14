@@ -13,7 +13,7 @@ public class LoadinvCommand implements CommandExecutor {
         if (sender.hasPermission("op")) {
             if (sender instanceof Player) {
                 Player player = (Player) sender;
-                ArmorManager.restoreInventory(player);
+                ArmorManager.setPlayerContents(player, false);
                 player.sendMessage(ChatColor.GREEN + "Your inventory has been restored.");
             }
         }

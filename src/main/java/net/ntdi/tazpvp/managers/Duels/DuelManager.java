@@ -158,7 +158,7 @@ public class DuelManager implements Listener {
         p.setHealth(20);
         p.setFoodLevel(20);
         ArmorManager.remArmor(p);
-        ArmorManager.restoreInventory(p);
+        ArmorManager.setPlayerContents(p, false);
         System.out.println("reloaded inventory of " + p.getName() + System.currentTimeMillis());
         p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
     }

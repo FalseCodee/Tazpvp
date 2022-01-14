@@ -247,17 +247,6 @@ public final class TazPvP extends JavaPlugin {
         TazPvP.voteNo.clear();
         TazPvP.renamingSword.clear();
 
-
-        try {
-            ArmorManager.saveinv();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            ArmorManager.savearmor();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public void registerCommands() {

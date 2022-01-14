@@ -150,7 +150,7 @@ public class WelcomeListener implements Listener {
         for(Scoreboard sb : TazPvP.statsManager.scoreboards.values()) {
             TazPvP.statsManager.getTeam(p, sb).removeEntry(p.getName());
         }
-        ArmorManager.restoreInventory(p);
+        ArmorManager.setPlayerContents(p, false);
         p.setGameMode(GameMode.SURVIVAL);
         p.setMaxHealth(20);
 
