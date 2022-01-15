@@ -55,12 +55,7 @@ public class WelcomeListener implements Listener {
         p.setMetadata("canDamage", new FixedMetadataValue(TazPvP.getInstance(), true));
         p.setMetadata("dueling", new FixedMetadataValue(TazPvP.getInstance(), false));
 
-        for(Player player : Bukkit.getOnlinePlayers()) {
-            TazPvP.sendTablistHeaderAndFooter(player, ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "TAZPVP\n" + ChatColor.DARK_GRAY +"                                        ",
-                    ChatColor.DARK_GRAY +"                                        \n"
-                            +ChatColor.GRAY + "IP: " + ChatColor.YELLOW + "tazpvp.net\n"
-                            +ChatColor.AQUA+Bukkit.getOnlinePlayers().size() + ChatColor.GRAY+"/" + ChatColor.DARK_AQUA + "40");
-        }
+        updateTab();
 
         for(Scoreboard sb : TazPvP.statsManager.scoreboards.values()) {
             TazPvP.statsManager.getTeam(p, sb).addEntry(p.getName());
@@ -72,6 +67,10 @@ public class WelcomeListener implements Listener {
                 p.sendMessage(ChatColor.DARK_AQUA+ "You are currently hidden!");
             }
 
+
+        for (Player Onlineplayer : Bukkit.getOnlinePlayers()) {
+            TazPvP.getInstance().setNametag(Onlineplayer, p);
+        }
 
         if(TazPvP.punishmentManager.isMuted(p) &&
                 System.currentTimeMillis()-TazPvP.punishmentManager.getMuteTime(p) >= TazPvP.punishmentManager.getMuteDuration(p)){
@@ -157,6 +156,8 @@ public class WelcomeListener implements Listener {
         if (TazPvP.duelManager.isDueling(p)){
             new DuelManager().endDuel(p, Bukkit.getPlayer(TazPvP.duelManager.getOpponent(p)));
         }
+
+        updateTab();
 
         p.setMetadata("canDamage", new FixedMetadataValue(TazPvP.getInstance(), true));
         p.setMetadata("dueling", new FixedMetadataValue(TazPvP.getInstance(), false));
@@ -245,7 +246,14 @@ public class WelcomeListener implements Listener {
         }
     }
 
-
+    public void updateTab(){
+        for(Player player : Bukkit.getOnlinePlayers()) {
+            TazPvP.sendTablistHeaderAndFooter(player, ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "TAZPVP\n" + ChatColor.DARK_GRAY +"                                        ",
+                    ChatColor.DARK_GRAY +"                                        \n"
+                            +ChatColor.GRAY + "IP: " + ChatColor.YELLOW + "tazpvp.net\n"
+                            +ChatColor.AQUA+Bukkit.getOnlinePlayers().size() + ChatColor.GRAY+"/" + ChatColor.DARK_AQUA + "40");
+        }
+    }
 
     public boolean isFallDamageImmune(Block b){
         List<MetadataValue> metaDataValues = b.getMetadata("fallDamage");

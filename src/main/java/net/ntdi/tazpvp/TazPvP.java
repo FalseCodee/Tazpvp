@@ -464,6 +464,17 @@ public final class TazPvP extends JavaPlugin {
         }
 
     }
+
+    public void setNametag(Player player1, Player player2) {
+        Scoreboard scoreboard = player1.getScoreboard();
+        if (scoreboard.getTeam("TeamName") != null) {
+            scoreboard.getTeam("TeamName").unregister();
+        }
+        Team team = scoreboard.registerNewTeam("TeamName");
+        team.setPrefix(ChatColor.translateAlternateColorCodes('&', player2.getDisplayName()));
+        scoreboard.getTeam("TeamName").addPlayer(player2);
+    }
+
     public static void sendTablistHeaderAndFooter(Player player, String header, String footer) {
         PacketContainer container = new PacketContainer(PacketType.Play.Server.PLAYER_LIST_HEADER_FOOTER);
         container.getChatComponents()
