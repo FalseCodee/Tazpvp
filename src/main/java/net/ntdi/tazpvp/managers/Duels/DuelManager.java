@@ -3,6 +3,7 @@ package net.ntdi.tazpvp.managers.Duels;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.items.ItemManager;
 import net.ntdi.tazpvp.items.items.Butter;
+import net.ntdi.tazpvp.items.items.GHead;
 import net.ntdi.tazpvp.managers.ArmorManager;
 import org.bukkit.*;
 import org.bukkit.enchantments.Enchantment;
@@ -13,6 +14,7 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.metadata.MetadataValue;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -21,6 +23,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static net.ntdi.tazpvp.items.Items.BUTTER;
+import static net.ntdi.tazpvp.items.Items.GHEAD;
 
 public class DuelManager implements Listener {
 
@@ -30,8 +33,8 @@ public class DuelManager implements Listener {
 
     public DuelManager() {
         availableMaps.add(new DuelMap("map1",
-                new Location(Bukkit.getWorld("duel"), -24.5, 31, -200.5, -90, 0),
-                new Location(Bukkit.getWorld("duel"), 24.5, 31, -200.5, 90, 0)));
+                new Location(Bukkit.getWorld("duel"), -24.5, 31, -199.5, -90, 0),
+                new Location(Bukkit.getWorld("duel"), 24.5, 31, -199.5, 90, 0)));
         availableMaps.add(new DuelMap("map2",
                 new Location(Bukkit.getWorld("duel"), -24.5, 31, -100.5, -90, 0),
                 new Location(Bukkit.getWorld("duel"), 24.5, 31, -100.5, 90, 0)));
@@ -200,6 +203,11 @@ public class DuelManager implements Listener {
         ItemStack gapple = new ItemStack(Material.GOLDEN_APPLE, 5);
         ItemStack arrow = new ItemStack(Material.ARROW, 32);
 
+        ItemStack ghead = ItemManager.createItem(GHEAD.item, 3, ChatColor.GOLD + "Golden Head");
+        SkullMeta skullMeta = (SkullMeta) ghead.getItemMeta();
+        skullMeta.setOwner("jellyfox");
+        ghead.setItemMeta(skullMeta);
+
         PlayerInventory inv = player.getInventory();
         inv.setHelmet(helmet);
         inv.setChestplate(chestplate);
@@ -208,8 +216,9 @@ public class DuelManager implements Listener {
         inv.addItem(sword);
         inv.addItem(fishingrod);
         inv.addItem(bow);
+        inv.addItem(ghead);
         inv.addItem(gapple);
-        ItemManager.givePlayerItem(player, BUTTER, 3);
+
         inv.setItem(9, arrow);
     }
 

@@ -24,6 +24,7 @@ public class SpectateCommand implements CommandExecutor {
                         if (!TazPvP.duelManager.isDueling(player)) {
                             if (player != target) {
                                 if (!combatLog.containsKey(player)) {
+                                    // do stuff
 
                                 } else {
                                     player.sendMessage(ChatColor.RED + "You cannot spectate a player while in combat.");

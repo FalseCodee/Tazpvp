@@ -14,7 +14,8 @@ public enum Items {
     LEVFEATHER(ChatColor.WHITE + "Lethal Injection", Material.FEATHER),
     FIREBALL(ChatColor.WHITE + "Fireballz", Material.FIREBALL),
     HAMMER(ChatColor.WHITE + "Hammer", Material.GOLD_SPADE),
-    CREDITPAPER(ChatColor.WHITE + "Paper", Material.PAPER);
+    CREDITPAPER(ChatColor.WHITE + "Paper", Material.PAPER),
+    GHEAD(ChatColor.GOLD + "Golden Head", Material.SKULL_ITEM);
 
     public final String display;
     public final Material item;

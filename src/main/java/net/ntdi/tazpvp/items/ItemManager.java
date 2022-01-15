@@ -20,6 +20,7 @@ public class ItemManager {
         items.add(new LevFeather());
         items.add(new Fireballz());
         items.add(new Hammer());
+        items.add(new GHead());
     }
 
     public static void givePlayerItem(Player player, Items item, int count) {

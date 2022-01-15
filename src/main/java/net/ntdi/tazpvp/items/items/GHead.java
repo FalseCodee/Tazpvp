@@ -7,10 +7,10 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-public class Butter extends ConsumableItem {
+public class GHead extends ConsumableItem {
 
-    public Butter() {
-        super(Items.BUTTER, 3);
+    public GHead() {
+        super(Items.GHEAD, 3);
     }
 
     @Override
@@ -18,11 +18,12 @@ public class Butter extends ConsumableItem {
         if(super.execute(p, itemStack)) {
             return true;
         }
-        if(p.getHealth() <= 18) {
-            p.setHealth(p.getHealth() + 2);
+        if(p.getHealth() <= 16) {
+            p.setHealth(p.getHealth() + 4);
         } else {
             p.setHealth(20);
         }
+        p.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 20*60, 0));
         p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20*3, 0));
         return false;
     }
