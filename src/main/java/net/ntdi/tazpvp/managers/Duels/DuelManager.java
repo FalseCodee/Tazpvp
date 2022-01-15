@@ -223,10 +223,6 @@ public class DuelManager implements Listener {
         }
     }
 
-    public void spectatedDuel(Player p, Player dueler) {
-
-    }
-
     public boolean isDueling(Player p){
         List<MetadataValue> metaDataValues = p.getMetadata("dueling");
         for (MetadataValue metaDataValue : metaDataValues) {
