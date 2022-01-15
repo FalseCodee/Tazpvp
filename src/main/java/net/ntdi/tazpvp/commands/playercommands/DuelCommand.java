@@ -35,23 +35,18 @@ public class DuelCommand implements CommandExecutor {
                 } if (target.isOnline() && !new DuelManager().isDueling(target) && !new DuelManager().isDueling(player)) {
                     // start duel
                     target.setMetadata("sender", new FixedMetadataValue(TazPvP.getInstance(), player.getName()));
-                    TextComponent Accept = new TextComponent(ChatColor.GOLD + " ACCEPT");
+                    TextComponent Accept = new TextComponent(ChatColor.GRAY + "" + ChatColor.BOLD + "CLICK HERE");
                     Accept.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/duelaccept " + player.getName()));
                     Accept.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponent[]{new TextComponent(ChatColor.GREEN + "Click to accept duel request")}));
 
                     player.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-                    player.sendMessage("");
-                    player.sendMessage(ChatColor.YELLOW + "You have challenged " + ChatColor.GOLD + target.getName() + ChatColor.YELLOW + " to a duel!");
-                    player.sendMessage("");
+                    player.sendMessage(ChatColor.YELLOW + " You challenged " + ChatColor.GOLD + target.getName() + ChatColor.YELLOW + " to a duel.");
                     player.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
                     target.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-                    target.sendMessage("");
-                    target.sendMessage("  " + ChatColor.GOLD + player.getName() + ChatColor.YELLOW + " has challenged you to a duel!");
-                    target.sendMessage("  " + ChatColor.DARK_GRAY + "" + ChatColor.ITALIC + "Click below to accept");
-                    target.sendMessage("");
+                    target.sendMessage("  " + ChatColor.GOLD + player.getName() + ChatColor.YELLOW + " has challenged you to a duel.");
+                    target.sendMessage(" " + Accept + "  " + ChatColor.GRAY+ "to accept.");
                     target.spigot().sendMessage(Accept);
-                    target.sendMessage("");
                     target.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
                 }
             } else {
