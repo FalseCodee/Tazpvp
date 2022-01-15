@@ -33,7 +33,7 @@ public class DuelCommand implements CommandExecutor {
                 } if (target.isOnline() && !new DuelManager().isDueling(target) && !new DuelManager().isDueling(player)) {
                     // start duel
                     target.setMetadata("sender", new FixedMetadataValue(TazPvP.getInstance(), player.getName()));
-                    TextComponent Accept = new TextComponent(ChatColor.GRAY + "" + ChatColor.BOLD + "CLICK HERE");
+                    TextComponent Accept = new TextComponent(" " + "CLICK HERE" + ChatColor.GRAY+ "to accept.");
                     Accept.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/duelaccept " + player.getName()));
                     Accept.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponent[]{new TextComponent(ChatColor.GREEN + "Click to accept duel request")}));
 
@@ -43,7 +43,6 @@ public class DuelCommand implements CommandExecutor {
 
                     target.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
                     target.sendMessage("  " + ChatColor.GOLD + player.getName() + ChatColor.YELLOW + " has challenged you to a duel.");
-                    target.sendMessage(" " + Accept + "  " + ChatColor.GRAY+ "to accept.");
                     target.spigot().sendMessage(Accept);
                     target.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
                 }
