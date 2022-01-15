@@ -161,10 +161,10 @@ public class DuelManager implements Listener {
         new BukkitRunnable() {
             @Override
             public void run() {
+                addMap(whatMap(winner));
+
                 restorePlayer(looser);
                 restorePlayer(winner);
-
-                addMap(whatMap(winner));
 
             }
         }.runTaskLater(TazPvP.getInstance(), 20 * 5);
@@ -221,6 +221,10 @@ public class DuelManager implements Listener {
                 event.setCancelled(true);
             }
         }
+    }
+
+    public void spectatedDuel(Player p, Player dueler) {
+
     }
 
     public boolean isDueling(Player p){
