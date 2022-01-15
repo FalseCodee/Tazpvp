@@ -24,9 +24,9 @@ public class RestartCommand implements CommandExecutor {
 
         TazPvP.AllowBlocks = false;
 
-        for (Player player : Bukkit.getOnlinePlayers()) {
-            ArmorManager.setPlayerContents(player, false);
-        }
+//        for (Player player : Bukkit.getOnlinePlayers()) {
+//            ArmorManager.setPlayerContents(player, false);
+//        }
 
 //        event.getPlayer().sendMessage(ChatColor.DARK_AQUA + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 //        event.getPlayer().sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "  LEVEL UP " + ChatColor.DARK_AQUA + "Combat Lvl. " + ChatColor.AQUA + TazPvP.statsManager.getLevel(event.getPlayer()));
