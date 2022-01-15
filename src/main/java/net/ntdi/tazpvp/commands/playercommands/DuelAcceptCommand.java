@@ -10,7 +10,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.metadata.MetadataValue;
 
+import java.nio.charset.Charset;
 import java.util.List;
+import java.util.Random;
 
 public class DuelAcceptCommand implements CommandExecutor {
     @Override
@@ -25,7 +27,10 @@ public class DuelAcceptCommand implements CommandExecutor {
                         if (target.isOnline()) {
                             if (!TazPvP.punishmentManager.isBanned(player)) {
                                 if (sender(player).equals(target.getName())) {
-                                    player.setMetadata("sender", new FixedMetadataValue(TazPvP.getInstance(), ""));
+                                    byte[] array = new byte[15]; // length is bounded by 7
+                                    new Random().nextBytes(array);
+                                    String generatedString = new String(array, Charset.forName("UTF-8"));
+                                    player.setMetadata("sender", new FixedMetadataValue(TazPvP.getInstance(), generatedString));
                                     player.sendMessage(ChatColor.GREEN + "You have accepted the duel request from " + target.getName());
                                     target.sendMessage(ChatColor.GREEN + "The duel request has been accepted by " + player.getName());
                                     TazPvP.duelManager.startDuel(player, target);
