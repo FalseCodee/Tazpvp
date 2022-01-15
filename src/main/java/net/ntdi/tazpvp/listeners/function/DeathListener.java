@@ -46,7 +46,8 @@ public class DeathListener implements Listener {
 
                 if (event instanceof EntityDamageByEntityEvent) {
                     if (isDueling(p)) {
-                        new DuelManager().endDuel(p, Bukkit.getPlayer(new DuelManager().getOpponent(p)));
+                        TazPvP.duelManager.endDuel(p, Bukkit.getPlayer(new DuelManager().getOpponent(p)));
+                        return;
                     } else {
                         deathFunction(p, ((EntityDamageByEntityEvent) event).getDamager());
                     }

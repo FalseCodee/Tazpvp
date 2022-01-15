@@ -28,7 +28,7 @@ public class DuelAcceptCommand implements CommandExecutor {
                             if (!TazPvP.punishmentManager.isBanned(player)) {
                                 if (!TazPvP.duelManager.isDueling(target)) {
                                     if (sender(player).equals(target.getName())) {
-                                        byte[] array = new byte[15]; // length is bounded by 7
+                                        byte[] array = new byte[15]; // length is bounded by 15
                                         new Random().nextBytes(array);
                                         String generatedString = new String(array, Charset.forName("UTF-8"));
                                         player.setMetadata("sender", new FixedMetadataValue(TazPvP.getInstance(), generatedString));
