@@ -55,6 +55,8 @@ public class DeathListener implements Listener {
                 dropInv(p, deadLoc);
                 p.getInventory().clear();
 
+
+                p.setMetadata("respawning", new FixedMetadataValue(TazPvP.getInstance(), true));
                 new BukkitRunnable() {
                     @Override
                     public void run() {
@@ -68,6 +70,7 @@ public class DeathListener implements Listener {
                             combatLog.combatLog.remove(p);
                             p.sendMessage(ChatColor.RED + "You are no longer in combat.");
                         }
+                        p.setMetadata("respawning", new FixedMetadataValue(TazPvP.getInstance(), false));
                     }
                 }.runTaskLater(TazPvP.getInstance(), 60);
             }
@@ -394,6 +397,14 @@ public class DeathListener implements Listener {
 
     public boolean isDueling(Player p){
         List<MetadataValue> metaDataValues = p.getMetadata("dueling");
+        for (MetadataValue metaDataValue : metaDataValues) {
+            return metaDataValue.asBoolean();
+        }
+        return false;
+    }
+
+    public boolean isRespawning(Player p){
+        List<MetadataValue> metaDataValues = p.getMetadata("respawning");
         for (MetadataValue metaDataValue : metaDataValues) {
             return metaDataValue.asBoolean();
         }
