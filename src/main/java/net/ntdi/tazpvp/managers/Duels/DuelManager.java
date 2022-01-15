@@ -1,6 +1,7 @@
 package net.ntdi.tazpvp.managers.Duels;
 
 import net.ntdi.tazpvp.TazPvP;
+import net.ntdi.tazpvp.gui.GUI;
 import net.ntdi.tazpvp.items.ItemManager;
 import net.ntdi.tazpvp.items.items.Butter;
 import net.ntdi.tazpvp.items.items.GHead;
@@ -36,8 +37,8 @@ public class DuelManager implements Listener {
                 new Location(Bukkit.getWorld("duel"), -24.5, 31, -199.5, -90, 0),
                 new Location(Bukkit.getWorld("duel"), 24.5, 31, -199.5, 90, 0)));
         availableMaps.add(new DuelMap("map2",
-                new Location(Bukkit.getWorld("duel"), -24.5, 31, -100.5, -90, 0),
-                new Location(Bukkit.getWorld("duel"), 24.5, 31, -100.5, 90, 0)));
+                new Location(Bukkit.getWorld("duel"), -24.5, 31, -99.5, -90, 0),
+                new Location(Bukkit.getWorld("duel"), 24.5, 31, -99.5, 90, 0)));
         availableMaps.add(new DuelMap("map3",
                 new Location(Bukkit.getWorld("duel"), -24.5, 31, 0.5, -90, 0),
                 new Location(Bukkit.getWorld("duel"), 24.5, 31, 0.5, 90, 0)));
@@ -203,7 +204,7 @@ public class DuelManager implements Listener {
         ItemStack gapple = new ItemStack(Material.GOLDEN_APPLE, 5);
         ItemStack arrow = new ItemStack(Material.ARROW, 32);
 
-        ItemStack ghead = ItemManager.createItem(GHEAD.item, 3, ChatColor.GOLD + "Golden Head");
+        ItemStack ghead = GUI.createItem(new ItemStack(GHEAD.item, 3, (byte) 3), ChatColor.GOLD + "Golden Head");
         SkullMeta skullMeta = (SkullMeta) ghead.getItemMeta();
         skullMeta.setOwner("jellyfox");
         ghead.setItemMeta(skullMeta);
