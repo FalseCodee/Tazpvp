@@ -60,14 +60,8 @@ public class WorldGuard implements Listener {
     //mob-spwaning
     @EventHandler
     public void mobSpawn(EntitySpawnEvent event) {
-        if (event.getEntity().getWorld().getName().equals("arena")) {
-            EntityType mat = event.getEntity().getType();
-            if (event.getEntity().getType() != EntityType.ARROW && mat != EntityType.SQUID && mat != EntityType.SNOWBALL && mat != EntityType.DROPPED_ITEM) {
-                event.setCancelled(true);
-            }
-        } else if (event.getEntity().getWorld().getName().equals("spawn")) {
-            event.setCancelled(true);
-        } else if (event.getEntity().getWorld().getName().equals("duel")) {
+        EntityType mat = event.getEntity().getType();
+        if (event.getEntity().getType() != EntityType.ARROW && mat != EntityType.SQUID && mat != EntityType.SNOWBALL && mat != EntityType.DROPPED_ITEM) {
             event.setCancelled(true);
         }
     }
