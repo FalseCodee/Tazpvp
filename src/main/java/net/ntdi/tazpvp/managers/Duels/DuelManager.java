@@ -111,9 +111,9 @@ public class DuelManager implements Listener {
         player1.teleport(map.player1Spawn);
         player2.teleport(map.player2Spawn);
 
-        player1.sendMessage(ChatColor.YELLOW + "Opponent: " + ChatColor.GREEN + player2.getName());
-        player2.sendMessage(ChatColor.YELLOW + "Opponent: " + ChatColor.GREEN + player1.getName());
-        sendBoth(ChatColor.YELLOW + "Map: " + ChatColor.GREEN + map, player1, player2);
+//        player1.sendMessage(ChatColor.YELLOW + "Opponent: " + ChatColor.GREEN + player2.getName());
+//        player2.sendMessage(ChatColor.YELLOW + "Opponent: " + ChatColor.GREEN + player1.getName());
+//        sendBoth(ChatColor.YELLOW + "Map: " + ChatColor.GREEN + map, player1, player2);
 
         player1.setMetadata("canDamage", new FixedMetadataValue(TazPvP.getInstance(), false));
         player2.setMetadata("canDamage", new FixedMetadataValue(TazPvP.getInstance(), false));

@@ -26,8 +26,6 @@ public class DuelAcceptCommand implements CommandExecutor {
                             if (!TazPvP.punishmentManager.isBanned(player)) {
                                 if (sender(player).equals(target.getName())) {
                                     player.setMetadata("sender", new FixedMetadataValue(TazPvP.getInstance(), ""));
-                                    player.sendMessage(ChatColor.GREEN + "You have accepted the duel request from " + target.getName());
-                                    target.sendMessage(ChatColor.GREEN + "The duel request has been accepted by " + player.getName());
                                     TazPvP.duelManager.startDuel(player, target);
                                 } else {
                                     player.sendMessage(ChatColor.RED + "You have not sent a duel request to " + target.getName());
