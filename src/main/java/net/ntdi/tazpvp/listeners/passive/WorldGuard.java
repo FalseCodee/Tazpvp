@@ -86,13 +86,13 @@ public class WorldGuard implements Listener {
         }
     }
 
-    //item-pickup
-    @EventHandler
-    public void itemPickup(PlayerPickupItemEvent event) {
-        if (event.getPlayer().getWorld().getName().equals("spawn") || event.getPlayer().getWorld().getName().equals("duel")) {
-            event.setCancelled(true);
-        }
-    }
+//    //item-pickup
+//    @EventHandler
+//    public void itemPickup(PlayerPickupItemEvent event) {
+//        if (event.getPlayer().getWorld().getName().equals("spawn") || event.getPlayer().getWorld().getName().equals("duel")) {
+//            event.setCancelled(true);
+//        }
+//    }
 
     //build
     @EventHandler
