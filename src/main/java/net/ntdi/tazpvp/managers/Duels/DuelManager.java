@@ -97,6 +97,16 @@ public class DuelManager implements Listener {
 
         equipKit(player1);
         equipKit(player2);
+        player1.setHealth(20);
+        player1.setFoodLevel(20);
+        player2.setHealth(20);
+        player2.setFoodLevel(20);
+        player1.setMaxHealth(20);
+        player2.setMaxHealth(20);
+        Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+        Bukkit.broadcastMessage(ChatColor.WHITE + " " + player1.getName() + ChatColor.BLUE + " is now dueling " + ChatColor.WHITE + player2.getName() + ChatColor.GRAY + " Type /spectate.");
+        Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+
 
         player1.teleport(map.player1Spawn);
         player2.teleport(map.player2Spawn);
@@ -118,6 +128,8 @@ public class DuelManager implements Listener {
                     player1.teleport(map.player1Spawn);
                     player2.teleport(map.player2Spawn);
                     sendBoth(ChatColor.GREEN + "Fight!", player1, player2);
+                    player1.playSound(player1.getLocation(), Sound.ORB_PICKUP, 1, 1 );
+                    player2.playSound(player1.getLocation(), Sound.ORB_PICKUP, 1, 1 );
 
                     cancel();
                 } else {
@@ -141,7 +153,10 @@ public class DuelManager implements Listener {
         winner.getInventory().clear();
         looser.getInventory().clear();
 
-        sendBoth(ChatColor.GREEN + winner.getName() + ChatColor.YELLOW + " won the duel!" + ChatColor.RED + looser.getName() + " has lost.", looser, winner);
+        Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+        Bukkit.broadcastMessage(ChatColor.WHITE + " " + winner.getName() + ChatColor.BLUE + " has won the duel against " + ChatColor.WHITE + looser.getName());
+        Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+        winner.playSound(winner.getLocation(), Sound.ORB_PICKUP, 1, 1 );
 
         new BukkitRunnable() {
             @Override
@@ -183,7 +198,6 @@ public class DuelManager implements Listener {
         ItemStack bow = new ItemStack(Material.BOW);
         bow.addEnchantment(Enchantment.ARROW_DAMAGE, 1);
         ItemStack gapple = new ItemStack(Material.GOLDEN_APPLE, 5);
-        ItemStack steak = new ItemStack(Material.COOKED_BEEF, 10);
         ItemStack arrow = new ItemStack(Material.ARROW, 32);
 
         PlayerInventory inv = player.getInventory();
