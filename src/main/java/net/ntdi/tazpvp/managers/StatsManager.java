@@ -228,8 +228,6 @@ public class StatsManager {
     
     public Team getTeam(Player player, Scoreboard sb) {
             switch (TazPvP.permissions.getPrimaryGroup(player).toLowerCase()) {
-                case"default":
-                    return sb.getTeam("o");
                 case"owner":
                     return sb.getTeam("a");
                 case"manager":
@@ -238,26 +236,28 @@ public class StatsManager {
                     return sb.getTeam("c");
                 case"admin":
                     return sb.getTeam("d");
-                case"mod":
-                    return sb.getTeam("f");
-                case"helper":
-                    return sb.getTeam("g");
-                case"builder":
-                    return sb.getTeam("h");
-                case"sr.mod":
+                case"developer":
                     return sb.getTeam("e");
-                case"vip":
-                    return sb.getTeam("k");
-                case"mvp":
-                    return sb.getTeam("l");
-                case"mvp+":
-                    return sb.getTeam("m");
-                case"dev":
-                    return sb.getTeam("i");
-                case"media":
+                case"sr.mod":
+                    return sb.getTeam("f");
+                case"mod":
+                    return sb.getTeam("g");
+                case"helper":
+                    return sb.getTeam("h");
+                case"builder":
                     return sb.getTeam("j");
-                case"mvp++":
+                case"media":
+                    return sb.getTeam("k");
+                case"vip":
+                    return sb.getTeam("l");
+                case"mvp":
+                    return sb.getTeam("m");
+                case"mvp+":
                     return sb.getTeam("n");
+                case"mvp++":
+                    return sb.getTeam("o");
+                case"default":
+                    return sb.getTeam("p");
                 case"banned":
                     return sb.getTeam("z");
             } 
