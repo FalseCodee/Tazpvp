@@ -472,7 +472,7 @@ public final class TazPvP extends JavaPlugin {
             scoreboard.getTeam("TeamName").unregister();
         }
         Team team = scoreboard.registerNewTeam("TeamName");
-        team.setPrefix(ChatColor.translateAlternateColorCodes('&',TazPvP.chat.getGroupPrefix((String) null, TazPvP.permissions.getPrimaryGroup(player2)) + player2.getDisplayName()));
+        //team.setPrefix(ChatColor.translateAlternateColorCodes('&',TazPvP.chat.getGroupPrefix((String) null, TazPvP.permissions.getPrimaryGroup(player2)) + player2.getDisplayName()));
         scoreboard.getTeam("TeamName").addPlayer(player2);
     }
 
