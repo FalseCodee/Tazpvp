@@ -43,7 +43,6 @@ public class StatsManager {
         sb.registerNewTeam("m");
         sb.registerNewTeam("n");
         sb.registerNewTeam("o");
-        sb.registerNewTeam("p");
         sb.registerNewTeam("z");
         sb.registerNewObjective("sb", "dummy");
         scoreboards.put(player.getUniqueId(), sb);
@@ -246,19 +245,19 @@ public class StatsManager {
                 case"helper":
                     return sb.getTeam("h");
                 case"builder":
-                    return sb.getTeam("j");
+                    return sb.getTeam("i");
                 case"media":
-                    return sb.getTeam("k");
+                    return sb.getTeam("j");
                 case"vip":
-                    return sb.getTeam("l");
+                    return sb.getTeam("k");
                 case"mvp":
-                    return sb.getTeam("m");
+                    return sb.getTeam("l");
                 case"mvp+":
-                    return sb.getTeam("n");
+                    return sb.getTeam("m");
                 case"mvp++":
-                    return sb.getTeam("o");
+                    return sb.getTeam("n");
                 case"default":
-                    return sb.getTeam("p");
+                    return sb.getTeam("o");
                 case"banned":
                     return sb.getTeam("z");
             } 
