@@ -43,6 +43,7 @@ public class StatsManager {
         sb.registerNewTeam("m");
         sb.registerNewTeam("n");
         sb.registerNewTeam("o");
+        sb.registerNewTeam("p");
         sb.registerNewTeam("z");
         sb.registerNewObjective("sb", "dummy");
         scoreboards.put(player.getUniqueId(), sb);

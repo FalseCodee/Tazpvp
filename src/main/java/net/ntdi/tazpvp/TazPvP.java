@@ -319,6 +319,7 @@ public final class TazPvP extends JavaPlugin {
         getCommand("tpall").setExecutor(new TpAllCommand());
         getCommand("duel").setExecutor(new DuelCommand());
         getCommand("duelaccept").setExecutor(new DuelAcceptCommand());
+        getCommand("kit").setExecutor(new KitCommand());
     }
 
     public void registerListeners() {
@@ -471,7 +472,7 @@ public final class TazPvP extends JavaPlugin {
             scoreboard.getTeam("TeamName").unregister();
         }
         Team team = scoreboard.registerNewTeam("TeamName");
-        team.setPrefix(ChatColor.translateAlternateColorCodes('&', player2.getDisplayName()));
+        team.setPrefix(ChatColor.translateAlternateColorCodes('&',TazPvP.chat.getGroupPrefix((String) null, TazPvP.permissions.getPrimaryGroup(player2)) + player2.getDisplayName()));
         scoreboard.getTeam("TeamName").addPlayer(player2);
     }
 

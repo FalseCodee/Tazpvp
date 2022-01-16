@@ -311,3 +311,6 @@ commands:
     usage: "/duel <user>"
   duelaccept:
     usage: "/duelaccept <user>"
+  kit:
+    usage: "/kit [player]"
+    description: "give yourself or another player the starter kit"
