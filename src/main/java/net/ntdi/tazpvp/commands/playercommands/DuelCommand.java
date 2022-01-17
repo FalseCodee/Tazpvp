@@ -20,20 +20,22 @@ import java.util.List;
 public class DuelCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(sender instanceof Player) {
+        if (sender instanceof Player) {
             Player player = (Player) sender;
-            if(args.length == 1) {
+            if (args.length == 1) {
                 Player target = Bukkit.getPlayer(args[0]);
-                if(target == null) {
+                if (target == null) {
                     sender.sendMessage(ChatColor.RED + "Player not found!");
-                } else if(target.getName().equals(player.getName())) {
+                } else if (target.getName().equals(player.getName())) {
                     sender.sendMessage(ChatColor.RED + "You can't duel yourself!");
                 } else if (TazPvP.punishmentManager.isBanned(player)) {
                     sender.sendMessage(ChatColor.RED + "You are banned!");
-                } if (target.isOnline() && !new DuelManager().isDueling(target) && !new DuelManager().isDueling(player)) {
+                } else if (isRespawning(player)) {
+                    player.sendMessage(ChatColor.RED + "You are respawning!");
+                } else if (target.isOnline() && !new DuelManager().isDueling(target) && !new DuelManager().isDueling(player)) {
                     // start duel
                     target.setMetadata("sender", new FixedMetadataValue(TazPvP.getInstance(), player.getName()));
-                    TextComponent Accept = new TextComponent(ChatColor.GRAY + " " + ChatColor.BOLD + "CLICK HERE " + ChatColor.GRAY+ "to accept.");
+                    TextComponent Accept = new TextComponent(ChatColor.GRAY + " " + ChatColor.BOLD + "CLICK HERE " + ChatColor.GRAY + "to accept.");
                     Accept.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/duelaccept " + player.getName()));
                     Accept.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponent[]{new TextComponent(ChatColor.GREEN + "Click to accept duel request")}));
 
@@ -46,9 +48,9 @@ public class DuelCommand implements CommandExecutor {
                     target.spigot().sendMessage(Accept);
                     target.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
                 }
-            } else {
-                sender.sendMessage(ChatColor.RED + "Usage: /duel <player>");
             }
+        } else {
+            sender.sendMessage(ChatColor.RED + "Usage: /duel <player>");
         }
         return true;
     }
@@ -59,5 +61,13 @@ public class DuelCommand implements CommandExecutor {
             return metaDataValue.asString();
         }
         return "";
+    }
+
+    public boolean isRespawning(Player p){
+        List<MetadataValue> metaDataValues = p.getMetadata("respawning");
+        for (MetadataValue metaDataValue : metaDataValues) {
+            return metaDataValue.asBoolean();
+        }
+        return false;
     }
 }

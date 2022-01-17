@@ -84,7 +84,16 @@ public class WorldGuard implements Listener {
     @EventHandler
     public void feed(FoodLevelChangeEvent event) {
         if (event.getEntity().getWorld().getName().equals("spawn") || event.getEntity().getWorld().getName().equals("duel")) {
-            event.setCancelled(true);
+            if(event.getEntity() instanceof Player) { //Safety check since we need to cast
+                Player player = (Player)event.getEntity();
+
+                int oldFoodLevel = player.getFoodLevel();
+                int newFoodLevel = event.getFoodLevel();
+
+                if(oldFoodLevel > newFoodLevel) {
+                    event.setCancelled(true);
+                }
+            }
         }
     }
 

@@ -77,22 +77,6 @@ public class GUIUpgradeMenu extends GUI {
                                 meta.spigot().setUnbreakable(true);
                                 item.setItemMeta(meta);
                                 player.getInventory().addItem(item);
-                            } else if (finalTarget.getType() == Material.STONE_SWORD) {
-                                player.getInventory().remove(finalTarget);
-                                TazPvP.statsManager.addMoney(player, -type.reforge);
-                                ItemStack item = new ItemStack(Material.IRON_SWORD);
-                                ItemMeta meta = item.getItemMeta();
-                                meta.spigot().setUnbreakable(true);
-                                item.setItemMeta(meta);
-                                player.getInventory().addItem(item);
-                            } else if (finalTarget.getType() == Material.IRON_SWORD) {
-                                player.getInventory().remove(finalTarget);
-                                TazPvP.statsManager.addMoney(player, -type.reforge);
-                                ItemStack item = new ItemStack(Material.DIAMOND_SWORD);
-                                ItemMeta meta = item.getItemMeta();
-                                meta.spigot().setUnbreakable(true);
-                                item.setItemMeta(meta);
-                                player.getInventory().addItem(item);
                             } else {
                                 player.sendMessage(ChatColor.RED + "You already have the max level!");
                                 return;
