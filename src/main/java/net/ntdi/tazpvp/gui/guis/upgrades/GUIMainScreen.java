@@ -20,19 +20,19 @@ public class GUIMainScreen extends GUI {
 
     @SuppressWarnings("deprecation")
     public void init() {
-        ItemStack sword = createItem(Material.WOOD_SWORD, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "SWORD", ChatColor.GRAY + "Click to see upgrades.");
+        ItemStack sword = createItem(Material.WOOD_SWORD, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "SWORD", ChatColor.GRAY + "Click to see upgrades.\n" + ChatColor.RED + "WARNING: Upgrades lost on death.");
         ItemMeta swordMeta = sword.getItemMeta();
         swordMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         sword.setItemMeta(swordMeta);
-        ItemStack pickaxe = createItem(Material.WOOD_PICKAXE, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "PICKAXE", ChatColor.GRAY + "Click to see upgrades.");
+        ItemStack pickaxe = createItem(Material.WOOD_PICKAXE, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "PICKAXE", ChatColor.GRAY + "Click to see upgrades.\n" + ChatColor.RED + "WARNING: Upgrades lost on death.");
         ItemMeta pickaxeMeta = pickaxe.getItemMeta();
         pickaxeMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         pickaxe.setItemMeta(pickaxeMeta);
-        ItemStack rod = createItem(Material.FISHING_ROD, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "FISHING ROD", ChatColor.GRAY + "Click to see upgrades.");
-        ItemStack bow = createItem(Material.BOW, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "BOW", ChatColor.GRAY + "Click to see upgrades.");
-        ItemStack armor = createItem(Material.LEATHER_CHESTPLATE, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "ARMOR", ChatColor.GRAY + "Click to see upgrades.");
+        ItemStack rod = createItem(Material.FISHING_ROD, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "FISHING ROD", ChatColor.GRAY + "Click to see upgrades.\n" + ChatColor.RED + "WARNING: Upgrades lost on death.");
+        ItemStack bow = createItem(Material.BOW, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "BOW", ChatColor.GRAY + "Click to see upgrades.\n" + ChatColor.RED + "WARNING: Upgrades lost on death.");
+        ItemStack armor = createItem(Material.LEATHER_CHESTPLATE, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "ARMOR", ChatColor.GRAY + "Click to see upgrades.\n" + ChatColor.RED + "WARNING: Upgrades lost on death.");
         ItemStack eye = createItem(Material.EYE_OF_ENDER, 1, ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "REBIRTH", ChatColor.DARK_PURPLE + "≻ +1 Enchant Level\n" + ChatColor.DARK_PURPLE + "≻ +3 Exp Per Kill\n" + ChatColor.DARK_PURPLE + "≻ +1 Max health\n" + ChatColor.DARK_PURPLE + "≻ Infinite Arrows\n" + ChatColor.DARK_PURPLE + "≻ Strength on kill\n" + ChatColor.DARK_PURPLE + "≻ Speed on kill\n" + ChatColor.RED + "Level " + ChatColor.WHITE + "100");
-        ItemStack firecharge = createItem(Material.FIREBALL, 1, ChatColor.GOLD + "" + ChatColor.BOLD + "PERKS", ChatColor.GRAY + "Click to see perks");
+        ItemStack firecharge = createItem(Material.FIREBALL, 1, ChatColor.GOLD + "" + ChatColor.BOLD + "PERKS", ChatColor.GRAY + "Click to see perks.");
         for(int i = 0; i < inventory.getSize(); i++) {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), "");
         }
