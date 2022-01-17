@@ -100,8 +100,31 @@ public class BlockBreakListener implements Listener {
                         return;
                     }
                 } else if (p.getItemInHand().hasItemMeta() && p.getItemInHand().getItemMeta().hasEnchant(Enchantment.LOOT_BONUS_BLOCKS)) {
-                    p.getInventory().addItem(new ItemStack(mat, 2));
-                    // big pp
+                    if (mat == Material.COAL_ORE) {
+                        p.getInventory().addItem(new ItemStack(Material.COAL_ORE, 1));
+                        respawnOre(Material.COAL_ORE, 120L, b);
+                        return;
+                    } else if (mat == Material.IRON_ORE) {
+                        p.getInventory().addItem(new ItemStack(Material.IRON_INGOT, 1));
+                        respawnOre(Material.IRON_ORE, 180L, b);
+                        return;
+                    } else if (mat == Material.LAPIS_ORE) {
+                        p.getInventory().addItem(new ItemStack(Material.INK_SACK, 1, (short) 4));
+                        respawnOre(Material.LAPIS_ORE, 260L, b);
+                        return;
+                    } else if (mat == Material.GOLD_ORE) {
+                        p.getInventory().addItem(new ItemStack(Material.GOLD_INGOT, 1));
+                        respawnOre(Material.GOLD_ORE, 350L, b);
+                        return;
+                    } else if (mat == Material.DIAMOND_ORE) {
+                        p.getInventory().addItem(new ItemStack(Material.DIAMOND, 1));
+                        respawnOre(Material.DIAMOND_ORE, 400L, b);
+                        return;
+                    } else if (mat == Material.EMERALD_ORE) {
+                        p.getInventory().addItem(new ItemStack(Material.EMERALD, 1));
+                        respawnOre(Material.EMERALD_ORE, 450L, b);
+                        return;
+                    }
                 } else {
                     p.getInventory().addItem(new ItemStack(mat));
                     if (mat == Material.COAL_ORE) {
