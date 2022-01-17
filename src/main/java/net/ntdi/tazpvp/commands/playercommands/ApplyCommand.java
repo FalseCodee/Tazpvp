@@ -28,7 +28,7 @@ public class ApplyCommand implements CommandExecutor {
         if(player != null){
             player.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             player.sendMessage(ChatColor.AQUA + " Thank you for showing interest in our staff team!");
-            player.sendMessage(ChatColor.DARK_AQUA + " To apply, head over to the " + ChatColor.WHITE + "#commands " + ChatColor.DARK_AQUA + "channel in the discord server.");
+            player.sendMessage(ChatColor.DARK_AQUA + " To apply, head over to the " + ChatColor.WHITE + "#commands " + ChatColor.DARK_AQUA + "channel in the discord\n" + " and type " + ChatColor.WHITE + "/apply (Helper / Developer)" );
             player.spigot().sendMessage(msg);
             player.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
