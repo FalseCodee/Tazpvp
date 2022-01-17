@@ -23,7 +23,7 @@ public class CommandCancelerListener implements Listener {
                 event.setCancelled(true);
                 //player.sendMessage(ChatColor.WHITE + "UR MOMMA");
             }
-            else if (event.getMessage().toLowerCase().startsWith("/pl")) {
+            else if (event.getMessage().toLowerCase().startsWith("/pl") && !event.getMessage().toLowerCase().startsWith("playtime")) {
                 event.setCancelled(true);
                 player.sendMessage(ChatColor.WHITE + "Plugins (1): " + ChatColor.GREEN + "Tazpvp");
             }
