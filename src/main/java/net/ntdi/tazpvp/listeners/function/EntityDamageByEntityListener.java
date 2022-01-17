@@ -59,23 +59,26 @@ public class EntityDamageByEntityListener implements Listener {
             victim.setMetadata("combat", new FixedMetadataValue(TazPvP.getInstance(), p.getName()));
 
             if(((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.WOOD_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.STONE_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.IRON_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.GOLD_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.DIAMOND_SWORD)){
-                TazPvP.statsManager.addExp((OfflinePlayer) event.getDamager(), 1);
-                if (TazPvP.statsManager.getExp(p) >= TazPvP.statsManager.getExpLeft(p)){
-                    TazPvP.statsManager.setLevel(p, TazPvP.statsManager.getLevel(p)+1);
-                    p.sendMessage(ChatColor.DARK_AQUA + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-                    p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "  LEVEL UP " + ChatColor.DARK_AQUA + "Combat Lvl. " + ChatColor.AQUA + TazPvP.statsManager.getLevel(p));
-                    p.sendMessage("");
-                    p.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "  REWARDS");
-                    p.sendMessage(ChatColor.DARK_GRAY + "  +" + ChatColor.BLUE + "1 Point");
-                    p.sendMessage(ChatColor.DARK_GRAY + "  +" + ChatColor.GOLD + "60 Coins");
-                    p.sendMessage(ChatColor.DARK_AQUA + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-                    TazPvP.statsManager.addPoints(p, 1);
-                    TazPvP.statsManager.addMoney(p, 60);
-                    TazPvP.statsManager.setExpLeft(p, TazPvP.statsManager.getExpLeft(p)*1.05);
-                    TazPvP.statsManager.setExp(p, 0);
-                    p.setLevel(TazPvP.statsManager.getLevel(p));
-                    p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1 );
+                if (!event.getEntity().getWorld().getName().equals("spawn") || !event.getEntity().getWorld().getName().equals("duel")) {
+                    TazPvP.statsManager.addExp((OfflinePlayer) event.getDamager(), 1);
+                    if (TazPvP.statsManager.getExp(p) >= TazPvP.statsManager.getExpLeft(p)){
+                        TazPvP.statsManager.setLevel(p, TazPvP.statsManager.getLevel(p)+1);
+                        p.sendMessage(ChatColor.DARK_AQUA + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+                        p.sendMessage(ChatColor.AQUA + "" + ChatColor.BOLD + "  LEVEL UP " + ChatColor.DARK_AQUA + "Combat Lvl. " + ChatColor.AQUA + TazPvP.statsManager.getLevel(p));
+                        p.sendMessage("");
+                        p.sendMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "  REWARDS");
+                        p.sendMessage(ChatColor.DARK_GRAY + "  +" + ChatColor.BLUE + "1 Point");
+                        p.sendMessage(ChatColor.DARK_GRAY + "  +" + ChatColor.GOLD + "60 Coins");
+                        p.sendMessage(ChatColor.DARK_AQUA + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+                        TazPvP.statsManager.addPoints(p, 1);
+                        TazPvP.statsManager.addMoney(p, 60);
+                        TazPvP.statsManager.setExpLeft(p, TazPvP.statsManager.getExpLeft(p)*1.05);
+                        TazPvP.statsManager.setExp(p, 0);
+                        p.setLevel(TazPvP.statsManager.getLevel(p));
+                        p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1 );
+                    }
                 }
+
 
                 new BukkitRunnable() {
 
