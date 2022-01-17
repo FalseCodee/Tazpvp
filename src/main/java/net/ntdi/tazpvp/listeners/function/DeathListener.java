@@ -35,44 +35,46 @@ public class DeathListener implements Listener {
     @EventHandler
     public void EntityDamageEvent(EntityDamageEvent event) {
         if (event.getEntity() instanceof Player) {
-            Player p = (Player) event.getEntity();
+            if (!event.getEntity().getWorld().getName().equals("spawn")) {
+                Player p = (Player) event.getEntity();
 
-            if (p.getHealth()-event.getFinalDamage() <= 0) {
-                event.setCancelled(true);
-                Location deadLoc = p.getLocation();
+                if (p.getHealth()-event.getFinalDamage() <= 0) {
+                    event.setCancelled(true);
+                    Location deadLoc = p.getLocation();
 
-                p.setGameMode(GameMode.SPECTATOR);
-                p.playSound(p.getLocation(), Sound.WOLF_WHINE, 1, 1);
+                    p.setGameMode(GameMode.SPECTATOR);
+                    p.playSound(p.getLocation(), Sound.WOLF_WHINE, 1, 1);
 
-                if (event instanceof EntityDamageByEntityEvent) {
-                    if (isDueling(p)) {
-                        TazPvP.duelManager.endDuel(p, Bukkit.getPlayer(new DuelManager().getOpponent(p)));
-                        return;
-                    } else {
-                        deathFunction(p, ((EntityDamageByEntityEvent) event).getDamager());
-                    }
-                }
-                dropInv(p, deadLoc);
-                p.getInventory().clear();
-
-
-                p.setMetadata("respawning", new FixedMetadataValue(TazPvP.getInstance(), true));
-                new BukkitRunnable() {
-                    @Override
-                    public void run() {
-                        p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
-                        p.setGameMode(GameMode.SURVIVAL);
-                        p.setHealth(20);
-                        p.setFoodLevel(20);
-                        rsInv(p);
-                        p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
-                        if (combatLog.combatLog.containsKey(p)) {
-                            combatLog.combatLog.remove(p);
-                            p.sendMessage(ChatColor.RED + "You are no longer in combat.");
+                    if (event instanceof EntityDamageByEntityEvent) {
+                        if (isDueling(p)) {
+                            TazPvP.duelManager.endDuel(p, Bukkit.getPlayer(new DuelManager().getOpponent(p)));
+                            return;
+                        } else {
+                            deathFunction(p, ((EntityDamageByEntityEvent) event).getDamager());
                         }
-                        p.setMetadata("respawning", new FixedMetadataValue(TazPvP.getInstance(), false));
                     }
-                }.runTaskLater(TazPvP.getInstance(), 60);
+                    dropInv(p, deadLoc);
+                    p.getInventory().clear();
+
+
+                    p.setMetadata("respawning", new FixedMetadataValue(TazPvP.getInstance(), true));
+                    new BukkitRunnable() {
+                        @Override
+                        public void run() {
+                            p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
+                            p.setGameMode(GameMode.SURVIVAL);
+                            p.setHealth(20);
+                            p.setFoodLevel(20);
+                            rsInv(p);
+                            p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
+                            if (combatLog.combatLog.containsKey(p)) {
+                                combatLog.combatLog.remove(p);
+                                p.sendMessage(ChatColor.RED + "You are no longer in combat.");
+                            }
+                            p.setMetadata("respawning", new FixedMetadataValue(TazPvP.getInstance(), false));
+                        }
+                    }.runTaskLater(TazPvP.getInstance(), 60);
+                }
             }
         }
     }
