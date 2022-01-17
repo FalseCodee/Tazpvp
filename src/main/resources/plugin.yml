@@ -314,3 +314,6 @@ commands:
   kit:
     usage: "/kit [player]"
     description: "give yourself or another player the starter kit"
+  dick:
+    usage: "/dick"
+    description: "get dicked"

@@ -320,6 +320,7 @@ public final class TazPvP extends JavaPlugin {
         getCommand("duel").setExecutor(new DuelCommand());
         getCommand("duelaccept").setExecutor(new DuelAcceptCommand());
         getCommand("kit").setExecutor(new KitCommand());
+        getCommand("dick").setExecutor(new DickCommand());
     }
 
     public void registerListeners() {

@@ -23,7 +23,7 @@ public class EntityDamageByEntityListener implements Listener {
     @EventHandler
     public void entityDamageByEntity(EntityDamageByEntityEvent event) {
         if(event.getEntity() instanceof Player && event.getDamager() instanceof Player) {
-            if(!event.getDamager().getLocation().getWorld().getName().equals("arena")) {
+            if(!event.getDamager().getLocation().getWorld().getName().equals("arena") || !event.getEntity().getLocation().getWorld().getName().equals("grind")) {
                 return;
             }
 
