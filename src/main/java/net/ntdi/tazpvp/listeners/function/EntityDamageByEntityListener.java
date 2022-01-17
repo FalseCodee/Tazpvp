@@ -57,9 +57,8 @@ public class EntityDamageByEntityListener implements Listener {
 
 
             victim.setMetadata("combat", new FixedMetadataValue(TazPvP.getInstance(), p.getName()));
-
-            if(((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.WOOD_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.STONE_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.IRON_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.GOLD_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.DIAMOND_SWORD)){
-                if (!event.getEntity().getWorld().getName().equals("spawn") || !event.getEntity().getWorld().getName().equals("duel")) {
+            if (!p.getWorld().getName().equals("spawn") && !p.getWorld().getName().equals("duel")) {
+                if(((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.WOOD_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.STONE_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.IRON_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.GOLD_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.DIAMOND_SWORD)){
                     TazPvP.statsManager.addExp((OfflinePlayer) event.getDamager(), 1);
                     if (TazPvP.statsManager.getExp(p) >= TazPvP.statsManager.getExpLeft(p)){
                         TazPvP.statsManager.setLevel(p, TazPvP.statsManager.getLevel(p)+1);
@@ -77,17 +76,18 @@ public class EntityDamageByEntityListener implements Listener {
                         p.setLevel(TazPvP.statsManager.getLevel(p));
                         p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1 );
                     }
+
+
+                    new BukkitRunnable() {
+
+                        @Override
+                        public void run() {
+                            TazPvP.getInstance().initScoreboard(((Player) event.getDamager()).getPlayer());
+                        }
+                    }.runTaskLater(TazPvP.getInstance(), 20L);
                 }
-
-
-                new BukkitRunnable() {
-
-                    @Override
-                    public void run() {
-                        TazPvP.getInstance().initScoreboard(((Player) event.getDamager()).getPlayer());
-                    }
-                }.runTaskLater(TazPvP.getInstance(), 20L);
-            } //else {
+            }
+ //else {
 //                if (TazPvP.perkManager.getRobbery(p)){
 //                    if(rand.nextInt(100) == 52){
 //                        if (!TazPvP.robbery.containsKey((Player) event.getEntity())){
