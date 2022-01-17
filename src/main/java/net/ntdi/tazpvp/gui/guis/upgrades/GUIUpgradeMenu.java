@@ -60,7 +60,7 @@ public class GUIUpgradeMenu extends GUI {
                         });
                 slot += 2;
             }
-            if(type == UpgradeTypes.SWORD || type == UpgradeTypes.PICKAXE || type == UpgradeTypes.ARMOR) {
+            if(type == UpgradeTypes.SWORD || type == UpgradeTypes.PICKAXE/* || type == UpgradeTypes.ARMOR*/) {
             setButtons(slot, createItem(anvil, ChatColor.GREEN + "Reforge " + type.name,
                             ChatColor.BLUE + "Upgrade " +type.name + " material"+"\n"
                                     + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "$" + type.reforge + "\n"
@@ -81,7 +81,7 @@ public class GUIUpgradeMenu extends GUI {
                                 player.sendMessage(ChatColor.RED + "You already have the max level!");
                                 return;
                             }
-                        } else if (type == UpgradeTypes.PICKAXE) {
+                        } else {
                             if(finalTarget.getType() == Material.WOOD_PICKAXE) {
                                 player.getInventory().remove(finalTarget);
                                 TazPvP.statsManager.addMoney(player, -type.reforge);
@@ -102,48 +102,48 @@ public class GUIUpgradeMenu extends GUI {
                                 player.sendMessage(ChatColor.RED + "You already have the max level!");
                                 return;
                             }
-                        } else {
-                            if(finalTarget.getType() == Material.LEATHER_BOOTS) {
-                                TazPvP.statsManager.addMoney(player, -type.reforge);
-                                ItemStack leggings = new ItemStack(Material.CHAINMAIL_LEGGINGS);
-                                ItemMeta meta = leggings.getItemMeta();
-                                meta.spigot().setUnbreakable(true);
-                                leggings.setItemMeta(meta);
-                                ItemStack boots = new ItemStack(Material.CHAINMAIL_BOOTS);
-                                ItemMeta meta1 = boots.getItemMeta();
-                                meta1.spigot().setUnbreakable(true);
-                                boots.setItemMeta(meta1);
-                                player.getInventory().setLeggings(leggings);
-                                player.getInventory().setBoots(boots);
-                            } else if (finalTarget.getType() == Material.CHAINMAIL_BOOTS) {
-                                TazPvP.statsManager.addMoney(player, -type.reforge);
-                                ItemStack leggings = new ItemStack(Material.IRON_LEGGINGS);
-                                ItemMeta meta = leggings.getItemMeta();
-                                meta.spigot().setUnbreakable(true);
-                                leggings.setItemMeta(meta);
-                                ItemStack boots = new ItemStack(Material.IRON_BOOTS);
-                                ItemMeta meta1 = boots.getItemMeta();
-                                meta1.spigot().setUnbreakable(true);
-                                boots.setItemMeta(meta1);
-                                player.getInventory().setLeggings(leggings);
-                                player.getInventory().setBoots(boots);
-                            } else if (finalTarget.getType() == Material.IRON_BOOTS) {
-                                TazPvP.statsManager.addMoney(player, -type.reforge);
-                                ItemStack leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
-                                ItemMeta meta = leggings.getItemMeta();
-                                meta.spigot().setUnbreakable(true);
-                                leggings.setItemMeta(meta);
-                                ItemStack boots = new ItemStack(Material.DIAMOND_BOOTS);
-                                ItemMeta meta1 = boots.getItemMeta();
-                                meta1.spigot().setUnbreakable(true);
-                                boots.setItemMeta(meta1);
-                                player.getInventory().setLeggings(leggings);
-                                player.getInventory().setBoots(boots);
-                            } else {
-                                player.sendMessage(ChatColor.RED + "You already have the max level!");
-                                return;
-                            }
-                        }
+                        } //else {
+//                            if(finalTarget.getType() == Material.LEATHER_BOOTS) {
+//                                TazPvP.statsManager.addMoney(player, -type.reforge);
+//                                ItemStack leggings = new ItemStack(Material.CHAINMAIL_LEGGINGS);
+//                                ItemMeta meta = leggings.getItemMeta();
+//                                meta.spigot().setUnbreakable(true);
+//                                leggings.setItemMeta(meta);
+//                                ItemStack boots = new ItemStack(Material.CHAINMAIL_BOOTS);
+//                                ItemMeta meta1 = boots.getItemMeta();
+//                                meta1.spigot().setUnbreakable(true);
+//                                boots.setItemMeta(meta1);
+//                                player.getInventory().setLeggings(leggings);
+//                                player.getInventory().setBoots(boots);
+//                            } else if (finalTarget.getType() == Material.CHAINMAIL_BOOTS) {
+//                                TazPvP.statsManager.addMoney(player, -type.reforge);
+//                                ItemStack leggings = new ItemStack(Material.IRON_LEGGINGS);
+//                                ItemMeta meta = leggings.getItemMeta();
+//                                meta.spigot().setUnbreakable(true);
+//                                leggings.setItemMeta(meta);
+//                                ItemStack boots = new ItemStack(Material.IRON_BOOTS);
+//                                ItemMeta meta1 = boots.getItemMeta();
+//                                meta1.spigot().setUnbreakable(true);
+//                                boots.setItemMeta(meta1);
+//                                player.getInventory().setLeggings(leggings);
+//                                player.getInventory().setBoots(boots);
+//                            } else if (finalTarget.getType() == Material.IRON_BOOTS) {
+//                                TazPvP.statsManager.addMoney(player, -type.reforge);
+//                                ItemStack leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
+//                                ItemMeta meta = leggings.getItemMeta();
+//                                meta.spigot().setUnbreakable(true);
+//                                leggings.setItemMeta(meta);
+//                                ItemStack boots = new ItemStack(Material.DIAMOND_BOOTS);
+//                                ItemMeta meta1 = boots.getItemMeta();
+//                                meta1.spigot().setUnbreakable(true);
+//                                boots.setItemMeta(meta1);
+//                                player.getInventory().setLeggings(leggings);
+//                                player.getInventory().setBoots(boots);
+//                            } else {
+//                                player.sendMessage(ChatColor.RED + "You already have the max level!");
+//                                return;
+//                            }
+//                        }
                         player.sendMessage(ChatColor.BLUE + "Reforged your " + type.name);
                     } else {
                         player.sendMessage(ChatColor.RED + "Insufficient funds.");
