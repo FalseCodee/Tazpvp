@@ -1,9 +1,11 @@
 package net.ntdi.tazpvp.listeners.passive;
 
+import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.*;
@@ -126,7 +128,13 @@ public class WorldGuard implements Listener {
             if (event.getPlayer().getGameMode() == GameMode.SURVIVAL) {
                 if (event.getAction() == Action.RIGHT_CLICK_BLOCK) {
                     Material mat = event.getClickedBlock().getType();
-                    if (mat == Material.TRAP_DOOR || mat == Material.LEVER || mat == Material.SPRUCE_FENCE_GATE) {
+                    Player p = event.getPlayer();
+                    if (mat == Material.ENDER_CHEST) {
+                        if (!p.hasPermission("tazpvp.enderchest")) {
+                            p.sendMessage(ChatColor.RED + "A rank is required to use this.");
+                            event.setCancelled(true);
+                        }
+                    } else if (mat == Material.TRAP_DOOR || mat == Material.LEVER || mat == Material.SPRUCE_FENCE_GATE) {
                         event.setCancelled(true);
                     }
                 }
