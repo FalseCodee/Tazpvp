@@ -11,6 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.player.PlayerFishEvent;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -124,6 +125,31 @@ public class EntityDamageByEntityListener implements Listener {
                             }
                             combatLog.combatLog.put(victim, 10);
                             combatLog.combatLog.put(shooter, 10);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @EventHandler
+    public void fishEvent(PlayerFishEvent event){
+        Player p = event.getPlayer();
+        if (event.getState() == PlayerFishEvent.State.CAUGHT_FISH){
+            if (event.getCaught() instanceof Player){
+                Player victim = (Player) event.getCaught();
+                if (p.getWorld().getName().equalsIgnoreCase("arena")){
+                    if (TazPvP.AllowBlocks) {
+                        if (p != victim) {
+                            if (!combatLog.combatLog.containsKey(p)) {
+                                p.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + victim.getName());
+                            }
+                            if (!combatLog.combatLog.containsKey(victim)) {
+                                victim.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + p.getName());
+                            }
+                            combatLog.combatLog.put(victim, 10);
+                            combatLog.combatLog.put(p, 10);
+
                         }
                     }
                 }

@@ -195,7 +195,7 @@ public class WelcomeListener implements Listener {
 
     @EventHandler
     public void onPlayerWorldChange(PlayerChangedWorldEvent event){
-        if (event.getPlayer().getWorld().getName().equals("arena")) {
+        if (event.getPlayer().getWorld().getName().equals("arena") && !event.getFrom().getName().equals("grind")){
             World world = event.getPlayer().getWorld();
             Player p = event.getPlayer();
 
@@ -243,6 +243,11 @@ public class WelcomeListener implements Listener {
                     p.setMetadata("fallDamage", new FixedMetadataValue(TazPvP.getInstance(), true));
                 }
             }.runTaskLater(TazPvP.getInstance(), 20 * 20);
+        } else if (event.getFrom().getName().equals("grind")) {
+            World world = event.getPlayer().getWorld();
+            Player p = event.getPlayer();
+
+            p.teleport(new Location(Bukkit.getWorld("arena"), -36.5, 30, 3.5));
         }
     }
 
