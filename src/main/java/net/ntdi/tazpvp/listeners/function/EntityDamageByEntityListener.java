@@ -41,7 +41,7 @@ public class EntityDamageByEntityListener implements Listener {
             Player p = (Player) event.getDamager();
             Player victim = (Player) event.getEntity();
 
-            if (TazPvP.AllowBlocks) {
+            if (TazPvP.AllowBlocks && !p.getWorld().getName().equals("spawn") && !p.getWorld().getName().equals("duel")) {
                 if (p != victim) {
                     if (!combatLog.combatLog.containsKey(p)) {
                         p.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + victim.getName());
