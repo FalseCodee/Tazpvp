@@ -1,6 +1,7 @@
 package net.ntdi.tazpvp.managers;
 
 import net.ntdi.tazpvp.TazPvP;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -27,10 +28,15 @@ public class ArmorManager {
         player.getInventory().setChestplate(null);
         player.getInventory().setLeggings(null);
         player.getInventory().setBoots(null);
+        player.getInventory().setHelmet(new ItemStack(Material.AIR));
+        player.getInventory().setChestplate(new ItemStack(Material.AIR));
+        player.getInventory().setLeggings(new ItemStack(Material.AIR));
+        player.getInventory().setBoots(new ItemStack(Material.AIR));
     }
 
     public static void setPlayerContents(final Player player, final boolean remove) {
         if(getItems().containsKey(player.getUniqueId())) {
+            remArmor(player);
             player.getInventory().setContents(getItems().get(player.getUniqueId()));
             player.getInventory().setArmorContents(getArmor().get(player.getUniqueId()));
             //Bukkit.getScheduler().runTaskLater(TazPvP.getInstance(), player::updateInventory, 1L);
