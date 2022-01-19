@@ -43,16 +43,17 @@ public class EntityDamageByEntityListener implements Listener {
             Player victim = (Player) event.getEntity();
 
             if (TazPvP.AllowBlocks && !p.getWorld().getName().equals("spawn")) {
-                if (p != victim) {
-                    if (!combatLog.combatLog.containsKey(p)) {
-                        p.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + victim.getName());
+                if (!victim.getName().equalsIgnoreCase(ChatColor.YELLOW + "miner")) {
+                    if (p != victim) {
+                        if (!combatLog.combatLog.containsKey(victim)) {
+                            victim.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + p.getName());
+                        }
+                        if (!combatLog.combatLog.containsKey(p)) {
+                            p.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + victim.getName());
+                        }
+                        combatLog.combatLog.put(victim, 10);
+                        combatLog.combatLog.put(p, 10);
                     }
-                    if (!combatLog.combatLog.containsKey(victim)) {
-                        victim.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + p.getName());
-                    }
-                    combatLog.combatLog.put(victim, 10);
-                    combatLog.combatLog.put(p, 10);
-
                 }
             }
 
@@ -114,17 +115,19 @@ public class EntityDamageByEntityListener implements Listener {
             Arrow a = (Arrow) event.getDamager();
             if (a.getShooter() instanceof Player){
                 Player shooter = (Player) a.getShooter();
-                if (victim.getWorld().getName().equalsIgnoreCase("arena")){
+                if (victim.getWorld().getName().equalsIgnoreCase("arena") || victim.getWorld().getName().equalsIgnoreCase("grind")){
                     if (TazPvP.AllowBlocks) {
-                        if (shooter != victim) {
-                            if (!combatLog.combatLog.containsKey(victim)) {
-                                victim.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + shooter.getName());
+                        if (!victim.getName().equalsIgnoreCase(ChatColor.YELLOW + "miner")) {
+                            if (shooter != victim) {
+                                if (!combatLog.combatLog.containsKey(victim)) {
+                                    victim.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + shooter.getName());
+                                }
+                                if (!combatLog.combatLog.containsKey(shooter)) {
+                                    shooter.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + victim.getName());
+                                }
+                                combatLog.combatLog.put(victim, 10);
+                                combatLog.combatLog.put(shooter, 10);
                             }
-                            if (!combatLog.combatLog.containsKey(shooter)) {
-                                shooter.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + victim.getName());
-                            }
-                            combatLog.combatLog.put(victim, 10);
-                            combatLog.combatLog.put(shooter, 10);
                         }
                     }
                 }
