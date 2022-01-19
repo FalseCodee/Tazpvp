@@ -26,7 +26,7 @@ public class GUIUpgradeMenu extends GUI {
         ItemStack target = updateTarget();
 
         if(target != null) {
-            ItemStack button = new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLUE.getData());
+            ItemStack button = new ItemStack(Material.ENCHANTED_BOOK, 1, DyeColor.BLUE.getData());
             //button.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
             button.getItemMeta().addItemFlags(ItemFlag.HIDE_ENCHANTS);
             ItemStack anvil = new ItemStack(Material.ANVIL, 1);
