@@ -114,7 +114,7 @@ public class EntityDamageByEntityListener implements Listener {
             Arrow a = (Arrow) event.getDamager();
             if (a.getShooter() instanceof Player){
                 Player shooter = (Player) a.getShooter();
-                if (victim.getWorld().getName().equalsIgnoreCase("arena") || victim.getWorld().getName().equalsIgnoreCase("grind")){
+                if (victim.getWorld().getName().equalsIgnoreCase("arena")){
                     if (TazPvP.AllowBlocks) {
                         if (shooter != victim) {
                             if (!combatLog.combatLog.containsKey(victim)) {
