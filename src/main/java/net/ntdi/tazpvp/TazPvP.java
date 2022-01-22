@@ -320,6 +320,7 @@ public final class TazPvP extends JavaPlugin {
         getCommand("duel").setExecutor(new DuelCommand());
         getCommand("duelaccept").setExecutor(new DuelAcceptCommand());
         getCommand("kit").setExecutor(new KitCommand());
+        getCommand("reloadconfig").setExecutor(new ReloadConfigCommand());
 
     }
 
@@ -364,6 +365,8 @@ public final class TazPvP extends JavaPlugin {
         configFile.options().copyDefaults(true);
         this.saveConfig();
     }
+
+
 
     public void initScoreboard(Player player) {
         if(!statsManager.scoreboards.containsKey(player.getUniqueId())) {
