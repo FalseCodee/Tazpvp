@@ -11,3 +11,15 @@ webhooks:
   reports: https://discord.com/api/webhooks/901630567391588432/yesf6CvK_uNKW3FCoCALkeIf_eDutkJibhgl1p6Kev7qwKfLJXOWd4bwyIDuIJ5WPQmC
   bans: https://discord.com/api/webhooks/901630631249838081/54cm-IvK6usqizC6zG28WV6ZRUPEKauRQ-fLQxUAfOiEi_8AEYBJkkRYJexrc_rwNGiK
   logs: https://discord.com/api/webhooks/901630685960339477/4O-IyMpMBfRMvQg_9mKhaINP3vBAZNhj3aRPG2269OxkXe7WbYMYdLMkdlmTChu7D8HA
+
+branding:
+  wMSG:
+    line1: "&8  ▍  &c&lTAZPVP"
+    line2: "&8  ▍  &7Type /discord"
+    line3: "&8  ▍  &7Server IP: tazpvp.net"
+  sb:
+    name: "&3&lTAZPVP"
+    footer: "&7﹂ tazpvp.net"
+  tablist:
+    header: "&3&lTAZPVP"
+    footer: "&8IP:  &etazpvp.net"

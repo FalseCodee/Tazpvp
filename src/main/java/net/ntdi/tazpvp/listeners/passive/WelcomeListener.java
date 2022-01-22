@@ -31,9 +31,9 @@ public class WelcomeListener implements Listener {
 
         Player p = event.getPlayer();
         p.sendMessage(ChatColor.AQUA + "");
-        p.sendMessage(ChatColor.DARK_GRAY + "  ▍  " + ChatColor.RED + ChatColor.BOLD + "TAZPVP " + ChatColor.WHITE + "Legacy");
-        p.sendMessage(ChatColor.DARK_GRAY + "  ▍  " + ChatColor.GRAY + "Type /discord");
-        p.sendMessage(ChatColor.DARK_GRAY + "  ▍  " + ChatColor.GRAY + "Server IP: tazpvp.net");
+        p.sendMessage(ChatColor.translateAlternateColorCodes('&', TazPvP.configFile.getString("branding.wMSG.line1")));
+        p.sendMessage(ChatColor.translateAlternateColorCodes('&', TazPvP.configFile.getString("branding.wMSG.line2")));
+        p.sendMessage(ChatColor.translateAlternateColorCodes('&', TazPvP.configFile.getString("branding.wMSG.line3")));
         p.sendMessage(ChatColor.AQUA + "");
 
         if (!p.hasPlayedBefore()){
@@ -253,9 +253,10 @@ public class WelcomeListener implements Listener {
 
     public void updateTab(){
         for(Player player : Bukkit.getOnlinePlayers()) {
-            TazPvP.sendTablistHeaderAndFooter(player, ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "TAZPVP\n" + ChatColor.DARK_GRAY +"                                        ",
+            TazPvP.sendTablistHeaderAndFooter(player,
+                    ChatColor.translateAlternateColorCodes('&', TazPvP.configFile.getString("branding.tablist.header")) + "\n" + ChatColor.DARK_GRAY +"                                        ",
                     ChatColor.DARK_GRAY +"                                        \n"
-                            +ChatColor.GRAY + "IP: " + ChatColor.YELLOW + "tazpvp.net\n"
+                            +ChatColor.translateAlternateColorCodes('&', TazPvP.configFile.getString("branding.tablist.footer")) + "\n"
                             +ChatColor.AQUA+Bukkit.getOnlinePlayers().size() + ChatColor.GRAY+"/" + ChatColor.DARK_AQUA + "75");
         }
     }

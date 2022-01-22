@@ -375,7 +375,7 @@ public final class TazPvP extends JavaPlugin {
             objective.unregister();
             objective = sb.registerNewObjective("sb", "dummy");
             objective.setDisplaySlot(DisplaySlot.SIDEBAR);
-            objective.setDisplayName(ChatColor.translateAlternateColorCodes('&',"&3&lTAZPVP"));
+            objective.setDisplayName(ChatColor.translateAlternateColorCodes('&', configFile.getString("branding.sb.name")));
             if (sb.getObjective("showhealth") == null) {
                 Objective h = sb.registerNewObjective("showhealth", Criterias.HEALTH);
                 h.setDisplaySlot(DisplaySlot.BELOW_NAME);
@@ -397,7 +397,7 @@ public final class TazPvP extends JavaPlugin {
             blank2.setScore(3);
             Score blank4 = objective.getScore(ChatColor.DARK_GRAY + "" + ChatColor.BOLD + "---------------");
             blank4.setScore(2);
-            Score blank5 = objective.getScore(ChatColor.GRAY + "﹂ tazpvp.net");
+            Score blank5 = objective.getScore(ChatColor.translateAlternateColorCodes('&', configFile.getString("branding.sb.footer")));
             blank5.setScore(1);
             for(Player player1 : Bukkit.getOnlinePlayers()) {
                 statsManager.getTeam(player1, sb).addEntry(player1.getName());
