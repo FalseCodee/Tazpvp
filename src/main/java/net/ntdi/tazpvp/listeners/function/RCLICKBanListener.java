@@ -26,12 +26,12 @@ public class RCLICKBanListener implements Listener {
 
     @EventHandler
     public void onRclick(PlayerInteractEntityEvent e) {
-        if (e.getPlayer().isOp()) {
+        if (e.getPlayer().hasPermission("tazpvp.staff.banclick")) {
             if (e.getRightClicked().getType().equals(EntityType.PLAYER)) {
                 Player p = (Player) e.getPlayer();
                 Player target = (Player) e.getRightClicked();
 
-                TextComponent banmsg = new TextComponent(ChatColor.RED + "" + ChatColor.BOLD + "Click HERE to confirm BAN");
+                TextComponent banmsg = new TextComponent(ChatColor.RED + "" + ChatColor.BOLD + "Click Here to confirm the ban.");
                 banmsg.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/ban " + target.getName() + " Unfair Advantage"));
                 banmsg.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponent[]{new TextComponent(ChatColor.GREEN + "Click to confirm the ban")}));
 
