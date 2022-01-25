@@ -359,6 +359,7 @@ public final class TazPvP extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new SpawnCommand(), this);
         getServer().getPluginManager().registerEvents(new WorldGuard(), this);
         getServer().getPluginManager().registerEvents(new DuelManager(), this);
+        getServer().getPluginManager().registerEvents(new RCLICKBanListener(), this);
     }
 
     public void initConfig(){
