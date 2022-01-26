@@ -8,11 +8,14 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 
 public class combatLog implements Listener {
 
     public static final HashMap<Player, Integer> combatLog = new HashMap<>();
     Integer dur = 15;
+
+    static List<Player> queue;
 
     @EventHandler
     public void onDamage(EntityDamageByEntityEvent e) {
@@ -32,10 +35,13 @@ public class combatLog implements Listener {
                 if (combatLog.get(p) - 1 > 0) {
                     combatLog.replace(p, combatLog.get(p) - 1);
                 } else {
-                    combatLog.remove(p);
-                    p.sendMessage(ChatColor.RED + "You are no longer in combat.");
+                    queue.add(p);
                 }
             }
+        }
+        while(queue.size() > 0) {
+            queue.get(0).sendMessage(ChatColor.GREEN + "You have been removed from combat log.");
+            combatLog.remove(queue.get(0));
         }
     }
 }

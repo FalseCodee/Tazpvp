@@ -40,7 +40,7 @@ public class WelcomeListener implements Listener {
             PlayerUtils.equipStarter(p);
         }
 
-        p.setGameMode(GameMode.SURVIVAL);
+        p.setGameMode(GameMode.ADVENTURE);
         p.setMaxHealth(20);
         if (p.getLevel() != TazPvP.statsManager.getLevel(p)){
             p.setLevel(TazPvP.statsManager.getLevel(p));
@@ -150,7 +150,7 @@ public class WelcomeListener implements Listener {
             TazPvP.statsManager.getTeam(p, sb).removeEntry(p.getName());
         }
         ArmorManager.setPlayerContents(p, false);
-        p.setGameMode(GameMode.SURVIVAL);
+        p.setGameMode(GameMode.ADVENTURE);
         p.setMaxHealth(20);
 
         if (TazPvP.duelManager.isDueling(p)){
