@@ -25,7 +25,7 @@ public class CommandCancelerListener implements Listener {
             }
             else if (event.getMessage().toLowerCase().startsWith("/pl") && !event.getMessage().toLowerCase().startsWith("/playtime")) {
                 event.setCancelled(true);
-                player.sendMessage(ChatColor.WHITE + "Plugins (1): " + ChatColor.GREEN + "Tazpvp");
+                player.sendMessage(ChatColor.WHITE + "Plugins (69): " + ChatColor.GREEN + "Never" + ChatColor.WHITE + ", " + ChatColor.GREEN + "Gonna" + ChatColor.WHITE + ", " + ChatColor.GREEN + "Give" + ChatColor.WHITE + ", " + ChatColor.GREEN + "You"  + ChatColor.WHITE + ", " + ChatColor.GREEN + "Up" + ChatColor.WHITE + "!");
             }
 
         } //else if (player.hasPermission("staff.commandbypass")) {

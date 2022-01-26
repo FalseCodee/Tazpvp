@@ -8,6 +8,7 @@ import net.ntdi.tazpvp.utils.StringUtils;
 import net.ntdi.tazpvp.utils.https.PostHelper;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Sound;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -31,13 +32,16 @@ public class RCLICKBanListener implements Listener {
                 Player p = (Player) e.getPlayer();
                 Player target = (Player) e.getRightClicked();
 
-                TextComponent banmsg = new TextComponent(ChatColor.RED + "" + ChatColor.BOLD + "Click Here to confirm the ban.");
-                banmsg.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/ban " + target.getName() + " Unfair Advantage"));
-                banmsg.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponent[]{new TextComponent(ChatColor.GREEN + "Click to confirm the ban")}));
+                if (!target.hasPermission("staff.banbypass")){
+                    TextComponent banmsg = new TextComponent(ChatColor.RED + "" + ChatColor.BOLD + "Click Here to confirm the ban.");
+                    banmsg.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/ban " + target.getName() + " Unfair Advantage"));
+                    banmsg.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponent[]{new TextComponent(ChatColor.GREEN + "Click to confirm the ban")}));
 
-                p.sendMessage("");
-                p.spigot().sendMessage(banmsg);
-                p.sendMessage("");
+                    p.sendMessage("");
+                    p.spigot().sendMessage(banmsg);
+                    p.sendMessage("");
+                    p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
+                }
             }
         }
     }

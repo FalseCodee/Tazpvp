@@ -62,7 +62,7 @@ public class DeathListener implements Listener {
                         @Override
                         public void run() {
                             p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
-                            p.setGameMode(GameMode.SURVIVAL);
+                            p.setGameMode(GameMode.ADVENTURE);
                             p.setHealth(20);
                             p.setFoodLevel(20);
                             rsInv(p);
