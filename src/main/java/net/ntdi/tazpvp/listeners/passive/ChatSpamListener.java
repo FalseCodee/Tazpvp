@@ -131,7 +131,7 @@ public class ChatSpamListener implements Listener {
             message = message.replace("fuc", "###");
             message = message.replace("slut", "####");
             if (message != "night" && message.equals("nig")) {
-                e.setMessage(message.replace("nig", "###"));
+                message = message.replace("nig", "###");
             } else {
                 e.setMessage(message);
             }
