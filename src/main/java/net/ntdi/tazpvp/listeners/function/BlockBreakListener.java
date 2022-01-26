@@ -150,6 +150,9 @@ public class BlockBreakListener implements Listener {
                 if (TazPvP.perkManager.getHaste(p)){
                     p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 15, 1, false));
                 }
+                if (TazPvP.perkManager.getExcavator(p)){
+                    TazPvP.statsManager.addExp(p, ((TazPvP.statsManager.getExpLeft(p) - TazPvP.statsManager.getExp(p)) * (0.5 * TazPvP.statsManager.getExpLeft(p))));
+                }
            }
         }
     }

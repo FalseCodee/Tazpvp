@@ -2,6 +2,7 @@ package net.ntdi.tazpvp.gui.guis;
 
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.gui.GUI;
+import net.ntdi.tazpvp.managers.PerkManager;
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
@@ -172,9 +173,22 @@ public class GUIPerk extends GUI {
                     break;
                 case 12:
                     if (!TazPvP.perkManager.getPoison(p)){
-                        if (TazPvP.statsManager.getPoints(p) >= 8){
-                            TazPvP.statsManager.addPoints(p, -8);
+                        if (TazPvP.statsManager.getPoints(p) >= 20){
+                            TazPvP.statsManager.addPoints(p, -20);
                             TazPvP.perkManager.setPoison(p, true);
+                            p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
+                        }else{
+                            p.sendMessage(ChatColor.RED + "Not enough money!");
+                        }
+                    }else{
+                        p.sendMessage(ChatColor.RED + "You already own this perk!");
+                    }
+                    break;
+                case 13:
+                    if (!TazPvP.perkManager.getExcavator(p)){
+                        if (TazPvP.statsManager.getPoints(p) >= 15){
+                            TazPvP.statsManager.addPoints(p, -15);
+                            TazPvP.perkManager.setExcavator(p, true);
                             p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
                         }else{
                             p.sendMessage(ChatColor.RED + "Not enough money!");
@@ -214,7 +228,8 @@ public class GUIPerk extends GUI {
         addShopItem(13, new ItemStack(Material.POTION, 1), 9, ChatColor.WHITE + "Buff I", ChatColor.BLUE + "Chance to gain strength after kill.\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "10 Points");
         addShopItem(16, new ItemStack(Material.ARROW, 1), 10, ChatColor.WHITE + "Archer I", ChatColor.BLUE + "Chance to get your arrow back.\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "3 Points");
         addShopItem(19, new ItemStack(Material.APPLE, 1), 11, ChatColor.WHITE + "Fat I", ChatColor.BLUE + "Increase the limit of added hearts on kill.\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "5 Points");
-        addShopItem(20, potion, 12, ChatColor.WHITE + "Prickle I", ChatColor.BLUE + "Arrows will give the victim the poison affect.\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "8 Points" );
+        addShopItem(20, potion, 12, ChatColor.WHITE + "Prickle I", ChatColor.BLUE + "Arrows will give the victim the poison affect.\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "20 Points" );
+        addShopItem(21, new ItemStack(Material.EXP_BOTTLE, 1), 13, ChatColor.WHITE + "Excavator I", ChatColor.BLUE + "Get exp whenever you mine a ore.\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "15 Points");
 
         update();
     }

@@ -45,6 +45,7 @@ public class PerkManager {
         perksFile.set(uuid+".arrow", false);
         perksFile.set(uuid+".fat", false);
         perksFile.set(uuid+".poison", false);
+        perksFile.set(uuid+".excavator", false);
     }
 
     // TODO add more perks
@@ -120,6 +121,12 @@ public class PerkManager {
     }
     public void setPoison(OfflinePlayer player, Boolean bool) {
         perksFile.set(player.getUniqueId().toString()+".poison", bool);
+    }
+    public boolean getExcavator(OfflinePlayer player) {
+        return perksFile.getBoolean(player.getUniqueId().toString()+".excavator");
+    }
+    public void setExcavator(OfflinePlayer player, Boolean bool) {
+        perksFile.set(player.getUniqueId().toString()+".excavator", bool);
     }
 
 
