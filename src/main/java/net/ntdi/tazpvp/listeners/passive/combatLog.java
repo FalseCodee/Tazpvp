@@ -38,8 +38,7 @@ public class combatLog implements Listener {
                     queue.add(p);
                 }
             }
-            for (Iterator<Player> it = queue.iterator(); it.hasNext(); ) {
-                Player p = it.next();
+            for (Player p : queue) {
                 p.sendMessage(ChatColor.GREEN + "You have been removed from combat log.");
                 combatLog.remove(p);
             }
