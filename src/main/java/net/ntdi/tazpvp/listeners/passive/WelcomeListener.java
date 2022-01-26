@@ -210,7 +210,7 @@ public class WelcomeListener implements Listener {
             }
 
             p.setMetadata("fallDamage", new FixedMetadataValue(TazPvP.getInstance(), false));
-
+            p.setGameMode(GameMode.SURVIVAL);
 
             int min = 1;
             int max = 6;
