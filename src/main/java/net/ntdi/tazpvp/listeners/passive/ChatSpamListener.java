@@ -126,7 +126,6 @@ public class ChatSpamListener implements Listener {
             message = message.replace("cunt", "####");
             message = message.replace("bitc", "####");
             message = message.replace("fuck", "####");
-            message = message.replace("nig", "###");
             message = message.replace("nigg", "####");
             message = message.replace("fuk", "###");
             message = message.replace("fuc", "###");
