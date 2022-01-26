@@ -6,14 +6,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class combatLog implements Listener {
 
-    public static final HashMap<Player, Integer> combatLog = new HashMap<>();
+    public static final WeakHashMap<Player, Integer> combatLog = new WeakHashMap<>();
 
     public static void tick() {
         List<Player> queue = new ArrayList<>();
