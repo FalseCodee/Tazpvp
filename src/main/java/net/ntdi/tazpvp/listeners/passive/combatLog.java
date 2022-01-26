@@ -35,13 +35,15 @@ public class combatLog implements Listener {
                 if (combatLog.get(p) - 1 > 0) {
                     combatLog.replace(p, combatLog.get(p) - 1);
                 } else {
-                    queue.add(p);
+//                    queue.add(p);
+                    p.sendMessage(ChatColor.GREEN + "You have been removed from combat log.");
+                    combatLog.remove(p);
                 }
             }
-            for (Player p : queue) {
-                p.sendMessage(ChatColor.GREEN + "You have been removed from combat log.");
-                combatLog.remove(p);
-            }
+//            for (Player p : queue) {
+//                p.sendMessage(ChatColor.GREEN + "You have been removed from combat log.");
+//                combatLog.remove(p);
+//            }
         }
     }
 }
