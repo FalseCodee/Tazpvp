@@ -10,6 +10,8 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.PotionMeta;
+import org.bukkit.potion.PotionEffectType;
 
 public class GUIPerk extends GUI {
     public GUIPerk(Player player) {
@@ -168,6 +170,19 @@ public class GUIPerk extends GUI {
                         p.sendMessage(ChatColor.RED + "You already own this perk!");
                     }
                     break;
+                case 12:
+                    if (!TazPvP.perkManager.getPoison(p)){
+                        if (TazPvP.statsManager.getPoints(p) >= 8){
+                            TazPvP.statsManager.addPoints(p, -8);
+                            TazPvP.perkManager.setPoison(p, true);
+                            p.sendMessage(ChatColor.GREEN + "Successfully bought perk!");
+                        }else{
+                            p.sendMessage(ChatColor.RED + "Not enough money!");
+                        }
+                    }else{
+                        p.sendMessage(ChatColor.RED + "You already own this perk!");
+                    }
+                    break;
             }
         });
     }
@@ -184,6 +199,11 @@ public class GUIPerk extends GUI {
         pickaxeMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         pickaxe.setItemMeta(pickaxeMeta);
 
+        ItemStack potion = new ItemStack(Material.POTION, 1);
+        PotionMeta potionMeta = (PotionMeta) potion.getItemMeta();
+        potionMeta.setMainEffect(PotionEffectType.POISON);
+        potion.setItemMeta(potionMeta);
+
         addShopItem(10, new ItemStack(Material.WOOD, 1), 1, ChatColor.WHITE + "Builder I", ChatColor.BLUE + "Chance to not consume placed blocks.\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "4 Points");
         addShopItem(11, new ItemStack(Material.GOLD_INGOT, 1), 2, ChatColor.WHITE + "Health I", ChatColor.BLUE + "Chance to gain absorption hearts on kill.\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "6 Points");
         addShopItem(12, new ItemStack(Material.EYE_OF_ENDER, 1), 3, ChatColor.WHITE + "Agility I", ChatColor.BLUE + "Chance to get speed on kill.\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "5 Points");
@@ -194,7 +214,7 @@ public class GUIPerk extends GUI {
         addShopItem(13, new ItemStack(Material.POTION, 1), 9, ChatColor.WHITE + "Buff I", ChatColor.BLUE + "Chance to gain strength after kill.\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "10 Points");
         addShopItem(16, new ItemStack(Material.ARROW, 1), 10, ChatColor.WHITE + "Archer I", ChatColor.BLUE + "Chance to get your arrow back.\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "3 Points");
         addShopItem(19, new ItemStack(Material.APPLE, 1), 11, ChatColor.WHITE + "Fat I", ChatColor.BLUE + "Increase the limit of added hearts on kill.\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "5 Points");
-
+        addShopItem(20, potion, 12, ChatColor.WHITE + "Prickle I", ChatColor.BLUE + "Arrows will give the victim the poison affect.\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "8 Points" );
 
         update();
     }
