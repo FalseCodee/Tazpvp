@@ -13,6 +13,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerFishEvent;
 import org.bukkit.metadata.FixedMetadataValue;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.Random;
@@ -129,6 +131,10 @@ public class EntityDamageByEntityListener implements Listener {
                                 combatLog.combatLog.put(shooter, 10);
                             }
                         }
+                    }
+
+                    if (TazPvP.perkManager.getPoison(shooter)){
+                        victim.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 2, 2));
                     }
                 }
             }
