@@ -8,6 +8,7 @@ import net.ntdi.tazpvp.utils.StringUtils;
 import net.ntdi.tazpvp.utils.https.PostHelper;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Sound;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
@@ -39,6 +40,7 @@ public class RCLICKBanListener implements Listener {
                     p.sendMessage("");
                     p.spigot().sendMessage(banmsg);
                     p.sendMessage("");
+                    p.playSound(p.getLocation(), Sound.ORB_PICKUP, 1, 1);
                 }
             }
         }
