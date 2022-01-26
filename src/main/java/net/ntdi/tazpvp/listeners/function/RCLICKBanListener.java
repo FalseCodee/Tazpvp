@@ -32,7 +32,7 @@ public class RCLICKBanListener implements Listener {
                 Player p = (Player) e.getPlayer();
                 Player target = (Player) e.getRightClicked();
 
-                if (target != null) {
+                if (target instanceof Player) {
                     if (!target.hasPermission("staff.banbypass")){
                         TextComponent banmsg = new TextComponent(ChatColor.RED + "" + ChatColor.BOLD + "Click Here to confirm the ban.");
                         banmsg.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/ban " + target.getName() + " Unfair Advantage"));
