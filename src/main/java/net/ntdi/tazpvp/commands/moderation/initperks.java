@@ -1,5 +1,6 @@
 package net.ntdi.tazpvp.commands.moderation;
 
+import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.managers.PerkManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -12,7 +13,7 @@ public class initperks implements CommandExecutor {
         if (commandSender instanceof Player) {
             Player p = (Player) commandSender;
             if (p.isOp()) {
-                new PerkManager().initPlayer(p);
+                TazPvP.perkManager.initPlayer(p);
                 p.sendMessage("Wiped perks!");
             }
         }
