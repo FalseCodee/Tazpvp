@@ -23,7 +23,7 @@ public class CreditCommand implements CommandExecutor {
 
                 if(TazPvP.statsManager.statsFile.contains(offlinePlayer.getUniqueId().toString())){
                     if(args.length == 1){
-                        player.sendMessage(ChatColor.RED + offlinePlayer.getName() + " has $" + TazPvP.statsManager.getMoney(offlinePlayer) + ".");
+                        player.sendMessage(ChatColor.RED + offlinePlayer.getName() + " has $" + TazPvP.statsManager.getCredits(offlinePlayer) + ".");
                     } else {
                         switch(args[1].toLowerCase()){
                             case "reset":
@@ -87,7 +87,7 @@ public class CreditCommand implements CommandExecutor {
 
                     if(TazPvP.statsManager.statsFile.contains(offlinePlayer.getUniqueId().toString())){
                         if(args.length == 1){
-                            player.sendMessage(ChatColor.RED + offlinePlayer.getName() + " has $" + TazPvP.statsManager.getMoney(offlinePlayer) + ".");
+                            player.sendMessage(ChatColor.RED + offlinePlayer.getName() + " has $" + TazPvP.statsManager.getCredits(offlinePlayer) + ".");
                         } else {
                             switch(args[1].toLowerCase()){
                                 case "reset":
