@@ -28,7 +28,7 @@ public class RCLICKBanListener implements Listener {
     @EventHandler
     public void onRclick(PlayerInteractEntityEvent e) {
         if (e.getPlayer().hasPermission("tazpvp.staff.banclick")) {
-            if (e.getRightClicked().getType().equals(EntityType.PLAYER)) {
+            if (e.getRightClicked().getType().equals(EntityType.PLAYER) && e.getPlayer().isSneaking()) {
                 Player p = (Player) e.getPlayer();
                 Player target = (Player) e.getRightClicked();
 
