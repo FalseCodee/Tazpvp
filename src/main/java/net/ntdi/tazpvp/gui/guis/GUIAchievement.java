@@ -18,8 +18,6 @@ public class GUIAchievement extends GUI {
         player.openInventory(inventory);
     }
 
-
-
     public void init(int page) {
         int displacement = 10;
 
