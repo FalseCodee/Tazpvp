@@ -16,13 +16,11 @@ public class invseeCommand implements CommandExecutor {
         }
 
         if(player != null && player.hasPermission("tazpvp.invsee")){
-            if(args.length == 1){
+            if(args.length == 1) {
                 Inventory gui = Bukkit.createInventory(player, 27, "INVSEE");
                 Player target = Bukkit.getPlayer(args[0]);
                 gui.setContents(target.getInventory().getContents());
                 player.openInventory(gui);
-            } else {
-                return false;
             }
         }
         return false;
