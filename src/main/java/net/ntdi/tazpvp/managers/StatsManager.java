@@ -82,7 +82,7 @@ public class StatsManager {
         TazPvP.getInstance().initScoreboard((Player) player);
     }
     public void addMoney(OfflinePlayer player, int money) {
-        setMoney(player, (money+getMoney(player)) * getMulti(player));
+        setMoney(player, (money+getMoney(player)));
     }
     public int getPoints(OfflinePlayer player) {
         return statsFile.getInt(player.getUniqueId().toString()+".points");
@@ -118,7 +118,7 @@ public class StatsManager {
             TazPvP.statsManager.addMoney(player, 60);
             TazPvP.statsManager.setExpLeft(player, TazPvP.statsManager.getExpLeft(player)*1.05);
             TazPvP.statsManager.setExp(player, 0);
-            TazPvP.statsManager.addMulti(player, 1);
+            //TazPvP.statsManager.addMulti(player, 1);
             if (player.isOnline()){
                 Player p = (Player) player;
                 p.sendMessage(ChatColor.DARK_AQUA + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
