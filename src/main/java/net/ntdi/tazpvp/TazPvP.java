@@ -74,6 +74,7 @@ public final class TazPvP extends JavaPlugin {
     public static final ArrayList<Player> invunerable = new ArrayList<>();
 
     public static final HashMap<Player, ItemStack> robbery = new HashMap<>();
+    public static final HashMap<Player, Boolean> inInvseeGui = new HashMap<>();
     //public static HashMap<Player, Integer> heartGained = new HashMap<>();
 
     public static final ArrayList<Player> voteYes = new ArrayList<>();
@@ -326,6 +327,7 @@ public final class TazPvP extends JavaPlugin {
         getCommand("ec").setExecutor(new enderseeCommand());
         getCommand("spectate").setExecutor(new duelSpectateCommand());
         getCommand("alts").setExecutor(new AltsCommand());
+        getCommand("hat").setExecutor(new HatCommand());
     }
 
     public void registerListeners() {
@@ -364,6 +366,7 @@ public final class TazPvP extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new WorldGuard(), this);
         getServer().getPluginManager().registerEvents(new DuelManager(), this);
         getServer().getPluginManager().registerEvents(new RCLICKBanListener(), this);
+        getServer().getPluginManager().registerEvents(new invseeCommand(), this);
     }
 
     public void initConfig(){
