@@ -325,3 +325,7 @@ commands:
     usage: "/alts <player>"
   spectate:
       usage: "/spectate <player>"
+  hat:
+    permission: tazpvp.hat
+    usage: "/hat"
+    description: "give yourself a hat"

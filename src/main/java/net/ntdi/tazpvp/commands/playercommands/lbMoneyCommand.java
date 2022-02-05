@@ -28,7 +28,7 @@ public class lbMoneyCommand implements CommandExecutor {
         p.sendMessage(ChatColor.DARK_AQUA + "" + ChatColor.BOLD + "TOP " + ChatColor.AQUA + "" + ChatColor.BOLD + "ONLINE" + ChatColor.DARK_AQUA + "" + ChatColor.BOLD + " MONEY");
         p.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
         for (Player player : Bukkit.getOnlinePlayers()) {
-            unsortMap.put(player, TazPvP.statsManager.getMoney(player));
+            //unsortMap.put(player, TazPvP.statsManager.getMoney(player));
         }
         Map<Player, Integer> sortedMapDesc = sortByComparator(unsortMap, DESC);
         printMap(sortedMapDesc, p);
