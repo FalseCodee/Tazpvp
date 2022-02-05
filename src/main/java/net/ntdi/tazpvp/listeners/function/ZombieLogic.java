@@ -38,6 +38,7 @@ public class ZombieLogic implements Listener {
             Random rand = new Random();
             if (event.getEntity().getKiller() != null){
                 TazPvP.statsManager.addExp(event.getEntity().getKiller(), 3);
+                TazPvP.statsManager.checkLevelUp(event.getEntity().getKiller());
             }
 
             new BukkitRunnable(){
@@ -84,6 +85,7 @@ public class ZombieLogic implements Listener {
             Random rand = new Random();
             if (event.getEntity().getKiller() != null){
                 TazPvP.statsManager.addExp(event.getEntity().getKiller(), 5);
+                TazPvP.statsManager.checkLevelUp(event.getEntity().getKiller());
             }
             new BukkitRunnable(){
                 @Override
@@ -127,6 +129,7 @@ public class ZombieLogic implements Listener {
             Random rand = new Random();
             if (event.getEntity().getKiller() != null){
                 TazPvP.statsManager.addExp(event.getEntity().getKiller(), 6);
+                TazPvP.statsManager.checkLevelUp(event.getEntity().getKiller());
             }
             new BukkitRunnable(){
                 @Override
