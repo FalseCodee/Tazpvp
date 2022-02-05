@@ -6,6 +6,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 public class HatCommand implements CommandExecutor {
     @Override
@@ -14,7 +15,7 @@ public class HatCommand implements CommandExecutor {
             Player p = (Player) sender;
             if (p.getItemInHand() != null) {
                 p.getInventory().setHelmet(p.getItemInHand());
-                p.getItemInHand().setType(Material.AIR);
+                p.getInventory().setItemInHand(new ItemStack(Material.AIR));
                 p.sendMessage(ChatColor.GREEN + "You have equipped your item in your hand as your hat.");
             }
         }
