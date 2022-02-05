@@ -74,10 +74,10 @@ public class StatsManager {
         statsFile.set(player.getUniqueId().toString()+".multi", 1);
     }
 
-    public double getMoney(OfflinePlayer player) {
-        return statsFile.getDouble(player.getUniqueId().toString()+".money");
+    public int getMoney(OfflinePlayer player) {
+        return statsFile.getInt(player.getUniqueId().toString()+".money");
     }
-    public void setMoney(OfflinePlayer player, double money) {
+    public void setMoney(OfflinePlayer player, int money) {
         statsFile.set(player.getUniqueId().toString()+".money", money);
         TazPvP.getInstance().initScoreboard((Player) player);
     }
@@ -118,7 +118,7 @@ public class StatsManager {
             TazPvP.statsManager.addMoney(player, 60);
             TazPvP.statsManager.setExpLeft(player, TazPvP.statsManager.getExpLeft(player)*1.05);
             TazPvP.statsManager.setExp(player, 0);
-            TazPvP.statsManager.addMulti(player, 0.5);
+            TazPvP.statsManager.addMulti(player, 1);
             if (player.isOnline()){
                 Player p = (Player) player;
                 p.sendMessage(ChatColor.DARK_AQUA + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
@@ -224,14 +224,14 @@ public class StatsManager {
     public int getCheckpoints(OfflinePlayer player) {
         return statsFile.getInt(player.getUniqueId().toString()+".checkpoint");
     }
-    public double getMulti(OfflinePlayer player) {
-        return statsFile.getDouble(player.getUniqueId().toString()+".multi");
+    public int getMulti(OfflinePlayer player) {
+        return statsFile.getInt(player.getUniqueId().toString()+".multi");
     }
-    public void setMulti(OfflinePlayer player, double multi) {
+    public void setMulti(OfflinePlayer player, int multi) {
         statsFile.set(player.getUniqueId().toString()+".multi", multi);
         TazPvP.getInstance().initScoreboard((Player) player);
     }
-    public void addMulti(OfflinePlayer player, double multi) {
+    public void addMulti(OfflinePlayer player, int multi) {
         setMulti(player, multi+getMulti(player));
     }
     
