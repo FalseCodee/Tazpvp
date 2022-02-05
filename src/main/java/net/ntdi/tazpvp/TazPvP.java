@@ -57,6 +57,7 @@ public final class TazPvP extends JavaPlugin {
     public static PerkManager perkManager;
     public static ZombieLogic zombieLogic;
     public static DuelManager duelManager;
+    public static IpManager ipmanager;
 
     public static Permission permissions;
     public static Chat chat;
@@ -123,6 +124,7 @@ public final class TazPvP extends JavaPlugin {
         staffManager = new StaffManager();
         achievementsManager = new AchievementsManager();
         perkManager = new PerkManager();
+        ipmanager = new IpManager();
 
         duelManager = new DuelManager();
         ItemManager.init();

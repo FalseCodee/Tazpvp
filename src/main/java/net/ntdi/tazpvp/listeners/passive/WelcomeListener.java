@@ -21,6 +21,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.Scoreboard;
 
 import java.util.List;
+import java.util.UUID;
 
 public class WelcomeListener implements Listener {
 
@@ -39,6 +40,8 @@ public class WelcomeListener implements Listener {
         if (!p.hasPlayedBefore()){
             PlayerUtils.equipStarter(p);
         }
+
+        TazPvP.ipmanager.storePlayerIp(p);
 
         p.setGameMode(GameMode.ADVENTURE);
         p.setMaxHealth(20);
@@ -94,6 +97,18 @@ public class WelcomeListener implements Listener {
 
         if (hasPlayed) {
             event.setJoinMessage(ChatColor.GRAY + "[" + ChatColor.GREEN + "+" + ChatColor.GRAY + "] " + p.getName());
+            for (Player Onp : Bukkit.getOnlinePlayers()) {
+                if (Onp.hasPermission("tazpvp.ban")) {
+                    List<UUID> matchers = TazPvP.ipmanager.findMatchingIp(p);
+                    if (matchers != null) {
+                        String str = matchers.toString();
+                        System.out.println(str);
+                        for (UUID uuid : matchers) {
+                            Onp.sendMessage(ChatColor.RED + "Player " + p.getName() + " has been see on " + Bukkit.getOfflinePlayer(uuid).getName() + ".");
+                        }
+                    }
+                }
+            }
         } else {
             event.setJoinMessage(ChatColor.GRAY + "[" + ChatColor.GOLD + "+" + ChatColor.GRAY + "] " + p.getName());
             Player player = event.getPlayer();
