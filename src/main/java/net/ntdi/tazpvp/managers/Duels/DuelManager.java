@@ -151,9 +151,9 @@ public class DuelManager implements Listener {
     }
     public void stopSpectating () {
         for (Player spec : spectating){
-            spectating.remove(spec);
             spec.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
             spec.setGameMode(GameMode.ADVENTURE);
+            spectating.remove(spec);
         }
     }
 
