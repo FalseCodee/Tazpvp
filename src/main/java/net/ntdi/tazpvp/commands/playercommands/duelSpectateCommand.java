@@ -1,6 +1,7 @@
 package net.ntdi.tazpvp.commands.playercommands;
 
 import net.ntdi.tazpvp.TazPvP;
+import net.ntdi.tazpvp.managers.Duels.DuelManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
@@ -18,9 +19,15 @@ public class duelSpectateCommand implements CommandExecutor {
             if (!TazPvP.duelManager.isDueling(p)) {
                 if (p.getPlayer().getWorld().getName().equals("spawn")) {
                     if (TazPvP.duelManager.isDueling(targetPlayer)) {
-                        p.teleport(targetPlayer.getLocation());
-                        p.setGameMode(GameMode.SPECTATOR);
-                        TazPvP.duelManager.startSpectating(p);
+                        if (!DuelManager.spectating.contains(p)) {
+                            p.teleport(targetPlayer.getLocation());
+                            p.setGameMode(GameMode.SPECTATOR);
+                            TazPvP.duelManager.startSpectating(p);
+                        } else {
+                            p.sendMessage(ChatColor.RED + "You are already spectating.");
+                        }
+                    } else {
+                        p.sendMessage(ChatColor.RED + "This player is not in a duel.");
                     }
                 } else {
                     p.sendMessage(ChatColor.RED + "Please go to spawn before spectating.");
