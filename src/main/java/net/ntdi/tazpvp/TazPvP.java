@@ -324,6 +324,7 @@ public final class TazPvP extends JavaPlugin {
         getCommand("kit").setExecutor(new KitCommand());
         getCommand("reloadconfig").setExecutor(new ReloadConfigCommand());
         getCommand("invsee").setExecutor(new invseeCommand());
+        getCommand("ec").setExecutor(new enderseeCommand());
 
     }
 

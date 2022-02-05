@@ -7,7 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 
-public class invseeCommand implements CommandExecutor {
+public class enderseeCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player player = null;
@@ -18,7 +18,7 @@ public class invseeCommand implements CommandExecutor {
         if(player != null && player.hasPermission("tazpvp.invsee")){
             if(args.length == 1) {
                 Player targetPlayer = Bukkit.getServer().getPlayer(args[0]);
-                Inventory targetInv = targetPlayer.getInventory();
+                Inventory targetInv = targetPlayer.getEnderChest();
                 player.openInventory(targetInv);
             }
         }
