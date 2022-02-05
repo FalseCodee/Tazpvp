@@ -11,14 +11,15 @@ import org.bukkit.entity.Player;
 public class AnnounceCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        Player player = null;
         if(sender instanceof Player){
-            player = (Player) sender;
-        }
-        if(args.length == 0 || player == null) {
-            return false;
-        }
-        if(player.hasPermission("staff.announce")){
+            if(!(args.length == 0)) {
+                if(sender.hasPermission("staff.announce")){
+                    Bukkit.broadcastMessage(ChatColor.DARK_AQUA + "[TAZPVP] " + ChatColor.WHITE + StringUtils.buildString(args, 0));
+                }
+            } else {
+                return false;
+            }
+        } else {
             Bukkit.broadcastMessage(ChatColor.DARK_AQUA + "[TAZPVP] " + ChatColor.WHITE + StringUtils.buildString(args, 0));
         }
         return true;
