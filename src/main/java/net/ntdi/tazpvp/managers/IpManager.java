@@ -11,6 +11,7 @@ public class IpManager {
     public void storePlayerIp(Player p){
         UUID uuid = p.getUniqueId();
         InetSocketAddress ip = p.getAddress();
+        ipList.remove(uuid);
         ipList.put(uuid, ip);
     }
 
