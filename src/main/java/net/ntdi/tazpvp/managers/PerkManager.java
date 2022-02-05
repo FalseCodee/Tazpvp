@@ -111,7 +111,7 @@ public class PerkManager {
         perksFile.set(player.getUniqueId().toString()+".arrow", bool);
     }
     public boolean getFat(OfflinePlayer player) {
-        return perksFile.getBoolean(player.getUniqueId().toString()+".arrow");
+        return perksFile.getBoolean(player.getUniqueId().toString()+".fat");
     }
     public void setFat(OfflinePlayer player, Boolean bool) {
         perksFile.set(player.getUniqueId().toString()+".fat", bool);

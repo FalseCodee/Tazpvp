@@ -134,7 +134,7 @@ public class EntityDamageByEntityListener implements Listener {
                     }
 
                     if (TazPvP.perkManager.getPoison(shooter)){
-                        victim.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 5, 2));
+                        victim.addPotionEffect(new PotionEffect(PotionEffectType.POISON, 5*20, 2));
                     }
                 }
             }

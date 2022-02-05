@@ -104,11 +104,11 @@ public class DeathListener implements Listener {
                         if (killer.getMaxHealth() != 28){
                             killer.setMaxHealth(killer.getMaxHealth()+2);
                         }
-                    }else if (rebirthed) {
+                    } else if (rebirthed) {
                         if (killer.getMaxHealth() != 28){
                             killer.setMaxHealth(killer.getMaxHealth()+2);
                         }
-                    } else{
+                    } else {
                         if (killer.getMaxHealth() != 26){
                             killer.setMaxHealth(killer.getMaxHealth()+2);
                         }
