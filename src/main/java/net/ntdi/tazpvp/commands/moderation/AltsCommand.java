@@ -27,7 +27,9 @@ public class AltsCommand implements CommandExecutor {
                         if (matches != null) {
                             p.sendMessage(ChatColor.GOLD + target.getName() + "Has been seen on: ");
                             for (UUID uuid : matches) {
-                                p.sendMessage(ChatColor.YELLOW + Bukkit.getOfflinePlayer(uuid).getName());
+                                if (uuid != target.getUniqueId()) {
+                                    p.sendMessage(ChatColor.YELLOW + Bukkit.getOfflinePlayer(uuid).getName());
+                                }
                             }
                         } else {
                             p.sendMessage(ChatColor.RED + "No matches found");

@@ -104,7 +104,9 @@ public class WelcomeListener implements Listener {
                         String str = matchers.toString();
                         System.out.println(str);
                         for (UUID uuid : matchers) {
-                            Onp.sendMessage(ChatColor.RED + "Player " + p.getName() + " has been see on " + Bukkit.getOfflinePlayer(uuid).getName() + ".");
+                            if (uuid != p.getUniqueId()) {
+                                Onp.sendMessage(ChatColor.RED + "Player " + p.getName() + " has been see on " + Bukkit.getOfflinePlayer(uuid).getName() + ".");
+                            }
                         }
                     }
                 }
