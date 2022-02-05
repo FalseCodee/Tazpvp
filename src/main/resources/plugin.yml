@@ -84,7 +84,7 @@ commands:
     description: Ban/Unban players
     permission: staff.ban
     permission-message: No Permission
-    usage: "/ban <Player> <Reason>"
+    usage: "/ban <Player>"
   help:
     description: Recieve information on how to play
     usage: "/help"

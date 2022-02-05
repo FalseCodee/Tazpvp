@@ -35,8 +35,8 @@ public class RCLICKBanListener implements Listener {
                 if (target instanceof Player) {
                     if (!target.hasPermission("staff.banbypass")){
                         TextComponent banmsg = new TextComponent(ChatColor.RED + "" + ChatColor.BOLD + "Click Here to confirm the ban.");
-                        banmsg.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/ban " + target.getName() + " Unfair Advantage"));
-                        banmsg.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponent[]{new TextComponent(ChatColor.GREEN + "Click to confirm the ban")}));
+                        banmsg.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/ban " + target.getName()));
+                        banmsg.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new TextComponent[]{new TextComponent(ChatColor.GREEN + "CLICK TO CONFIRM BAN")}));
 
                         p.sendMessage("");
                         p.spigot().sendMessage(banmsg);
