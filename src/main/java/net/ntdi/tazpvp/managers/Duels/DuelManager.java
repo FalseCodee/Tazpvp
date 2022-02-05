@@ -31,6 +31,7 @@ public class DuelManager implements Listener {
     public ArrayList<DuelMap> totalMaps;
     public ArrayList<DuelMap> availableMaps = new ArrayList<>();
     public ArrayList<Player> playersFighting = new ArrayList<>();
+    public static ArrayList<Player> spectating = new ArrayList<>();
 
     public DuelManager() {
         availableMaps.add(new DuelMap("map1",
@@ -143,6 +144,15 @@ public class DuelManager implements Listener {
                 }
             }
         }.runTaskTimer(TazPvP.getInstance(), 0, 20);
+    }
+
+    public void startSpectating (Player p) {
+        spectating.add(p);
+    }
+    public void stopSpectating (Player p) {
+        spectating.remove(p);
+        p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
+        p.setGameMode(GameMode.ADVENTURE);
     }
 
     public void endDuel(Player looser, Player winner) {
@@ -269,4 +279,5 @@ public class DuelManager implements Listener {
         player1.sendMessage(message);
         player2.sendMessage(message);
     }
+
 }

@@ -267,9 +267,6 @@ commands:
   ac:
     permission: "staff.ban"
     usage: "/ac <player>"
-  spectate:
-    permission: tazpvp.spectate
-    usage: "/spectate <map>"
   initperks:
     permission: op
     usage: "/initperks"
@@ -323,3 +320,5 @@ commands:
     permission: tazpvp.invsee
   ec:
     permission: tazpvp.invsee
+  spectate:
+    usage: "/spectate <player>"
