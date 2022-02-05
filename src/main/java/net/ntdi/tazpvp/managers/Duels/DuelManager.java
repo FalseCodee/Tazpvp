@@ -160,16 +160,9 @@ public class DuelManager implements Listener {
     public void endDuel(Player looser, Player winner) {
         playersFighting.remove(looser);
         playersFighting.remove(winner);
-        // checks if the player is in a duel
-        looser.setMetadata("dueling", new FixedMetadataValue(TazPvP.getInstance(), false));
-        winner.setMetadata("dueling", new FixedMetadataValue(TazPvP.getInstance(), false));
-        looser.setMetadata("canDamage", new FixedMetadataValue(TazPvP.getInstance(), true));
-        winner.setMetadata("canDamage", new FixedMetadataValue(TazPvP.getInstance(), true));
 
         winner.getInventory().clear();
         looser.getInventory().clear();
-
-        stopSpectating();
 
         Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
         Bukkit.broadcastMessage(ChatColor.WHITE + " " + winner.getName() + ChatColor.BLUE + " has won the duel against " + ChatColor.WHITE + looser.getName());
@@ -179,10 +172,15 @@ public class DuelManager implements Listener {
         new BukkitRunnable() {
             @Override
             public void run() {
+                looser.setMetadata("dueling", new FixedMetadataValue(TazPvP.getInstance(), false));
+                winner.setMetadata("dueling", new FixedMetadataValue(TazPvP.getInstance(), false));
+                looser.setMetadata("canDamage", new FixedMetadataValue(TazPvP.getInstance(), true));
+                winner.setMetadata("canDamage", new FixedMetadataValue(TazPvP.getInstance(), true));
                 addMap(whatMap(winner));
 
                 restorePlayer(looser);
                 restorePlayer(winner);
+                stopSpectating();
 
             }
         }.runTaskLater(TazPvP.getInstance(), 20 * 5);
