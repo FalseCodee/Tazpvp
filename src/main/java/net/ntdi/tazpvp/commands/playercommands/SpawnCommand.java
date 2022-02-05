@@ -45,7 +45,7 @@ public class SpawnCommand implements Listener, CommandExecutor {
                             }
                         }.runTaskLater(TazPvP.getInstance(), 5 * 20);
                     } else {
-                        p.sendMessage(ChatColor.RED + "You cannot teleport while in the grind world.");
+                        p.sendMessage(ChatColor.RED + "You cannot teleport while in the cave.");
                     }
                 } else {
                     p.sendMessage(ChatColor.RED + "You cannot teleport while dueling.");

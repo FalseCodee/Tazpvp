@@ -31,6 +31,7 @@ public class DuelManager implements Listener {
     public ArrayList<DuelMap> totalMaps;
     public ArrayList<DuelMap> availableMaps = new ArrayList<>();
     public ArrayList<Player> playersFighting = new ArrayList<>();
+    public static ArrayList<Player> spectating = new ArrayList<>();
 
     public DuelManager() {
         availableMaps.add(new DuelMap("map1",
@@ -145,6 +146,17 @@ public class DuelManager implements Listener {
         }.runTaskTimer(TazPvP.getInstance(), 0, 20);
     }
 
+    public void startSpectating (Player p) {
+        spectating.add(p);
+    }
+    public void stopSpectating () {
+        for (Player spec : spectating){
+            spectating.remove(spec);
+            spec.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
+            spec.setGameMode(GameMode.ADVENTURE);
+        }
+    }
+
     public void endDuel(Player looser, Player winner) {
         playersFighting.remove(looser);
         playersFighting.remove(winner);
@@ -156,6 +168,8 @@ public class DuelManager implements Listener {
 
         winner.getInventory().clear();
         looser.getInventory().clear();
+
+        stopSpectating();
 
         Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
         Bukkit.broadcastMessage(ChatColor.WHITE + " " + winner.getName() + ChatColor.BLUE + " has won the duel against " + ChatColor.WHITE + looser.getName());
@@ -269,4 +283,5 @@ public class DuelManager implements Listener {
         player1.sendMessage(message);
         player2.sendMessage(message);
     }
+
 }
