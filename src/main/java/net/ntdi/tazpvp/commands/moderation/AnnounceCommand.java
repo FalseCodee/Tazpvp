@@ -14,13 +14,13 @@ public class AnnounceCommand implements CommandExecutor {
         if(sender instanceof Player){
             if(!(args.length == 0)) {
                 if(sender.hasPermission("staff.announce")){
-                    Bukkit.broadcastMessage(ChatColor.DARK_AQUA + "[TAZPVP] " + ChatColor.WHITE + StringUtils.buildString(args, 0));
+                    Bukkit.broadcastMessage(ChatColor.DARK_GRAY+" ["+ChatColor.RED+"TAZPVP"+ChatColor.DARK_GRAY+"] " + ChatColor.GREEN + StringUtils.buildString(args, 0));
                 }
             } else {
                 return false;
             }
         } else {
-            Bukkit.broadcastMessage(ChatColor.DARK_AQUA + "[TAZPVP] " + ChatColor.WHITE + StringUtils.buildString(args, 0));
+            Bukkit.broadcastMessage(ChatColor.DARK_GRAY+" ["+ChatColor.RED+"TAZPVP"+ChatColor.DARK_GRAY+"] " + ChatColor.GREEN + StringUtils.buildString(args, 0));
         }
         return true;
     }
