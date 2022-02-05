@@ -81,6 +81,7 @@ public class GUIShop extends GUI {
         addShopItem(28, new ItemStack(Material.GOLD_AXE, 1), 20, ChatColor.WHITE + "Axe", ChatColor.BLUE + "Break Wood\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "$20");
         addShopItem(29, new ItemStack(Material.SHEARS, 1), 25, ChatColor.WHITE + "Scissors", ChatColor.BLUE + "Break Wool\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "$25");
         addShopItem(30, new ItemStack(Material.WOOD_PICKAXE, 1), 80, ChatColor.WHITE + "Pickaxe", ChatColor.BLUE + "Mine Ores\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "$80");
+        addShopItem(30, new ItemStack(Material.WOOD_SWORD, 1), 20, ChatColor.WHITE + "Sword", ChatColor.BLUE + "Lost it already?\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "$20");
         addShopItem(37, new ItemStack(Material.WOOL, 64, DyeColor.BLUE.getData()), 50, ChatColor.WHITE + "Blue Blocks", ChatColor.BLUE + "Drip\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "$60\n" + "\n" + ChatColor.GREEN + "Rank Required");
         addShopItem(38, new ItemStack(Material.WOOL, 64, DyeColor.PURPLE.getData()), 50, ChatColor.WHITE + "Purple Blocks", ChatColor.BLUE + "Portal?\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "$60\n" + "\n" + ChatColor.GREEN + "Rank Required");
         addShopItem(39, new ItemStack(Material.WOOL, 64, DyeColor.MAGENTA.getData()), 50, ChatColor.WHITE + "Pink Blocks", ChatColor.BLUE + "Ice cream\n" + ChatColor.GOLD + "Cost: " + ChatColor.GRAY + "$60\n" + "\n" + ChatColor.GREEN + "Rank Required");
