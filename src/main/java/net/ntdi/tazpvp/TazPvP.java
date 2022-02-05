@@ -308,7 +308,6 @@ public final class TazPvP extends JavaPlugin {
         getCommand("saveinv").setExecutor(new SaveinvCommand());
         getCommand("loadinv").setExecutor(new LoadinvCommand());
         getCommand("ac").setExecutor(new ACCommand());
-        getCommand("spectate").setExecutor(new SpectateCommand());
         getCommand("initperks").setExecutor(new initperks());
         getCommand("gmc").setExecutor(new gmcCommand());
         getCommand("gms").setExecutor(new gmsCommand());
@@ -325,8 +324,8 @@ public final class TazPvP extends JavaPlugin {
         getCommand("reloadconfig").setExecutor(new ReloadConfigCommand());
         getCommand("invsee").setExecutor(new invseeCommand());
         getCommand("ec").setExecutor(new enderseeCommand());
+        getCommand("spectate").setExecutor(new duelSpectateCommand());
         getCommand("alts").setExecutor(new AltsCommand());
-
     }
 
     public void registerListeners() {
