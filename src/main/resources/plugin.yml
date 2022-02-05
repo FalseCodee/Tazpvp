@@ -321,3 +321,5 @@ commands:
       - rlcf
   invsee:
     permission: tazpvp.invsee
+  ec:
+    permission: tazpvp.invsee
