@@ -323,3 +323,6 @@ commands:
     permission: tazpvp.invsee
   ec:
     permission: tazpvp.invsee
+  alts:
+    permission: tazpvp.ban
+    usage: "/alts <player>"

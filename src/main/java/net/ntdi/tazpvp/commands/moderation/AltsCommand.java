@@ -3,6 +3,7 @@ package net.ntdi.tazpvp.commands.moderation;
 import net.ntdi.tazpvp.TazPvP;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -20,6 +21,7 @@ public class AltsCommand implements CommandExecutor {
                 if (args.length == 1) {
                     String name = args[0];
                     Player target = Bukkit.getPlayer(name);
+                    UUID uuidd = null;
                     if (target != null) {
                         List<UUID> matches = TazPvP.ipmanager.findMatchingIp(target);
                         if (matches != null) {
@@ -27,8 +29,14 @@ public class AltsCommand implements CommandExecutor {
                             for (UUID uuid : matches) {
                                 p.sendMessage(ChatColor.YELLOW + Bukkit.getOfflinePlayer(uuid).getName());
                             }
+                        } else {
+                            p.sendMessage(ChatColor.RED + "No matches found");
                         }
+                    } else {
+                        return false;
                     }
+                } else {
+                    return false;
                 }
             }
         }
