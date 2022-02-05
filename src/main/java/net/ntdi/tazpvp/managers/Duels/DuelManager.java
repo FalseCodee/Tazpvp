@@ -149,10 +149,12 @@ public class DuelManager implements Listener {
     public void startSpectating (Player p) {
         spectating.add(p);
     }
-    public void stopSpectating (Player p) {
-        spectating.remove(p);
-        p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
-        p.setGameMode(GameMode.ADVENTURE);
+    public void stopSpectating () {
+        for (Player spec : spectating){
+            spectating.remove(spec);
+            spec.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
+            spec.setGameMode(GameMode.ADVENTURE);
+        }
     }
 
     public void endDuel(Player looser, Player winner) {
@@ -166,6 +168,8 @@ public class DuelManager implements Listener {
 
         winner.getInventory().clear();
         looser.getInventory().clear();
+
+        stopSpectating();
 
         Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
         Bukkit.broadcastMessage(ChatColor.WHITE + " " + winner.getName() + ChatColor.BLUE + " has won the duel against " + ChatColor.WHITE + looser.getName());
