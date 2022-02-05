@@ -341,7 +341,7 @@ public class DeathListener implements Listener {
         swordMeta.spigot().setUnbreakable(false);
         sword.setItemMeta(swordMeta);
 
-        ItemMeta pickaxeMeta = sword.getItemMeta();
+        ItemMeta pickaxeMeta = pickaxe.getItemMeta();
         pickaxeMeta.spigot().setUnbreakable(false);
         pickaxe.setItemMeta(pickaxeMeta);
 
@@ -362,6 +362,7 @@ public class DeathListener implements Listener {
         inv.addItem(sword);
         inv.addItem(fishingrod);
         inv.addItem(bow);
+        inv.addItem(pickaxe);
         inv.addItem(steak);
         inv.addItem(blocks);
         inv.setItem(9, arrow);

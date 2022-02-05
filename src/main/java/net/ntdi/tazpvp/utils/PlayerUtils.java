@@ -68,10 +68,10 @@ public class PlayerUtils {
         armor4.setItemMeta(meta4);
 
         ItemMeta swordMeta = sword.getItemMeta();
-        swordMeta.spigot().setUnbreakable(false);
+        swordMeta.spigot().setUnbreakable(true);
         sword.setItemMeta(swordMeta);
 
-        ItemMeta pickaxeMeta = sword.getItemMeta();
+        ItemMeta pickaxeMeta = pickaxe.getItemMeta();
         pickaxeMeta.spigot().setUnbreakable(false);
         pickaxe.setItemMeta(pickaxeMeta);
 
@@ -92,6 +92,7 @@ public class PlayerUtils {
         inv.addItem(sword);
         inv.addItem(fishingrod);
         inv.addItem(bow);
+        inv.addItem(pickaxe);
         inv.addItem(steak);
         inv.addItem(blocks);
         inv.setItem(9, arrow);
