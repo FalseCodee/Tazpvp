@@ -31,7 +31,7 @@ public class GUIMainScreen extends GUI {
         ItemStack rod = createItem(Material.FISHING_ROD, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "FISHING ROD", ChatColor.GRAY + "Click to see upgrades.\n" + ChatColor.RED + "WARNING: Upgrades lost on death.");
         ItemStack bow = createItem(Material.BOW, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "BOW", ChatColor.GRAY + "Click to see upgrades.\n" + ChatColor.RED + "WARNING: Upgrades lost on death.");
         ItemStack armor = createItem(Material.LEATHER_CHESTPLATE, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "ARMOR", ChatColor.GRAY + "Click to see upgrades.\n" + ChatColor.RED + "WARNING: Upgrades lost on death.");
-        ItemStack eye = createItem(Material.EYE_OF_ENDER, 1, ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "REBIRTH", ChatColor.DARK_PURPLE + "≻ +1 Enchant Level\n" + ChatColor.DARK_PURPLE + "≻ +3 Exp Per Kill\n" + ChatColor.DARK_PURPLE + "≻ +1 Max health\n" + ChatColor.DARK_PURPLE + "≻ Infinite Arrows\n" + ChatColor.DARK_PURPLE + "≻ Strength on kill\n" + ChatColor.DARK_PURPLE + "≻ Speed on kill\n" + ChatColor.RED + "Level " + ChatColor.WHITE + "100");
+        ItemStack eye = createItem(Material.EYE_OF_ENDER, 1, ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "REBIRTH", ChatColor.DARK_PURPLE + "≻ +1 Enchant Level\n" + ChatColor.DARK_PURPLE + "≻ +3 Exp Per Kill\n" + ChatColor.DARK_PURPLE + "≻ +1 Max health\n" + ChatColor.DARK_PURPLE + "≻ Infinite Arrows\n" + ChatColor.DARK_PURPLE + "≻ Strength on kill\n" + ChatColor.DARK_PURPLE + "≻ Speed on kill\n" + ChatColor.RED + "Level " + ChatColor.WHITE + "75");
         ItemStack firecharge = createItem(Material.FIREBALL, 1, ChatColor.GOLD + "" + ChatColor.BOLD + "PERKS", ChatColor.GRAY + "Click to see perks.");
         for(int i = 0; i < inventory.getSize(); i++) {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), "");
@@ -48,9 +48,9 @@ public class GUIMainScreen extends GUI {
         setButtons(13,armor, event -> switchScreen(new GUIUpgradeMenu(player, UpgradeTypes.ARMOR)));
 
         setButtons(16,eye, event -> {
-            if(TazPvP.statsManager.getLevel(player) >= 100){
+            if(TazPvP.statsManager.getLevel(player) >= 75){
                 Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-                Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + player.getName() + ChatColor.DARK_PURPLE + " was reborn stronger.");
+                Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + player.getName() + ChatColor.DARK_PURPLE + " re-birthed and became stronger.");
                 Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
                 PlayerUtils.equipStarter(player);
                 TazPvP.statsManager.addRebirths(player, 1);
@@ -61,7 +61,7 @@ public class GUIMainScreen extends GUI {
                     pl.playSound(pl.getLocation(), Sound.WITHER_DEATH, 1, 1);
                 }
             } else {
-                player.sendMessage(ChatColor.RED + "Reach level " + ChatColor.WHITE + "100" + ChatColor.RED + " to use this feature!");
+                player.sendMessage(ChatColor.RED + "Reach level " + ChatColor.WHITE + "75" + ChatColor.RED + " to use this feature!");
             }
         });
 
