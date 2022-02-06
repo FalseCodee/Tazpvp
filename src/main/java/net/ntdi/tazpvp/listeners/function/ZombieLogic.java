@@ -165,7 +165,7 @@ public class ZombieLogic implements Listener {
 
     @EventHandler
     public void onBabyDie(EntityDeathEvent event){
-        if (event.getEntity() instanceof Zombie && event.getEntity().getName().equals(ChatColor.GREEN + "" + "Falsecode's Newborn Son")){
+        if (event.getEntity() instanceof WitherSkeleton && event.getEntity().getName().equals(ChatColor.GREEN + "" + "Falsecode's Newborn Son")){
 
             Random rand = new Random();
             if (event.getEntity().getKiller() != null){
@@ -182,7 +182,8 @@ public class ZombieLogic implements Listener {
 
     public void spawnBaby(){
         Location loc = new Location(world, xbaby, ybaby, zbaby);
-        Zombie zom = (Zombie) world.spawnEntity(loc, EntityType.ZOMBIE);
+        Skeleton zom = (Skeleton) world.spawnEntity(loc, EntityType.SKELETON);
+        zom.setSkeletonType(Skeleton.SkeletonType.WITHER);
         zom.getEquipment().setHelmet(new ItemStack(Material.DIAMOND_HELMET));
         zom.getEquipment().setChestplate(new ItemStack(Material.DIAMOND_CHESTPLATE));
         zom.getEquipment().setLeggings(new ItemStack(Material.DIAMOND_LEGGINGS));
@@ -190,8 +191,6 @@ public class ZombieLogic implements Listener {
         zom.setCustomName(ChatColor.GREEN + "" + "Falsecode's Newborn Son");
         zom.setCustomNameVisible(true);
         zom.setMaxHealth(50);
-        zom.setBaby(true);
-        zom.setVillager(true);
         zom.getEquipment().setItemInHand(new ItemStack(Material.DIAMOND_SWORD));
     }
 
