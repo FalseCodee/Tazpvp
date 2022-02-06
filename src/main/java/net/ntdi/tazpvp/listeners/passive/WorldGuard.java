@@ -134,8 +134,7 @@ public class WorldGuard implements Listener {
     @EventHandler
     public void noDurability(PlayerItemDamageEvent event){
         if (event.getPlayer().getWorld().getName().equals("spawn")){
-            event.getPlayer().sendMessage("h");
-            event.setCancelled(true);
+            event.getItem().setDurability((short)0);
         }
     }
 
