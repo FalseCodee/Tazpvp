@@ -196,8 +196,9 @@ public class DeathListener implements Listener {
             }
         } else if (killee instanceof Arrow){
             Arrow arrow = (Arrow) killee;
-            Player killer = (Player) arrow.getShooter();
-            if (killer != null && killer instanceof Player){
+            Player killer = null;
+            if (arrow.getShooter() instanceof Player){
+                killer = (Player) arrow.getShooter();
                 if (p != null) {
                     if (killer != p) {
                         TazPvP.achievementsManager.onDeath(p);
