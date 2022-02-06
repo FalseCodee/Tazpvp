@@ -23,8 +23,8 @@ public class duelSpectateCommand implements CommandExecutor {
                         if (TazPvP.duelManager.isDueling(targetPlayer)) {
                             if (!DuelManager.spectating.contains(p)) {
                                 p.teleport(targetPlayer.getLocation());
-                                p.setGameMode(GameMode.SPECTATOR);
                                 TazPvP.duelManager.startSpectating(p);
+                                p.setGameMode(GameMode.SPECTATOR);
                             } else {
                                 p.sendMessage(ChatColor.RED + "You are already spectating.");
                             }

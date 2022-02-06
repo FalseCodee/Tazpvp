@@ -109,7 +109,7 @@ public class DuelManager implements Listener {
         player1.setMaxHealth(20);
         player2.setMaxHealth(20);
         Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-        Bukkit.broadcastMessage(ChatColor.WHITE + " " + player1.getName() + ChatColor.BLUE + " is now dueling " + ChatColor.WHITE + player2.getName() + ChatColor.GRAY + " Type /spectate." + player1.getName());
+        Bukkit.broadcastMessage(ChatColor.WHITE + " " + player1.getName() + ChatColor.BLUE + " is now dueling " + ChatColor.WHITE + player2.getName() + ChatColor.GRAY + " Type /spectate " + player1.getName());
         Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
 
