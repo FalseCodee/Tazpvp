@@ -4,6 +4,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.potion.PotionEffect;
 
 public class HealCommand implements CommandExecutor {
 
@@ -15,7 +16,9 @@ public class HealCommand implements CommandExecutor {
             if (player.hasPermission("tazpvp.staff.heal")) {
                 player.setHealth(player.getMaxHealth());
                 player.setFoodLevel(20);
-                player.sendMessage("heeled");
+                for (PotionEffect effect : player.getActivePotionEffects()) {
+                    player.removePotionEffect(effect.getType());
+                }
             }
         }
 
