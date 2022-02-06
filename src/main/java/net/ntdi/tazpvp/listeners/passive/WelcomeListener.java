@@ -37,9 +37,9 @@ public class WelcomeListener implements Listener {
         p.sendMessage(ChatColor.translateAlternateColorCodes('&', TazPvP.configFile.getString("branding.wMSG.line3")));
         p.sendMessage(ChatColor.AQUA + "");
 
-        if (!p.hasPlayedBefore()){
-            PlayerUtils.equipStarter(p);
-        }
+//        if (!p.hasPlayedBefore()){
+//            PlayerUtils.equipStarter(p);
+//        }
 
         TazPvP.ipmanager.storePlayerIp(p);
 
@@ -115,8 +115,6 @@ public class WelcomeListener implements Listener {
             event.setJoinMessage(ChatColor.GRAY + "[" + ChatColor.GOLD + "+" + ChatColor.GRAY + "] " + p.getName());
             Player player = event.getPlayer();
             PlayerUtils.equipStarter(p);
-            TazPvP.statsManager.initPlayer(p);
-
         }
 
 /*        if(TazPvP.statsManager.statsFile.contains(event.getPlayer().getUniqueId().toString())) {
