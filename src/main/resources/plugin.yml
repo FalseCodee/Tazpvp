@@ -278,13 +278,13 @@ commands:
       - advert
       - advertise
   gmc:
-    permission: tazpvp.staff.gm
+    permission: tazpvp.staff.gmc
     usage: "/gmc"
   gms:
-    permission: tazpvp.staff.gm
+    permission: tazpvp.staff.gms
     usage: "/gms"
   gmsp:
-    permission: tazpvp.staff.gm
+    permission: tazpvp.staff.gmsp
     usage: "/gmsp"
   fly:
     permission: tazpvp.staff.fly

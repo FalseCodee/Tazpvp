@@ -13,7 +13,7 @@ public class gmsCommand implements CommandExecutor {
         if (sender instanceof Player) {
             p = (Player) sender;
         }
-        if (p.hasPermission("tazpvp.staff.gm")) {
+        if (p.hasPermission("tazpvp.staff.gms")) {
             p.setGameMode(GameMode.SURVIVAL);
             p.sendMessage(ChatColor.GOLD + "Gamemode: " + ChatColor.RED + "survival");
         }

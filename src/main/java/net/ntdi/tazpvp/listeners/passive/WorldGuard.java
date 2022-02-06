@@ -14,6 +14,7 @@ import org.bukkit.event.entity.EntitySpawnEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerItemDamageEvent;
 import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 
@@ -126,6 +127,14 @@ public class WorldGuard implements Listener {
     @EventHandler
     public void blockHit(EntityDamageByEntityEvent event) {
         if (event.getEntity().getWorld().getName().equals("spawn")) {
+            event.setCancelled(true);
+        }
+    }
+
+    @EventHandler
+    public void noDurability(PlayerItemDamageEvent event){
+        if (event.getPlayer().getWorld().getName().equals("spawn")){
+            event.getPlayer().sendMessage("h");
             event.setCancelled(true);
         }
     }

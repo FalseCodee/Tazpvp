@@ -13,7 +13,7 @@ public class gmcCommand implements CommandExecutor {
         if (sender instanceof Player) {
             p = (Player) sender;
         }
-        if (p.hasPermission("tazpvp.staff.gm")) {
+        if (p.hasPermission("tazpvp.staff.gmc")) {
             p.setGameMode(GameMode.CREATIVE);
             p.sendMessage(ChatColor.GOLD + "Gamemode: " + ChatColor.RED + "creative");
         }
