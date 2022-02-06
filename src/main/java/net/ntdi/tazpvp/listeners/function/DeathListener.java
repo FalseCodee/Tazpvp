@@ -65,6 +65,9 @@ public class DeathListener implements Listener {
                             p.setGameMode(GameMode.ADVENTURE);
                             p.setHealth(20);
                             p.setFoodLevel(20);
+                            for (PotionEffect effect : p.getActivePotionEffects()) {
+                                p.removePotionEffect(effect.getType());
+                            }
                             rsInv(p);
                             p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
                             if (combatLog.combatLog.containsKey(p)) {
