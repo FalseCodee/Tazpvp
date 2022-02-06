@@ -36,7 +36,7 @@ public class ChatAlert {
 
                 num++;
             }
-        }.runTaskTimer(plugin, 20*4*60, 20);
+        }.runTaskTimer(plugin, 20*4*60, 20*4*60);
     }
 }
 
