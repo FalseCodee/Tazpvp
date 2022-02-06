@@ -148,6 +148,7 @@ public class DuelManager implements Listener {
 
     public void startSpectating (Player p) {
         spectating.add(p);
+        p.sendMessage(ChatColor.GREEN+"You are now spectating, type "+ChatColor.WHITE+"'/spectate' "+ChatColor.GREEN+"to stop.");
     }
     public void stopSpectating () {
         for (Player spec : spectating){
