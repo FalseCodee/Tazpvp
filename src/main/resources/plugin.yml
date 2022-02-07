@@ -329,3 +329,6 @@ commands:
     permission: tazpvp.hat
     usage: "/hat"
     description: "give yourself a hat"
+  pay:
+    description: "pay someone"
+    usage: "/pay <player> <amount>"

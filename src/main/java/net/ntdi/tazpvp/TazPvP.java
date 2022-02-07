@@ -328,6 +328,7 @@ public final class TazPvP extends JavaPlugin {
         getCommand("spectate").setExecutor(new duelSpectateCommand());
         getCommand("alts").setExecutor(new AltsCommand());
         getCommand("hat").setExecutor(new HatCommand());
+        getCommand("pay").setExecutor(new PayCommand());
     }
 
     public void registerListeners() {
