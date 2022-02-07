@@ -1,5 +1,6 @@
 package net.ntdi.tazpvp.gui.guis;
 
+import javafx.scene.control.TableColumn;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.gui.GUI;
 import net.ntdi.tazpvp.utils.StringUtils;
@@ -52,7 +53,7 @@ public class GUIDailyReward extends GUI {
             player.sendMessage("+ " + 200 + ChatColor.YELLOW + " Coins");
             TazPvP.statsManager.addMoney(player, 200);
             player.sendMessage("+ " + 200 + ChatColor.GREEN + " EXP");
-            player.giveExp(80);
+            TazPvP.statsManager.addExp(player, 200);
             player.sendMessage("+ " + 1 + ChatColor.AQUA + " Credit");
             TazPvP.statsManager.addCredits(player, 1);
         } else {
