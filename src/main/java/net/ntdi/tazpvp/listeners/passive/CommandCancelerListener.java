@@ -19,13 +19,15 @@ public class CommandCancelerListener implements Listener {
 //        String message = event.getMessage();
 //        String[] args = message.split(" ");
         if (!player.hasPermission("staff.commandbypass")) {
-            if (event.getMessage().toLowerCase().startsWith("/minecraft") || event.getMessage().toLowerCase().startsWith("/bukkit") || event.getMessage().toLowerCase().startsWith("/? ")) {
+            if (event.getMessage().toLowerCase().startsWith("/minecraft") || event.getMessage().toLowerCase().startsWith("/bukkit") || event.getMessage().toLowerCase().startsWith("/? ") || event.getMessage().toLowerCase().startsWith("/me")) {
                 event.setCancelled(true);
                 //player.sendMessage(ChatColor.WHITE + "UR MOMMA");
             }
             else if (event.getMessage().toLowerCase().startsWith("/pl") && !event.getMessage().toLowerCase().startsWith("/playtime")) {
                 event.setCancelled(true);
                 player.sendMessage(ChatColor.WHITE + "Plugins (69): " + ChatColor.GREEN + "Never" + ChatColor.WHITE + ", " + ChatColor.GREEN + "Gonna" + ChatColor.WHITE + ", " + ChatColor.GREEN + "Give" + ChatColor.WHITE + ", " + ChatColor.GREEN + "You"  + ChatColor.WHITE + ", " + ChatColor.GREEN + "Up" + ChatColor.WHITE + "!");
+            } else if (event.getMessage().toLowerCase().contains(":")) {
+                event.setCancelled(true);
             }
 
         } //else if (player.hasPermission("staff.commandbypass")) {
