@@ -147,7 +147,7 @@ public class StatsManager {
         setKills(player, kills+getKills(player));
     }
     public double getExp(OfflinePlayer player) {
-        return statsFile.getInt(player.getUniqueId().toString()+".exp");
+        return statsFile.getDouble(player.getUniqueId().toString()+".exp");
     }
     public void setExp(OfflinePlayer player, double exp) {
         statsFile.set(player.getUniqueId().toString()+".exp", exp);
