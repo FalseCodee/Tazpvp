@@ -264,6 +264,10 @@ public class WelcomeListener implements Listener {
             Player p = event.getPlayer();
 
             p.teleport(new Location(Bukkit.getWorld("arena"), -36.5, 30, 3.5));
+        } else if (event.getPlayer().getWorld().getName().equals("duel")) {
+            if (!TazPvP.duelManager.isDueling(event.getPlayer())) {
+                event.getPlayer().setGameMode(GameMode.SPECTATOR);
+            }
         }
     }
 
