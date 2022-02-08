@@ -37,7 +37,7 @@ public class BanCommand implements CommandExecutor {
         }
         OfflinePlayer banned = Bukkit.getOfflinePlayer(args[0]);
         if (banned != null) {
-            if(player != null && player.hasPermission("staff.ban") && !TazPvP.permissions.playerHas(Bukkit.getWorld("spawn").getName(), banned, "staff.banbypass") && player != banned) {
+            if(player != null && player.hasPermission("staff.ban") && !TazPvP.permissions.playerHas(Bukkit.getWorld("spawn").getName(), banned, "staff.banbypass") && !(banned == player)) {
                 if (banned.isOnline()) {
                     if (banned.getPlayer().hasPermission("staff.banbypass")) {
                         return false;
