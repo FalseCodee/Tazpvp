@@ -107,6 +107,6 @@ public class PlayerUtils {
             public void run() {
                 p.setGameMode(gm);
             }
-        }.runTaskLater(TazPvP.getInstance(), 50L);
+        }.runTaskLater(TazPvP.getInstance(), 5L);
     }
 }
