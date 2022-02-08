@@ -25,27 +25,31 @@ public class DuelAcceptCommand implements CommandExecutor {
                 if (target != null) {
                     if (!target.getName().equals(player.getName())) {
                         if (target.isOnline()) {
-                            if (!TazPvP.punishmentManager.isBanned(player)) {
-                                if (!TazPvP.duelManager.isDueling(target)) {
-                                    if (!isRespawning(player) || !isRespawning(target)) {
-                                        if (sender(player).equals(target.getName())) {
-                                            byte[] array = new byte[15]; // length is bounded by 15
-                                            new Random().nextBytes(array);
-                                            String generatedString = new String(array, Charset.forName("UTF-8"));
-                                            player.setMetadata("sender", new FixedMetadataValue(TazPvP.getInstance(), generatedString));
-                                            player.setMetadata("sender", new FixedMetadataValue(TazPvP.getInstance(), ""));
-                                            TazPvP.duelManager.startDuel(player, target);
+                            if (player.getWorld().getName().equals("spawn")) {
+                                if (!TazPvP.punishmentManager.isBanned(player)) {
+                                    if (!TazPvP.duelManager.isDueling(target)) {
+                                        if (!isRespawning(player) || !isRespawning(target)) {
+                                            if (sender(player).equals(target.getName())) {
+                                                byte[] array = new byte[15]; // length is bounded by 15
+                                                new Random().nextBytes(array);
+                                                String generatedString = new String(array, Charset.forName("UTF-8"));
+                                                player.setMetadata("sender", new FixedMetadataValue(TazPvP.getInstance(), generatedString));
+                                                player.setMetadata("sender", new FixedMetadataValue(TazPvP.getInstance(), ""));
+                                                TazPvP.duelManager.startDuel(player, target);
+                                            } else {
+                                                player.sendMessage(ChatColor.RED + "You have not sent a duel request to " + target.getName());
+                                            }
                                         } else {
-                                            player.sendMessage(ChatColor.RED + "You have not sent a duel request to " + target.getName());
+                                            player.sendMessage(ChatColor.RED + "You or " + target.getName() + " are respawning.");
                                         }
                                     } else {
-                                        player.sendMessage(ChatColor.RED + "You or " + target.getName() + " are respawning.");
+                                        player.sendMessage(ChatColor.RED + "That user is already in a duel.");
                                     }
                                 } else {
-                                    player.sendMessage(ChatColor.RED + "That user is already in a duel.");
+                                    player.sendMessage(ChatColor.RED + "You cannot accept a duel while you are banned.");
                                 }
                             } else {
-                                player.sendMessage(ChatColor.RED + "You cannot accept a duel while you are banned.");
+                                player.sendMessage(ChatColor.RED + "You cannot accept a duel while you are not in the spawn world.");
                             }
                         } else {
                             player.sendMessage(ChatColor.RED + "That player is not online!");
