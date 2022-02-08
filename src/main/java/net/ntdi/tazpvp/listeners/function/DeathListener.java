@@ -27,6 +27,8 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
+import static net.ntdi.tazpvp.utils.PlayerUtils.delayChangeGamemode;
+
 public class DeathListener implements Listener {
 
     private final Random rand = new Random();
@@ -62,7 +64,7 @@ public class DeathListener implements Listener {
                         @Override
                         public void run() {
                             p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
-                            p.setGameMode(GameMode.ADVENTURE);
+                            delayChangeGamemode(p, GameMode.ADVENTURE);
                             p.setHealth(20);
                             p.setFoodLevel(20);
                             for (PotionEffect effect : p.getActivePotionEffects()) {
