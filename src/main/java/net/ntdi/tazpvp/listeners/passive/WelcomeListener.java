@@ -228,7 +228,6 @@ public class WelcomeListener implements Listener {
             }
 
             p.setMetadata("fallDamage", new FixedMetadataValue(TazPvP.getInstance(), false));
-            delayChangeGamemode(p, GameMode.SURVIVAL);
 
             int min = 1;
             int max = 6;
@@ -255,6 +254,7 @@ public class WelcomeListener implements Listener {
                 p.teleport(location);
             }
 
+            delayChangeGamemode(p, GameMode.SURVIVAL);
             new BukkitRunnable() {
                 @Override
                 public void run() {
