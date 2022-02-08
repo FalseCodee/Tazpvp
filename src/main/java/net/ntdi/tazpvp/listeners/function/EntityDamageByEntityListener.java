@@ -69,7 +69,7 @@ public class EntityDamageByEntityListener implements Listener {
                 }
             }
 
-            if (!(event.getDamager() instanceof NPC)) {
+            if (!(event.getEntity().hasMetadata("NPC"))) {
                 victim.setMetadata("combat", new FixedMetadataValue(TazPvP.getInstance(), p.getName()));
                 if (!p.getWorld().getName().equals("spawn") && !p.getWorld().getName().equals("duel")) {
                     if(((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.WOOD_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.STONE_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.IRON_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.GOLD_SWORD) || ((Player) event.getDamager()).getInventory().getItemInHand().getType().equals(Material.DIAMOND_SWORD)){
