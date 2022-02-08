@@ -147,12 +147,8 @@ public class BlockBreakListener implements Listener {
                         return;
                     }
                 }
-                if (TazPvP.perkManager.getHaste(p)){
-                    p.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 15, 1, false));
-                }
                 if (TazPvP.perkManager.getExcavator(p)){
-//                    TazPvP.statsManager.addExp(p, ((TazPvP.statsManager.getExpLeft(p) - TazPvP.statsManager.getExp(p)) * (0.5 * TazPvP.statsManager.getExpLeft(p))));
-                    TazPvP.statsManager.addExp(p, 2);
+                    TazPvP.statsManager.addExp(p, 1);
                 }
                new BukkitRunnable() {
 
