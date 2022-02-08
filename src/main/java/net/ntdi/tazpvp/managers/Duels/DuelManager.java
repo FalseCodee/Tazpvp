@@ -150,7 +150,7 @@ public class DuelManager implements Listener {
     public void startSpectating (Player p, Player taget) {
         spectating.add(p);
         p.sendMessage(ChatColor.GREEN+"You are now spectating, type "+ChatColor.WHITE+"'/spectate' "+ChatColor.GREEN+"to stop.");
-        p.teleport(taget.getLocation());
+        p.teleport(taget.getLocation().add(0, 3, 0));
         delayChangeGamemode(p, GameMode.SPECTATOR);
     }
     public void stopSpectating (boolean all, Player p) {
