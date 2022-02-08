@@ -33,9 +33,8 @@ public class PunishmentManager {
         punishmentFile.set("bans." + player.getUniqueId().toString()+".perm", permanent);
 
     }
-    public void initMute(OfflinePlayer player, boolean permanent, long duration){
+    public void initMute(OfflinePlayer player, boolean permanent){
         punishmentFile.set("mutes." + player.getUniqueId().toString()+".time", new Date().getTime());
-        punishmentFile.set("mutes." + player.getUniqueId().toString()+".duration", duration);
         punishmentFile.set("mutes." + player.getUniqueId().toString()+".perm", permanent);
     }
 

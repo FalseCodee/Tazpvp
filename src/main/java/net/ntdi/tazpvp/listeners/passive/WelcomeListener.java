@@ -78,11 +78,6 @@ public class WelcomeListener implements Listener {
             TazPvP.getInstance().setNametag(Onlineplayer, p);
         }
 
-        if(TazPvP.punishmentManager.isMuted(p) &&
-                System.currentTimeMillis()-TazPvP.punishmentManager.getMuteTime(p) >= TazPvP.punishmentManager.getMuteDuration(p)){
-            TazPvP.punishmentManager.removeMute(p);
-            p.sendMessage(ChatColor.RED+"You have been unmuted.");
-        }
         if (TazPvP.punishmentManager.isBanned(p)) {
             p.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             p.sendMessage(ChatColor.RED + ""+ ChatColor.BOLD + " BAN" + ChatColor.RED + " You are currently banned.");

@@ -68,26 +68,14 @@ public class ChatSpamListener implements Listener {
         }
 
         if(TazPvP.punishmentManager.isMuted(p)){
-            long muteTime = TazPvP.punishmentManager.getMuteTime(p);
-            long muteDuration = TazPvP.punishmentManager.getMuteDuration(p);
-            if(System.currentTimeMillis()-muteTime >= muteDuration){
-                if (!TazPvP.punishmentManager.isPermanentMute(p)){
-                    TazPvP.punishmentManager.removeMute(p);
-                    p.sendMessage(ChatColor.RED+"You have been unmuted.");
-                } else {
-                    p.sendMessage(ChatColor.RED + "You are permanently muted");
-                    e.setCancelled(true);
-                    return;
-                }
-
-            } else {
-                e.setCancelled(true);
-                p.sendMessage(ChatColor.RED + "You cannot chat while muted.");
-                return;
-            }
-        } else if (TazPvP.punishmentManager.isBanned(p)){
+            p.sendMessage(ChatColor.RED + "You are permanently muted");
+            e.setCancelled(true);
+            return;
+        }
+        if (TazPvP.punishmentManager.isBanned(p)){
             e.setCancelled(true);
             p.sendMessage(ChatColor.RED + "You cannot chat while banned.");
+            return;
         }
         if (p.hasPermission("staff.chatbypass")) return;
 
