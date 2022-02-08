@@ -51,9 +51,7 @@ public class GUIDailyReward extends GUI {
             player.sendMessage(ChatColor.AQUA + "Come back in 12 hour to redeem again!");
             player.sendMessage("+ " + 200 + ChatColor.YELLOW + " Coins");
             TazPvP.statsManager.addMoney(player, 200);
-            player.sendMessage("+ " + 200 + ChatColor.GREEN + " EXP");
-            TazPvP.statsManager.addExp(player, 200);
-            player.sendMessage("+ " + 1 + ChatColor.AQUA + " Credit");
+            player.sendMessage("+ " + 10 + ChatColor.AQUA + " Credit");
             TazPvP.statsManager.addCredits(player, 1);
         } else {
             setItems();
