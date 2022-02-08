@@ -259,8 +259,9 @@ public class WelcomeListener implements Listener {
         } else if (event.getFrom().getName().equals("grind")) {
             World world = event.getPlayer().getWorld();
             Player p = event.getPlayer();
-
-            p.teleport(new Location(Bukkit.getWorld("arena"), -36.5, 30, 3.5));
+            if (!isRespawning(p)) {
+                p.teleport(new Location(Bukkit.getWorld("arena"), -36.5, 30, 3.5));
+            }
         } else if (event.getPlayer().getWorld().getName().equals("duel")) {
             if (!TazPvP.duelManager.isDueling(event.getPlayer())) {
                 delayChangeGamemode(event.getPlayer(), GameMode.SPECTATOR);
@@ -280,6 +281,14 @@ public class WelcomeListener implements Listener {
 
     public boolean isFallDamageImmune(Block b){
         List<MetadataValue> metaDataValues = b.getMetadata("fallDamage");
+        for (MetadataValue metaDataValue : metaDataValues) {
+            return metaDataValue.asBoolean();
+        }
+        return false;
+    }
+
+    public boolean isRespawning(Player p){
+        List<MetadataValue> metaDataValues = p.getMetadata("respawning");
         for (MetadataValue metaDataValue : metaDataValues) {
             return metaDataValue.asBoolean();
         }
