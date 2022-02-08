@@ -2,12 +2,14 @@ package net.ntdi.tazpvp.utils;
 
 import net.ntdi.tazpvp.TazPvP;
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public class PlayerUtils {
     public static OfflinePlayer getPlayer(String username){
@@ -97,5 +99,14 @@ public class PlayerUtils {
         inv.addItem(blocks);
         inv.setItem(9, arrow);
 
+    }
+
+    public static void delayChangeGamemode(Player p, GameMode gm) {
+        new BukkitRunnable() {
+            @Override
+            public void run() {
+                p.setGameMode(gm);
+            }
+        }.runTaskLater(TazPvP.getInstance(), 20L);
     }
 }

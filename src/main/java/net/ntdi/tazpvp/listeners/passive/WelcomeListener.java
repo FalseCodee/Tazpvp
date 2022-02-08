@@ -24,6 +24,8 @@ import org.bukkit.scoreboard.Scoreboard;
 import java.util.List;
 import java.util.UUID;
 
+import static net.ntdi.tazpvp.utils.PlayerUtils.delayChangeGamemode;
+
 public class WelcomeListener implements Listener {
 
     public TazPvP plugin;
@@ -149,6 +151,7 @@ public class WelcomeListener implements Listener {
 //        } catch (InvocationTargetException e) {
 //            e.printStackTrace();
 //        }
+        delayChangeGamemode(p, GameMode.ADVENTURE);
     }
 
     public String getCombatee(Player p){
@@ -225,7 +228,7 @@ public class WelcomeListener implements Listener {
             }
 
             p.setMetadata("fallDamage", new FixedMetadataValue(TazPvP.getInstance(), false));
-            p.setGameMode(GameMode.SURVIVAL);
+            delayChangeGamemode(p, GameMode.SURVIVAL);
 
             int min = 1;
             int max = 6;
@@ -265,7 +268,7 @@ public class WelcomeListener implements Listener {
             p.teleport(new Location(Bukkit.getWorld("arena"), -36.5, 30, 3.5));
         } else if (event.getPlayer().getWorld().getName().equals("duel")) {
             if (!TazPvP.duelManager.isDueling(event.getPlayer())) {
-                event.getPlayer().setGameMode(GameMode.SPECTATOR);
+                delayChangeGamemode(event.getPlayer(), GameMode.SPECTATOR);
             }
         }
     }

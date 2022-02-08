@@ -25,6 +25,7 @@ import java.util.stream.Collectors;
 
 import static net.ntdi.tazpvp.items.Items.BUTTER;
 import static net.ntdi.tazpvp.items.Items.GHEAD;
+import static net.ntdi.tazpvp.utils.PlayerUtils.delayChangeGamemode;
 
 public class DuelManager implements Listener {
 
@@ -146,10 +147,11 @@ public class DuelManager implements Listener {
         }.runTaskTimer(TazPvP.getInstance(), 0, 20);
     }
 
-    public void startSpectating (Player p) {
+    public void startSpectating (Player p, Player taget) {
         spectating.add(p);
-        p.setGameMode(GameMode.SPECTATOR);
         p.sendMessage(ChatColor.GREEN+"You are now spectating, type "+ChatColor.WHITE+"'/spectate' "+ChatColor.GREEN+"to stop.");
+        p.teleport(taget.getLocation());
+        delayChangeGamemode(p, GameMode.SPECTATOR);
     }
     public void stopSpectating (boolean all, Player p) {
         if (all) {
