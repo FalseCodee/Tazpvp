@@ -34,6 +34,10 @@ public class EntityDamageByEntityListener implements Listener {
                 event.setCancelled(true);
                 return;
             }
+            if (TazPvP.invunerable.contains(event.getEntity()) || TazPvP.invunerable.contains(event.getDamager())) {
+                event.setCancelled(true);
+                return;
+            }
 
             OfflinePlayer damager = ((Player) event.getDamager()).getPlayer();
 
