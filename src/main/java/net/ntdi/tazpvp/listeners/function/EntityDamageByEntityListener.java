@@ -2,6 +2,7 @@ package net.ntdi.tazpvp.listeners.function;
 
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.listeners.passive.combatLog;
+import net.ntdi.tazpvp.managers.Duels.DuelManager;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
@@ -27,6 +28,10 @@ public class EntityDamageByEntityListener implements Listener {
     public void entityDamageByEntity(EntityDamageByEntityEvent event) {
         if(event.getEntity() instanceof Player && event.getDamager() instanceof Player) {
             if(TazPvP.duelManager.isDueling((Player) event.getEntity()) || TazPvP.duelManager.isDueling((Player) event.getDamager())) {
+                return;
+            }
+            if (DuelManager.spectating.contains(event.getEntity()) || DuelManager.spectating.contains(event.getDamager())) {
+                event.setCancelled(true);
                 return;
             }
 

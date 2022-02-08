@@ -215,6 +215,10 @@ public class WelcomeListener implements Listener {
             World world = event.getPlayer().getWorld();
             Player p = event.getPlayer();
 
+            if (DuelManager.spectating.contains(p)){
+                return;
+            }
+
             if (TazPvP.invunerable.contains(p)) {
                 PlayerUtils.hidePlayer(p);
                 p.sendMessage(ChatColor.RED + "Changed world, adding invunerability due to being vanished");
