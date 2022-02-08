@@ -224,11 +224,6 @@ public class WelcomeListener implements Listener {
                 p.sendMessage(ChatColor.RED + "Changed world, adding invunerability due to being vanished");
             }
 
-            if(TazPvP.Spectating.contains(p)){
-                p.teleport(new Location(event.getFrom(), 0.5, 30, 0.5));
-                p.sendMessage(ChatColor.RED + "You cannot teleport while spectating.");
-            }
-
             p.setMetadata("fallDamage", new FixedMetadataValue(TazPvP.getInstance(), false));
             p.setGameMode(GameMode.SURVIVAL);
 
