@@ -11,6 +11,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 
 public class ChatSpamListener implements Listener {
 
@@ -132,7 +133,7 @@ public class ChatSpamListener implements Listener {
             message = message.replace("fuk", "###");
             message = message.replace("fuc", "###");
             message = message.replace("slut", "####");
-            if (message != "night" && message.equals("nig")) {
+            if (message != "night" && message.equalsIgnoreCase("nig")) {
                 message = message.replace("nig", "###");
             } else {
                 e.setMessage(message);
@@ -157,14 +158,6 @@ public class ChatSpamListener implements Listener {
             long lastUse = this.cooldowns.get(p);
             if (time - lastUse < 1000) {
                 p.sendMessage(ChatColor.RED + "Please wait before chatting again, purchase a rank to remove the cooldown.");
-                e.setCancelled(true);
-            }
-            /*
-             *   what is the point of |
-             *   this conditional     V
-             */
-            else if (time - lastUse < 5*100) {
-                p.sendMessage(ChatColor.GREEN + "Please wait before chatting again, purchase a rank to remove the cooldown.");
                 e.setCancelled(true);
             }
         }
