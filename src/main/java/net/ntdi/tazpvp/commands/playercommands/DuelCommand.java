@@ -26,8 +26,8 @@ public class DuelCommand implements CommandExecutor {
                 Player target = Bukkit.getPlayer(args[0]);
                 if (target == null) {
                     sender.sendMessage(ChatColor.RED + "Player not found!");
-                } else if (player.getWorld().getName().equalsIgnoreCase("spawn")) {
-                    sender.sendMessage(ChatColor.RED + "You cannot send a duel in spawn!");
+                } else if (!player.getWorld().getName().equalsIgnoreCase("spawn")) {
+                    sender.sendMessage(ChatColor.RED + "You cannot send a duel whilst not in spawn!");
                 } else if (target.getName().equals(player.getName())) {
                     sender.sendMessage(ChatColor.RED + "You can't duel yourself!");
                 } else if (TazPvP.punishmentManager.isBanned(player)) {
