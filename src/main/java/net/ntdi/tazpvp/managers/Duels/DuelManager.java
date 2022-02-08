@@ -151,11 +151,18 @@ public class DuelManager implements Listener {
         p.setGameMode(GameMode.SPECTATOR);
         p.sendMessage(ChatColor.GREEN+"You are now spectating, type "+ChatColor.WHITE+"'/spectate' "+ChatColor.GREEN+"to stop.");
     }
-    public void stopSpectating () {
-        for (Player spec : spectating){
-            spec.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
-            spec.setGameMode(GameMode.ADVENTURE);
-            spectating.remove(spec);
+    public void stopSpectating (boolean all, Player p) {
+        if (all) {
+            for (Player spec : spectating){
+                spec.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
+                spec.setGameMode(GameMode.ADVENTURE);
+                spectating.remove(spec);
+            }
+        } else {
+            spectating.remove(p);
+            p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
+            p.setGameMode(GameMode.ADVENTURE);
+            p.sendMessage(ChatColor.GREEN + "You are no longer spectating.");
         }
     }
 
@@ -182,7 +189,7 @@ public class DuelManager implements Listener {
 
                 restorePlayer(looser);
                 restorePlayer(winner);
-                stopSpectating();
+                stopSpectating(true, winner);
 
             }
         }.runTaskLater(TazPvP.getInstance(), 20 * 5);

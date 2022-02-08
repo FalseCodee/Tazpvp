@@ -1,5 +1,6 @@
 package net.ntdi.tazpvp.commands.playercommands;
 
+import javafx.scene.control.TableColumn;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.managers.Duels.DuelManager;
 import org.bukkit.Bukkit;
@@ -39,10 +40,7 @@ public class duelSpectateCommand implements CommandExecutor {
             } else {
                 if (!TazPvP.duelManager.isDueling(p)) {
                     if (DuelManager.spectating.contains(p)) {
-                        DuelManager.spectating.remove(p);
-                        p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
-                        p.setGameMode(GameMode.ADVENTURE);
-                        p.sendMessage(ChatColor.GREEN + "You are no longer spectating.");
+                        TazPvP.duelManager.stopSpectating(false, p);
                     } else {
                         return false;
                     }
