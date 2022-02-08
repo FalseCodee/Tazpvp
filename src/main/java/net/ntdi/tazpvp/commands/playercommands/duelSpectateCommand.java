@@ -1,6 +1,5 @@
 package net.ntdi.tazpvp.commands.playercommands;
 
-import javafx.scene.control.TableColumn;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.managers.Duels.DuelManager;
 import org.bukkit.Bukkit;
