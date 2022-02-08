@@ -149,6 +149,7 @@ public class BlockBreakListener implements Listener {
                 }
                 if (TazPvP.perkManager.getExcavator(p)){
                     TazPvP.statsManager.addExp(p, 1);
+                    p.sendMessage("t");
                 }
                new BukkitRunnable() {
 
