@@ -74,6 +74,12 @@ public class StatsManager {
         statsFile.set(player.getUniqueId().toString()+".multi", 1);
     }
 
+    public void rebirthPlayer(OfflinePlayer player){
+        statsFile.set(player.getUniqueId().toString()+".exp", 0);
+        statsFile.set(player.getUniqueId().toString()+".expLeft", 45);
+        statsFile.set(player.getUniqueId().toString()+".level", 0);
+    }
+
     public int getMoney(OfflinePlayer player) {
         return statsFile.getInt(player.getUniqueId().toString()+".money");
     }

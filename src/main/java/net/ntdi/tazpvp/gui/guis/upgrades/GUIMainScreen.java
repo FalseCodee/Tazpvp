@@ -31,7 +31,7 @@ public class GUIMainScreen extends GUI {
         ItemStack rod = createItem(Material.FISHING_ROD, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "FISHING ROD", ChatColor.GRAY + "Click to see upgrades.\n" + ChatColor.RED + "WARNING: Upgrades lost on death.");
         ItemStack bow = createItem(Material.BOW, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "BOW", ChatColor.GRAY + "Click to see upgrades.\n" + ChatColor.RED + "WARNING: Upgrades lost on death.");
         ItemStack armor = createItem(Material.LEATHER_CHESTPLATE, 1, ChatColor.WHITE + "" + ChatColor.BOLD + "ARMOR", ChatColor.GRAY + "Click to see upgrades.\n" + ChatColor.RED + "WARNING: Upgrades lost on death.");
-        ItemStack eye = createItem(Material.EYE_OF_ENDER, 1, ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "REBIRTH", ChatColor.LIGHT_PURPLE + "Exchange levels for:\n" + ChatColor.DARK_PURPLE + "≻ +1 Enchant Level\n" + ChatColor.DARK_PURPLE + "≻ +3 Exp Per Kill\n" + ChatColor.DARK_PURPLE + "≻ +1 Max health\n" + ChatColor.DARK_PURPLE + "≻ Infinite Arrows\n" + ChatColor.DARK_PURPLE + "≻ Strength on kill\n" + ChatColor.DARK_PURPLE + "≻ Speed on kill\n" + ChatColor.RED + "Level " + ChatColor.WHITE + "75");
+        ItemStack eye = createItem(Material.EYE_OF_ENDER, 1, ChatColor.LIGHT_PURPLE + "" + ChatColor.BOLD + "REBIRTH", ChatColor.LIGHT_PURPLE + "Exchange levels for:\n" + ChatColor.DARK_PURPLE + "≻ +1 Enchant Level\n" + ChatColor.DARK_PURPLE + "≻ +3 Exp Per Kill\n" + ChatColor.DARK_PURPLE + "≻ +1 Max health\n" + ChatColor.DARK_PURPLE + "≻ Infinite Arrows\n" + ChatColor.DARK_PURPLE + "≻ Strength on kill\n" + ChatColor.DARK_PURPLE + "≻ Speed on kill\n" + ChatColor.RED + "Level " + ChatColor.WHITE + "75\n" + ChatColor.GOLD+"Cost: "+ChatColor.GRAY+"50 Points");
         ItemStack firecharge = createItem(Material.FIREBALL, 1, ChatColor.GOLD + "" + ChatColor.BOLD + "PERKS", ChatColor.GRAY + "Click to see perks.");
         for(int i = 0; i < inventory.getSize(); i++) {
             items[i] = createItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, DyeColor.BLACK.getData()), "");
@@ -49,16 +49,20 @@ public class GUIMainScreen extends GUI {
 
         setButtons(16,eye, event -> {
             if(TazPvP.statsManager.getLevel(player) >= 75){
-                Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-                Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + player.getName() + ChatColor.DARK_PURPLE + " re-birthed and became stronger.");
-                Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-                PlayerUtils.equipStarter(player);
-                TazPvP.statsManager.addRebirths(player, 1);
-                player.giveExpLevels(-player.getLevel());
-                player.setExp(0);
-                Bukkit.getScheduler().runTask(TazPvP.getInstance(), player::closeInventory);
-                for (Player pl : Bukkit.getOnlinePlayers()) {
-                    pl.playSound(pl.getLocation(), Sound.WITHER_DEATH, 1, 1);
+                if(TazPvP.statsManager.getPoints(player) >= 50) {
+                    TazPvP.statsManager.addPoints(player, -50);
+                    Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+                    Bukkit.broadcastMessage(ChatColor.LIGHT_PURPLE + player.getName() + ChatColor.DARK_PURPLE + " re-birthed and became stronger.");
+                    Bukkit.broadcastMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+                    TazPvP.statsManager.rebirthPlayer(player);
+                    TazPvP.statsManager.addRebirths(player, 1);
+                    player.giveExpLevels(-player.getLevel());
+                    Bukkit.getScheduler().runTask(TazPvP.getInstance(), player::closeInventory);
+                    for (Player pl : Bukkit.getOnlinePlayers()) {
+                        pl.playSound(pl.getLocation(), Sound.WITHER_DEATH, 1, 1);
+                    }
+                } else {
+                    player.sendMessage(ChatColor.RED + "Not enough points!");
                 }
             } else {
                 player.sendMessage(ChatColor.RED + "Reach level " + ChatColor.WHITE + "75" + ChatColor.RED + " to use this feature!");

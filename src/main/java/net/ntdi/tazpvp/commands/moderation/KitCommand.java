@@ -33,7 +33,7 @@ public class KitCommand implements CommandExecutor {
         return true;
     }
 
-    public void kit(Player player) {
+    public static void kit(Player player) {
         player.getInventory().clear();
 
         ItemStack armor1 = new ItemStack(Material.DIAMOND_BOOTS);
