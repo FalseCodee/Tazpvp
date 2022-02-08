@@ -165,7 +165,7 @@ public class ZombieLogic implements Listener {
 
     @EventHandler
     public void onBabyDie(EntityDeathEvent event){
-        if (event.getEntity() instanceof WitherSkeleton && event.getEntity().getName().equals(ChatColor.GREEN + "" + "Falsecode's Newborn Son")){
+        if (event.getEntity() instanceof Skeleton && event.getEntity().getName().equals(ChatColor.GREEN + "" + "Falsecode's Newborn Son")){
 
             Random rand = new Random();
             if (event.getEntity().getKiller() != null){
