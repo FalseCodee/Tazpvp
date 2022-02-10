@@ -257,12 +257,12 @@ public class WelcomeListener implements Listener {
                     p.setMetadata("fallDamage", new FixedMetadataValue(TazPvP.getInstance(), true));
                 }
             }.runTaskLater(TazPvP.getInstance(), 20 * 20);
-        } else if (event.getFrom().getName().equals("grind")) {
-            World world = event.getPlayer().getWorld();
-            Player p = event.getPlayer();
-            if (!isRespawning(p)) {
-                p.teleport(new Location(Bukkit.getWorld("arena"), -36.5, 30, 3.5));
-            }
+//        } else if (event.getFrom().getName().equals("grind")) {
+//            World world = event.getPlayer().getWorld();
+//            Player p = event.getPlayer();
+//            if (!isRespawning(p)) {
+//                p.teleport(new Location(Bukkit.getWorld("arena"), -36.5, 30, 3.5));
+//            }
         } else if (event.getPlayer().getWorld().getName().equals("duel")) {
             if (!TazPvP.duelManager.isDueling(event.getPlayer())) {
                 delayChangeGamemode(event.getPlayer(), GameMode.SPECTATOR);

@@ -30,7 +30,7 @@ public class SpawnCommand implements Listener, CommandExecutor {
             } else {
                 if (!TazPvP.duelManager.isDueling(p)) {
                     if (!p.getWorld().getName().equalsIgnoreCase("grind")) {
-                        p.sendMessage(ChatColor.DARK_AQUA + "You will be teleported to spawn in " + ChatColor.AQUA + "5 seconds. " + ChatColor.DARK_AQUA + "Do not move." );
+                        p.sendMessage(ChatColor.DARK_AQUA + "You will be teleported to spawn in " + ChatColor.AQUA + "3 seconds. " + ChatColor.DARK_AQUA + "Do not move." );
                         p.setMetadata("spawnering", new FixedMetadataValue(TazPvP.getInstance(), true));
                         new BukkitRunnable() {
                             @Override
@@ -42,7 +42,7 @@ public class SpawnCommand implements Listener, CommandExecutor {
                                     p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
                                 }
                             }
-                        }.runTaskLater(TazPvP.getInstance(), 5 * 20);
+                        }.runTaskLater(TazPvP.getInstance(), 3 * 20);
                         delayChangeGamemode(p, GameMode.ADVENTURE);
                     } else {
                         p.sendMessage(ChatColor.RED + "You cannot teleport while in the cave.");
