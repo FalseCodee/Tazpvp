@@ -21,6 +21,7 @@ import org.bukkit.metadata.MetadataValue;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.Scoreboard;
 
+import java.time.OffsetDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -179,9 +180,9 @@ public class WelcomeListener implements Listener {
         TazPvP.Spectating.remove(p);
 
         if(combatLog.combatLog.containsKey(p)){
-            Player killer = Bukkit.getPlayer(getCombatee(p));
+            OfflinePlayer killer = Bukkit.getPlayer(getCombatee(p));
             if (killer.isOnline()){
-                killer.sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 5 Experience");
+                killer.getPlayer().sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 5 Experience");
                 TazPvP.statsManager.addMoney(killer, 7);
                 TazPvP.statsManager.addExp(killer, 8);
             } else {
