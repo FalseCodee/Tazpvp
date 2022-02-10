@@ -15,7 +15,7 @@ public class AppealCommand implements CommandExecutor {
     private final TextComponent msg;
 
     public AppealCommand(){
-        msg = new TextComponent("§c§lAPPEAL §eClick Here");
+        msg = new TextComponent("§l§eClick Here to appeal.");
         msg.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new ComponentBuilder("§fDiscord Server").create()));
         msg.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://discord.gg/56rdkbSqa8"));
     }
@@ -28,8 +28,9 @@ public class AppealCommand implements CommandExecutor {
 
         if(player != null){
             player.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-            player.sendMessage(ChatColor.AQUA + "We apologize if your punishment was unfair.");
+            player.sendMessage(ChatColor.AQUA + "If you would like to be un-muted or un-banned, follow the steps below:");
             player.sendMessage(ChatColor.DARK_AQUA + "Contact support by going to the " + ChatColor.WHITE + "#support " + ChatColor.DARK_AQUA + "channel of our discord server.");
+            player.sendMessage(ChatColor.DARK_AQUA + "False punishments will be quickly revoked; cheaters, however, will stay punished but can appeal 24 hours later.");
             player.spigot().sendMessage(msg);
             player.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
         }
