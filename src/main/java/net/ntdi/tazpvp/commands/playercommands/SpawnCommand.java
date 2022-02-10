@@ -43,7 +43,7 @@ public class SpawnCommand implements Listener, CommandExecutor {
                                 }
                             }
                         }.runTaskLater(TazPvP.getInstance(), 3 * 20);
-                        delayChangeGamemode(p, GameMode.ADVENTURE);
+
                     } else {
                         p.sendMessage(ChatColor.RED + "You cannot teleport while in the cave.");
                     }

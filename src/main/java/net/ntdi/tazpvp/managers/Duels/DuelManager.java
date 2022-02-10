@@ -159,12 +159,12 @@ public class DuelManager implements Listener {
                 spectating.remove(spec);
                 spec.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
 
-                delayChangeGamemode(spec, GameMode.ADVENTURE);
+                delayChangeGamemode(spec, GameMode.SURVIVAL);
             }
         } else {
             spectating.remove(p);
             p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
-            delayChangeGamemode(p, GameMode.ADVENTURE);
+            delayChangeGamemode(p, GameMode.SURVIVAL);
             p.sendMessage(ChatColor.GREEN + "You are no longer spectating.");
         }
     }
