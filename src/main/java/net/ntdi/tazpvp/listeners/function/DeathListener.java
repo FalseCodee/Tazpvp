@@ -63,7 +63,6 @@ public class DeathListener implements Listener {
                     new BukkitRunnable() {
                         @Override
                         public void run() {
-                            p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
                             p.setHealth(20);
                             p.setFoodLevel(20);
                             for (PotionEffect effect : p.getActivePotionEffects()) {
@@ -75,7 +74,8 @@ public class DeathListener implements Listener {
                                 combatLog.combatLog.remove(p);
                                 p.sendMessage(ChatColor.RED + "You are no longer in combat.");
                             }
-                            delayChangeGamemode(p, GameMode.ADVENTURE);
+                            p.setGameMode(GameMode.ADVENTURE);
+                            p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
                         }
                     }.runTaskLater(TazPvP.getInstance(), 60);
 
