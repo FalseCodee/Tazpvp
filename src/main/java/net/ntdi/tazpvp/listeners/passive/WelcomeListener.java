@@ -47,7 +47,6 @@ public class WelcomeListener implements Listener {
 
         TazPvP.ipmanager.storePlayerIp(p);
 
-        p.setGameMode(GameMode.SURVIVAL);
 //        p.setMaxHealth(20);
         if (p.getLevel() != TazPvP.statsManager.getLevel(p)){
             p.setLevel(TazPvP.statsManager.getLevel(p));
