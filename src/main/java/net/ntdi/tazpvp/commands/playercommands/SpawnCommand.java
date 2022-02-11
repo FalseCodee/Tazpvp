@@ -29,24 +29,19 @@ public class SpawnCommand implements Listener, CommandExecutor {
                 p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
             } else {
                 if (!TazPvP.duelManager.isDueling(p)) {
-                    if (!p.getWorld().getName().equalsIgnoreCase("grind")) {
-                        p.sendMessage(ChatColor.DARK_AQUA + "You will be teleported to spawn in " + ChatColor.AQUA + "3 seconds. " + ChatColor.DARK_AQUA + "Do not move." );
-                        p.setMetadata("spawnering", new FixedMetadataValue(TazPvP.getInstance(), true));
-                        new BukkitRunnable() {
-                            @Override
-                            public void run() {
-                                if (isSpawnering(p)) {
-                                    p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
-                                    p.setMetadata("spawnering", new FixedMetadataValue(TazPvP.getInstance(), false));
-                                    p.sendMessage(ChatColor.DARK_AQUA + "Teleportation complete.");
-                                    p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
-                                }
+                    p.sendMessage(ChatColor.DARK_AQUA + "You will be teleported to spawn in " + ChatColor.AQUA + "3 seconds. " + ChatColor.DARK_AQUA + "Do not move." );
+                    p.setMetadata("spawnering", new FixedMetadataValue(TazPvP.getInstance(), true));
+                    new BukkitRunnable() {
+                        @Override
+                        public void run() {
+                            if (isSpawnering(p)) {
+                                p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
+                                p.setMetadata("spawnering", new FixedMetadataValue(TazPvP.getInstance(), false));
+                                p.sendMessage(ChatColor.DARK_AQUA + "Teleportation complete.");
+                                p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
                             }
-                        }.runTaskLater(TazPvP.getInstance(), 3 * 20);
-
-                    } else {
-                        p.sendMessage(ChatColor.RED + "You cannot teleport while in the cave.");
-                    }
+                        }
+                    }.runTaskLater(TazPvP.getInstance(), 3 * 20);
                 } else {
                     p.sendMessage(ChatColor.RED + "You cannot teleport while dueling.");
                 }
