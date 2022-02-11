@@ -28,7 +28,9 @@ public class MuteCommand implements CommandExecutor {
                         //short mute to test
                         TazPvP.punishmentManager.initMute(muted, true);
                         player.sendMessage(ChatColor.RED + muted.getName() + " has been muted.");
-                        muted.sendMessage(ChatColor.RED+"You have been permanently muted ");
+                        muted.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+                        muted.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "MUTE " + ChatColor.GRAY + "You have been muted permanently. If it was unfair, type " + ChatColor.WHITE + "/appeal");
+                        muted.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
 
                     }
                 } else {
