@@ -1,7 +1,7 @@
 package net.ntdi.tazpvp.gui.guis.upgrades;
 
 public enum UpgradeTypes {
-    SWORD("SWORD",1250, EnchantInfo.SHARPNESS, EnchantInfo.KNOCKBACK, EnchantInfo.SMITE),
+    SWORD("SWORD",1250, EnchantInfo.SHARPNESS, EnchantInfo.KNOCKBACK, EnchantInfo.UNBREAKING),
     PICKAXE("PICKAXE",350, EnchantInfo.EFFICIENCY, EnchantInfo.FORTUNE, EnchantInfo.SILK_TOUCH),
     ROD("FISHING ROD",-1, EnchantInfo.LURE, EnchantInfo.LOTS, EnchantInfo.LOOTING),
     BOW("BOW",-1, EnchantInfo.POWER, EnchantInfo.PUNCH, EnchantInfo.UNBREAKING),
