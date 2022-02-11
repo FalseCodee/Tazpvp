@@ -331,3 +331,10 @@ commands:
   pay:
     description: "pay someone"
     usage: "/pay <player> <amount>"
+  tp:
+    description: "teleport to someone"
+    usage: "/tp <player | world> | /tp <player> <player> | /tp <x> <y> <z> /tp <world> <x> <y> <z> | /tp <player> <world> <x> <y> <z>"
+    permission: tazpvp.staff.tp
+  listworld:
+    permission: tazpvp.staff.listworld
+    usage: "/listworld"
