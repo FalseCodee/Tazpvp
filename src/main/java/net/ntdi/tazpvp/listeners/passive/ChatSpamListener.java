@@ -94,17 +94,6 @@ public class ChatSpamListener implements Listener {
         if (!e.getPlayer().hasPermission("staff.chatbypass")) {
             String message = e.getMessage();
 
-            /*message = message.replaceAll("1","i");
-            message = message.replaceAll("!","i");
-            message = message.replaceAll("3","e");
-            message = message.replaceAll("4","a");
-            message = message.replaceAll("@","a");
-            message = message.replaceAll("5","s");
-            message = message.replaceAll("7","t");
-            message = message.replaceAll("0","o");
-            message = message.replaceAll("9","g");
-            message = message.toLowerCase().replaceAll("[^a-zA-Z]", "");*/
-
             message = message.replace("shit", "####");
             message = message.replace("porn", "####");
             message = message.replace("whore", "#####");
@@ -121,6 +110,8 @@ public class ChatSpamListener implements Listener {
             message = message.replace("fuk", "###");
             message = message.replace("fuc", "###");
             message = message.replace("slut", "####");
+
+            if (message.equalsIgnoreCase(message))
             if (message != "night" && message.equalsIgnoreCase("nig")) {
                 message = message.replace("nig", "###");
             } else {
