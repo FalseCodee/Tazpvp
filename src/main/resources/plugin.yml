@@ -75,6 +75,16 @@ commands:
     permission: staff.money
     permission-message: No Permission
     usage: "/money <Player> [add|remove|reset] [integer]"
+  kills:
+    description: View/Modify players kills
+    permission: staff.kills
+    permission-message: No Permission
+    usage: "/kills <Player> [add|remove|reset] [integer]"
+  deaths:
+    description: View/Modify players deaths
+    permission: staff.deaths
+    permission-message: No Permission
+    usage: "/deaths <Player> [add|remove|reset] [integer]"
   mute:
     description: Mute/Unmute players
     permission: staff.mute
