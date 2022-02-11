@@ -14,7 +14,7 @@ public class TpCommand implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
             Player p = (Player) sender;
-            if (p.hasPermission("tazpvp.staff.tp")) {
+            if (p.hasPermission("tazpvp.tp")) {
                 if (args.length == 1) {
                     if (Bukkit.getPlayer(args[0]) != null) {
                         Player target = Bukkit.getPlayer(args[0]);
