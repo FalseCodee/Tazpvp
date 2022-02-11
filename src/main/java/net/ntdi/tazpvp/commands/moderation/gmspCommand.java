@@ -15,7 +15,7 @@ public class gmspCommand implements CommandExecutor {
             p = (Player) sender;
         }
         if (p != null && p.hasPermission("tazpvp.staff.gmsp")) {
-            if(args.length > 0) {
+            if(args.length < 1) {
                 p.setGameMode(GameMode.SPECTATOR);
                 p.sendMessage(ChatColor.GOLD + "Gamemode: " + ChatColor.RED + "spectator");
             } else if (args.length == 1) {
