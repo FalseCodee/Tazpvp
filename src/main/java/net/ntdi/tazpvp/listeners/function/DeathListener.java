@@ -74,17 +74,11 @@ public class DeathListener implements Listener {
                                 combatLog.combatLog.remove(p);
                                 p.sendMessage(ChatColor.RED + "You are no longer in combat.");
                             }
-                            p.setGameMode(GameMode.ADVENTURE);
                             p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
+                            p.setMetadata("respawning", new FixedMetadataValue(TazPvP.getInstance(), false));
+                            p.setGameMode(GameMode.ADVENTURE);
                         }
                     }.runTaskLater(TazPvP.getInstance(), 60);
-
-                    new BukkitRunnable() {
-                        @Override
-                        public void run() {
-                            p.setMetadata("respawning", new FixedMetadataValue(TazPvP.getInstance(), false));
-                        }
-                    }.runTaskLater(TazPvP.getInstance(), 70);
 
                 }
             }
