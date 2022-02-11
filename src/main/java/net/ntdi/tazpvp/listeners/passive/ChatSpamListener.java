@@ -91,32 +91,18 @@ public class ChatSpamListener implements Listener {
 //            return;
 //        }
 
+
         if (!e.getPlayer().hasPermission("staff.chatbypass")) {
             String message = e.getMessage();
 
-            message = message.replace("shit", "####");
-            message = message.replace("porn", "####");
-            message = message.replace("whore", "#####");
-            message = message.replace("dick", "####");
-            message = message.replace("dildo", "#####");
-            message = message.replace("fag", "###");
-            message = message.replace("cock", "####");
-            message = message.replace("retar", "####");
-            message = message.replace("pussy", "#####");
-            message = message.replace("cunt", "####");
-            message = message.replace("bitc", "####");
-            message = message.replace("fuck", "####");
-            message = message.replace("nigg", "####");
-            message = message.replace("fuk", "###");
-            message = message.replace("fuc", "###");
-            message = message.replace("slut", "####");
-
-            if (message.equalsIgnoreCase(message))
-            if (message != "night" && message.equalsIgnoreCase("nig")) {
-                message = message.replace("nig", "###");
-            } else {
-                e.setMessage(message);
+            for (String s: badwords){
+                if (m.toLowerCase().contains(s)){
+                    e.setCancelled(true);
+                    p.sendMessage(ChatColor.RED + "You cannot use the word: " + s);
+                    break;
+                }
             }
+
         }
         if (!e.getPlayer().hasPermission("staff.chatbypass")) {
             String message = e.getMessage();
