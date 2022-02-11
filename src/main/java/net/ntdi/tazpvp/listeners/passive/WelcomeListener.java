@@ -61,6 +61,10 @@ public class WelcomeListener implements Listener {
         p.setMetadata("canDamage", new FixedMetadataValue(TazPvP.getInstance(), true));
         p.setMetadata("dueling", new FixedMetadataValue(TazPvP.getInstance(), false));
 
+        if (!TazPvP.statsManager.statsFile.contains(p.getUniqueId().toString()+".playtime")) {
+            TazPvP.statsManager.setPlaytime(p, p.getStatistic(Statistic.PLAY_ONE_TICK)/20);
+        }
+
         updateTab();
 
         for(Scoreboard sb : TazPvP.statsManager.scoreboards.values()) {
@@ -170,6 +174,8 @@ public class WelcomeListener implements Listener {
         if (TazPvP.duelManager.isDueling(p)){
             new DuelManager().endDuel(p, Bukkit.getPlayer(TazPvP.duelManager.getOpponent(p)));
         }
+
+        TazPvP.statsManager.setPlaytime(p, p.getStatistic(Statistic.PLAY_ONE_TICK)/20);
 
         updateTab();
 

@@ -72,6 +72,7 @@ public class StatsManager {
         statsFile.set(player.getUniqueId().toString()+".streak", 0);
         statsFile.set(player.getUniqueId().toString()+".checkpoint", 0);
         statsFile.set(player.getUniqueId().toString()+".multi", 1);
+        statsFile.set(player.getUniqueId().toString()+".playtime", 0);
     }
 
     public void rebirthPlayer(OfflinePlayer player){
@@ -240,6 +241,18 @@ public class StatsManager {
     public void addMulti(OfflinePlayer player, int multi) {
         setMulti(player, multi+getMulti(player));
     }
+
+    public void setPlaytime(OfflinePlayer player, int kills) {
+        statsFile.set(player.getUniqueId().toString()+".playtime", kills);
+        TazPvP.getInstance().initScoreboard((Player) player);
+    }
+    public void addPlaytime(OfflinePlayer player, int kills) {
+        setPlaytime(player, kills+getPlaytime(player));
+    }
+    public int getPlaytime(OfflinePlayer player) {
+        return statsFile.getInt(player.getUniqueId().toString()+".playtime");
+    }
+
     
     public Team getTeam(Player player, Scoreboard sb) {
             switch (TazPvP.permissions.getPrimaryGroup(player).toLowerCase()) {

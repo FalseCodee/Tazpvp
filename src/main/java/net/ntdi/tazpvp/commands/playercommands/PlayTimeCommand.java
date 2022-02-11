@@ -1,5 +1,6 @@
 package net.ntdi.tazpvp.commands.playercommands;
 
+import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.utils.StringUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -23,11 +24,12 @@ public class PlayTimeCommand implements CommandExecutor {
                 player.sendMessage(ChatColor.GREEN + "Your playtime is " + ChatColor.WHITE + StringUtils.secondsToDDHHMMSS(seconds));
             } else {
                 OfflinePlayer target = Bukkit.getPlayer(args[0]);
-                if(target != null) {
+                if(target.isOnline()) {
                     int seconds = target.getPlayer().getStatistic(Statistic.PLAY_ONE_TICK)/20;
                     player.sendMessage(ChatColor.GREEN + target.getName() + "'s playtime is " + ChatColor.WHITE + StringUtils.secondsToDDHHMMSS(seconds));
                 } else {
-                    player.sendMessage(ChatColor.RED + "Player not found.");
+                    int seconds = TazPvP.statsManager.getPlaytime(target);
+                    player.sendMessage(ChatColor.GREEN + target.getName() + "'s playtime is " + ChatColor.WHITE + StringUtils.secondsToDDHHMMSS(seconds));
                 }
             }
         }
