@@ -13,7 +13,7 @@ public class flyCommand implements CommandExecutor {
         if (sender instanceof Player) {
             p = (Player) sender;
         }
-        if(p != null && p.hasPermission("tazpvp.staff.fly")) {
+        if(p != null && p.hasPermission("tazpvp.fly")) {
             if (args.length == 0) {
                 if(p.getAllowFlight()) {
                     p.setAllowFlight(false);
