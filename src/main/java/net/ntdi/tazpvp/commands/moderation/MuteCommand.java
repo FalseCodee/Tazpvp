@@ -3,6 +3,7 @@ package net.ntdi.tazpvp.commands.moderation;
 import net.ntdi.tazpvp.TazPvP;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -31,6 +32,7 @@ public class MuteCommand implements CommandExecutor {
                         muted.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
                         muted.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "MUTE " + ChatColor.GRAY + "You have been muted permanently. If it was unfair, type " + ChatColor.WHITE + "/appeal");
                         muted.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+                        muted.playSound(muted.getLocation(), Sound.ANVIL_LAND, 1, 1);
 
                     }
                 } else {
