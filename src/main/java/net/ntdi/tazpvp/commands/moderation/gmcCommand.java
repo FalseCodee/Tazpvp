@@ -1,5 +1,6 @@
 package net.ntdi.tazpvp.commands.moderation;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
@@ -13,9 +14,17 @@ public class gmcCommand implements CommandExecutor {
         if (sender instanceof Player) {
             p = (Player) sender;
         }
-        if (p.hasPermission("tazpvp.staff.gmc")) {
-            p.setGameMode(GameMode.CREATIVE);
-            p.sendMessage(ChatColor.GOLD + "Gamemode: " + ChatColor.RED + "creative");
+        if (p != null && p.hasPermission("tazpvp.staff.gmc")) {
+            if(args.length > 0) {
+                p.setGameMode(GameMode.CREATIVE);
+                p.sendMessage(ChatColor.GOLD + "Gamemode: " + ChatColor.RED + "creative");
+            } else if (args.length == 1) {
+                if (p.hasPermission("tazpvp.gm.others")) {
+                    Player targetP = Bukkit.getServer().getPlayer(args[0]);
+                    targetP.setGameMode(GameMode.CREATIVE);
+                    targetP.sendMessage(ChatColor.GOLD + "Gamemode: " + ChatColor.RED + "creative");
+                }
+            }
         }
         return true;
     }

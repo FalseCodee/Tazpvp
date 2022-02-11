@@ -1,5 +1,6 @@
 package net.ntdi.tazpvp.commands.moderation;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
@@ -13,9 +14,17 @@ public class gmsCommand implements CommandExecutor {
         if (sender instanceof Player) {
             p = (Player) sender;
         }
-        if (p.hasPermission("tazpvp.staff.gms")) {
-            p.setGameMode(GameMode.SURVIVAL);
-            p.sendMessage(ChatColor.GOLD + "Gamemode: " + ChatColor.RED + "survival");
+        if (p != null && p.hasPermission("tazpvp.staff.gms")) {
+            if(args.length > 0) {
+                p.setGameMode(GameMode.SURVIVAL);
+                p.sendMessage(ChatColor.GOLD + "Gamemode: " + ChatColor.RED + "survival");
+            } else if (args.length == 1) {
+                if (p.hasPermission("tazpvp.gm.others")) {
+                    Player targetP = Bukkit.getServer().getPlayer(args[0]);
+                    targetP.setGameMode(GameMode.SURVIVAL);
+                    targetP.sendMessage(ChatColor.GOLD + "Gamemode: " + ChatColor.RED + "survival");
+                }
+            }
         }
         return true;
     }
