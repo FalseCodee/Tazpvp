@@ -34,6 +34,7 @@ public class VanishCommand implements CommandExecutor, Listener {
                     player.sendMessage(ChatColor.RED + "You cannot vanish while in combat.");
                 } else {
                     vanishList.add(player);
+                    player.setAllowFlight(true);
                     PlayerUtils.hidePlayer(player);
                     player.sendMessage(ChatColor.GREEN + "You are now vanished.");
                     Bukkit.broadcastMessage(ChatColor.GRAY + "[" + ChatColor.RED + "-" + ChatColor.GRAY + "] " + player.getName());
@@ -42,6 +43,7 @@ public class VanishCommand implements CommandExecutor, Listener {
             } else {
                 player.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
                 vanishList.remove(player);
+                player.setAllowFlight(false);
                 PlayerUtils.showPlayer(player);
                 player.sendMessage(ChatColor.RED + "You are no longer vanished.");
                 Bukkit.broadcastMessage(ChatColor.GRAY + "[" + ChatColor.GREEN + "+" + ChatColor.GRAY + "] " + player.getName());
