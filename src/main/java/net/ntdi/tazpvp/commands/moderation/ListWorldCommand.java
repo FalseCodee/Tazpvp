@@ -1,5 +1,7 @@
 package net.ntdi.tazpvp.commands.moderation;
 
+import org.bukkit.ChatColor;
+import org.bukkit.World;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -11,8 +13,15 @@ public class ListWorldCommand implements CommandExecutor {
         if (sender instanceof Player) {
             Player p = (Player) sender;
             if (p.hasPermission("tazpvp.staff.listworld")) {
-                for (String world : p.getServer().getWorlds().toString().split(", ")) {
-                    p.sendMessage(world);
+                String[] worldNames = new String[p.getServer().getWorlds().size()];
+                int i = 0;
+                for (World w : p.getServer().getWorlds()) {
+                    worldNames[i] = w.getName();
+                    i++;
+                }
+                p.sendMessage(ChatColor.GOLD + "Worlds:");
+                for (String s : worldNames) {
+                    p.sendMessage(ChatColor.YELLOW + s);
                 }
             }
         }
