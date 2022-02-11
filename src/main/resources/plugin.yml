@@ -348,3 +348,5 @@ commands:
   listworld:
     permission: tazpvp.staff.listworld
     usage: "/listworld"
+  pm:
+    usage: "/pm <player> <message>"

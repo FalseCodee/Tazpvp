@@ -12,9 +12,11 @@ public class pmCommand implements CommandExecutor {
         if (sender instanceof Player) {
             Player p = (Player) sender;
 
-            if (args.length == 3) {
+            if (args.length == 2) {
                 Player target = p.getServer().getPlayer(args[0]);
                 target.sendMessage((args[0]) + "sent you: " + (args[1]));
+            } else {
+                return false;
             }
         }
         return false;
