@@ -25,12 +25,14 @@ public class flyCommand implements CommandExecutor {
                 }
             } else if (args.length == 1) {
                 Player targetP = Bukkit.getServer().getPlayer(args[0]);
-                if(targetP.getAllowFlight()) {
-                    targetP.setAllowFlight(false);
-                    targetP.sendMessage(ChatColor.GOLD + "Flying: " + ChatColor.RED + "disabled");
-                } else {
-                    targetP.setAllowFlight(true);
-                    targetP.sendMessage(ChatColor.GOLD + "Flying: " + ChatColor.RED + "enabled");
+                if (p.hasPermission("tazpvp.fly.others")) {
+                    if (targetP.getAllowFlight()) {
+                        targetP.setAllowFlight(false);
+                        targetP.sendMessage(ChatColor.GOLD + "Flying: " + ChatColor.RED + "disabled");
+                    } else {
+                        targetP.setAllowFlight(true);
+                        targetP.sendMessage(ChatColor.GOLD + "Flying: " + ChatColor.RED + "enabled");
+                    }
                 }
             }
         }
