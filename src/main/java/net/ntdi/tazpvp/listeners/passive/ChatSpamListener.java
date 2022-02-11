@@ -68,7 +68,7 @@ public class ChatSpamListener implements Listener {
         }
 
         if(TazPvP.punishmentManager.isMuted(p)){
-            p.sendMessage(ChatColor.RED + "You are permanently muted");
+            p.sendMessage(ChatColor.RED + "You cannot speak while muted.");
             e.setCancelled(true);
             return;
         }
