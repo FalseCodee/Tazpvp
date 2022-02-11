@@ -8,6 +8,7 @@ import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.managers.Duels.DuelManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -49,6 +50,8 @@ public class DuelCommand implements CommandExecutor {
                     target.sendMessage(" " + ChatColor.GOLD + player.getName() + ChatColor.YELLOW + " has challenged you to a duel.");
                     target.spigot().sendMessage(Accept);
                     target.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
+                    target.playSound(target.getLocation(), Sound.ITEM_PICKUP, 1, 1);
+
                 }
             }
         } else {
