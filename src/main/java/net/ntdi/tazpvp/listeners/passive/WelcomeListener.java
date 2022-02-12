@@ -193,7 +193,8 @@ public class WelcomeListener implements Listener {
             if (TazPvP.statsManager.getMoney(p) > 25) {
                 TazPvP.statsManager.addMoney(p, -25);
             }
-            new DeathListener().rsInv(p);
+            new DeathListener();
+            DeathListener.rsInv(p);
         }
 
         TazPvP.statsManager.scoreboards.remove(p.getUniqueId());
