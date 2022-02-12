@@ -16,7 +16,7 @@ public class pmCommand implements CommandExecutor {
 
             if (args.length == 2) {
                 Player target = p.getServer().getPlayer(args[0]);
-                target.sendMessage( ChatColor.GOLD + "From " + ChatColor.RED + p + ": "  + ChatColor.GRAY + (args[1]));
+                target.sendMessage( ChatColor.GOLD + "From " + ChatColor.RED + p.getName() + ": "  + ChatColor.GRAY + (args[1]));
                 p.sendMessage(ChatColor.GOLD + "To " + ChatColor.RED + (args[0]) + ": " + ChatColor.GRAY + (args[1]));
                 target.playSound(target.getLocation(), Sound.CLICK, 1, 1);
             } else {
