@@ -78,6 +78,8 @@ public final class TazPvP extends JavaPlugin {
     public static final HashMap<Player, Boolean> inInvseeGui = new HashMap<>();
     //public static HashMap<Player, Integer> heartGained = new HashMap<>();
 
+    public static final ArrayList<Player> newPm = new ArrayList<>();
+
     public static final ArrayList<Player> voteYes = new ArrayList<>();
     public static final ArrayList<Player> voteNo = new ArrayList<>();
     public static Boolean VoteOn = false;

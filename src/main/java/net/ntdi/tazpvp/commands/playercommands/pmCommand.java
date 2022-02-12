@@ -1,5 +1,6 @@
 package net.ntdi.tazpvp.commands.playercommands;
 
+import net.ntdi.tazpvp.TazPvP;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
 import org.bukkit.command.Command;
@@ -11,10 +12,12 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 public class pmCommand implements CommandExecutor, Listener {
-    int num = 0;
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event){
-        int num = 0;
+        Player p = event.getPlayer();
+        if (TazPvP.newPm.contains(p)) {
+            TazPvP.newPm.remove(p);
+        }
     }
 
     @Override
@@ -27,8 +30,9 @@ public class pmCommand implements CommandExecutor, Listener {
                 target.sendMessage( ChatColor.DARK_AQUA + "From " + ChatColor.AQUA + p.getName() + ": "  + ChatColor.GRAY + (args[1]));
                 p.sendMessage(ChatColor.DARK_AQUA + "To " + ChatColor.AQUA + (args[0]) + ": " + ChatColor.GRAY + (args[1]));
                 target.playSound(target.getLocation(), Sound.SHEEP_SHEAR, 1, 1);
-                if (num < 1) {
-                    target.sendMessage(ChatColor.AQUA + " To respond to this private message, type '/PM <player> <message>'");
+                if (!TazPvP.newPm.contains(p)) {
+                    target.sendMessage(ChatColor.AQUA + " To respond to this private message, type " + ChatColor.GRAY + "/PM <player> <message>");
+                    TazPvP.newPm.add(p);
                 }
             } else {
                 return false;
