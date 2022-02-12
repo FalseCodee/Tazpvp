@@ -39,7 +39,7 @@ public class DuelCommand implements CommandExecutor {
                     player.sendMessage(ChatColor.RED + "You are respawning!");
                 } else if (vanishCommand.vanishList.contains(player)) {
                     player.sendMessage(ChatColor.RED + "You cannot duel while in vanish.");
-                } else if (target.isOnline() && !new DuelManager().isDueling(target) && !new DuelManager().isDueling(player)) {
+                } else if (target.isOnline() && !TazPvP.duelManager.isDueling(target) && !TazPvP.duelManager.isDueling(player)) {
                     // start duel
                     target.setMetadata("sender", new FixedMetadataValue(TazPvP.getInstance(), player.getName()));
                     TextComponent Accept = new TextComponent(ChatColor.GRAY + " " + ChatColor.BOLD + "CLICK HERE " + ChatColor.GRAY + "to accept.");
