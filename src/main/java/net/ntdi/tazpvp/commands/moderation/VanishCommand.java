@@ -58,7 +58,9 @@ public class VanishCommand implements CommandExecutor, Listener {
                     }
                 }
                 Bukkit.broadcastMessage(ChatColor.GRAY + "[" + ChatColor.GREEN + "+" + ChatColor.GRAY + "] " + vanisher.getName());
+
                 TazPvP.invunerable.remove(vanisher);
+
 
             }
         } else {

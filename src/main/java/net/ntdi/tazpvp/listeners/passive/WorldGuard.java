@@ -1,5 +1,6 @@
 package net.ntdi.tazpvp.listeners.passive;
 
+import net.ntdi.tazpvp.commands.moderation.VanishCommand;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
@@ -18,7 +19,7 @@ import org.bukkit.event.player.PlayerItemDamageEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 
 public class WorldGuard implements Listener {
-
+    VanishCommand vanishCommand = new VanishCommand();
     // lava-fire
     @EventHandler
     public void lavaFire(BlockIgniteEvent event) {
@@ -81,17 +82,19 @@ public class WorldGuard implements Listener {
     }
 
     //feed
+
     @EventHandler
     public void feed(FoodLevelChangeEvent event) {
         if (event.getEntity().getWorld().getName().equals("spawn") || event.getEntity().getWorld().getName().equals("duel")) {
             if(event.getEntity() instanceof Player) { //Safety check since we need to cast
                 Player player = (Player)event.getEntity();
+                if (vanishCommand.vanishList.contains(player)) {
+                    int oldFoodLevel = player.getFoodLevel();
+                    int newFoodLevel = event.getFoodLevel();
 
-                int oldFoodLevel = player.getFoodLevel();
-                int newFoodLevel = event.getFoodLevel();
-
-                if(oldFoodLevel > newFoodLevel) {
-                    event.setCancelled(true);
+                    if(oldFoodLevel > newFoodLevel) {
+                        event.setCancelled(true);
+                    }
                 }
             }
         }
@@ -126,7 +129,9 @@ public class WorldGuard implements Listener {
     @EventHandler
     public void blockHit(EntityDamageByEntityEvent event) {
         if (event.getEntity().getWorld().getName().equals("spawn")) {
-            event.setCancelled(true);
+            if (vanishCommand.vanishList.contains(event.getEntity())) {
+                event.setCancelled(true);
+            }
         }
     }
 
