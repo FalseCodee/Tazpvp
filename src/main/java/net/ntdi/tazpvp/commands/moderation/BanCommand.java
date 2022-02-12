@@ -48,7 +48,7 @@ public class BanCommand implements CommandExecutor {
                     if(TazPvP.punishmentManager.isBanned(banned)){
                         player.sendMessage(ChatColor.RED + "Player is already banned");
 
-                    } else {
+                    } else if (!banned.isOp()) {
                         if (banned.isOnline()) {
                             banned.getPlayer().sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
                             banned.getPlayer().sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "BAN" + ChatColor.GRAY + " You've been banned for "+ChatColor.WHITE+"Unfair Advantage");
