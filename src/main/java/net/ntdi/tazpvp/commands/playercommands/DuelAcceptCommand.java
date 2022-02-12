@@ -30,7 +30,7 @@ public class DuelAcceptCommand implements CommandExecutor {
                 } else if (target.isOnline()) {
                     p.sendMessage(ChatColor.RED + "That p is not online!");
                 } else if (combatLog.combatLog.containsKey(p.getUniqueId())) {
-                    p.sendMessage(ChatColor.RED + "You cannot duel in vanish.");
+                    p.sendMessage(ChatColor.RED + "You cannot duel while in combat.");
                 } else if (!TazPvP.punishmentManager.isBanned(p)) {
                     p.sendMessage(ChatColor.RED + "You cannot accept a duel while you are banned.");
                 } else if (!TazPvP.duelManager.isDueling(target)) {
