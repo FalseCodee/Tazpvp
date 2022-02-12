@@ -29,8 +29,9 @@ public class VanishCommand implements CommandExecutor, Listener {
             vanisher = (Player) sender;
         }
 
-        if (TazPvP.duelManager.isDueling(vanisher)) {
+        if (vanisher.getWorld().getName().equalsIgnoreCase("duel")) {
             vanisher.sendMessage(ChatColor.RED + "You cannot vanish while in a duel.");
+            return true;
         } else if(vanisher != null && vanisher.hasPermission("staff.vanish")) {
             if(!vanishList.contains(vanisher)) {
                 if (combatLog.combatLog.containsKey(vanisher.getUniqueId())) {
