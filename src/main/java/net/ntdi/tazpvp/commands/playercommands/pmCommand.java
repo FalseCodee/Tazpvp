@@ -27,12 +27,20 @@ public class pmCommand implements CommandExecutor, Listener {
 
             if (args.length == 2) {
                 Player target = p.getServer().getPlayer(args[0]);
-                target.sendMessage( ChatColor.DARK_AQUA + "From " + ChatColor.AQUA + p.getName() + ": "  + ChatColor.GRAY + (args[1]));
-                p.sendMessage(ChatColor.DARK_AQUA + "To " + ChatColor.AQUA + (args[0]) + ": " + ChatColor.GRAY + (args[1]));
-                target.playSound(target.getLocation(), Sound.SHEEP_SHEAR, 1, 1);
-                if (!TazPvP.newPm.contains(p)) {
-                    target.sendMessage(ChatColor.AQUA + " To respond to this private message, type " + ChatColor.GRAY + "/PM <player> <message>");
-                    TazPvP.newPm.add(p);
+                if (target == null) {
+                    p.sendMessage(ChatColor.RED + "This player does not exist.");
+                } else if (target.getName().equals(p.getName())) {
+                    p.sendMessage(ChatColor.RED + "You cannot PM yourself!");
+                } else if (TazPvP.punishmentManager.isMuted(p)) {
+                    p.sendMessage(ChatColor.RED + "You cannot PM while muted.");
+                } else {
+                    target.sendMessage( ChatColor.DARK_AQUA + "From " + ChatColor.AQUA + p.getName() + ": "  + ChatColor.GRAY + (args[1]));
+                    p.sendMessage(ChatColor.DARK_AQUA + "To " + ChatColor.AQUA + (args[0]) + ": " + ChatColor.GRAY + (args[1]));
+                    target.playSound(target.getLocation(), Sound.SHEEP_SHEAR, 1, 1);
+                    if (!TazPvP.newPm.contains(p)) {
+                        target.sendMessage(ChatColor.AQUA + " To respond to this private message, type " + ChatColor.GRAY + "/PM <player> <message>");
+                        TazPvP.newPm.add(p);
+                    }
                 }
             } else {
                 return false;
