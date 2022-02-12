@@ -12,6 +12,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
@@ -74,5 +75,12 @@ public class VanishCommand implements CommandExecutor, Listener {
     @EventHandler
     public void onLeave(PlayerQuitEvent event){
         vanishList.remove(event.getPlayer());
+    }
+
+    @EventHandler
+    public void intereact(PlayerInteractEvent event){
+        if (vanishList.contains(event.getPlayer())){
+            event.setCancelled(true);
+        }
     }
 }
