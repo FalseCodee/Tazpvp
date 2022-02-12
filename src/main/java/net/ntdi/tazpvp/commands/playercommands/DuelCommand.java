@@ -31,15 +31,15 @@ public class DuelCommand implements CommandExecutor {
                 if (target == null) {
                     sender.sendMessage(ChatColor.RED + "Player not found!");
                 } else if (combatLog.combatLog.containsKey(player.getUniqueId())) {
-                    player.sendMessage(ChatColor.RED + "You cannot duel while in combat.");
+                    sender.sendMessage(ChatColor.RED + "You cannot duel while in combat.");
                 } else if (target.getName().equals(player.getName())) {
                     sender.sendMessage(ChatColor.RED + "You can't duel yourself!");
                 } else if (TazPvP.punishmentManager.isBanned(player)) {
                     sender.sendMessage(ChatColor.RED + "You are banned!");
                 } else if (isRespawning(player)) {
-                    player.sendMessage(ChatColor.RED + "You are respawning!");
+                    sender.sendMessage(ChatColor.RED + "You are respawning!");
                 } else if (vanishCommand.vanishList.contains(player)) {
-                    player.sendMessage(ChatColor.RED + "You cannot duel while in vanish.");
+                    sender.sendMessage(ChatColor.RED + "You cannot duel while in vanish.");
                 } else if (target.isOnline() && !TazPvP.duelManager.isDueling(target) && !TazPvP.duelManager.isDueling(player)) {
                     // start duel
                     target.setMetadata("sender", new FixedMetadataValue(TazPvP.getInstance(), player.getName()));

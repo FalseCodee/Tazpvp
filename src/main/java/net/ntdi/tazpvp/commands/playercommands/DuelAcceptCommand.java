@@ -37,7 +37,7 @@ public class DuelAcceptCommand implements CommandExecutor {
                     p.sendMessage(ChatColor.RED + "That user is already in a duel.");
                 } else if (isRespawning(p) || isRespawning(target)) {
                     p.sendMessage(ChatColor.RED + "You or " + target.getName() + " are respawning.");
-                } else if (!sender(p).equals(target.getName())) {
+                } else if (sender(p).equals(target.getName())) {
                     byte[] array = new byte[15]; // length is bounded by 15
                     new Random().nextBytes(array);
                     String generatedString = new String(array, Charset.forName("UTF-8"));

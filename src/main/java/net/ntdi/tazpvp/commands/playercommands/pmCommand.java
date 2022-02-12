@@ -36,8 +36,8 @@ public class pmCommand implements CommandExecutor, Listener {
                     p.sendMessage(ChatColor.RED + "You cannot PM while muted.");
                 } else {
                     String msg = StringUtils.buildString(args, 1);
-                    target.sendMessage( ChatColor.DARK_AQUA + "From " + ChatColor.AQUA + p.getName() + ": "  + ChatColor.GRAY + msg);
-                    p.sendMessage(ChatColor.DARK_AQUA + "To " + ChatColor.AQUA + (args[0]) + ": " + ChatColor.GRAY + msg);
+                    target.sendMessage( ChatColor.DARK_AQUA + "From " + ChatColor.AQUA + p.getName() + ": "  + ChatColor.WHITE + msg);
+                    p.sendMessage(ChatColor.DARK_AQUA + "To " + ChatColor.AQUA + (args[0]) + ": " + ChatColor.WHITE + msg);
                     target.playSound(target.getLocation(), Sound.SHEEP_SHEAR, 1, 1);
                     if (!TazPvP.newPm.contains(p)) {
                         target.sendMessage(ChatColor.AQUA + " To respond to this private message, type " + ChatColor.GRAY + "/PM <player> <message>");
