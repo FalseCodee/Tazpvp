@@ -26,7 +26,7 @@ public class pmCommand implements CommandExecutor, Listener {
         if (sender instanceof Player) {
             Player p = (Player) sender;
 
-            if (args.length == 2) {
+            if (args.length >= 2) {
                 Player target = p.getServer().getPlayer(args[0]);
                 if (target == null) {
                     p.sendMessage(ChatColor.RED + "This player does not exist.");
