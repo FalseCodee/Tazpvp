@@ -183,16 +183,13 @@ public class WelcomeListener implements Listener {
 
         TazPvP.Spectating.remove(p);
 
-        if(combatLog.combatLog.containsKey(p)){
-            OfflinePlayer killer = Bukkit.getPlayer(getCombatee(p));
+        if(combatLog.combatLog.containsKey(p.getUniqueId())){
+            Player killer = Bukkit.getPlayer(getCombatee(p));
             if (killer.isOnline()){
                 killer.getPlayer().sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 5 Experience");
-                TazPvP.statsManager.addMoney(killer, 7);
-                TazPvP.statsManager.addExp(killer, 8);
-            } else {
-                TazPvP.statsManager.addMoney(killer, 7);
-                TazPvP.statsManager.addExp(killer, 8);
             }
+            TazPvP.statsManager.addMoney(killer, 7);
+            TazPvP.statsManager.addExp(killer, 8);
             if (TazPvP.statsManager.getMoney(p) > 25) {
                 TazPvP.statsManager.addMoney(p, -25);
             }

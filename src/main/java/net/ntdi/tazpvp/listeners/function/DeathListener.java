@@ -68,8 +68,8 @@ public class DeathListener implements Listener {
                             }
                             rsInv(p);
                             p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
-                            if (combatLog.combatLog.containsKey(p)) {
-                                combatLog.combatLog.remove(p);
+                            if (combatLog.combatLog.containsKey(p.getUniqueId())) {
+                                combatLog.combatLog.remove(p.getUniqueId());
                                 p.sendMessage(ChatColor.RED + "You are no longer in combat.");
                             }
                             p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
@@ -215,12 +215,12 @@ public class DeathListener implements Listener {
                             BountyCommand.bounties.remove(p.getUniqueId());
                         }
 
-                        if (combatLog.combatLog.containsKey(p)) {
-                            combatLog.combatLog.remove(p);
+                        if (combatLog.combatLog.containsKey(p.getUniqueId())) {
+                            combatLog.combatLog.remove(p.getUniqueId());
                             p.sendMessage(ChatColor.GREEN + "You have been removed from combat log.");
                         }
-                        if (combatLog.combatLog.containsKey(killer)) {
-                            combatLog.combatLog.remove(killer);
+                        if (combatLog.combatLog.containsKey(killer.getUniqueId())) {
+                            combatLog.combatLog.remove(killer.getUniqueId());
                             killer.sendMessage(ChatColor.GREEN + "You have been removed from combat log.");
                         }
 

@@ -1,31 +1,33 @@
 package net.ntdi.tazpvp.listeners.passive;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.WeakHashMap;
 
 public class combatLog implements Listener {
 
-    public static final WeakHashMap<Player, Integer> combatLog = new WeakHashMap<>();
+    public static final WeakHashMap<UUID, Integer> combatLog = new WeakHashMap<>();
 
     public static void tick() {
-        List<Player> queue = new ArrayList<>();
+        List<UUID> queue = new ArrayList<>();
 
         if (!combatLog.isEmpty()) {
-            for (Player p : combatLog.keySet()) {
-                if (combatLog.get(p) - 1 > 0) {
-                    combatLog.replace(p, combatLog.get(p) - 1);
+            for (UUID uuid : combatLog.keySet()) {
+                if (combatLog.get(uuid) - 1 > 0) {
+                    combatLog.replace(uuid, combatLog.get(uuid) - 1);
                 } else {
-                    queue.add(p);
+                    queue.add(uuid);
                 }
             }
-            for (Player p : queue) {
-                combatLog.remove(p);
-                p.sendMessage(ChatColor.GREEN + "You have been removed from combat log.");
+            for (UUID uuid : queue) {
+                combatLog.remove(uuid);
+                Bukkit.getPlayer(uuid).sendMessage(ChatColor.GREEN + "You have been removed from combat log.");
             }
         }
     }

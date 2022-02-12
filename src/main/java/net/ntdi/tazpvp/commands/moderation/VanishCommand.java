@@ -31,7 +31,7 @@ public class VanishCommand implements CommandExecutor, Listener {
 
         if(vanisher != null && vanisher.hasPermission("staff.vanish")) {
             if(!vanishList.contains(vanisher)) {
-                if (combatLog.combatLog.containsKey(vanisher)) {
+                if (combatLog.combatLog.containsKey(vanisher.getUniqueId())) {
                     vanisher.sendMessage(ChatColor.RED + "You cannot vanish while in combat.");
                 } else {
                     vanishList.add(vanisher);

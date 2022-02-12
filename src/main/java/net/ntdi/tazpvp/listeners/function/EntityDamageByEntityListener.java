@@ -56,14 +56,14 @@ public class EntityDamageByEntityListener implements Listener {
             if (TazPvP.AllowBlocks && !p.getWorld().getName().equals("spawn")) {
                 if (!victim.getName().equalsIgnoreCase(ChatColor.YELLOW + "miner")) {
                     if (p != victim) {
-                        if (!combatLog.combatLog.containsKey(victim)) {
+                        if (!combatLog.combatLog.containsKey(victim.getUniqueId())) {
                             victim.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + p.getName());
                         }
-                        if (!combatLog.combatLog.containsKey(p)) {
+                        if (!combatLog.combatLog.containsKey(p.getUniqueId())) {
                             p.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + victim.getName());
                         }
-                        combatLog.combatLog.put(victim, 10);
-                        combatLog.combatLog.put(p, 10);
+                        combatLog.combatLog.put(victim.getUniqueId(), 10);
+                        combatLog.combatLog.put(p.getUniqueId(), 10);
                     }
                 }
             }
@@ -132,14 +132,14 @@ public class EntityDamageByEntityListener implements Listener {
                     if (TazPvP.AllowBlocks) {
                         if (!victim.getName().equalsIgnoreCase(ChatColor.YELLOW + "miner")) {
                             if (shooter != victim) {
-                                if (!combatLog.combatLog.containsKey(victim)) {
+                                if (!combatLog.combatLog.containsKey(victim.getUniqueId())) {
                                     victim.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + shooter.getName());
                                 }
-                                if (!combatLog.combatLog.containsKey(shooter)) {
+                                if (!combatLog.combatLog.containsKey(shooter.getUniqueId())) {
                                     shooter.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + victim.getName());
                                 }
-                                combatLog.combatLog.put(victim, 10);
-                                combatLog.combatLog.put(shooter, 10);
+                                combatLog.combatLog.put(victim.getUniqueId(), 10);
+                                combatLog.combatLog.put(shooter.getUniqueId(), 10);
                             }
                         }
                     }
@@ -163,14 +163,14 @@ public class EntityDamageByEntityListener implements Listener {
                 if (p.getWorld().getName().equalsIgnoreCase("arena")){
                     if (TazPvP.AllowBlocks) {
                         if (p != victim) {
-                            if (!combatLog.combatLog.containsKey(p)) {
+                            if (!combatLog.combatLog.containsKey(p.getUniqueId())) {
                                 p.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + victim.getName());
                             }
-                            if (!combatLog.combatLog.containsKey(victim)) {
+                            if (!combatLog.combatLog.containsKey(victim.getUniqueId())) {
                                 victim.sendMessage(ChatColor.DARK_GREEN + "You are now in combat with " + ChatColor.GREEN + p.getName());
                             }
-                            combatLog.combatLog.put(victim, 10);
-                            combatLog.combatLog.put(p, 10);
+                            combatLog.combatLog.put(victim.getUniqueId(), 10);
+                            combatLog.combatLog.put(p.getUniqueId(), 10);
 
                         }
                     }
