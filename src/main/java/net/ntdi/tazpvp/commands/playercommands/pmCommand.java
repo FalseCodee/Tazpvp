@@ -1,5 +1,7 @@
 package net.ntdi.tazpvp.commands.playercommands;
 
+import org.bukkit.ChatColor;
+import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -14,11 +16,13 @@ public class pmCommand implements CommandExecutor {
 
             if (args.length == 2) {
                 Player target = p.getServer().getPlayer(args[0]);
-                target.sendMessage((args[0]) + "sent you: " + (args[1]));
+                target.sendMessage( ChatColor.GOLD + "From " + ChatColor.RED + p + ": "  + ChatColor.GRAY + (args[1]));
+                p.sendMessage(ChatColor.GOLD + "To " + ChatColor.RED + (args[0]) + ": " + ChatColor.GRAY + (args[1]));
+                target.playSound(target.getLocation(), Sound.CLICK, 1, 1);
             } else {
                 return false;
             }
         }
-        return false;
+        return true;
     }
 }

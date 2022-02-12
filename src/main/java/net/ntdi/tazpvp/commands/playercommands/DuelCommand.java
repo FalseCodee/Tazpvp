@@ -55,7 +55,7 @@ public class DuelCommand implements CommandExecutor {
                     target.sendMessage(" " + ChatColor.GOLD + player.getName() + ChatColor.YELLOW + " has challenged you to a duel.");
                     target.spigot().sendMessage(Accept);
                     target.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-                    target.playSound(target.getLocation(), Sound.ITEM_PICKUP, 1, 1);
+                    target.playSound(target.getLocation(), Sound.FIREWORK_LAUNCH, 1, 1);
 
                 }
             }
