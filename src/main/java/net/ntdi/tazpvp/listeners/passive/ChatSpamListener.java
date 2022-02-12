@@ -92,7 +92,28 @@ public class ChatSpamListener implements Listener {
 
 
         if (!e.getPlayer().hasPermission("staff.chatbypass")) {
-            String message = e.getMessage();
+            String m = e.getMessage();
+            ArrayList<String> badwords = new ArrayList<>();
+            badwords.add("fuck");
+            badwords.add("shit");
+            badwords.add("bitch");
+            badwords.add("shit");
+            badwords.add("ass");
+            badwords.add("dick");
+            badwords.add("dildo");
+            badwords.add("pussy");
+            badwords.add("porn");
+            badwords.add("whore");
+            badwords.add("fag");
+            badwords.add("cock");
+            badwords.add("retar");
+            badwords.add("cunt");
+            badwords.add("penis");
+            badwords.add("bitc");
+            badwords.add("nigg");
+            badwords.add("slut");
+            badwords.add("fuk");
+            badwords.add("fuc");
 
             for (String s: badwords){
                 if (m.toLowerCase().contains(s)){
