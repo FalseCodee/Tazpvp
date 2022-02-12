@@ -11,7 +11,6 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Locale;
 
 public class ChatSpamListener implements Listener {
 

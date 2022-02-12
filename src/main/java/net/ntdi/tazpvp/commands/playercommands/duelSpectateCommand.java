@@ -4,8 +4,6 @@ import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.managers.Duels.DuelManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.GameMode;
-import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

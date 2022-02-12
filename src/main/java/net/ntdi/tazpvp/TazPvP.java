@@ -1,11 +1,7 @@
 package net.ntdi.tazpvp;
 
 // import com.oracle.xmlns.internal.webservices.jaxws_databinding.SoapBindingUse;
-import net.ntdi.tazpvp.items.items.LevFeather;
-import net.ntdi.tazpvp.managers.Duels.DuelManager;
-import org.bukkit.World;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.Player;
+
 import com.comphenix.protocol.PacketType;
 import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.ProtocolManager;
@@ -15,24 +11,28 @@ import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.milkbowl.vault.chat.Chat;
 import net.milkbowl.vault.permission.Permission;
-import net.ntdi.tazpvp.commands.*;
-import net.ntdi.tazpvp.commands.functions.*;
+import net.ntdi.tazpvp.commands.SendMessageCommand;
+import net.ntdi.tazpvp.commands.SendWordCommand;
+import net.ntdi.tazpvp.commands.functions.VaultCommand;
 import net.ntdi.tazpvp.commands.moderation.*;
 import net.ntdi.tazpvp.commands.playercommands.*;
-
 import net.ntdi.tazpvp.gui.GUIListener;
 import net.ntdi.tazpvp.items.ItemManager;
+import net.ntdi.tazpvp.items.items.LevFeather;
 import net.ntdi.tazpvp.listeners.function.*;
-import net.ntdi.tazpvp.listeners.items.*;
+import net.ntdi.tazpvp.listeners.items.PlayerFishEvent;
+import net.ntdi.tazpvp.listeners.items.SnowballHitEvent;
 import net.ntdi.tazpvp.listeners.passive.*;
-
 import net.ntdi.tazpvp.managers.*;
-
+import net.ntdi.tazpvp.managers.Duels.DuelManager;
 import net.ntdi.tazpvp.utils.MathUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
 import org.bukkit.entity.Skeleton;
 import org.bukkit.entity.Zombie;
 import org.bukkit.inventory.ItemStack;
@@ -46,7 +46,8 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public final class TazPvP extends JavaPlugin {
 

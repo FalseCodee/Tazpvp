@@ -3,7 +3,6 @@ package net.ntdi.tazpvp.commands.playercommands;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
-import net.milkbowl.vault.chat.Chat;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.commands.moderation.VanishCommand;
 import net.ntdi.tazpvp.managers.Duels.DuelManager;

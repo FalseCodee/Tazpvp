@@ -3,7 +3,10 @@ package net.ntdi.tazpvp.managers;
 import org.bukkit.entity.Player;
 
 import java.net.InetSocketAddress;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.UUID;
 
 public class IpManager {
     public static HashMap<UUID, InetSocketAddress> ipList = new HashMap<>();

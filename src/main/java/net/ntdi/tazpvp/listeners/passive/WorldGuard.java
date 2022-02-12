@@ -15,7 +15,6 @@ import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerItemDamageEvent;
-import org.bukkit.event.player.PlayerPickupItemEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 
 public class WorldGuard implements Listener {

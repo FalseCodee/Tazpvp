@@ -7,7 +7,6 @@ import net.ntdi.tazpvp.gui.guis.GUIAchievement;
 import net.ntdi.tazpvp.gui.guis.GUIShop;
 import net.ntdi.tazpvp.gui.guis.rankstore.GUIMainRankScreen;
 import net.ntdi.tazpvp.gui.guis.upgrades.GUIMainScreen;
-import net.ntdi.tazpvp.listeners.function.Fisherman;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 

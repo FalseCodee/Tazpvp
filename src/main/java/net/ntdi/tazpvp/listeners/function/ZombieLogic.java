@@ -1,13 +1,15 @@
 package net.ntdi.tazpvp.listeners.function;
 
+import net.ntdi.tazpvp.TazPvP;
 import org.bukkit.*;
-import org.bukkit.entity.*;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Skeleton;
+import org.bukkit.entity.Zombie;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scheduler.BukkitRunnable;
-import net.ntdi.tazpvp.TazPvP;
 
 import java.util.Random;
 

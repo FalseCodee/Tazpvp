@@ -3,7 +3,6 @@ package net.ntdi.tazpvp.gui.guis.upgrades;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.gui.GUI;
 import net.ntdi.tazpvp.gui.guis.GUIPerk;
-import net.ntdi.tazpvp.utils.PlayerUtils;
 import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;

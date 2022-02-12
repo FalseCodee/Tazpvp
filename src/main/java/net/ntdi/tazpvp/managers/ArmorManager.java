@@ -1,12 +1,10 @@
 package net.ntdi.tazpvp.managers;
 
-import net.ntdi.tazpvp.TazPvP;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-
-import org.bukkit.Bukkit;
 import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.io.BukkitObjectInputStream;
 import org.bukkit.util.io.BukkitObjectOutputStream;
 

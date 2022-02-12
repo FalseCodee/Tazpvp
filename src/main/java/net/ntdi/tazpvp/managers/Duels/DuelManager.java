@@ -2,9 +2,6 @@ package net.ntdi.tazpvp.managers.Duels;
 
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.gui.GUI;
-import net.ntdi.tazpvp.items.ItemManager;
-import net.ntdi.tazpvp.items.items.Butter;
-import net.ntdi.tazpvp.items.items.GHead;
 import net.ntdi.tazpvp.managers.ArmorManager;
 import org.bukkit.*;
 import org.bukkit.enchantments.Enchantment;
@@ -14,16 +11,16 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
-import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.metadata.MetadataValue;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
-import static net.ntdi.tazpvp.items.Items.BUTTER;
 import static net.ntdi.tazpvp.items.Items.GHEAD;
 import static net.ntdi.tazpvp.utils.PlayerUtils.delayChangeGamemode;
 

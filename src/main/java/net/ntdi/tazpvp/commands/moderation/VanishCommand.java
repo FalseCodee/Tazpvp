@@ -6,7 +6,6 @@ import net.ntdi.tazpvp.utils.PlayerUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
-import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -18,7 +17,6 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class VanishCommand implements CommandExecutor, Listener {
     public final List<Player> vanishList = new ArrayList<>();

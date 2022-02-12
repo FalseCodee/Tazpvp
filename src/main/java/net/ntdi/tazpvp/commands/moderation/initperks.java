@@ -1,7 +1,6 @@
 package net.ntdi.tazpvp.commands.moderation;
 
 import net.ntdi.tazpvp.TazPvP;
-import net.ntdi.tazpvp.managers.PerkManager;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;

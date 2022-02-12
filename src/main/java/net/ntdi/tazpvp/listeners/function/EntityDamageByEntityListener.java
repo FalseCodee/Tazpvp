@@ -1,6 +1,5 @@
 package net.ntdi.tazpvp.listeners.function;
 
-import net.citizensnpcs.api.npc.NPC;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.listeners.passive.combatLog;
 import net.ntdi.tazpvp.managers.Duels.DuelManager;

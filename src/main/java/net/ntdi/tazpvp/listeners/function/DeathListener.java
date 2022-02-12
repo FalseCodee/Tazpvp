@@ -27,8 +27,6 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
-import static net.ntdi.tazpvp.utils.PlayerUtils.delayChangeGamemode;
-
 public class DeathListener implements Listener {
 
     private final Random rand = new Random();
