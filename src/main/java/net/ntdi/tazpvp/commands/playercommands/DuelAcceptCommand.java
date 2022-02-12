@@ -1,6 +1,7 @@
 package net.ntdi.tazpvp.commands.playercommands;
 
 import net.ntdi.tazpvp.TazPvP;
+import net.ntdi.tazpvp.commands.moderation.VanishCommand;
 import net.ntdi.tazpvp.listeners.passive.combatLog;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -18,6 +19,8 @@ import java.util.Random;
 public class DuelAcceptCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
+        VanishCommand vanishCommand = new VanishCommand();
+        vanishCommand.vanishList.toString();
 
         if (commandSender instanceof Player) {
             Player p = (Player) commandSender;
@@ -35,6 +38,8 @@ public class DuelAcceptCommand implements CommandExecutor {
                     p.sendMessage(ChatColor.RED + "You cannot accept a duel while you are banned.");
                 } else if (TazPvP.duelManager.isDueling(target)) {
                     p.sendMessage(ChatColor.RED + "That user is already in a duel.");
+                } else if (vanishCommand.vanishList.contains(p)) {
+                    p.sendMessage(ChatColor.RED + "You cannot duel while in vanish.");
                 } else if (isRespawning(p) || isRespawning(target)) {
                     p.sendMessage(ChatColor.RED + "You or " + target.getName() + " are respawning.");
                 } else if (sender(p).equals(target.getName())) {
