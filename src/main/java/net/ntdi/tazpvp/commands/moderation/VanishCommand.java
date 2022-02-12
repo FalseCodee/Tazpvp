@@ -6,6 +6,7 @@ import net.ntdi.tazpvp.utils.PlayerUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -17,6 +18,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class VanishCommand implements CommandExecutor, Listener {
     public final List<Player> vanishList = new ArrayList<>();
@@ -36,7 +38,11 @@ public class VanishCommand implements CommandExecutor, Listener {
                     vanishList.add(player);
                     player.setAllowFlight(true);
                     PlayerUtils.hidePlayer(player);
-                    player.sendMessage(ChatColor.GREEN + "You are now vanished.");
+                    for (Player p : Bukkit.getOnlinePlayers()){
+                        if (p.hasPermission("staff.vanish")){
+                            p.sendMessage(ChatColor.GREEN + p.getName() + " is now vanished.");
+                        }
+                    }
                     Bukkit.broadcastMessage(ChatColor.GRAY + "[" + ChatColor.RED + "-" + ChatColor.GRAY + "] " + player.getName());
                     TazPvP.invunerable.add(player);
                 }
@@ -45,7 +51,11 @@ public class VanishCommand implements CommandExecutor, Listener {
                 vanishList.remove(player);
                 player.setAllowFlight(false);
                 PlayerUtils.showPlayer(player);
-                player.sendMessage(ChatColor.RED + "You are no longer vanished.");
+                for (Player p : Bukkit.getOnlinePlayers()){
+                    if (p.hasPermission("staff.vanish")){
+                        p.sendMessage(ChatColor.RED + p.getName() + " is no longer vanished.");
+                    }
+                }
                 Bukkit.broadcastMessage(ChatColor.GRAY + "[" + ChatColor.GREEN + "+" + ChatColor.GRAY + "] " + player.getName());
                 TazPvP.invunerable.remove(player);
 
