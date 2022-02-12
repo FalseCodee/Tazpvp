@@ -23,21 +23,21 @@ public class DuelAcceptCommand implements CommandExecutor {
             Player p = (Player) commandSender;
             if (strings.length == 1) {
                 Player target = Bukkit.getPlayer(strings[0]);
-                if (target != null) {
+                if (target == null) {
                     p.sendMessage(ChatColor.RED + "Player not found");
-                } else if (!target.getName().equals(p.getName())) {
+                } else if (target.getName().equals(p.getName())) {
                     p.sendMessage(ChatColor.RED + "You cannot duel yourself!");
-                } else if (target.isOnline()) {
+                } else if (!target.isOnline()) {
                     p.sendMessage(ChatColor.RED + "That p is not online!");
                 } else if (combatLog.combatLog.containsKey(p.getUniqueId())) {
                     p.sendMessage(ChatColor.RED + "You cannot duel while in combat.");
-                } else if (!TazPvP.punishmentManager.isBanned(p)) {
+                } else if (TazPvP.punishmentManager.isBanned(p)) {
                     p.sendMessage(ChatColor.RED + "You cannot accept a duel while you are banned.");
-                } else if (!TazPvP.duelManager.isDueling(target)) {
+                } else if (TazPvP.duelManager.isDueling(target)) {
                     p.sendMessage(ChatColor.RED + "That user is already in a duel.");
-                } else if (!isRespawning(p) || !isRespawning(target)) {
+                } else if (isRespawning(p) || isRespawning(target)) {
                     p.sendMessage(ChatColor.RED + "You or " + target.getName() + " are respawning.");
-                } else if (sender(p).equals(target.getName())) {
+                } else if (!sender(p).equals(target.getName())) {
                     byte[] array = new byte[15]; // length is bounded by 15
                     new Random().nextBytes(array);
                     String generatedString = new String(array, Charset.forName("UTF-8"));
