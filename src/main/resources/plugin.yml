@@ -296,7 +296,7 @@ commands:
     permission: tazpvp.staff.gmsp
     usage: "/gmsp"
   fly:
-    permission: tazpvp.staff.fly
+    permission: tazpvp.fly
     usage: "/fly"
   nick:
     permission: tazpvp.nick
@@ -348,3 +348,5 @@ commands:
   listworld:
     permission: tazpvp.staff.listworld
     usage: "/listworld"
+  pm:
+    usage: "/pm <player> <message>"

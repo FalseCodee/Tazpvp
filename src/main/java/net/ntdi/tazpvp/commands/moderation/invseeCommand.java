@@ -1,7 +1,6 @@
 package net.ntdi.tazpvp.commands.moderation;
 
 import net.ntdi.tazpvp.TazPvP;
-import net.ntdi.tazpvp.gui.GUI;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -11,7 +10,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
 
 public class invseeCommand implements CommandExecutor, Listener {

@@ -3,25 +3,13 @@ package net.ntdi.tazpvp.listeners.function;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
-import net.ntdi.tazpvp.TazPvP;
-import net.ntdi.tazpvp.utils.StringUtils;
-import net.ntdi.tazpvp.utils.https.PostHelper;
-import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
-import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.scheduler.BukkitRunnable;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-
-import java.io.IOException;
-import java.util.Objects;
 
 public class RCLICKBanListener implements Listener {
 

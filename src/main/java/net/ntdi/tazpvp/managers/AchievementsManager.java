@@ -6,7 +6,6 @@ import net.ntdi.tazpvp.achievements.Rewards;
 import net.ntdi.tazpvp.achievements.types.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-
 import org.bukkit.entity.Player;
 
 import java.io.File;

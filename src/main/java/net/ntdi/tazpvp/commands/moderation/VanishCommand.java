@@ -36,7 +36,11 @@ public class VanishCommand implements CommandExecutor, Listener {
                     vanishList.add(player);
                     player.setAllowFlight(true);
                     PlayerUtils.hidePlayer(player);
-                    player.sendMessage(ChatColor.GREEN + "You are now vanished.");
+                    for (Player p : Bukkit.getOnlinePlayers()){
+                        if (p.hasPermission("staff.vanish")){
+                            p.sendMessage(ChatColor.GREEN + p.getName() + " is now vanished.");
+                        }
+                    }
                     Bukkit.broadcastMessage(ChatColor.GRAY + "[" + ChatColor.RED + "-" + ChatColor.GRAY + "] " + player.getName());
                     TazPvP.invunerable.add(player);
                 }
@@ -45,7 +49,11 @@ public class VanishCommand implements CommandExecutor, Listener {
                 vanishList.remove(player);
                 player.setAllowFlight(false);
                 PlayerUtils.showPlayer(player);
-                player.sendMessage(ChatColor.RED + "You are no longer vanished.");
+                for (Player p : Bukkit.getOnlinePlayers()){
+                    if (p.hasPermission("staff.vanish")){
+                        p.sendMessage(ChatColor.RED + p.getName() + " is no longer vanished.");
+                    }
+                }
                 Bukkit.broadcastMessage(ChatColor.GRAY + "[" + ChatColor.GREEN + "+" + ChatColor.GRAY + "] " + player.getName());
                 TazPvP.invunerable.remove(player);
 

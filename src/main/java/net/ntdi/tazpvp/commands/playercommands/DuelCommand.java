@@ -3,7 +3,6 @@ package net.ntdi.tazpvp.commands.playercommands;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
-import net.milkbowl.vault.chat.Chat;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.commands.moderation.VanishCommand;
 import net.ntdi.tazpvp.managers.Duels.DuelManager;
@@ -55,7 +54,7 @@ public class DuelCommand implements CommandExecutor {
                     target.sendMessage(" " + ChatColor.GOLD + player.getName() + ChatColor.YELLOW + " has challenged you to a duel.");
                     target.spigot().sendMessage(Accept);
                     target.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
-                    target.playSound(target.getLocation(), Sound.ITEM_PICKUP, 1, 1);
+                    target.playSound(target.getLocation(), Sound.FIREWORK_LAUNCH, 1, 1);
 
                 }
             }

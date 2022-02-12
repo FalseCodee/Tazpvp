@@ -1,7 +1,10 @@
 package net.ntdi.tazpvp.listeners.items;
 
 import net.ntdi.tazpvp.TazPvP;
-import org.bukkit.*;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
