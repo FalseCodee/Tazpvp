@@ -1,6 +1,7 @@
 package net.ntdi.tazpvp.commands.playercommands;
 
 import net.ntdi.tazpvp.TazPvP;
+import net.ntdi.tazpvp.utils.StringUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
 import org.bukkit.command.Command;
@@ -34,8 +35,9 @@ public class pmCommand implements CommandExecutor, Listener {
                 } else if (TazPvP.punishmentManager.isMuted(p)) {
                     p.sendMessage(ChatColor.RED + "You cannot PM while muted.");
                 } else {
-                    target.sendMessage( ChatColor.DARK_AQUA + "From " + ChatColor.AQUA + p.getName() + ": "  + ChatColor.GRAY + (args[1]));
-                    p.sendMessage(ChatColor.DARK_AQUA + "To " + ChatColor.AQUA + (args[0]) + ": " + ChatColor.GRAY + (args[1]));
+                    String msg = StringUtils.buildString(args, 1);
+                    target.sendMessage( ChatColor.DARK_AQUA + "From " + ChatColor.AQUA + p.getName() + ": "  + ChatColor.GRAY + msg);
+                    p.sendMessage(ChatColor.DARK_AQUA + "To " + ChatColor.AQUA + (args[0]) + ": " + ChatColor.GRAY + msg);
                     target.playSound(target.getLocation(), Sound.SHEEP_SHEAR, 1, 1);
                     if (!TazPvP.newPm.contains(p)) {
                         target.sendMessage(ChatColor.AQUA + " To respond to this private message, type " + ChatColor.GRAY + "/PM <player> <message>");
