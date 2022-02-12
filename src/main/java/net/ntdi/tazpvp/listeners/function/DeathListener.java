@@ -317,7 +317,7 @@ public class DeathListener implements Listener {
         }
     }
     //clear inv cuz why not
-    public void rsInv(Player player){
+    public static void rsInv(Player player){
         ItemStack armor1 = new ItemStack(Material.DIAMOND_BOOTS);
         ItemStack armor2 = new ItemStack(Material.LEATHER_HELMET);
         ItemStack armor3 = new ItemStack(Material.LEATHER_CHESTPLATE);
