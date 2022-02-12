@@ -6,8 +6,16 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerJoinEvent;
 
-public class pmCommand implements CommandExecutor {
+public class pmCommand implements CommandExecutor, Listener {
+    int num = 0;
+    @EventHandler
+    public void onPlayerJoin(PlayerJoinEvent event){
+        int num = 0;
+    }
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -19,6 +27,9 @@ public class pmCommand implements CommandExecutor {
                 target.sendMessage( ChatColor.DARK_AQUA + "From " + ChatColor.RED + p.getName() + ": "  + ChatColor.GRAY + (args[1]));
                 p.sendMessage(ChatColor.DARK_AQUA + "To " + ChatColor.RED + (args[0]) + ": " + ChatColor.GRAY + (args[1]));
                 target.playSound(target.getLocation(), Sound.SHEEP_SHEAR, 1, 1);
+                if (num < 1) {
+                    target.sendMessage(ChatColor.AQUA + " To respond to this private message, type '/PM <player> <message>'");
+                }
             } else {
                 return false;
             }
