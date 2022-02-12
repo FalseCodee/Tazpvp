@@ -85,10 +85,10 @@ public class WorldGuard implements Listener {
 
     @EventHandler
     public void feed(FoodLevelChangeEvent event) {
-        if (event.getEntity().getWorld().getName().equals("spawn") || event.getEntity().getWorld().getName().equals("duel")) {
-            if(event.getEntity() instanceof Player) { //Safety check since we need to cast
-                Player player = (Player)event.getEntity();
-                if (vanishCommand.vanishList.contains(player)) {
+        Player player = (Player)event.getEntity();
+        if (vanishCommand.vanishList.contains(player)) {
+            if (event.getEntity().getWorld().getName().equals("spawn") || event.getEntity().getWorld().getName().equals("duel")) {
+                if(event.getEntity() instanceof Player) { //Safety check since we need to cast
                     int oldFoodLevel = player.getFoodLevel();
                     int newFoodLevel = event.getFoodLevel();
 
@@ -128,8 +128,8 @@ public class WorldGuard implements Listener {
 
     @EventHandler
     public void blockHit(EntityDamageByEntityEvent event) {
-        if (event.getEntity().getWorld().getName().equals("spawn")) {
-            if (vanishCommand.vanishList.contains(event.getEntity())) {
+        if (vanishCommand.vanishList.contains(event.getEntity())) {
+            if (event.getEntity().getWorld().getName().equals("spawn")) {
                 event.setCancelled(true);
             }
         }
