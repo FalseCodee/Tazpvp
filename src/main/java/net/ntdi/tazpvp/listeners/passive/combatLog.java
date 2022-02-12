@@ -27,7 +27,7 @@ public class combatLog implements Listener {
             }
             for (UUID uuid : queue) {
                 combatLog.remove(uuid);
-                Bukkit.getPlayer(uuid).sendMessage(ChatColor.GREEN + "You have been removed from combat log.");
+                Bukkit.getPlayer(uuid).sendMessage(ChatColor.RED + "You are no longer in combat.");
             }
         }
     }
