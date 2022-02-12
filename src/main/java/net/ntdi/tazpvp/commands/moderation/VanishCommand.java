@@ -23,39 +23,40 @@ public class VanishCommand implements CommandExecutor, Listener {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        Player player = null;
+        Player vanisher = null;
         if(sender instanceof Player) {
-            player = (Player) sender;
+            vanisher = (Player) sender;
         }
 
-        if(player != null && player.hasPermission("staff.vanish")) {
-            if(!vanishList.contains(player)) {
-                if (combatLog.combatLog.containsKey(player)) {
-                    player.sendMessage(ChatColor.RED + "You cannot vanish while in combat.");
+
+        if(vanisher != null && vanisher.hasPermission("staff.vanish")) {
+            if(!vanishList.contains(vanisher)) {
+                if (combatLog.combatLog.containsKey(vanisher)) {
+                    vanisher.sendMessage(ChatColor.RED + "You cannot vanish while in combat.");
                 } else {
-                    vanishList.add(player);
-                    player.setAllowFlight(true);
-                    PlayerUtils.hidePlayer(player);
+                    vanishList.add(vanisher);
+                    vanisher.setAllowFlight(true);
+                    PlayerUtils.hidePlayer(vanisher);
                     for (Player p : Bukkit.getOnlinePlayers()){
                         if (p.hasPermission("staff.vanish")){
-                            p.sendMessage(ChatColor.GREEN + p.getName() + " is now vanished.");
+                            p.sendMessage(ChatColor.GREEN + vanisher.getName() + " is now vanished.");
                         }
                     }
-                    Bukkit.broadcastMessage(ChatColor.GRAY + "[" + ChatColor.RED + "-" + ChatColor.GRAY + "] " + player.getName());
-                    TazPvP.invunerable.add(player);
+                    Bukkit.broadcastMessage(ChatColor.GRAY + "[" + ChatColor.RED + "-" + ChatColor.GRAY + "] " + vanisher.getName());
+                    TazPvP.invunerable.add(vanisher);
                 }
             } else {
-                player.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
-                vanishList.remove(player);
-                player.setAllowFlight(false);
-                PlayerUtils.showPlayer(player);
+                vanisher.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
+                vanishList.remove(vanisher);
+                vanisher.setAllowFlight(false);
+                PlayerUtils.showPlayer(vanisher);
                 for (Player p : Bukkit.getOnlinePlayers()){
                     if (p.hasPermission("staff.vanish")){
-                        p.sendMessage(ChatColor.RED + p.getName() + " is no longer vanished.");
+                        p.sendMessage(ChatColor.RED + vanisher.getName() + " is no longer vanished.");
                     }
                 }
-                Bukkit.broadcastMessage(ChatColor.GRAY + "[" + ChatColor.GREEN + "+" + ChatColor.GRAY + "] " + player.getName());
-                TazPvP.invunerable.remove(player);
+                Bukkit.broadcastMessage(ChatColor.GRAY + "[" + ChatColor.GREEN + "+" + ChatColor.GRAY + "] " + vanisher.getName());
+                TazPvP.invunerable.remove(vanisher);
 
             }
         } else {
@@ -66,8 +67,8 @@ public class VanishCommand implements CommandExecutor, Listener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event){
-        for(Player player : vanishList)
-            PlayerUtils.hidePlayer(player);
+        for(Player vanisher : vanishList)
+            PlayerUtils.hidePlayer(vanisher);
     }
     @EventHandler
     public void onLeave(PlayerQuitEvent event){
