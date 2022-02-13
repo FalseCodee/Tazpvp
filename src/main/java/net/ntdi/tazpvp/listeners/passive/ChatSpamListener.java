@@ -98,7 +98,6 @@ public class ChatSpamListener implements Listener {
             badwords.add("shit");
             badwords.add("bitch");
             badwords.add("shit");
-            badwords.add("ass");
             badwords.add("dick");
             badwords.add("dildo");
             badwords.add("pussy");
