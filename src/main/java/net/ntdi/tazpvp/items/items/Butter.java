@@ -2,6 +2,7 @@ package net.ntdi.tazpvp.items.items;
 
 import net.ntdi.tazpvp.items.ConsumableItem;
 import net.ntdi.tazpvp.items.Items;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
@@ -25,6 +26,7 @@ public class Butter extends ConsumableItem {
         }
         p.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 20*5, 0));
         p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20*5, 0));
+        p.playSound(p.getLocation(), Sound.BURP, 1, 1);
         return false;
     }
 }
