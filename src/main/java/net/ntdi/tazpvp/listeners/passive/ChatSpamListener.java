@@ -131,7 +131,7 @@ public class ChatSpamListener implements Listener {
         }
         if (!e.getPlayer().hasPermission("staff.chatbypass")) {
             String message = e.getMessage();
-            if (message.contains("how")){
+            if (message.contains("how") && !message.contains("show")) {
                 p.sendMessage(ChatColor.DARK_GRAY + "( " + ChatColor.RED + "!" + ChatColor.DARK_GRAY + " ) " + ChatColor.GRAY + "Learn how the server works better by typing /Help.");
             }
         }
