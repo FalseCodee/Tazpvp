@@ -4,6 +4,7 @@ import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.commands.moderation.BanCommand;
 import net.ntdi.tazpvp.listeners.function.DeathListener;
 import net.ntdi.tazpvp.managers.ArmorManager;
+import net.ntdi.tazpvp.managers.AssistManager;
 import net.ntdi.tazpvp.managers.Duels.DuelManager;
 import net.ntdi.tazpvp.utils.PlayerUtils;
 import org.bukkit.*;
@@ -21,6 +22,7 @@ import org.bukkit.metadata.MetadataValue;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scoreboard.Scoreboard;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -64,6 +66,7 @@ public class WelcomeListener implements Listener {
             TazPvP.statsManager.setPlaytime(p, p.getStatistic(Statistic.PLAY_ONE_TICK)/20);
         }
 
+        AssistManager.assists.put(p.getUniqueId(), new ArrayList<UUID>());
         updateTab();
 
         for(Scoreboard sb : TazPvP.statsManager.scoreboards.values()) {

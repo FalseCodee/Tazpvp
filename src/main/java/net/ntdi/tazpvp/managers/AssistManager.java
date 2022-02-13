@@ -22,7 +22,7 @@ public class AssistManager {
         UUID uuid = p.getUniqueId();
         UUID assisterUUID = assister.getUniqueId();
         ArrayList<UUID> pplinlist = assists.get(uuid);
-        if (!pplinlist.contains(assisterUUID)){
+        if (!pplinlist.contains(assisterUUID)){ //line 25
             assists.get(uuid).add(assisterUUID);
         }
     }
