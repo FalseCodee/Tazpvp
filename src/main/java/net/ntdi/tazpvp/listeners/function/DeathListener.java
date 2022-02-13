@@ -118,6 +118,7 @@ public class DeathListener implements Listener {
                         }
                     }
 
+
                     p.setMaxHealth(20);
 
 
@@ -132,16 +133,18 @@ public class DeathListener implements Listener {
                         killer.sendMessage(ChatColor.GOLD + "+ $" + 25);
                     }
 
+                    TazPvP.assistmanager.rewardAssisters(p, 3, 3);
+                    TazPvP.assistmanager.clearAssists(p);
 
                     if (TazPvP.statsManager.getRebirths(killer) > 0) {
-                        TazPvP.statsManager.addExp(killer, 8);
+                        //TazPvP.statsManager.addExp(killer, 8);
                         killer.playSound(killer.getLocation(), Sound.ORB_PICKUP, 1, 1 );
                         p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1 );
                         killer.addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 40, 0, true, false));
                         killer.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 40, 0, true, false));
                         killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20*4, 3, true, false));
                     } else {
-                        TazPvP.statsManager.addExp(killer, 5);
+                        //TazPvP.statsManager.addExp(killer, 5);
                         killer.playSound(killer.getLocation(), Sound.ORB_PICKUP, 1, 1 );
                         p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1 );
                         killer.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20*4, 3, true, false));
