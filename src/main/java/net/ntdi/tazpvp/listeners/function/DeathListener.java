@@ -133,8 +133,8 @@ public class DeathListener implements Listener {
                         killer.sendMessage(ChatColor.GOLD + "+ $" + 25);
                     }
 
-                    TazPvP.assistmanager.rewardAssisters(p, 3, 3);
-                    TazPvP.assistmanager.clearAssists(p);
+//                    TazPvP.assistmanager.rewardAssisters(p, 3, 3);
+//                    TazPvP.assistmanager.clearAssists(p);
 
                     if (TazPvP.statsManager.getRebirths(killer) > 0) {
                         //TazPvP.statsManager.addExp(killer, 8);

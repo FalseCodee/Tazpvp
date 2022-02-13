@@ -66,7 +66,7 @@ public class WelcomeListener implements Listener {
             TazPvP.statsManager.setPlaytime(p, p.getStatistic(Statistic.PLAY_ONE_TICK)/20);
         }
 
-        AssistManager.assists.put(p.getUniqueId(), new ArrayList<UUID>());
+//        AssistManager.assists.put(p.getUniqueId(), new ArrayList<UUID>());
         updateTab();
 
         for(Scoreboard sb : TazPvP.statsManager.scoreboards.values()) {
@@ -177,7 +177,7 @@ public class WelcomeListener implements Listener {
             new DuelManager().endDuel(p, Bukkit.getPlayer(TazPvP.duelManager.getOpponent(p)));
         }
 
-        TazPvP.assistmanager.removeAssist(p);
+//        TazPvP.assistmanager.removeAssist(p);
 
         TazPvP.statsManager.setPlaytime(p, p.getStatistic(Statistic.PLAY_ONE_TICK)/20);
 
