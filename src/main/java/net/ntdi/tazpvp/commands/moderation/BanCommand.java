@@ -80,12 +80,6 @@ public class BanCommand implements CommandExecutor {
                             }
                         }
 
-
-
-//                        BukkitRunnable runnable = getBanRunnable(banned);
-//                        runnable.runTaskTimer(TazPvP.getInstance(), 0L, 1200L);
-//                        bannedRunnables.put(banned.getUniqueId(), runnable);
-
                         JSONObject obj = new JSONObject();
                         JSONArray embed = new JSONArray();
                         JSONObject embedObj = new JSONObject();
@@ -130,9 +124,6 @@ public class BanCommand implements CommandExecutor {
                             banned.getPlayer().sendMessage(ChatColor.GRAY + "Do not log out if you wish to be unbanned. Join the discord and create a ticket.");
                             banned.getPlayer().sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
                             banned.getPlayer().playSound(banned.getPlayer().getLocation(), Sound.ANVIL_LAND, 1, 1);
-
-//                        banned.teleport(new Location(Bukkit.getWorld("world"), 0.5, 51, 0.5, -179, 0));
-
 
                             new BukkitRunnable() {
 

@@ -319,7 +319,7 @@ public class DeathListener implements Listener {
             }
         }
     }
-    //clear inv cuz why not
+
     public static void rsInv(Player player){
         ItemStack armor1 = new ItemStack(Material.DIAMOND_BOOTS);
         ItemStack armor2 = new ItemStack(Material.LEATHER_HELMET);
@@ -389,12 +389,9 @@ public class DeathListener implements Listener {
                deathFunction(p, killer);
                 TazPvP.statsManager.setStreak(p, 0);
                 TazPvP.statsManager.addDeaths(p, 1);
-                //loc.getWorld().playEffect(loc, Effect.LARGE_SMOKE, Material.REDSTONE_BLOCK);
             }
         }
     }
-
-
 
     @EventHandler
     public void onHit(EntityDamageByEntityEvent e) {
