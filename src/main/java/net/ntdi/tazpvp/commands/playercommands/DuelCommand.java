@@ -6,7 +6,6 @@ import net.md_5.bungee.api.chat.TextComponent;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.commands.moderation.VanishCommand;
 import net.ntdi.tazpvp.listeners.passive.combatLog;
-import net.ntdi.tazpvp.managers.Duels.DuelManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;

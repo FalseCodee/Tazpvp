@@ -1,9 +1,7 @@
 package net.ntdi.tazpvp.managers;
 
-import javafx.scene.control.TableColumn;
 import net.ntdi.tazpvp.TazPvP;
 import org.bukkit.Bukkit;
-import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
