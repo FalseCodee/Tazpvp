@@ -18,6 +18,7 @@ public class Help2Command implements CommandExecutor {
             p.sendMessage(ChatColor.WHITE + "/spawn " + ChatColor.GRAY + "Teleport back to the spawn.");
             p.sendMessage(ChatColor.WHITE + "/discord " + ChatColor.GRAY + "Join the community.");
             p.sendMessage(ChatColor.WHITE + "/duel " + ChatColor.GRAY + "Battle versus another player.");
+            p.sendMessage(ChatColor.WHITE + "/ad " + ChatColor.GRAY + "Receive the server advertisement to copy.");
             p.sendMessage(ChatColor.GRAY + "");
             p.sendMessage(ChatColor.GREEN + "PAGE [2/2] " + ChatColor.GRAY + "/help to go back");
         }else{
