@@ -64,6 +64,8 @@ public class EntityDamageByEntityListener implements Listener {
                         }
                         combatLog.combatLog.put(victim.getUniqueId(), 10);
                         combatLog.combatLog.put(p.getUniqueId(), 10);
+
+                        TazPvP.assistmanager.addAssist(victim, p);
                     }
                 }
             }
@@ -140,6 +142,8 @@ public class EntityDamageByEntityListener implements Listener {
                                 }
                                 combatLog.combatLog.put(victim.getUniqueId(), 10);
                                 combatLog.combatLog.put(shooter.getUniqueId(), 10);
+
+                                TazPvP.assistmanager.addAssist(victim, shooter);
                             }
                         }
                     }

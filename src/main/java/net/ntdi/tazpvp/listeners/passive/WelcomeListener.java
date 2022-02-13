@@ -174,6 +174,8 @@ public class WelcomeListener implements Listener {
             new DuelManager().endDuel(p, Bukkit.getPlayer(TazPvP.duelManager.getOpponent(p)));
         }
 
+        TazPvP.assistmanager.removeAssist(p);
+
         TazPvP.statsManager.setPlaytime(p, p.getStatistic(Statistic.PLAY_ONE_TICK)/20);
 
         updateTab();
