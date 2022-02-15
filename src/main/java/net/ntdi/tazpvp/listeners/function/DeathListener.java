@@ -356,10 +356,10 @@ public class DeathListener implements Listener {
             ItemStack steak = new ItemStack(Material.COOKED_BEEF, 4);
             ItemStack blocks = new ItemStack(Material.WOOD, 8);
             ItemStack arrow = new ItemStack(Material.ARROW, 5);
-            armor2.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
-            armor2.addEnchantment(Enchantment.DURABILITY, 5);
-            armor3.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
-            armor3.addEnchantment(Enchantment.DURABILITY, 5);
+            armor2.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
+            armor2.addUnsafeEnchantment(Enchantment.DURABILITY, 5);
+            armor3.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
+            armor3.addUnsafeEnchantment(Enchantment.DURABILITY, 5);
             ItemMeta meta1 = armor1.getItemMeta();
             meta1.spigot().setUnbreakable(false);
             armor1.setItemMeta(meta1);
