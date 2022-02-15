@@ -5,6 +5,7 @@ import net.ntdi.tazpvp.commands.functions.BountyCommand;
 import net.ntdi.tazpvp.listeners.passive.combatLog;
 import net.ntdi.tazpvp.managers.Duels.DuelManager;
 import org.bukkit.*;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -320,8 +321,8 @@ public class DeathListener implements Listener {
         }
     }
 
-    public static void rsInv(Player p){
-        if (TazPvP.statsManager.statsFile.getString(p.getUniqueId().toString() + ".cbar") != null){
+    public static void rsInv(Player p) {
+        if (TazPvP.statsManager.statsFile.getString(p.getUniqueId().toString() + ".cbar") != null) {
             p.getInventory().clear();
             String cbar = TazPvP.statsManager.getCbar(p);
             for (int i = 0; i < 9; i++) {
@@ -344,7 +345,6 @@ public class DeathListener implements Listener {
             p.getInventory().setItem(9, new ItemStack(Material.ARROW, 10));
         } else {
             p.getInventory().clear();
-
             ItemStack armor1 = new ItemStack(Material.DIAMOND_BOOTS);
             ItemStack armor2 = new ItemStack(Material.LEATHER_HELMET);
             ItemStack armor3 = new ItemStack(Material.LEATHER_CHESTPLATE);
@@ -356,7 +356,10 @@ public class DeathListener implements Listener {
             ItemStack steak = new ItemStack(Material.COOKED_BEEF, 4);
             ItemStack blocks = new ItemStack(Material.WOOD, 8);
             ItemStack arrow = new ItemStack(Material.ARROW, 5);
-
+            armor2.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
+            armor2.addEnchantment(Enchantment.DURABILITY, 5);
+            armor3.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
+            armor3.addEnchantment(Enchantment.DURABILITY, 5);
             ItemMeta meta1 = armor1.getItemMeta();
             meta1.spigot().setUnbreakable(false);
             armor1.setItemMeta(meta1);
@@ -402,6 +405,7 @@ public class DeathListener implements Listener {
             inv.addItem(steak);
             inv.addItem(blocks);
             inv.setItem(9, arrow);
+        }
         }
     }
 
