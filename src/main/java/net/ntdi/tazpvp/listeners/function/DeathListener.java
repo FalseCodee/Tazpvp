@@ -320,64 +320,89 @@ public class DeathListener implements Listener {
         }
     }
 
-    public static void rsInv(Player player){
-        ItemStack armor1 = new ItemStack(Material.DIAMOND_BOOTS);
-        ItemStack armor2 = new ItemStack(Material.LEATHER_HELMET);
-        ItemStack armor3 = new ItemStack(Material.LEATHER_CHESTPLATE);
-        ItemStack armor4 = new ItemStack(Material.DIAMOND_LEGGINGS);
-        ItemStack sword = new ItemStack(Material.WOOD_SWORD);
-        ItemStack pickaxe = new ItemStack(Material.WOOD_PICKAXE);
-        ItemStack fishingrod = new ItemStack(Material.FISHING_ROD);
-        ItemStack bow = new ItemStack(Material.BOW);
-        ItemStack steak = new ItemStack(Material.COOKED_BEEF, 4);
-        ItemStack blocks = new ItemStack(Material.WOOD, 8);
-        ItemStack arrow = new ItemStack(Material.ARROW, 5);
+    public static void rsInv(Player p){
+        if (TazPvP.statsManager.statsFile.getString(p.getUniqueId().toString() + ".cbar") != null){
+            p.getInventory().clear();
+            String cbar = TazPvP.statsManager.getCbar(p);
+            for (int i = 0; i < 9; i++) {
+                if (cbar.charAt(i) == 's') {
+                    p.getInventory().setItem(i, new ItemStack(Material.WOOD_SWORD));
+                } else if (cbar.charAt(i) == 'f') {
+                    p.getInventory().setItem(i, new ItemStack(Material.FISHING_ROD));
+                } else if (cbar.charAt(i) == 'b') {
+                    p.getInventory().setItem(i, new ItemStack(Material.BOW));
+                } else if (cbar.charAt(i) == 'p') {
+                    p.getInventory().setItem(i, new ItemStack(Material.WOOD_PICKAXE));
+                } else if (cbar.charAt(i) == 'c') {
+                    p.getInventory().setItem(i, new ItemStack(Material.COOKED_BEEF, 8));
+                } else if (cbar.charAt(i) == 'w') {
+                    p.getInventory().setItem(i, new ItemStack(Material.WOOD, 16));
+                } else if (cbar.charAt(i) == 'n') {
+                    p.getInventory().setItem(i, new ItemStack(Material.AIR));
+                }
+            }
+            p.getInventory().setItem(9, new ItemStack(Material.ARROW, 10));
+        } else {
+            p.getInventory().clear();
 
-        ItemMeta meta1 = armor1.getItemMeta();
-        meta1.spigot().setUnbreakable(false);
-        armor1.setItemMeta(meta1);
+            ItemStack armor1 = new ItemStack(Material.DIAMOND_BOOTS);
+            ItemStack armor2 = new ItemStack(Material.LEATHER_HELMET);
+            ItemStack armor3 = new ItemStack(Material.LEATHER_CHESTPLATE);
+            ItemStack armor4 = new ItemStack(Material.DIAMOND_LEGGINGS);
+            ItemStack sword = new ItemStack(Material.WOOD_SWORD);
+            ItemStack pickaxe = new ItemStack(Material.WOOD_PICKAXE);
+            ItemStack fishingrod = new ItemStack(Material.FISHING_ROD);
+            ItemStack bow = new ItemStack(Material.BOW);
+            ItemStack steak = new ItemStack(Material.COOKED_BEEF, 4);
+            ItemStack blocks = new ItemStack(Material.WOOD, 8);
+            ItemStack arrow = new ItemStack(Material.ARROW, 5);
 
-        ItemMeta meta2 = armor2.getItemMeta();
-        meta2.spigot().setUnbreakable(false);
-        armor2.setItemMeta(meta2);
+            ItemMeta meta1 = armor1.getItemMeta();
+            meta1.spigot().setUnbreakable(false);
+            armor1.setItemMeta(meta1);
 
-        ItemMeta meta3 = armor3.getItemMeta();
-        meta3.spigot().setUnbreakable(false);
-        armor3.setItemMeta(meta3);
+            ItemMeta meta2 = armor2.getItemMeta();
+            meta2.spigot().setUnbreakable(false);
+            armor2.setItemMeta(meta2);
 
-        ItemMeta meta4 = armor4.getItemMeta();
-        meta4.spigot().setUnbreakable(false);
-        armor4.setItemMeta(meta4);
+            ItemMeta meta3 = armor3.getItemMeta();
+            meta3.spigot().setUnbreakable(false);
+            armor3.setItemMeta(meta3);
 
-        ItemMeta swordMeta = sword.getItemMeta();
-        swordMeta.spigot().setUnbreakable(false);
-        sword.setItemMeta(swordMeta);
+            ItemMeta meta4 = armor4.getItemMeta();
+            meta4.spigot().setUnbreakable(false);
+            armor4.setItemMeta(meta4);
 
-        ItemMeta pickaxeMeta = pickaxe.getItemMeta();
-        pickaxeMeta.spigot().setUnbreakable(false);
-        pickaxe.setItemMeta(pickaxeMeta);
+            ItemMeta swordMeta = sword.getItemMeta();
+            swordMeta.spigot().setUnbreakable(false);
+            sword.setItemMeta(swordMeta);
 
-        ItemMeta fishingMeta = fishingrod.getItemMeta();
-        fishingMeta.spigot().setUnbreakable(false);
-        fishingrod.setItemMeta(fishingMeta);
+            ItemMeta pickaxeMeta = pickaxe.getItemMeta();
+            pickaxeMeta.spigot().setUnbreakable(false);
+            pickaxe.setItemMeta(pickaxeMeta);
 
-        ItemMeta bowMeta = bow.getItemMeta();
-        bowMeta.spigot().setUnbreakable(false);
-        bow.setItemMeta(bowMeta);
+            ItemMeta fishingMeta = fishingrod.getItemMeta();
+            fishingMeta.spigot().setUnbreakable(false);
+            fishingrod.setItemMeta(fishingMeta);
+
+            ItemMeta bowMeta = bow.getItemMeta();
+            bowMeta.spigot().setUnbreakable(false);
+            bow.setItemMeta(bowMeta);
 
 
-        PlayerInventory inv = player.getInventory();
-        inv.setLeggings(armor4);
-        inv.setChestplate(armor3);
-        inv.setHelmet(armor2);
-        inv.setBoots(armor1);
-        inv.addItem(sword);
-        inv.addItem(fishingrod);
-        inv.addItem(bow);
-        inv.addItem(pickaxe);
-        inv.addItem(steak);
-        inv.addItem(blocks);
-        inv.setItem(9, arrow);
+            PlayerInventory inv = p.getInventory();
+            inv.setLeggings(armor4);
+            inv.setChestplate(armor3);
+            inv.setHelmet(armor2);
+            inv.setBoots(armor1);
+            inv.addItem(sword);
+            inv.addItem(fishingrod);
+            inv.addItem(bow);
+            inv.addItem(pickaxe);
+            inv.addItem(steak);
+            inv.addItem(blocks);
+            inv.setItem(9, arrow);
+        }
     }
 
     @EventHandler
