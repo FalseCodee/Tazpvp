@@ -406,7 +406,7 @@ public class DeathListener implements Listener {
             inv.addItem(blocks);
             inv.setItem(9, arrow);
         }
-        }
+
     }
 
     @EventHandler
