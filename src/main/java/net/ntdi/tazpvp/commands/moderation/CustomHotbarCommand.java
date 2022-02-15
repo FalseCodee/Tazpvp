@@ -77,6 +77,7 @@ public class CustomHotbarCommand implements CommandExecutor {
                     } else if (args[0].equalsIgnoreCase("show")) {
                         p.sendMessage(ChatColor.GREEN + "Custom hotbar: " + TazPvP.statsManager.getCbar(p));
                     } else if (args[0].equalsIgnoreCase("load")) {
+                        p.getInventory().clear();
                         String cbar = TazPvP.statsManager.getCbar(p);
                         for (int i = 0; i < 9; i++) {
                             if (cbar.charAt(i) == 's') {
@@ -88,13 +89,14 @@ public class CustomHotbarCommand implements CommandExecutor {
                             } else if (cbar.charAt(i) == 'p') {
                                 p.getInventory().setItem(i, new ItemStack(Material.WOOD_PICKAXE));
                             } else if (cbar.charAt(i) == 'c') {
-                                p.getInventory().setItem(i, new ItemStack(Material.COOKED_BEEF));
+                                p.getInventory().setItem(i, new ItemStack(Material.COOKED_BEEF, 8));
                             } else if (cbar.charAt(i) == 'w') {
-                                p.getInventory().setItem(i, new ItemStack(Material.WOOD));
+                                p.getInventory().setItem(i, new ItemStack(Material.WOOD, 16));
                             } else if (cbar.charAt(i) == 'n') {
                                 p.getInventory().setItem(i, new ItemStack(Material.AIR));
                             }
                         }
+                        p.getInventory().setItem(9, new ItemStack(Material.ARROW, 10));
                     }
                 } else {
                     return false;
