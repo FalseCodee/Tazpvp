@@ -350,3 +350,5 @@ commands:
     usage: "/listworld"
   pm:
     usage: "/pm <player> <message>"
+  customhotbar:
+    usage: "/customhotbar <save|show>"
