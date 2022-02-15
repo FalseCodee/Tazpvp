@@ -5,6 +5,7 @@ import net.ntdi.tazpvp.commands.functions.BountyCommand;
 import net.ntdi.tazpvp.listeners.passive.combatLog;
 import net.ntdi.tazpvp.managers.Duels.DuelManager;
 import org.bukkit.*;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Arrow;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -323,7 +324,11 @@ public class DeathListener implements Listener {
     public static void rsInv(Player player){
         ItemStack armor1 = new ItemStack(Material.DIAMOND_BOOTS);
         ItemStack armor2 = new ItemStack(Material.LEATHER_HELMET);
+        armor2.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
+        armor2.addEnchantment(Enchantment.DURABILITY, 5);
         ItemStack armor3 = new ItemStack(Material.LEATHER_CHESTPLATE);
+        armor3.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
+        armor3.addEnchantment(Enchantment.DURABILITY, 5);
         ItemStack armor4 = new ItemStack(Material.DIAMOND_LEGGINGS);
         ItemStack sword = new ItemStack(Material.WOOD_SWORD);
         ItemStack pickaxe = new ItemStack(Material.WOOD_PICKAXE);

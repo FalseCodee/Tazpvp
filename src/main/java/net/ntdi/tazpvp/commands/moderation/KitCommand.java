@@ -6,6 +6,7 @@ import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
@@ -38,7 +39,11 @@ public class KitCommand implements CommandExecutor {
 
         ItemStack armor1 = new ItemStack(Material.DIAMOND_BOOTS);
         ItemStack armor2 = new ItemStack(Material.LEATHER_HELMET);
+        armor2.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
+        armor2.addEnchantment(Enchantment.DURABILITY, 5);
         ItemStack armor3 = new ItemStack(Material.LEATHER_CHESTPLATE);
+        armor3.addEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
+        armor3.addEnchantment(Enchantment.DURABILITY, 5);
         ItemStack armor4 = new ItemStack(Material.DIAMOND_LEGGINGS);
         ItemStack sword = new ItemStack(Material.WOOD_SWORD);
         ItemStack pickaxe = new ItemStack(Material.WOOD_PICKAXE);
