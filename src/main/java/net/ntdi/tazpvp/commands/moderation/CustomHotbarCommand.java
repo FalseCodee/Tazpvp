@@ -64,7 +64,7 @@ public class CustomHotbarCommand implements CommandExecutor {
                             } else if (item.getType() == Material.WOOD_PICKAXE) {
                                 cbar.append("p");
                             } else if (item.getType() == Material.COOKED_BEEF) {
-                                cbar.append("b");
+                                cbar.append("c");
                             } else if (item.getType() == Material.WOOD) {
                                 cbar.append("w");
                             }
@@ -73,6 +73,8 @@ public class CustomHotbarCommand implements CommandExecutor {
                     } else if (args[0].equalsIgnoreCase("show")) {
 
                     }
+                } else {
+                    return false;
                 }
             }
         }
