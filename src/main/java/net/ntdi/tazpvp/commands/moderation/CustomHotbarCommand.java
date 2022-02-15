@@ -1,5 +1,7 @@
 package net.ntdi.tazpvp.commands.moderation;
 
+import net.ntdi.tazpvp.TazPvP;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -70,8 +72,29 @@ public class CustomHotbarCommand implements CommandExecutor {
                             }
                         }
                         System.out.println("cbar: " + cbar.toString());
+                        TazPvP.statsManager.setCbar(p, cbar.toString());
+                        p.sendMessage(ChatColor.GREEN + "Custom hotbar saved: " + TazPvP.statsManager.getCbar(p));
                     } else if (args[0].equalsIgnoreCase("show")) {
-
+                        p.sendMessage(ChatColor.GREEN + "Custom hotbar: " + TazPvP.statsManager.getCbar(p));
+                    } else if (args[0].equalsIgnoreCase("load")) {
+                        String cbar = TazPvP.statsManager.getCbar(p);
+                        for (int i = 0; i < 9; i++) {
+                            if (cbar.charAt(i) == 's') {
+                                p.getInventory().setItem(i, new ItemStack(Material.WOOD_SWORD));
+                            } else if (cbar.charAt(i) == 'f') {
+                                p.getInventory().setItem(i, new ItemStack(Material.FISHING_ROD));
+                            } else if (cbar.charAt(i) == 'b') {
+                                p.getInventory().setItem(i, new ItemStack(Material.BOW));
+                            } else if (cbar.charAt(i) == 'p') {
+                                p.getInventory().setItem(i, new ItemStack(Material.WOOD_PICKAXE));
+                            } else if (cbar.charAt(i) == 'c') {
+                                p.getInventory().setItem(i, new ItemStack(Material.COOKED_BEEF));
+                            } else if (cbar.charAt(i) == 'w') {
+                                p.getInventory().setItem(i, new ItemStack(Material.WOOD));
+                            } else if (cbar.charAt(i) == 'n') {
+                                p.getInventory().setItem(i, new ItemStack(Material.AIR));
+                            }
+                        }
                     }
                 } else {
                     return false;

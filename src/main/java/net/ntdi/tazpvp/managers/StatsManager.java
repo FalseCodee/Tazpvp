@@ -73,6 +73,7 @@ public class StatsManager {
         statsFile.set(player.getUniqueId().toString()+".checkpoint", 0);
         statsFile.set(player.getUniqueId().toString()+".multi", 1);
         statsFile.set(player.getUniqueId().toString()+".playtime", 0);
+        statsFile.set(player.getUniqueId().toString()+".cbar", "sfbpcwnnn");
     }
 
     public void rebirthPlayer(OfflinePlayer player){
@@ -251,6 +252,13 @@ public class StatsManager {
     }
     public int getPlaytime(OfflinePlayer player) {
         return statsFile.getInt(player.getUniqueId().toString()+".playtime");
+    }
+
+    public void setCbar(OfflinePlayer player, String cbar) {
+        statsFile.set(player.getUniqueId().toString()+".cbar", cbar);
+    }
+    public String getCbar(OfflinePlayer player) {
+        return statsFile.getString(player.getUniqueId().toString()+".cbar");
     }
 
     
