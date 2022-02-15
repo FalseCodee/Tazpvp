@@ -55,24 +55,17 @@ public class CustomHotbarCommand implements CommandExecutor {
                             ItemStack item = p.getInventory().getItem(i);
                             if (item == null) {
                                 cbar.append("n");
-                            }
-                            assert item != null;
-                            if (item.getType() == Material.WOOD_SWORD) {
+                            } else if (item.getType() == Material.WOOD_SWORD) {
                                 cbar.append("s");
-                            }
-                            if (item.getType() == Material.FISHING_ROD) {
+                            } else if (item.getType() == Material.FISHING_ROD) {
                                 cbar.append("f");
-                            }
-                            if (item.getType() == Material.BOW) {
+                            } else if (item.getType() == Material.BOW) {
                                 cbar.append("b");
-                            }
-                            if (item.getType() == Material.WOOD_PICKAXE) {
+                            } else if (item.getType() == Material.WOOD_PICKAXE) {
                                 cbar.append("p");
-                            }
-                            if (item.getType() == Material.COOKED_BEEF) {
+                            } else if (item.getType() == Material.COOKED_BEEF) {
                                 cbar.append("b");
-                            }
-                            if (item.getType() == Material.WOOD) {
+                            } else if (item.getType() == Material.WOOD) {
                                 cbar.append("w");
                             }
                         }
