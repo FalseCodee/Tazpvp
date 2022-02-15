@@ -56,6 +56,7 @@ public class CustomHotbarCommand implements CommandExecutor {
                             if (item == null) {
                                 cbar.append("n");
                             }
+                            assert item != null;
                             if (item.getType() == Material.WOOD_SWORD) {
                                 cbar.append("s");
                             }
