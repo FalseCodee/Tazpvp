@@ -73,11 +73,11 @@ public class WelcomeListener implements Listener {
             TazPvP.statsManager.getTeam(p, sb).addEntry(p.getName());
         }
         TazPvP.statsManager.initScoreboard(p);
-            if(!TazPvP.staffManager.hiddenToggled(p)){
-                TazPvP.statsManager.setGroup(p, TazPvP.permissions.getPrimaryGroup(p));
-            } else {
-                p.sendMessage(ChatColor.DARK_AQUA+ "You are currently hidden!");
-            }
+        if(!TazPvP.staffManager.hiddenToggled(p)){
+            TazPvP.statsManager.setGroup(p, TazPvP.permissions.getPrimaryGroup(p));
+        } else {
+            p.sendMessage(ChatColor.DARK_AQUA+ "You are currently hidden!");
+        }
 
 
         for (Player Onlineplayer : Bukkit.getOnlinePlayers()) {
