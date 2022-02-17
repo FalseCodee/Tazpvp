@@ -78,7 +78,6 @@ public class DeathListener implements Listener {
                             p.setGameMode(GameMode.ADVENTURE);
                         }
                     }.runTaskLater(TazPvP.getInstance(), 60);
-
                 }
             }
         }
@@ -324,6 +323,19 @@ public class DeathListener implements Listener {
     public static void rsInv(Player p) {
         if (TazPvP.statsManager.statsFile.getString(p.getUniqueId().toString() + ".cbar") != null) {
             p.getInventory().clear();
+            ItemStack armor1 = new ItemStack(Material.DIAMOND_BOOTS);
+            ItemStack armor2 = new ItemStack(Material.LEATHER_HELMET);
+            ItemStack armor3 = new ItemStack(Material.LEATHER_CHESTPLATE);
+            ItemStack armor4 = new ItemStack(Material.DIAMOND_LEGGINGS);
+            armor2.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
+            armor2.addUnsafeEnchantment(Enchantment.DURABILITY, 5);
+            armor3.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 2);
+            armor3.addUnsafeEnchantment(Enchantment.DURABILITY, 5);
+            PlayerInventory inv = p.getInventory();
+            inv.setLeggings(armor4);
+            inv.setChestplate(armor3);
+            inv.setHelmet(armor2);
+            inv.setBoots(armor1);
             String cbar = TazPvP.statsManager.getCbar(p);
             for (int i = 0; i < 9; i++) {
                 if (cbar.charAt(i) == 's') {
@@ -411,13 +423,33 @@ public class DeathListener implements Listener {
 
     @EventHandler
     public void onPlayerDeathEvent(PlayerDeathEvent event) {
-        Player p = event.getEntity();
-        Player killer = p.getKiller();
-        if (killer != null) {
-            if (killer != p) {
-               deathFunction(p, killer);
-                TazPvP.statsManager.setStreak(p, 0);
-                TazPvP.statsManager.addDeaths(p, 1);
+        if (event.getEntity() instanceof Player) {
+            if (!event.getEntity().getWorld().getName().equals("spawn")) {
+                Player p = (Player) event.getEntity();
+                Location deadLoc = p.getLocation();
+
+                p.playSound(p.getLocation(), Sound.WOLF_WHINE, 1, 1);
+
+                if (event instanceof PlayerDeathEvent) {
+                    if (isDueling(p)) {
+                        TazPvP.duelManager.endDuel(p, Bukkit.getPlayer(new DuelManager().getOpponent(p)));
+                        return;
+                    } else {
+                        deathFunction(p, ((PlayerDeathEvent) event).getEntity().getKiller());
+                    }
+                }
+                dropInv(p, deadLoc);
+
+                p.spigot().respawn();
+                rsInv(p);
+                p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
+                if (combatLog.combatLog.containsKey(p.getUniqueId())) {
+                    combatLog.combatLog.remove(p.getUniqueId());
+                    p.sendMessage(ChatColor.RED + "You are no longer in combat.");
+                }
+                p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
+                p.setMetadata("respawning", new FixedMetadataValue(TazPvP.getInstance(), false));
+                p.setGameMode(GameMode.ADVENTURE);
             }
         }
     }
