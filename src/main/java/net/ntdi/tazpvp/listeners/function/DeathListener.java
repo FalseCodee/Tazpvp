@@ -63,8 +63,8 @@ public class DeathListener implements Listener {
                             healPlr(p);
                             rsInv(p);
                             combatLog.combatLog.remove(p.getUniqueId());
-                            p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
                             p.setGameMode(GameMode.ADVENTURE);
+                            p.playSound(new Location(Bukkit.getWorld("spawn"), 0.5, 30, 0.5), Sound.ENDERMAN_TELEPORT, 1, 1);
                             p.setMetadata("respawning", new FixedMetadataValue(TazPvP.getInstance(), false));
                         }
                     }.runTaskLater(TazPvP.getInstance(), 60);
@@ -440,7 +440,7 @@ public class DeathListener implements Listener {
                 p.spigot().respawn();
                 p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
                 rsInv(p);
-                p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
+                p.playSound(new Location(Bukkit.getWorld("spawn"), 0.5, 30, 0.5), Sound.ENDERMAN_TELEPORT, 1, 1);
                 combatLog.combatLog.remove(p.getUniqueId());
                 p.setMetadata("respawning", new FixedMetadataValue(TazPvP.getInstance(), false));
             }
