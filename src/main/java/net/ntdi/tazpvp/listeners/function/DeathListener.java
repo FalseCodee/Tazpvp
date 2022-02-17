@@ -42,7 +42,6 @@ public class DeathListener implements Listener {
                 if (p.getHealth()-event.getFinalDamage() <= 0) {
                     event.setCancelled(true);
                     Location deadLoc = p.getLocation();
-
                     p.setGameMode(GameMode.SPECTATOR);
                     p.playSound(p.getLocation(), Sound.WOLF_WHINE, 1, 1);
 
@@ -56,26 +55,17 @@ public class DeathListener implements Listener {
                     }
                     dropInv(p, deadLoc);
                     p.getInventory().clear();
-
-
                     p.setMetadata("respawning", new FixedMetadataValue(TazPvP.getInstance(), true));
                     new BukkitRunnable() {
                         @Override
                         public void run() {
-                            p.setHealth(20);
-                            p.setFoodLevel(20);
-                            for (PotionEffect effect : p.getActivePotionEffects()) {
-                                p.removePotionEffect(effect.getType());
-                            }
-                            rsInv(p);
-                            p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
-                            if (combatLog.combatLog.containsKey(p.getUniqueId())) {
-                                combatLog.combatLog.remove(p.getUniqueId());
-                                p.sendMessage(ChatColor.RED + "You are no longer in combat.");
-                            }
                             p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
-                            p.setMetadata("respawning", new FixedMetadataValue(TazPvP.getInstance(), false));
+                            healPlr(p);
+                            rsInv(p);
+                            combatLog.combatLog.remove(p.getUniqueId());
+                            p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
                             p.setGameMode(GameMode.ADVENTURE);
+                            p.setMetadata("respawning", new FixedMetadataValue(TazPvP.getInstance(), false));
                         }
                     }.runTaskLater(TazPvP.getInstance(), 60);
                 }
@@ -320,6 +310,14 @@ public class DeathListener implements Listener {
         }
     }
 
+    public void healPlr(Player p) {
+        p.setHealth(20);
+        p.setFoodLevel(20);
+        for (PotionEffect effect : p.getActivePotionEffects()) {
+            p.removePotionEffect(effect.getType());
+        }
+    }
+
     public static void rsInv(Player p) {
         if (TazPvP.statsManager.statsFile.getString(p.getUniqueId().toString() + ".cbar") != null) {
             p.getInventory().clear();
@@ -427,7 +425,7 @@ public class DeathListener implements Listener {
             if (!event.getEntity().getWorld().getName().equals("spawn")) {
                 Player p = (Player) event.getEntity();
                 Location deadLoc = p.getLocation();
-
+                p.setGameMode(GameMode.ADVENTURE);
                 p.playSound(p.getLocation(), Sound.WOLF_WHINE, 1, 1);
 
                 if (event instanceof PlayerDeathEvent) {
@@ -439,17 +437,12 @@ public class DeathListener implements Listener {
                     }
                 }
                 dropInv(p, deadLoc);
-
                 p.spigot().respawn();
+                p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
                 rsInv(p);
                 p.playSound(p.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
-                if (combatLog.combatLog.containsKey(p.getUniqueId())) {
-                    combatLog.combatLog.remove(p.getUniqueId());
-                    p.sendMessage(ChatColor.RED + "You are no longer in combat.");
-                }
-                p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
+                combatLog.combatLog.remove(p.getUniqueId());
                 p.setMetadata("respawning", new FixedMetadataValue(TazPvP.getInstance(), false));
-                p.setGameMode(GameMode.ADVENTURE);
             }
         }
     }
