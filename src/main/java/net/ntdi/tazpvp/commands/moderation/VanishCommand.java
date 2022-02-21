@@ -5,6 +5,7 @@ import net.ntdi.tazpvp.listeners.passive.combatLog;
 import net.ntdi.tazpvp.utils.PlayerUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -38,7 +39,7 @@ public class VanishCommand implements CommandExecutor, Listener {
                     vanisher.sendMessage(ChatColor.RED + "You cannot vanish while in combat.");
                 } else {
                     vanishList.add(vanisher);
-                    vanisher.setAllowFlight(true);
+                    vanisher.setGameMode(GameMode.SPECTATOR);
                     PlayerUtils.hidePlayer(vanisher);
                     for (Player p : Bukkit.getOnlinePlayers()){
                         if (p.hasPermission("staff.vanish")){
@@ -51,7 +52,7 @@ public class VanishCommand implements CommandExecutor, Listener {
             } else {
                 vanisher.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
                 vanishList.remove(vanisher);
-                vanisher.setAllowFlight(false);
+                vanisher.setGameMode(GameMode.ADVENTURE);
                 PlayerUtils.showPlayer(vanisher);
                 for (Player p : Bukkit.getOnlinePlayers()){
                     if (p.hasPermission("staff.vanish")){
