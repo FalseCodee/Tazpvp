@@ -40,13 +40,8 @@ public class WelcomeListener implements Listener {
         p.sendMessage(ChatColor.translateAlternateColorCodes('&', TazPvP.configFile.getString("branding.wMSG.line3")));
         p.sendMessage(ChatColor.AQUA + "");
 
-//        if (!p.hasPlayedBefore()){
-//            PlayerUtils.equipStarter(p);
-//        }
-
         TazPvP.ipmanager.storePlayerIp(p);
 
-//        p.setMaxHealth(20);
         if (p.getLevel() != TazPvP.statsManager.getLevel(p)){
             p.setLevel(TazPvP.statsManager.getLevel(p));
         }
@@ -85,7 +80,6 @@ public class WelcomeListener implements Listener {
         if (TazPvP.punishmentManager.isBanned(p)) {
             p.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
             p.sendMessage(ChatColor.RED + ""+ ChatColor.BOLD + " BAN" + ChatColor.RED + " You are currently banned.");
-//            p.sendMessage(ChatColor.RED + ""+ ChatColor.BOLD + " BANNED" + ChatColor.RED + " You are currently banned." + ChatColor.WHITE + (((TazPvP.punishmentManager.getBanDuration(p) - (System.currentTimeMillis()-TazPvP.punishmentManager.getBanTime(p))) / 60000) + 1) + ChatColor.RED + " minutes left");
             p.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
         }
 
@@ -119,15 +113,6 @@ public class WelcomeListener implements Listener {
             PlayerUtils.equipStarter(p);
         }
 
-/*        if(TazPvP.statsManager.statsFile.contains(event.getPlayer().getUniqueId().toString())) {
-            event.setJoinMessage(ChatColor.GRAY + "[" + ChatColor.GREEN + "+" + ChatColor.GRAY + "] " + p.getName());
-        } else {
-            TazPvP.statsManager.initPlayer(p);
-
-            event.setJoinMessage(ChatColor.GRAY + "[" + ChatColor.GOLD + "+" + ChatColor.GRAY + "] " + p.getName());
-            Player player = event.getPlayer();
-            PlayerUtils.equipStarter(player);
-        } */
         p.spigot().setCollidesWithEntities(true);
 
 //        ProtocolManager protocolManager = TazPvP.getProtocolManager();

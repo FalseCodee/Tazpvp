@@ -25,7 +25,7 @@ public class GHead extends ConsumableItem {
             p.setHealth(20);
         }
         p.addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 20*15, 0));
-        p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20*5, 0));
+        p.addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 20*6, 1));
         p.playSound(p.getLocation(), Sound.BURP, 1, 1);
         return false;
     }
