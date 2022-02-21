@@ -107,6 +107,8 @@ public class BanCommand implements CommandExecutor {
                             e.printStackTrace();
                             player.sendMessage(ChatColor.RED + "Webhook failed, please contact an admin");
                         }
+                    }else {
+                        player.sendMessage(ChatColor.RED + "You cannot ban this player.");
                     }
                 } else {
                     return false;
@@ -180,6 +182,8 @@ public class BanCommand implements CommandExecutor {
                             e.printStackTrace();
                             System.out.println(ChatColor.RED + "Webhook failed, please contact an admin");
                         }
+                    }else {
+                        player.sendMessage(ChatColor.RED + "You cannot ban this player.");
                     }
                 } else {
                     return false;

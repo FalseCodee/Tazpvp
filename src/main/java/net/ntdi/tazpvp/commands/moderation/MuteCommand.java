@@ -33,7 +33,8 @@ public class MuteCommand implements CommandExecutor {
                         muted.sendMessage(ChatColor.RED + "" + ChatColor.BOLD + "MUTE " + ChatColor.GRAY + "You have been muted permanently. If it was unfair, type " + ChatColor.WHITE + "/appeal");
                         muted.sendMessage(ChatColor.DARK_GRAY + "▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬");
                         muted.playSound(muted.getLocation(), Sound.ANVIL_LAND, 1, 1);
-
+                    } else {
+                        player.sendMessage(ChatColor.RED + "You cannot mute this player.");
                     }
                 } else {
                     player.sendMessage(ChatColor.RED + "Player not found.");
