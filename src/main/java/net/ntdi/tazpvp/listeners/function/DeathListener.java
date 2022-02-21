@@ -427,6 +427,7 @@ public class DeathListener implements Listener {
                 Location deadLoc = p.getLocation();
                 p.setGameMode(GameMode.ADVENTURE);
                 p.playSound(p.getLocation(), Sound.WOLF_WHINE, 1, 1);
+                Bukkit.broadcastMessage(ChatColor.GRAY + p.getName() + ChatColor.DARK_GRAY + "has died.");
                 dropInv(p, deadLoc);
                 p.spigot().respawn();
                 if (event instanceof PlayerDeathEvent) {
