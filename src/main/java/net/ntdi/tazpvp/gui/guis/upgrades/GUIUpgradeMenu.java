@@ -3,10 +3,7 @@ package net.ntdi.tazpvp.gui.guis.upgrades;
 import net.ntdi.tazpvp.TazPvP;
 import net.ntdi.tazpvp.gui.GUI;
 import net.ntdi.tazpvp.items.Items;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.DyeColor;
-import org.bukkit.Material;
+import org.bukkit.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemFlag;
@@ -51,11 +48,14 @@ public class GUIUpgradeMenu extends GUI {
                                         player.getInventory().setLeggings(leggings);
                                     }
                                     player.sendMessage(ChatColor.DARK_PURPLE+"You upgraded " + ChatColor.LIGHT_PURPLE + enchantment.name + ChatColor.DARK_PURPLE + " on your tool for " + ChatColor.LIGHT_PURPLE + "$" + enchantment.cost);
+                                    player.playSound(player.getLocation(), Sound.ANVIL_USE, 1, 1);
                                 } else {
-                                    player.sendMessage(ChatColor.RED + "This upgrade is already MAX");
+                                    player.sendMessage(ChatColor.RED + "You already have the max level!");
+                                    player.playSound(player.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
                                 }
                             } else {
                                 player.sendMessage(ChatColor.RED + "Insufficient funds.");
+                                player.playSound(player.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
                             }
                         });
                 slot += 2;
@@ -77,8 +77,10 @@ public class GUIUpgradeMenu extends GUI {
                                 meta.spigot().setUnbreakable(true);
                                 item.setItemMeta(meta);
                                 player.getInventory().addItem(item);
+                                player.playSound(player.getLocation(), Sound.ANVIL_USE, 1, 1);
                             } else {
                                 player.sendMessage(ChatColor.RED + "You already have the max level!");
+                                player.playSound(player.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
                                 return;
                             }
                         } else {
@@ -90,6 +92,7 @@ public class GUIUpgradeMenu extends GUI {
                                 meta.spigot().setUnbreakable(true);
                                 item.setItemMeta(meta);
                                 player.getInventory().addItem(item);
+                                player.playSound(player.getLocation(), Sound.ANVIL_USE, 1, 1);
                             } else if (finalTarget.getType() == Material.STONE_PICKAXE) {
                                 player.getInventory().remove(finalTarget);
                                 TazPvP.statsManager.addMoney(player, -type.reforge);
@@ -98,60 +101,23 @@ public class GUIUpgradeMenu extends GUI {
                                 meta.spigot().setUnbreakable(true);
                                 item.setItemMeta(meta);
                                 player.getInventory().addItem(item);
+                                player.playSound(player.getLocation(), Sound.ANVIL_USE, 1, 1);
                             } else {
                                 player.sendMessage(ChatColor.RED + "You already have the max level!");
+                                player.playSound(player.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
                                 return;
                             }
-                        } //else {
-//                            if(finalTarget.getType() == Material.LEATHER_BOOTS) {
-//                                TazPvP.statsManager.addMoney(player, -type.reforge);
-//                                ItemStack leggings = new ItemStack(Material.CHAINMAIL_LEGGINGS);
-//                                ItemMeta meta = leggings.getItemMeta();
-//                                meta.spigot().setUnbreakable(true);
-//                                leggings.setItemMeta(meta);
-//                                ItemStack boots = new ItemStack(Material.CHAINMAIL_BOOTS);
-//                                ItemMeta meta1 = boots.getItemMeta();
-//                                meta1.spigot().setUnbreakable(true);
-//                                boots.setItemMeta(meta1);
-//                                player.getInventory().setLeggings(leggings);
-//                                player.getInventory().setBoots(boots);
-//                            } else if (finalTarget.getType() == Material.CHAINMAIL_BOOTS) {
-//                                TazPvP.statsManager.addMoney(player, -type.reforge);
-//                                ItemStack leggings = new ItemStack(Material.IRON_LEGGINGS);
-//                                ItemMeta meta = leggings.getItemMeta();
-//                                meta.spigot().setUnbreakable(true);
-//                                leggings.setItemMeta(meta);
-//                                ItemStack boots = new ItemStack(Material.IRON_BOOTS);
-//                                ItemMeta meta1 = boots.getItemMeta();
-//                                meta1.spigot().setUnbreakable(true);
-//                                boots.setItemMeta(meta1);
-//                                player.getInventory().setLeggings(leggings);
-//                                player.getInventory().setBoots(boots);
-//                            } else if (finalTarget.getType() == Material.IRON_BOOTS) {
-//                                TazPvP.statsManager.addMoney(player, -type.reforge);
-//                                ItemStack leggings = new ItemStack(Material.DIAMOND_LEGGINGS);
-//                                ItemMeta meta = leggings.getItemMeta();
-//                                meta.spigot().setUnbreakable(true);
-//                                leggings.setItemMeta(meta);
-//                                ItemStack boots = new ItemStack(Material.DIAMOND_BOOTS);
-//                                ItemMeta meta1 = boots.getItemMeta();
-//                                meta1.spigot().setUnbreakable(true);
-//                                boots.setItemMeta(meta1);
-//                                player.getInventory().setLeggings(leggings);
-//                                player.getInventory().setBoots(boots);
-//                            } else {
-//                                player.sendMessage(ChatColor.RED + "You already have the max level!");
-//                                return;
-//                            }
-//                        }
-                        player.sendMessage(ChatColor.BLUE + "Reforged your " + type.name);
+                        }
+                        player.sendMessage(ChatColor.DARK_PURPLE+"You reforged your " + ChatColor.LIGHT_PURPLE + type.name + ChatColor.DARK_PURPLE + " for " + ChatColor.LIGHT_PURPLE + "$" + type.reforge);
+                        player.playSound(player.getLocation(), Sound.ANVIL_USE, 1, 1);
                     } else {
                         player.sendMessage(ChatColor.RED + "Insufficient funds.");
+                        player.playSound(player.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
                     }
                     });
             }
         } else {
-            player.sendMessage(ChatColor.RED + "There was an error fetching the item from your inventory.");
+            player.sendMessage(ChatColor.RED + "Please make sure you have this item in your inventory.");
             Bukkit.getScheduler().runTask(TazPvP.getInstance(), player::closeInventory);
         }
         update();
