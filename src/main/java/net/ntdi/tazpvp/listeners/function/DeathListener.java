@@ -292,6 +292,8 @@ public class DeathListener implements Listener {
                     }
                 }
             }
+        } else {
+            Bukkit.broadcastMessage(ChatColor.GRAY + p.getName() + ChatColor.DARK_GRAY + "has died.");
         }
     }
 
@@ -422,28 +424,26 @@ public class DeathListener implements Listener {
     @EventHandler
     public void onPlayerDeathEvent(PlayerDeathEvent event) {
         if (event.getEntity() instanceof Player) {
-            if (!event.getEntity().getWorld().getName().equals("spawn")) {
-                Player p = (Player) event.getEntity();
-                Location deadLoc = p.getLocation();
-                p.setGameMode(GameMode.ADVENTURE);
-                p.playSound(p.getLocation(), Sound.WOLF_WHINE, 1, 1);
-                Bukkit.broadcastMessage(ChatColor.GRAY + p.getName() + ChatColor.DARK_GRAY + "has died.");
-                dropInv(p, deadLoc);
-                p.spigot().respawn();
-                if (event instanceof PlayerDeathEvent) {
-                    if (isDueling(p)) {
-                        TazPvP.duelManager.endDuel(p, Bukkit.getPlayer(new DuelManager().getOpponent(p)));
-                        return;
-                    } else {
-                        deathFunction(p, ((PlayerDeathEvent) event).getEntity().getKiller());
-                    }
+            Player p = (Player) event.getEntity();
+            Location deadLoc = p.getLocation();
+            p.setGameMode(GameMode.ADVENTURE);
+            p.playSound(p.getLocation(), Sound.WOLF_WHINE, 1, 1);
+            if (event instanceof PlayerDeathEvent) {
+                if (isDueling(p)) {
+                    TazPvP.duelManager.endDuel(p, Bukkit.getPlayer(new DuelManager().getOpponent(p)));
+                    p.sendMessage("test");
+                    return;
+                } else {
+                    deathFunction(p, ((PlayerDeathEvent) event).getEntity().getKiller());
                 }
-                p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
-                rsInv(p);
-                p.playSound(new Location(Bukkit.getWorld("spawn"), 0.5, 30, 0.5), Sound.ENDERMAN_TELEPORT, 1, 1);
-                combatLog.combatLog.remove(p.getUniqueId());
-                p.setMetadata("respawning", new FixedMetadataValue(TazPvP.getInstance(), false));
             }
+            dropInv(p, deadLoc);
+            p.spigot().respawn();
+            p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
+            rsInv(p);
+            p.playSound(new Location(Bukkit.getWorld("spawn"), 0.5, 30, 0.5), Sound.ENDERMAN_TELEPORT, 1, 1);
+            combatLog.combatLog.remove(p.getUniqueId());
+            p.setMetadata("respawning", new FixedMetadataValue(TazPvP.getInstance(), false));
         }
     }
 
