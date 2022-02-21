@@ -427,7 +427,8 @@ public class DeathListener implements Listener {
                 Location deadLoc = p.getLocation();
                 p.setGameMode(GameMode.ADVENTURE);
                 p.playSound(p.getLocation(), Sound.WOLF_WHINE, 1, 1);
-
+                dropInv(p, deadLoc);
+                p.spigot().respawn();
                 if (event instanceof PlayerDeathEvent) {
                     if (isDueling(p)) {
                         TazPvP.duelManager.endDuel(p, Bukkit.getPlayer(new DuelManager().getOpponent(p)));
@@ -436,8 +437,6 @@ public class DeathListener implements Listener {
                         deathFunction(p, ((PlayerDeathEvent) event).getEntity().getKiller());
                     }
                 }
-                dropInv(p, deadLoc);
-                p.spigot().respawn();
                 p.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
                 rsInv(p);
                 p.playSound(new Location(Bukkit.getWorld("spawn"), 0.5, 30, 0.5), Sound.ENDERMAN_TELEPORT, 1, 1);

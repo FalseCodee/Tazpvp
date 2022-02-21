@@ -156,7 +156,7 @@ public class DuelManager implements Listener {
                 spectating.remove(spec);
                 spec.teleport(new Location(Bukkit.getWorld("spawn"), 0.5, 50, 0.5, 180, 0));
 
-                delayChangeGamemode(spec, GameMode.SURVIVAL);
+                delayChangeGamemode(spec, GameMode.ADVENTURE);
             }
         } else {
             spectating.remove(p);
@@ -193,7 +193,6 @@ public class DuelManager implements Listener {
 
             }
         }.runTaskLater(TazPvP.getInstance(), 20 * 5);
-
     }
 
     public void restorePlayer (Player p) {

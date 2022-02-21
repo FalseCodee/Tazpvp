@@ -119,6 +119,7 @@ public class GUIUpgradeMenu extends GUI {
         } else {
             player.sendMessage(ChatColor.RED + "Please make sure you have this item in your inventory.");
             Bukkit.getScheduler().runTask(TazPvP.getInstance(), player::closeInventory);
+            player.playSound(player.getLocation(), Sound.ENDERMAN_TELEPORT, 1, 1);
         }
         update();
     }
