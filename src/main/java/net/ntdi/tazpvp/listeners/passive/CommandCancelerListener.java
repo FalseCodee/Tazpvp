@@ -19,7 +19,7 @@ public class CommandCancelerListener implements Listener {
 //        String message = event.getMessage();
 //        String[] args = message.split(" ");
         if (!player.hasPermission("staff.commandbypass")) {
-            if (event.getMessage().toLowerCase().startsWith("/minecraft") || event.getMessage().toLowerCase().startsWith("/bukkit") || event.getMessage().toLowerCase().startsWith("/? ") || event.getMessage().toLowerCase().startsWith("/me")) {
+            if (event.getMessage().toLowerCase().startsWith("/minecraft") || event.getMessage().toLowerCase().startsWith("/bukkit") || event.getMessage().toLowerCase().startsWith("/? ") || event.getMessage().toLowerCase().startsWith("/me") || event.getMessage().toLowerCase().startsWith("/mv")) {
                 event.setCancelled(true);
                 //player.sendMessage(ChatColor.WHITE + "UR MOMMA");
             }
