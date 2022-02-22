@@ -210,11 +210,11 @@ public class DeathListener implements Listener {
 
                         if (combatLog.combatLog.containsKey(p.getUniqueId())) {
                             combatLog.combatLog.remove(p.getUniqueId());
-                            p.sendMessage(ChatColor.GREEN + "You have been removed from combat log.");
+                            p.sendMessage(ChatColor.RED + "You are no longer in combat.");
                         }
                         if (combatLog.combatLog.containsKey(killer.getUniqueId())) {
                             combatLog.combatLog.remove(killer.getUniqueId());
-                            killer.sendMessage(ChatColor.GREEN + "You have been removed from combat log.");
+                            killer.sendMessage(ChatColor.RED + "You are no longer in combat.");
                         }
 
                         boolean fat = TazPvP.perkManager.getFat(killer);
@@ -431,7 +431,6 @@ public class DeathListener implements Listener {
             if (event instanceof PlayerDeathEvent) {
                 if (isDueling(p)) {
                     TazPvP.duelManager.endDuel(p, Bukkit.getPlayer(new DuelManager().getOpponent(p)));
-                    p.sendMessage("test");
                     return;
                 } else {
                     deathFunction(p, ((PlayerDeathEvent) event).getEntity().getKiller());
