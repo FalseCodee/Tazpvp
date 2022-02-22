@@ -153,8 +153,7 @@ public class WelcomeListener implements Listener {
             TazPvP.statsManager.getTeam(p, sb).removeEntry(p.getName());
         }
         ArmorManager.setPlayerContents(p, false);
-        p.setGameMode(GameMode.SURVIVAL);
-//        p.setMaxHealth(20);
+        p.setGameMode(GameMode.ADVENTURE);
 
         if (TazPvP.duelManager.isDueling(p)){
             new DuelManager().endDuel(p, Bukkit.getPlayer(TazPvP.duelManager.getOpponent(p)));
@@ -183,6 +182,7 @@ public class WelcomeListener implements Listener {
                     TazPvP.statsManager.addMoney(p, -25);
                 }
                 DeathListener.rsInv(p);
+                DeathListener.healPlr(p);
             }
         }
 
@@ -193,10 +193,6 @@ public class WelcomeListener implements Listener {
             BanCommand.bannedRunnables.remove(p.getUniqueId());
         }
         p.spigot().setCollidesWithEntities(true);
-
-        if(TazPvP.robbery.containsKey(p)){
-            p.getInventory().addItem(TazPvP.robbery.get(p));
-        }
     }
 
     @EventHandler

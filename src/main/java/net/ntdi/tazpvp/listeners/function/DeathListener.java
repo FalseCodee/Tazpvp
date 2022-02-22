@@ -284,7 +284,7 @@ public class DeathListener implements Listener {
         }
     }
 
-    public void healPlr(Player p) {
+    public static void healPlr(Player p) {
         p.setMaxHealth(20);
         p.setHealth(20);
         p.setFoodLevel(20);
