@@ -172,7 +172,7 @@ public class WelcomeListener implements Listener {
         TazPvP.Spectating.remove(p);
 
         if(combatLog.combatLog.containsKey(p.getUniqueId())){
-            Player killer = Bukkit.getPlayer(UUID.fromString(getCombatee(p)));
+            Player killer = Bukkit.getPlayer(getCombatee(p));
             if (killer != null) {
                 if (killer.isOnline()) {
                     killer.getPlayer().sendMessage(ChatColor.DARK_GRAY + "You killed " + ChatColor.GRAY + "" + p.getName() + ChatColor.GOLD + " + 7 Coins " + ChatColor.DARK_AQUA + "+ 5 Experience");
