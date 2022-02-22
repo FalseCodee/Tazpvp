@@ -1,6 +1,5 @@
 package net.ntdi.tazpvp.listeners.passive;
 
-import net.ntdi.tazpvp.TazPvP;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
