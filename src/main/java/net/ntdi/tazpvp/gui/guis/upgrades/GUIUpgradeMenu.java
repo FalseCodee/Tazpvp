@@ -24,12 +24,11 @@ public class GUIUpgradeMenu extends GUI {
 
         if(target != null) {
             ItemStack button = new ItemStack(Material.ENCHANTED_BOOK, 1, DyeColor.BLUE.getData());
-            //button.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
             button.getItemMeta().addItemFlags(ItemFlag.HIDE_ENCHANTS);
             ItemStack anvil = new ItemStack(Material.ANVIL, 1);
-            //button.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
             button.getItemMeta().addItemFlags(ItemFlag.HIDE_ENCHANTS);
             int slot = (type == UpgradeTypes.SWORD || type == UpgradeTypes.PICKAXE) ? 10 : 11 ;
+
             for(EnchantInfo enchantment : type.enchantments) {
                 setButtons(slot, createItem(button, ChatColor.WHITE + enchantment.name +ChatColor.BLUE +" +1",
                                 ChatColor.BLUE + enchantment.description+"\n"
@@ -37,11 +36,14 @@ public class GUIUpgradeMenu extends GUI {
                                         + ChatColor.GOLD + "Max lvl: " + ChatColor.GRAY + (enchantment.maxLevel + ((TazPvP.statsManager.getRebirths(player) > 0) ? 1 : 0))),
                         event -> {
                             event.setCancelled(true);
+
                             if(TazPvP.statsManager.getMoney(player) >= enchantment.cost) {
                                 ItemStack finalTarget = updateTarget();
+
                                 if(finalTarget.getEnchantmentLevel(enchantment.ench) < enchantment.maxLevel + ((TazPvP.statsManager.getRebirths(player) > 0) ? 1 : 0)) {
                                     TazPvP.statsManager.addMoney(player, -enchantment.cost);
                                     finalTarget.addUnsafeEnchantment(enchantment.ench, finalTarget.getEnchantmentLevel(enchantment.ench)+1);
+
                                     if(type == UpgradeTypes.ARMOR && enchantment != EnchantInfo.FEATHER_FALLING) {
                                         ItemStack leggings = player.getInventory().getLeggings();
                                         leggings.addEnchantment(enchantment.ench, leggings.getEnchantmentLevel(enchantment.ench)+1);
